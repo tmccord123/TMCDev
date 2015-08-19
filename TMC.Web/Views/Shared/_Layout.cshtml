@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Local Cords - @ViewBag.Title</title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!-- Bootstrap -->
+    <link href="@Url.Content("~/css/bootstrap.css")" rel="stylesheet">
+    <link href="@Url.Content("~/css/modern-business.css")" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="~/img/lc_logo.jpg" class="logo img-responsive">
+                <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+                @Html.ActionLink("Local Cord", "Index", new { controller = "Home" }, new { @class = "navbar-brand" })
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li id="about">
+                        @Html.ActionLink("About", "Index", "About")
+                    </li>
+                    <li id="services">
+                        @Html.ActionLink("Services", "Index", "LocalBoard")
+                    </li>
+                    <li id="contact">
+                        @Html.ActionLink("Contact", "Index", "Contact")
+                    </li>
+                    <li id="couponBoard">
+                        @Html.ActionLink("Coupon Board","Index","CouponBoard")
+                    </li>
+                    <li id="portfolio" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li id="1columnportfolio">
+                                @Html.ActionLink("1 Column Portfolio", "OneColumn", "Portfolio")
+                            </li>
+                            <li id="2columnportfolio">
+                                @Html.ActionLink("2 Column Portfolio", "TwoColumn", "Portfolio")
+                            </li>
+                            <li id="3columnportfolio">
+                                @Html.ActionLink("3 Column Portfolio", "ThreeColumn", "Portfolio")
+                            </li>
+                            <li id="4columnportfolio">
+                                @Html.ActionLink("4 Column Portfolio", "FourColumn", "Portfolio")
+                            </li>
+                            <li id="singleportfolioitem">
+                                @Html.ActionLink("Single Portfolio Item", "SingleItem", "Portfolio")
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="blog" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li id="bloghome2">
+                                @Html.ActionLink("My Coupon Board", "Index", "CouponBoard")
+                            </li> 
+                        </ul>
+                    </li>
+                    <li id="other" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More.. <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li id="fullwidthpage">
+                                @Html.ActionLink("Full Width Page", "FullWidth", "Other")
+                            </li>
+                            <li id="sidebarpage">
+                                @Html.ActionLink("Sidebar Page", "Sidebar", "Other")
+                            </li>
+                            <li id="faq">
+                                @Html.ActionLink("FAQ", "Faq", "Other")
+                            </li>
+                            <li id="404">
+                                @Html.ActionLink("404", "FourOhFour", "Other")
+                            </li> 
+                            <li id="googleMaps">
+                                @Html.ActionLink("Google Map", "GoogleMaps", "Other")
+                            </li>
+                            
+                        </ul>
+                    </li>
+                </ul>                
+                @Html.Partial("_LoginPartial")
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    @RenderBody()
+
+    <div class="container">
+
+        <hr>
+
+    @*    <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; TryMyCoupons.com 2015</p>
+                </div>
+            </div>
+        </footer>*@
+
+    </div>
+    <!-- /.container -->
+    <div class="cd-footer2">
+        <div class="top-footer">
+            <div class="container horizontal-line" style="padding-bottom: 15px;">
+                <div class="row">
+                    <div class="col-8 footer-section">
+                        <a class="" href="http://www.localcord.com/"><img class="footer-logo " src="~/img/LC_logo_sm.jpg"></a><br>
+                        <div class="col-22" style="padding-left: 0 ;padding-top : 25px">LocalCord, India’s first service platform website, which helps you connect to the service experts near your locality which we call your cord. Our service experts are connected to the cord near you and constantly monitoring any 
+                        requirements and needs nbeing posted on the local board!</div>
+                    </div>
+
+                    <div class="col-8 footer-section">
+                        <div class="row">
+                            <div class="heading-text">Quick Links</div> <br>
+                            <div class="col-12" style="padding-left: 0px; padding-right: 10px; float:left">
+
+
+                                <div class="list">
+                                    <ul>
+                                        <li><a class="" href="http://www.localcords.com">Home</a></li>
+                                        <li><a class="" href="http://www.localcord.com/stores">Stores</a></li>
+                                        <li><a class="" href="http://www.localcord.com/contact">Contact</a></li>
+                                        <li><a class="" href="http://careers.localcord.com/" target="_blank">Careers</a></li>
+                                        <li><a class="" href="http://www.localcord.com/blog" target="_blank">Blog</a></li>
+                                        <li><a class="" href="http://www.localcord.com/merchant-stores">Merchants</a></li>
+                                        <li><a class="" href="http://www.localcord.com/sitemap">Sitemap</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <div class="col-12">
+                                <div class="list">
+                                    <ul>
+                                        <li><a class="" href="http://www.localcord.com/press">Press</a></li> 
+                                        <li><a class="" href="http://www.localcord.com/privacy-policy">Privacy Policy &amp; Opt Out</a></li>
+                                        <li><a class="" href="http://coupondunia.in/merchants">List your Business on LC</a></li>
+                                        <li><a class="" href="http://coupondunia.in/restaurants">List your Restaurant on LC</a></li>
+                                        <li><a class="" href="http://www.localcord.com/terms">Terms of Service</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-8 footer-section">
+                        <div class="heading-text">Subscribe for more updates</div> <br>
+                        <form method="post" action="http://www.localcord.com/add-email-subscription" id="" class="newsletterform">
+                            <div class="pull-up" style="margin-bottom: 10px;">
+                                <input type="text" placeholder="Type email address" name="Email" class="form-control">
+                            </div>
+                            <div class="nwl-response alert alert-danger"></div>
+                            <input name="WebsiteID" value="0" type="hidden">
+                            <input name="Newsletter" value="true" type="hidden">
+                            <div class="clearfix">
+                                <button id="cordSubmitButton" class="btn btn-primary pull-right" style="position: relative;">
+                                    <span>COUNT ME IN</span>
+                                    <div id="loader-btn" style="display: none;" class="loaded">
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                    </div>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @*    <div class="middle-footer">
+            <div class="container horizontal-line">
+                <div class="row">
+                    <div class="col-6 footer-section text-center">
+                        <img src="http://www.localcord.com/theme/Elegance/img/cdstats-ico1.png">
+                        <p class="text-center big-text">1680858</p> <br>
+                        <p class="text-center small-detail-text">Coupons used last month</p>
+                    </div>
+                    <div class="col-6 footer-section text-center">
+                        <img src="http://www.localcord.com/theme/Elegance/img/cdstats-ico2.png">
+                        <p class="text-center big-text">1876</p> <br>
+                        <p class="text-center small-detail-text">online stores</p>
+                    </div>
+                    <div class="col-6 footer-section text-center">
+                        <img src="http://www.localcord.com/theme/Elegance/img/cdstats-ico3.png">
+                        <p class="text-center big-text">4044</p> <br>
+                        <p class="text-center small-detail-text">Restaurant Outlets</p>
+                    </div>
+                    <div class="col-6 footer-section text-center">
+                        <img src="http://www.localcord.com/theme/Elegance/img/cdstats-ico4.png">
+                        <p class="text-center big-text">6663919</p> <br>
+                        <p class="text-center small-detail-text">Subscribers</p>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+        <div class="bottom-footer">
+            <div class="container horizontal-line">
+                <div class="row">
+                    <div class="col-14" style="padding-top: 10px">
+                        <div class="col-10" style="padding-left: 0"><span></span></div>
+                        <div class="copyright">© 2015 LocalCord.com All Rights Reserved.</div>
+                    </div>
+                    <div class="col-10">
+                        @*<div class="text-right" style="margin: 0px">
+                            <a href="https://www.facebook.com/LocalCord/" target="_blank" rel="nofollow" style="padding-right: 10px;"><img src="http://www.localcord.com/img/fb_ico.png" height="30"></a>
+                            <a href="https://twitter.com/LocalCord/" target="_blank" rel="nofollow" style="padding-right: 10px;"><img src="http://www.localcord.com/img/twitter_ico.png" height="30"></a>
+                            <a href="https://plus.google.com/+LocalCord/posts" target="_blank" rel="nofollow"><img src="http://www.localcord.com/img/gplus_ico.png" height="30"></a>
+                            <a href="https://youtube.com/LocalCord" target="_blank" rel="nofollow"><img src="http://www.localcord.com/img/youtube_ico.png" height="30"></a>
+                        </div>*@
+                    </div>
+
+
+                </div>
+            </div>
+        </div>@*
+
+    <div class="international-footer">
+        <div class="container ">
+            <div class="row">
+
+                <div class="horizontal-list text-center">
+                    <ul>
+                        <li class="bold-text">International Sites : </li>
+                        <li><a href="http://www.localcord.co.us/" target="_blank">Local cord USA</a></li>
+                        <li><a href="http://www.localcord.com.ca/" target="_blank">LocalCord (Canada)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>*@
+    </div>
+   
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="@Url.Content("~/js/bootstrap.js")"></script>
+        @*<script src="@Url.Content("/js/modern-business.js")"></script>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+ 
+    @RenderSection("scripts", required: false)
+     
+</body>
+</html>

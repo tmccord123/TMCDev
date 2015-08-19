@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E6AF7F82-C3BD-4BB0-A5A7-FA4A0252F73C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TMC.Web.Shared</RootNamespace>
+    <AssemblyName>TMC.Web.Shared</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\TMC.Web\TMCSupportedDlls\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\CommonControllerMethods.cs" />
+    <Compile Include="Base\ControllerBase.cs" />
+    <Compile Include="Base\JsonOperationResult.cs" />
+    <Compile Include="Base\StateEntityBase.cs" />
+    <Compile Include="Base\StateManagerBase.cs" />
+    <Compile Include="Base\ViewModelBase.cs" />
+    <Compile Include="Base\WizardStepViewModel.cs" />
+    <Compile Include="CacheMethods.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="Common\Attributes\JCCExceptionHandlerAttribute.cs" />
+    <Compile Include="Common\Attributes\RequiredIfAttribute.cs" />
+    <Compile Include="Common\Attributes\StringLengthIfAttribute.cs" />
+    <Compile Include="Common\Constants\GlobalConstants.cs" />
+    <Compile Include="Common\Constants\GridViewConstants.cs" />
+    <Compile Include="Common\Converter\DTOConverter.cs" />
+    <Compile Include="Common\Enums\ErrorCode.cs" />
+    <Compile Include="Common\Enums\GridColumnType.cs" />
+    <Compile Include="Common\Enums\GridFilterOperatorType.cs" />
+    <Compile Include="Common\Extensions\AjaxHelperExtension.cs" />
+    <Compile Include="Common\Extensions\OperationResultExtension.cs" />
+    <Compile Include="Common\Extensions\StringExtensions.cs" />
+    <Compile Include="Common\Extensions\UrlHelperExtension.cs" />
+    <Compile Include="Common\Models\CollapsibleView\CollapsibleItem.cs" />
+    <Compile Include="Common\Models\DualList\DualListModel.cs" />
+    <Compile Include="Common\Models\DualList\DualListSelectedData.cs" />
+    <Compile Include="Common\Models\DualList\IDualListItem.cs" />
+    <Compile Include="Common\Models\DualList\IDualListItemGroup.cs" />
+    <Compile Include="Common\Models\DualList\IPrimaryKey.cs" />
+    <Compile Include="Common\Models\DualList\SelectColumnsDualListItem.cs" />
+    <Compile Include="Common\Models\DynaTree\DynamicTreeNodeModel.cs" />
+    <Compile Include="Common\Models\DynaTree\DynamicTreeSearchModel.cs" />
+    <Compile Include="Common\Models\FileUploader\FileUploaderModel.cs" />
+    <Compile Include="Common\Models\GridView\ContactsCustomData.cs" />
+    <Compile Include="Common\Models\GridView\GridViewAction.cs" />
+    <Compile Include="Common\Models\GridView\GridViewColumn.cs" />
+    <Compile Include="Common\Models\GridView\GridViewFilter.cs" />
+    <Compile Include="Common\Models\GridView\GridViewModel.cs" />
+    <Compile Include="Common\Models\GridView\GridViewPager.cs" />
+    <Compile Include="Common\Models\GridView\GridViewState.cs" />
+    <Compile Include="Common\Models\Navigation\UserSettingModel.cs" />
+    <Compile Include="Common\Models\ReportsGrid\ReportsGridModel.cs" />
+    <Compile Include="Common\Utilities\FileUploadUtility.cs" />
+    <Compile Include="Common\Utilities\GridViewUtility.cs" />
+    <Compile Include="Common\Utilities\JsonUtility.cs" />
+    <Compile Include="Exceptions\DTOConversionException.cs" />
+    <Compile Include="Interfaces\IStateManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StateManager\CacheManager.cs" />
+    <Compile Include="StateManager\SessionStateManager.cs" />
+    <Compile Include="StateManager\StateEntities\ErrorState.cs" />
+    <Compile Include="StateManager\StateEntities\UserInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\Models\ErrorModel\" />
+    <Folder Include="Common\Security\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TMC.Shared\TMC.Shared.csproj">
+      <Project>{e5b35cb4-efa3-4658-b321-825c5f28e1d5}</Project>
+      <Name>TMC.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

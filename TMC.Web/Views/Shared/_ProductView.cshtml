@@ -1,0 +1,41 @@
+﻿@model TMC.ViewModels.ProductItemViewModel
+
+<div class="row" style="border: 1px solid #dfdfdf; padding: 5px">
+    <div class="col-lg-12">
+        @* <div class="col-md-1">
+                <p>
+                    <i class="fa fa-camera fa-4x"></i>
+                </p>
+                <p>May 24, 2013</p>
+            </div>*@
+        <div class="col-md-3">
+            <a href="@Url.Action( @Model.SeoTitle, "Coupons")">
+                <img src="@Url.Content( "~/img/" + @Model.ImageURL)" />
+            </a>
+        </div>
+        <div class="col-md-5">
+            <h3>
+                <a href="@Url.Action( @Model.SeoTitle, "Coupons")">@Model.Name</a>
+            </h3>
+            <p>
+                updated by <a href="#">TMC</a> on May 24, 2013
+            </p>
+            <p> @Model.Description</p>
+            @*  <a href="@Url.Action( @Model.SeoTitle, "Coupons")" class="btn btn-primary">Show More <i class="fa fa-angle-right"></i></a>
+            *@
+            @Html.ActionLink("Show all " + @Model.Name + " coupons ", @Model.SeoTitle, "Coupons")
+
+        </div>
+        <div class="col-md-4" style="padding-top: 10px">
+            <p>
+                Fee coupons for ICICI50 and many more
+                <ul>
+                    <li>One</li>
+                    <li>Two</li>
+                    <li>Three</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+</div>
+<br />

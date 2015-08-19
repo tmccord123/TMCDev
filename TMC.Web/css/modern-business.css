@@ -1,0 +1,233 @@
+﻿/* 
+Custom CSS for...
+'Modern Business' HTML Theme by Start Bootstrap
+
+All Start Bootstrap themes are licensed under Apache 2.0. 
+For more info and more free Bootstrap 3 HTML themes, visit http://startbootstrap.com!
+*/
+
+/* Global Styles */
+
+
+
+    .container
+    {
+       /* background: gainsboro; */
+    }
+html, body {
+    height: 100%;
+}
+
+body {
+    padding-top: 50px;
+    /* body padding for fixed top nav */
+}
+
+.img-home-portfolio,
+.img-customer,
+.portfolio-item {
+    margin-bottom: 30px;
+}
+
+.tab-pane {
+    margin-top: 15px;
+}
+
+/* Page Sections */
+.section,
+.section-colored {
+    padding: 50px 0;
+}
+
+.section-colored {
+    background-color: #e1e1e1;
+    /* change this to change the background color of a colored section */
+}
+
+.sidebar {
+    margin-top: 40px;
+}
+
+    .sidebar ul {
+        border-radius: 5px;
+        padding: 1px;
+        border: 1px solid #cccccc;
+    }
+
+/* Half Page Height Carousel Customization */
+.carousel {
+    height: 50%;
+}
+
+.item,
+.active,
+.carousel-inner {
+    height: 100%;
+}
+
+.fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+/* Social Icons Styles */
+.list-social-icons {
+    margin-bottom: 45px;
+}
+
+.tooltip-social a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.facebook-link a:hover {
+    color: #3b5998;
+}
+
+.linkedin-link a:hover {
+    color: #007fb1;
+}
+
+.twitter-link a:hover {
+    color: #39a9e0;
+}
+
+.google-plus-link a:hover {
+    color: #d14836;
+}
+
+/* Service Page Styles */
+.service-icon {
+    font-size: 50px;
+}
+
+/* 404 Page Styles */
+.error-404 {
+    font-size: 8em;
+}
+
+/* Pricing Page Styles */
+.price {
+    font-size: 4em;
+}
+
+.price-cents {
+    vertical-align: super;
+    font-size: 50%;
+}
+
+.price-month {
+    font-size: 35%;
+    font-style: italic;
+}
+
+/* Footer Styles */
+footer {
+    margin: 50px 0;
+}
+
+.cd-footer2 {
+    color: #ececec;
+    background-color: #606060;
+    padding-top: 15px;
+}
+
+    .cd-footer2 .top-footer {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .cd-footer2 .middle-footer {
+        padding-top: 15px;
+    }
+
+    .cd-footer2 .bottom-footer {
+        padding: 15px 0;
+    }
+
+    .cd-footer2 .international-footer {
+        padding: 2px 0;
+    }
+
+    .cd-footer2 .top-footer .horizontal-line {
+        border-bottom: solid 1px #d8d8da;
+    }
+
+    .cd-footer2 .middle-footer .horizontal-line {
+        padding-bottom: 10px;
+        border-bottom: solid 1px #d8d8da;
+    }
+
+    .cd-footer2 .top-footer .footer-section {
+        padding: 5px 10px;
+        float: left;
+    }
+
+    .cd-footer2 a, .cd-footer2 a:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+
+.col-8 {
+    width: 33.33333333% !important;
+}
+
+.cd-footer2 .top-footer .heading-text {
+    font-size: 18px;
+    padding: 0;
+}
+
+
+.scrollDiv {
+    height: 100%;
+    overflow-y: auto;
+    margin-right: 0px;
+    margin-top: 4px;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+
+    .carousel {
+        height: 70%;
+        /* increases the carousel height so it looks good on phones */
+    }
+}
+
+.mygrid-wrapper-div {
+    overflow: scroll;
+    border-color: #ededed;
+    border-style: solid;
+    border-width: 1px 1px 4px 1px;
+    padding: 5px;
+}
+
+.header-bar {
+    padding: 1px 0px 1px 6px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    list-style: none;
+    background-color: #fafafa;
+    border-radius: 4px;
+    border-color: #ededed;
+    border-style: solid;
+    border-width: 0 1px 4px 1px;
+}
+
+.trending-card {
+    border: 1px solid #dfdfdf;
+}
+
+.logo {
+    background-position: -167px -360px;
+    height: 40px;
+    width: 40px;
+    float: left;
+}
+
+.footer-logo {
+    height: 100px;
+}
