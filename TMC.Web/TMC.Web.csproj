@@ -41,10 +41,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CuteEditor">
-      <HintPath>TMCSupportedDlls\CuteEditor.dll</HintPath>
+      <HintPath>..\TMCSupportedDlls\CuteEditor.dll</HintPath>
     </Reference>
     <Reference Include="CuteEditor.ImageEditor">
-      <HintPath>TMCSupportedDlls\CuteEditor.ImageEditor.dll</HintPath>
+      <HintPath>..\TMCSupportedDlls\CuteEditor.ImageEditor.dll</HintPath>
     </Reference>
     <Reference Include="LowercaseDashedRouting">
       <HintPath>..\packages\LowercaseDashedRoute.1.0.14\lib\LowercaseDashedRouting.dll</HintPath>
