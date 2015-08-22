@@ -1,0 +1,53 @@
+﻿.dvMainContent, td
+{
+    font-family: Verdana;
+    font-size: small;
+    color: black;
+}
+
+table, th, td
+{
+    border: 1px solid black;
+}
+
+td
+{
+    padding: 5px;
+    vertical-align: middle;
+    margin: auto;
+}
+
+img
+{
+   /* border: 1px solid blue;*/
+    vertical-align: middle;
+}
+
+
+.noteBox
+{
+    border: 5px double black;
+    padding: 5px 7px 5px 7px;
+    background-color: #EB6D6D;
+    font-size: small;
+}
+.actionBox
+{
+    border: 5px double #339966;
+    float: right;
+    padding: 7px 20px 7px 20px;
+    background-color: #CCCCFF;
+}
+
+
+.heading
+{
+}
+
+.subHeading
+{
+}
+
+.listItem
+{
+}
