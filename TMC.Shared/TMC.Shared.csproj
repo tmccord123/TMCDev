@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\MappingType.cs" />
+    <Compile Include="Functional\BusinessDomainComponents\BDCType.cs" />
+    <Compile Include="Functional\BusinessDomainComponents\IProductBDC.cs" />
+    <Compile Include="Functional\BusinessDomainComponents\IUserBDC.cs" />
+    <Compile Include="Functional\BusinessFacades\IAccountManagementFacade.cs" />
+    <Compile Include="Functional\BusinessFacades\IProductFacade.cs" />
+    <Compile Include="Functional\BusinessFacades\IUserFacade.cs" />
     <Compile Include="Functional\DataAccessComponents\IProductDAC.cs" />
     <Compile Include="Functional\DataTransferObjects\DTOType.cs" />
     <Compile Include="Functional\DataTransferObjects\IBlogDTO.cs" />
@@ -61,6 +67,10 @@
     <Compile Include="Functional\DataTransferObjects\IIndividualDTO.cs" />
     <Compile Include="Functional\DataTransferObjects\IProductDTO.cs" />
     <Compile Include="Functional\DataTransferObjects\IUserDTO.cs" />
+    <Compile Include="Infrastructure\Business\BDCBase.cs" />
+    <Compile Include="Infrastructure\Business\BDCFactory.cs" />
+    <Compile Include="Infrastructure\Business\IBDCFactory.cs" />
+    <Compile Include="Infrastructure\Business\IBusinessDomainComponent.cs" />
     <Compile Include="Infrastructure\Business\OperationResult\OperationResult.cs" />
     <Compile Include="Infrastructure\Business\OperationResult\OperationResultType.cs" />
     <Compile Include="Infrastructure\Common\CommonAttributes\DisplayTextKeyAttribute.cs" />
@@ -80,6 +90,7 @@
     <Compile Include="Infrastructure\Common\Constants\ValidationConstants.cs" />
     <Compile Include="Infrastructure\Common\Enums\DACType.cs" />
     <Compile Include="Infrastructure\Common\Enums\EmailEnums.cs" />
+    <Compile Include="Infrastructure\Common\Enums\FacadeType.cs" />
     <Compile Include="Infrastructure\Common\Enums\ObjectStateType.cs" />
     <Compile Include="Infrastructure\Common\ExceptionHandling\Base\ExceptionBase.cs" />
     <Compile Include="Infrastructure\Common\ExceptionHandling\CustomExceptions\AttributeNotDefinedException.cs" />
@@ -129,6 +140,10 @@
     <Compile Include="Infrastructure\EntityModel\CustomAttributes\EntityMappingAttribute.cs" />
     <Compile Include="Infrastructure\EntityModel\Enums\MappingDirectionType.cs" />
     <Compile Include="Infrastructure\EntityModel\Enums\MappingType.cs" />
+    <Compile Include="Infrastructure\Facades\FacadeBase.cs" />
+    <Compile Include="Infrastructure\Facades\FacadeFactory.cs" />
+    <Compile Include="Infrastructure\Facades\IFacade.cs" />
+    <Compile Include="Infrastructure\Facades\IFacadeFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web.Shared\CouponMasterModel.cs" />
   </ItemGroup>

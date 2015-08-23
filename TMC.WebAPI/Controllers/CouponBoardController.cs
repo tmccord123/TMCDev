@@ -7,8 +7,8 @@ using TMC.ViewModels;
 
 namespace TMC.Controllers
 {
-    
-    
+    using TMC.Shared.Factories;
+
     public class CouponBoardController : Controller
     {
         // POST: /User/Create
@@ -31,22 +31,25 @@ namespace TMC.Controllers
                 blogModels.Blogs.Add(blogModel);
             }*/
 
-            var productDAC = (IProductDAC)DACFactory.Instance.Create(DACType.Product);
-            List<IProductDTO> products = new List<IProductDTO>();
-            ProductViewModel blogModels = new ProductViewModel();
+            var productFacade = (IProductFacade)FacadeFactory.Instance.Create(FacadeType.Product);
+            IList<IProductDTO> products = new List<IProductDTO>();
+            var blogModels = new ProductViewModel();
             blogModels.Products = new List<ProductItemViewModel>();
-            products = productDAC.ReadAllProducts();
-            foreach (var blogDto in products)
+            var productsData = productFacade.GetAllProducts();
+            if (productsData.IsValid())
             {
-                var blogModel = new ProductItemViewModel();
-                blogModel.Description = blogDto.Description;
-                blogModel.Name = blogDto.Name;
-                blogModel.SeoTitle = blogDto.SeoTitle;
-                blogModel.ImageURL = blogDto.ImageURL;
+                products = productsData.Data;
+                foreach (var blogDto in products)
+                {
+                    var blogModel = new ProductItemViewModel();
+                    blogModel.Description = blogDto.Description;
+                    blogModel.Name = blogDto.Name;
+                    blogModel.SeoTitle = blogDto.SeoTitle;
+                    blogModel.ImageURL = blogDto.ImageURL;
 
-                blogModels.Products.Add(blogModel);
+                    blogModels.Products.Add(blogModel);
+                }
             }
-
 
             return View(blogModels);
         }

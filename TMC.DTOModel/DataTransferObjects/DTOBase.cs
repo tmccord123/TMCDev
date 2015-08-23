@@ -11,7 +11,7 @@
     /// Author : Nagarro     
     /// </summary>
     [Serializable]
-    [DataContract(Name = "DTOBase", Namespace = "JCC.JCCSems.Shared")]
+    [DataContract(Name = "DTOBase", Namespace = "TMC.Shared")]
     public abstract class DTOBase : IDTO
     {
         private Guid? _uniqueID;
