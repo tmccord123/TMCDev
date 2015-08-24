@@ -93,6 +93,7 @@ namespace TMC.Data
             }*/
             return 1;
         }
+
         public List<IProductDTO> ReadAllProducts()
         {
             List<IProductDTO> productList = new List<IProductDTO>();

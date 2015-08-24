@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using TMC.Shared;
+using TMC.Web.Shared;
 
 namespace TMC.ViewModels
 {
-    public class UserViewModel
+    public class UserViewModel : ViewModelBase
     {
         public int UserId { get; set; }
 
@@ -23,5 +25,47 @@ namespace TMC.ViewModels
         public int AreaId { get; set; }
         public int PinCode { get; set; }
         public int CityId { get; set; }
+         
+
+    
+        public string UserName { get; set; }
+
+      
+        public string Password { get; set; }
+
+        
+        public DateTime? LockedDt { get; set; }
+
+        
+        public short? LockedInd { get; set; }
+
+        
+        public short? UserStatus { get; set; }
+
+        
+        public short? ForceUserUpdateInd { get; set; }
+
+        
+        public bool IsJCCPlanActive { get; set; }
+
+       
+        public short? UserPasswordUpdatedCnt { get; set; }
+
+        public DateTime? UserPasswordUpdatedDt { get; set; }
+
+        public DateTime UpdatedDt { get; set; }
+
+        public string UpdatedBy { get; set; }
+
+        public DateTime CreatedDt { get; set; }
+
+        public int? IndividualId { get; set; }
+
+        public IIndividualDTO Individual { get; set; }
+
+        public bool IsInvalidUser { get; set; }
+
+        public int MinimumRank { get; set; }
+        public bool? AllowAllCompanies { get; set; }
     }
 }

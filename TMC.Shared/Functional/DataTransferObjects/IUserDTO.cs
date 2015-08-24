@@ -11,9 +11,27 @@ namespace TMC.Shared
         /// <summary>
         /// Gets or sets the User Id.
         /// </summary>
-        int UserID { get; set; }
+        int UserId { get; set; }
 
-        /// <summary>
+        string FirstName { get; set; }
+        string LastName { get; set; }
+        Int16 UserTypeId { get; set; }
+
+        string Email { get; set; }
+        Int16 CountryId { get; set; }
+        Int16 StateId { get; set; }
+        string AddressLine1 { get; set; }
+        string AddressLine2 { get; set; }
+
+        int AreaId { get; set; }
+        int PinCode { get; set; }
+        int CityId { get; set; }
+        
+       
+         
+        // Account Details Section
+
+     /// <summary>
         /// Gets or sets the User Name.
         /// </summary>
         string UserName { get; set; }
@@ -81,24 +99,13 @@ namespace TMC.Shared
         /// <summary>
         /// Gets or sets the Individual User information.
         /// </summary>
+        /// 
+        /// 
         IIndividualDTO Individual { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Individual User.
-        /// </summary>
-        bool IsInvalidUser { get; set; }
 
         /// <summary>
         /// Gets or sets the minimum rank.
         /// </summary>
         int MinimumRank { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether [allow all companies].
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if [allow all companies]; otherwise, <c>false</c>.
-        /// </value>
-        bool? AllowAllCompanies { get; set; }
     }
 }

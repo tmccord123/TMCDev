@@ -27,5 +27,17 @@
         /// </summary>
         [QualifiedTypeName("TMC.BusinessFacade.dll", "TMC.BusinessFacade.ProductFacade")]
         Product = 3,
+        
+        /// <summary>
+        /// User Facade
+        /// </summary>
+        [QualifiedTypeName("TMC.BusinessFacade.dll", "TMC.BusinessFacade.VendorFacade")]
+        Vendor = 4,
+
+        /// <summary>
+        /// User Facade
+        /// </summary>
+        [QualifiedTypeName("TMC.BusinessFacade.dll", "TMC.BusinessFacade.ListingFacade")]
+        Listing = 5,
     }
 }

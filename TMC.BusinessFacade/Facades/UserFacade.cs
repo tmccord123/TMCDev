@@ -16,7 +16,18 @@
         public UserFacade()
             : base(FacadeType.User)
         {
+
+      
         }
-       
+
+        public OperationResult<IUserDTO> GetUserById(int userId)
+        { 
+            var userBDC = (IUserBDC) BDCFactory.Instance.Create(BDCType.User);
+            return userBDC.GetUserById(userId);
+        }
+
+
+
+ 
     }
 }

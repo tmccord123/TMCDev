@@ -173,6 +173,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\VendorApiController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\VendorController.cs" />
     <Compile Include="Controllers\CouponBoardController.cs" />
@@ -309,7 +310,6 @@
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\trk.js" />
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\UploadManageBrowseHouseAd.png" />
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\usermatch.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\user_sync%281%29.html" />
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\user_sync.html" />
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\welcome.html" />
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\widget.min.css" />
@@ -479,6 +479,10 @@
     <ProjectReference Include="..\TMC.Shared\TMC.Shared.csproj">
       <Project>{e5b35cb4-efa3-4658-b321-825c5f28e1d5}</Project>
       <Name>TMC.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TMC.Web.Shared\TMC.Web.Shared.csproj">
+      <Project>{e6af7f82-c3bd-4bb0-a5a7-fa4a0252f73c}</Project>
+      <Name>TMC.Web.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

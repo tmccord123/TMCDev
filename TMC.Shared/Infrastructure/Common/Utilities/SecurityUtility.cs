@@ -59,7 +59,7 @@ namespace TMC.Shared
             get
             {
                 return LoggedInUser != null
-                           ? LoggedInUser.UserID.ToString() + ":" + LoggedInUser.UserName
+                           ? LoggedInUser.UserId.ToString() + ":" + LoggedInUser.UserName
                            : null;
             }
         }

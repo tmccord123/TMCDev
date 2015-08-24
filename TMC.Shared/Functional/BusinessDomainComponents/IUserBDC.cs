@@ -6,6 +6,6 @@ namespace TMC.Shared
     /// </summary>
     public interface IUserBDC : IBusinessDomainComponent
     {
-        
+        OperationResult<IUserDTO> GetUserById(int userId);
     }
 }

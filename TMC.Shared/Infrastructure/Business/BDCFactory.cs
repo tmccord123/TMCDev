@@ -1,7 +1,7 @@
 ﻿using TMC.Shared;
 using TMC.Shared.Factories;
 
-namespace TMC.Shared.Factories
+namespace TMC.Shared
 {
     /// <summary>
     /// Represents the factory for BDC classes,
