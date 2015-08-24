@@ -2,7 +2,7 @@
 
 using TMC.Shared;
 
-namespace TMC.Shared.Factories
+namespace TMC.Shared
 {
     /// <summary>
     /// Represents the factory for facades,
