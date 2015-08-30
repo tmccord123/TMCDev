@@ -12,10 +12,10 @@ using TMC.Web.Shared;
 namespace TMC.WebAPI.Controllers.Api
 {
     // call like this http://localhost:59974//api/vendorapi/1
-    [RoutePrefix("api/vendor")]
+    [System.Web.Http.RoutePrefix("api/vendor")]
     public class VendorApiController : ApiController
     {
-        public IHttpActionResult Get(int id, string fields = null)
+        public System.Web.Http.IHttpActionResult Get(int id, string fields = null)
         {
             var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
             var userFacade = (IUserFacade)FacadeFactory.Instance.Create(FacadeType.User);

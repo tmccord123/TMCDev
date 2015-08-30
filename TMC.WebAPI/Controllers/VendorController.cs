@@ -44,5 +44,10 @@ namespace TMC.Controllers
 
             return View();
         }
+
+        public ActionResult AddEditListing()
+        {
+            return View("AddEditListing");
+        }
     }
 }
