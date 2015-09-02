@@ -23,6 +23,9 @@ namespace TMC.Web.Shared
         public const string XmlHttpRequest = "XMLHttpRequest";
         public const string PasswordRegularExpression = @"^\S+$";
 
+        public const string TMCAPI = "http://localhost:59974/";
+     
+
         /// <summary>
         /// Static class for database table columns releated constant
         /// </summary>

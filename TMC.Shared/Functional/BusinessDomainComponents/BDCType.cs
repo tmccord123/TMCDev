@@ -22,6 +22,12 @@ namespace TMC.Shared
         /// </summary>
         [QualifiedTypeName("TMC.Business.dll", "TMC.Business.ProductBDC")]
         Product = 2,
+
+        /// <summary>
+        /// Vendor BDC
+        /// </summary>
+        [QualifiedTypeName("TMC.Business.dll", "TMC.Business.VendorBDC")]
+        Vendor = 3
         
     }
 }

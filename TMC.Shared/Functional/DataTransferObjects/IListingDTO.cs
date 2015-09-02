@@ -4,14 +4,6 @@ namespace TMC.Shared
 {
     public interface IListingDTO : IDTO
     {
-        /// <summary>
-        /// Gets or sets the Listing Id.
-        /// </summary>
-        int UserId { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         int ListingId { get; set; }
         string CompanyName { get; set; }
         string ContactPerson { get; set; }

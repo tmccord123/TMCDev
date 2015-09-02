@@ -49,12 +49,14 @@
     <Compile Include="Enums\MappingType.cs" />
     <Compile Include="Functional\BusinessDomainComponents\BDCType.cs" />
     <Compile Include="Functional\BusinessDomainComponents\IProductBDC.cs" />
+    <Compile Include="Functional\BusinessDomainComponents\IVendorBDC.cs" />
     <Compile Include="Functional\BusinessDomainComponents\IUserBDC.cs" />
     <Compile Include="Functional\BusinessFacades\IAccountManagementFacade.cs" />
     <Compile Include="Functional\BusinessFacades\IListingFacade.cs" />
     <Compile Include="Functional\BusinessFacades\IVendorFacade.cs" />
     <Compile Include="Functional\BusinessFacades\IProductFacade.cs" />
     <Compile Include="Functional\BusinessFacades\IUserFacade.cs" />
+    <Compile Include="Functional\DataAccessComponents\IVendorDAC.cs" />
     <Compile Include="Functional\DataAccessComponents\IUserDAC.cs" />
     <Compile Include="Functional\DataAccessComponents\IProductDAC.cs" />
     <Compile Include="Functional\DataTransferObjects\DTOType.cs" />

@@ -21,5 +21,11 @@
         /// </summary>
         [QualifiedTypeName("TMC.Data.dll", "TMC.Data.ProductDAC")]
         Product = 2,
+
+        /// <summary>
+        /// Vendor DAC
+        /// </summary>
+        [QualifiedTypeName("TMC.Data.dll", "TMC.Data.VendorDAC")]
+        Vendor = 3,
     }
 }

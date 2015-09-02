@@ -6,6 +6,6 @@ namespace TMC.Shared
     public interface IListingFacade : IFacade
     {
         OperationResult<IListingDTO> GetlistingById(int listingId);
-        OperationResult<IList<IUserDTO>> GetlistingByVendorId(int vendorId);
+        OperationResult<IList<IListingDTO>> GetlistingsByVendorId(int vendorId);
     }
 }

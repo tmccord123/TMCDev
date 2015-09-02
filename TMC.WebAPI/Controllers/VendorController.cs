@@ -1,7 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 using TMC.Shared;
 using TMC.ViewModels;
+using TMC.WebAPI;
 
 
 namespace TMC.Controllers
@@ -45,9 +49,25 @@ namespace TMC.Controllers
             return View();
         }
 
-        public ActionResult AddEditListing()
+        public async Task<ActionResult> AddEditListing()
         {
-            return View("AddEditListing");
+            var client = TMCHttpClient.GetClient();
+
+            var model = new ListingItemViewModel();
+
+            HttpResponseMessage egsResponse = await client.GetAsync("api/listingapi/1");
+
+            if (egsResponse.IsSuccessStatusCode)
+            {
+                string egsContent = await egsResponse.Content.ReadAsStringAsync();
+                var lstExpenseGroupStatusses = JsonConvert.DeserializeObject<ListingItemViewModel>(egsContent);
+                model = lstExpenseGroupStatusses;
+            }
+            else
+            {
+                return Content("An error occurred.");
+            }
+            return View("AddEditListing", model);
         }
     }
 }

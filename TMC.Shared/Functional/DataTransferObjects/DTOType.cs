@@ -30,5 +30,11 @@ namespace TMC.Shared
         /// </summary>
         [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ProductDTO")]
         Product = 3,
+
+        /// <summary>
+        /// The Listing DTO
+        /// </summary>
+        [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ListingDTO")]
+        Listing = 4
     }
 }
