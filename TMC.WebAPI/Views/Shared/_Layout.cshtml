@@ -5,12 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Local Cords - @ViewBag.Title</title>
-    <script src="~/Scripts/jquery-1.10.2.js"></script>
 
-    <script src="~/js/bootstrap.js"></script>
-    <!-- Bootstrap -->
-    <link href="@Url.Content("~/css/bootstrap.css")" rel="stylesheet">
-    <link href="@Url.Content("~/css/modern-business.css")" rel="stylesheet">
+
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/bundles/css")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/slider")
+
+    @RenderSection("stylesheet", required: false)
+    @RenderSection("scripts", required: false)    
+
+
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -114,13 +122,13 @@
 
         <hr>
 
-    @*    <footer>
+       <footer>
             <div class="row">
                 <div class="col-lg-12">
                     <p>Copyright &copy; TryMyCoupons.com 2015</p>
                 </div>
             </div>
-        </footer>*@
+        </footer>
 
     </div>
     <!-- /.container -->
@@ -193,7 +201,7 @@
                 </div>
             </div>
         </div>
-    @*    <div class="middle-footer">
+    <!--   <div class="middle-footer">
             <div class="container horizontal-line">
                 <div class="row">
                     <div class="col-6 footer-section text-center">
@@ -218,7 +226,7 @@
                     </div>
                 </div>
             </div>
-        </div>*@
+        </div>-->
 
         <div class="bottom-footer">
             <div class="container horizontal-line">
@@ -228,18 +236,18 @@
                         <div class="copyright">© 2015 LocalCord.com All Rights Reserved.</div>
                     </div>
                     <div class="col-10">
-                        @*<div class="text-right" style="margin: 0px">
-                            <a href="https://www.facebook.com/LocalCord/" target="_blank" rel="nofollow" style="padding-right: 10px;"><img src="http://www.localcord.com/img/fb_ico.png" height="30"></a>
-                            <a href="https://twitter.com/LocalCord/" target="_blank" rel="nofollow" style="padding-right: 10px;"><img src="http://www.localcord.com/img/twitter_ico.png" height="30"></a>
-                            <a href="https://plus.google.com/+LocalCord/posts" target="_blank" rel="nofollow"><img src="http://www.localcord.com/img/gplus_ico.png" height="30"></a>
-                            <a href="https://youtube.com/LocalCord" target="_blank" rel="nofollow"><img src="http://www.localcord.com/img/youtube_ico.png" height="30"></a>
-                        </div>*@
+                        <div class="text-right" style="margin: 0px">
+                            <a href="https://www.facebook.com/LocalCord/" target="_blank" rel="nofollow" style="padding-right: 10px;"><img src="/img/fb_ico.png" height="30"></a>
+                            <a href="https://twitter.com/LocalCord/" target="_blank" rel="nofollow" style="padding-right: 10px;"><img src="/img/twitter_ico.png" height="30"></a>
+                            <a href="https://plus.google.com/+LocalCord/posts" target="_blank" rel="nofollow"><img src="/img/gplus_ico.png" height="30"></a>
+                            <a href="https://youtube.com/LocalCord" target="_blank" rel="nofollow"><img src="/img/youtube_ico.png" height="30"></a>
+                        </div>
                     </div>
 
 
                 </div>
             </div>
-        </div>@*
+        </div>
 
     <div class="international-footer">
         <div class="container ">
@@ -254,16 +262,7 @@
                 </div>
             </div>
         </div>
-    </div>*@
     </div>
-   
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="@Url.Content("~/js/bootstrap.js")"></script>
-        @*<script src="@Url.Content("/js/modern-business.js")"></script>
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")*@
- 
-    @RenderSection("scripts", required: false)
-     
+    </div>
 </body>
 </html>
