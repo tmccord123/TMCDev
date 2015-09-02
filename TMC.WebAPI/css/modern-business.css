@@ -136,7 +136,7 @@ footer {
 
     .cd-footer2 .top-footer {
         padding-top: 20px;
-        padding-bottom: 20px;
+        padding-bottom: 0px;
     }
 
     .cd-footer2 .middle-footer {
@@ -144,7 +144,7 @@ footer {
     }
 
     .cd-footer2 .bottom-footer {
-        padding: 15px 0;
+        padding: 1px 0;
     }
 
     .cd-footer2 .international-footer {
@@ -230,4 +230,12 @@ footer {
 
 .footer-logo {
     height: 100px;
+}
+
+
+.nwl-response {
+    display: none;
+    padding: 5px;
+    margin-top: 1px;
+    margin-bottom: 5px;
 }

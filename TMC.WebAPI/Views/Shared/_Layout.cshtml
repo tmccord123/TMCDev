@@ -177,25 +177,23 @@
 
                     <div class="col-8 footer-section">
                         <div class="heading-text">Subscribe for more updates</div> <br>
-                        <form method="post" action="http://www.localcord.com/add-email-subscription" id="" class="newsletterform">
-                            <div class="pull-up" style="margin-bottom: 10px;">
-                                <input type="text" placeholder="Type email address" name="Email" class="form-control">
+                        <form method="post" action="http://www.localcord.com/add-email-subscription" name="weeklynews" class="newsletterSubscribe" data-subscribe-type="newsletter" data-type="6">
+                            <div class="input-group" style="display: flex">
+                                <input type="text" name="Email" class="form-control" placeholder="enter your email address...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success" type="button">
+                                        <span>GO</span>
+                                        <div id="loader-btn" style="display: none;">
+                                            <div class="bar"></div>
+                                            <div class="bar"></div>
+                                            <div class="bar"></div>
+                                            <div class="bar"></div>
+                                            <div class="bar"></div>
+                                        </div>
+                                    </button>
+                                </span>
                             </div>
                             <div class="nwl-response alert alert-danger"></div>
-                            <input name="WebsiteID" value="0" type="hidden">
-                            <input name="Newsletter" value="true" type="hidden">
-                            <div class="clearfix">
-                                <button id="cordSubmitButton" class="btn btn-primary pull-right" style="position: relative;">
-                                    <span>COUNT ME IN</span>
-                                    <div id="loader-btn" style="display: none;" class="loaded">
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                    </div>
-                                </button>
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -231,11 +229,11 @@
         <div class="bottom-footer">
             <div class="container horizontal-line">
                 <div class="row">
-                    <div class="col-14" style="padding-top: 10px">
+                    <div class="col-md-6" style="padding-top: 10px">
                         <div class="col-10" style="padding-left: 0"><span></span></div>
                         <div class="copyright">© 2015 LocalCord.com All Rights Reserved.</div>
                     </div>
-                    <div class="col-10">
+                    <div class="col-md-6" style="padding: 10px 0 10px 0;">
                         <div class="text-right" style="margin: 0px">
                             <a href="https://www.facebook.com/LocalCord/" target="_blank" rel="nofollow" style="padding-right: 10px;"><img src="/img/fb_ico.png" height="30"></a>
                             <a href="https://twitter.com/LocalCord/" target="_blank" rel="nofollow" style="padding-right: 10px;"><img src="/img/twitter_ico.png" height="30"></a>
@@ -249,7 +247,7 @@
             </div>
         </div>
 
-    <div class="international-footer">
+  @*  <div class="international-footer">
         <div class="container ">
             <div class="row">
 
@@ -262,7 +260,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
     </div>
 </body>
 </html>
