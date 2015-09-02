@@ -78,7 +78,12 @@ namespace TMC.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName };
+                var user = new ApplicationUser() { UserName = model.MobileNo, 
+                    FirstName = model.FirstName, 
+                    LastName = model.LastName,
+                    Email = model.Email,
+                    MobileNo = model.MobileNo
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
