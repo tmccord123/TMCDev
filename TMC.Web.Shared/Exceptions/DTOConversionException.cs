@@ -9,7 +9,7 @@
 
     /// <summary>
     /// Represents Entity conversion exception,
-    /// Author: Nagarro
+    /// Author: TMC
     /// </summary>
     [Serializable]
     public class DTOConversionException : ExceptionBase

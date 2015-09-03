@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// Defines a contract for Notice factory,
-    /// Author : Nagarro     
+    /// Author : TMC     
     /// </summary>
     public interface INotificationFactory
     {

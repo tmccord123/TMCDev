@@ -8,7 +8,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Provides extension utility methods for string processing,
-    /// Author : Nagarro 
+    /// Author : TMC 
     /// </summary>
     public static class StringExtensions
     {

@@ -5,7 +5,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Represents abstract base class for custom exceptions,
-    /// Author: Nagarro
+    /// Author: TMC
     /// </summary>
     [Serializable]
     public abstract class ExceptionBase : Exception

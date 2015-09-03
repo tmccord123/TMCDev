@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// Defines a contract for factory facade,
-    /// Author : Nagarro
+    /// Author : TMC
     /// </summary>
     public interface IFacadeFactory
     {

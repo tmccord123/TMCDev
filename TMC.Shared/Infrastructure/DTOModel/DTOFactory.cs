@@ -9,7 +9,7 @@ namespace TMC.Shared.Factories
 {
     /// <summary>
     /// Represents the factory for Data Transfer Objects,
-    /// Author : Nagarro 
+    /// Author : TMC 
     /// </summary>    
     public class DTOFactory : FactoryBase, IDTOFactory
     {

@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ResourceConstants.cs" company="Nagarro">
+// <copyright file="ResourceConstants.cs" company="TMC">
 //   
 // </copyright>
 // <summary>

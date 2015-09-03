@@ -16,7 +16,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Provides static utility methods for App Constants
-    /// Author : Nagarro
+    /// Author : TMC
     /// </summary>
     public static class AppConstantsUtility
     {

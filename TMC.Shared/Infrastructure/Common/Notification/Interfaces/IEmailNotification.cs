@@ -5,7 +5,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Defines a contract for email notice,
-    /// Author: Nagarro
+    /// Author: TMC
     /// </summary>
     public interface IEmailNotification : INotification
     {

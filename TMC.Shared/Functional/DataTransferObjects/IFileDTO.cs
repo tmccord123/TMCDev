@@ -1,10 +1,10 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IFileDTO.cs" company="Nagarro">
+// <copyright file="IFileDTO.cs" company="TMC">
 //   
 // </copyright>
 // <summary>
 //   Defines a contract for interface IFileDTO,
-//   Author		: Nagarro
+//   Author		: TMC
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 

@@ -8,7 +8,7 @@ namespace TMC.Shared
 
     /// <summary>
     /// Defines a contract for Individual DTO,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     public interface IIndividualDTO : IDTO
     {

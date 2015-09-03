@@ -7,7 +7,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Provides extension utility methods for IEnumerable<T>
-    /// Author : Nagarro 
+    /// Author : TMC 
     /// </summary>
     public static class GenericIEnumberableExtensions
     {

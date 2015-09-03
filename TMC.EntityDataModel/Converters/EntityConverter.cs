@@ -6,8 +6,7 @@ namespace EntityDataModel.EntityModels
     using System.Linq;
     using System.Reflection;
     using System.Threading;
-
-    using JCC.JCCSems.EntityDataModel;
+     
 
     using TMC.Shared;
 

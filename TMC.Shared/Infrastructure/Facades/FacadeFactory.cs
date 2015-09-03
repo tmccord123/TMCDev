@@ -6,7 +6,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Represents the factory for facades,
-    /// Author : Nagarro     
+    /// Author : TMC     
     /// </summary>
     public class FacadeFactory : FactoryBase, IFacadeFactory
     {

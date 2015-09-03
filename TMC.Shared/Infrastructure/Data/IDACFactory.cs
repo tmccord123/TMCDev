@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// Defines a contract for data access component factory,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     public interface IDACFactory
     {

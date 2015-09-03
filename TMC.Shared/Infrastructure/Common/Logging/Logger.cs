@@ -10,7 +10,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Represents Logger Implementation,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     public sealed class Logger : ILogger
     {

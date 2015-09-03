@@ -1,10 +1,10 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IFileVersionDTO.cs" company="Nagarro">
+// <copyright file="IFileVersionDTO.cs" company="TMC">
 //   
 // </copyright>
 // <summary>
 //   Defines a contract for interface IFileVersionDTO,
-//   Author		: Nagarro
+//   Author		: TMC
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -14,7 +14,7 @@ namespace TMC.Shared
 
     /// <summary>
     /// Defines a contract for File Version DTO,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     public interface IFileVersionDTO : IDTO
     {

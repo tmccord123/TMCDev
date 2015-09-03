@@ -8,7 +8,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Contains application level constants.    
-    /// Author: Nagarro
+    /// Author: TMC
     /// </summary>
     public static class AppConstants
     {

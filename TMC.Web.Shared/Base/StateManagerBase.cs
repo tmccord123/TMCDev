@@ -6,7 +6,7 @@ namespace TMC.Web.Shared
 {
     /// <summary>
     /// Represents abstract base class for State managers,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public abstract class StateManagerBase<T> : IStateManager<T> where T : StateEntityBase, new()

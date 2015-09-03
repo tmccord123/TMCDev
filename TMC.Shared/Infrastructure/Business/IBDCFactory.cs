@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// Defines a contract for BDC factory,
-    /// Author : Nagarro
+    /// Author : TMC
     /// </summary>
     public interface IBDCFactory
     {

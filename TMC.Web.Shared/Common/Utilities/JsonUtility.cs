@@ -13,7 +13,7 @@ namespace TMC.Web.Shared
 {
     /// <summary>
     /// Provides static utility methods for data validation purposes,
-    /// Author : Nagarro
+    /// Author : TMC
     /// </summary>
     public static class JsonUtility
     {

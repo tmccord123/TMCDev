@@ -4,7 +4,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Defines a contract for DTO factory,
-    /// Author : Nagarro     
+    /// Author : TMC     
     /// </summary>
     public interface IDTOFactory
     {

@@ -5,7 +5,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Represents notification exception,
-    /// Author: Nagarro
+    /// Author: TMC
     /// </summary>
     [Serializable]
     public class NotificationException : ExceptionBase

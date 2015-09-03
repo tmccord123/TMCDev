@@ -6,7 +6,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Represents data access exception,
-    /// Author: Nagarro
+    /// Author: TMC
     /// </summary>
     [Serializable]
     public class DACException : ExceptionBase

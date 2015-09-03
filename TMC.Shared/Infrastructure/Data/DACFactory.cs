@@ -6,7 +6,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Represents the factory for data access components,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     public class DACFactory : FactoryBase, IDACFactory
     {

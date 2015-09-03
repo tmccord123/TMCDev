@@ -7,7 +7,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Defines a contract for internal notice,
-    /// Author: Nagarro
+    /// Author: TMC
     /// </summary>
     public interface IInternalNotification : INotification
     {

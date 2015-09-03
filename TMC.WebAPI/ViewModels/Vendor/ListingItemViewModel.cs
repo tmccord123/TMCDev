@@ -20,5 +20,9 @@ namespace TMC.ViewModels
         public UserViewModel ListingLocation { get; set; }
         public UserViewModel ListingMedia { get; set; }
         public UserViewModel ListingPaymentMode { get; set; }
+
+
+
+
     }
 }

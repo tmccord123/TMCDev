@@ -1,4 +1,4 @@
-﻿namespace JCC.JCCSems.EntityDataModel
+﻿namespace TMC.EntityDataModel
 {
     using System;
     using System.Diagnostics.CodeAnalysis;

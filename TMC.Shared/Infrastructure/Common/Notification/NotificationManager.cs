@@ -12,7 +12,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Represents Notification manager,
-    /// Author: Nagarro
+    /// Author: TMC
     /// </summary>
     public static class NotificationManager
     {

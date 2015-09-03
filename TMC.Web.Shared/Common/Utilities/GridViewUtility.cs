@@ -18,7 +18,7 @@ namespace TMC.Web.Shared
 {
     /// <summary>
     /// Provides static utility methods for Grid View
-    /// Author : Nagarro
+    /// Author : TMC
     /// </summary>
     public static class GridViewUtility
     {

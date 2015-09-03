@@ -7,7 +7,7 @@ namespace TMC.Shared.Factories
 {
     /// <summary>
     /// Represents the factory for Notice types,
-    /// Author : Nagarro 
+    /// Author : TMC 
     /// </summary>
     public class NotificationFactory : FactoryBase, INotificationFactory
     {

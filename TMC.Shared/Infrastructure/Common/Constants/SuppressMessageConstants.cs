@@ -6,7 +6,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Contains Suppress Message Constants for FxCop.    
-    /// Author: Nagarro
+    /// Author: TMC
     /// </summary>
     public static class SuppressMessageConstants
     {

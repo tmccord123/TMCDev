@@ -6,7 +6,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Contains rule set validator constants.    
-    /// Author: Nagarro
+    /// Author: TMC
     /// </summary>
     public static class RuleSetConstants
     {

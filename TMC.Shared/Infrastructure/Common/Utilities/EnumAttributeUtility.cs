@@ -7,7 +7,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Provides utility methods for Enum attribute,
-    /// Author : Nagarro     
+    /// Author : TMC     
     /// </summary>
     /// <typeparam name="TEnum">The type of the enum.</typeparam>
     /// <typeparam name="TAttribute">The type of the attribute.</typeparam>

@@ -5,7 +5,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Represents BDC exception,
-    /// Author: Nagarro
+    /// Author: TMC
     /// </summary>
     [Serializable]
     public class BDCException : ExceptionBase

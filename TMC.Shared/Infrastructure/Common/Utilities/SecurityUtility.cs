@@ -11,7 +11,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Provides static utility methods for security
-    /// Author : Nagarro
+    /// Author : TMC
     /// </summary>
     public static class SecurityUtility
     {

@@ -8,7 +8,7 @@
 
     /// <summary>
     /// Represents the abstract base class for all Data Transfer Objects,
-    /// Author : Nagarro     
+    /// Author : TMC     
     /// </summary>
     [Serializable]
     [DataContract(Name = "DTOBase", Namespace = "TMC.Shared")]

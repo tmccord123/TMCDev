@@ -416,6 +416,8 @@
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\x%282%29" />
     <Content Include="css\flexslider.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\tmc.common.dataService.js" />
+    <Content Include="Scripts\tmc.common.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

@@ -4,7 +4,7 @@ namespace TMC.Web.Shared
 {
     /// <summary>
     /// Represents abstract base class for State entities,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     public abstract class StateEntityBase
     {

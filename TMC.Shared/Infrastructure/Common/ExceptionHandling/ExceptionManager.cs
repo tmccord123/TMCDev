@@ -8,7 +8,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Represents manager class to handle exceptions,
-    /// Author: Nagarro
+    /// Author: TMC
     /// </summary>
     public static class ExceptionManager
     {

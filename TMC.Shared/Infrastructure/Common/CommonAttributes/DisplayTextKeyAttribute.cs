@@ -4,7 +4,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Represent a DisplayTextKey attribute,
-    /// Author : Nagarro     
+    /// Author : TMC     
     /// </summary>        
     [AttributeUsage(AttributeTargets.Field, Inherited = false, AllowMultiple = false)]
     public sealed class DisplayTextKeyAttribute : Attribute

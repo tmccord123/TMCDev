@@ -5,7 +5,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Represents the factory for BDC classes,
-    /// Author : Nagarro
+    /// Author : TMC
     /// </summary>
     public class BDCFactory : FactoryBase, IBDCFactory
     {

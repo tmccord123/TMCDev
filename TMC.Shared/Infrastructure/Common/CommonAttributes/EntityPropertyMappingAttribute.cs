@@ -4,7 +4,7 @@
 
     /// <summary>
     /// Contains/Represents/Provides Entity property mapping attribute,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
     public sealed class EntityPropertyMappingAttribute : Attribute

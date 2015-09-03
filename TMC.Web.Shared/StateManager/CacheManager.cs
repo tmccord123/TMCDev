@@ -4,7 +4,7 @@
 
     /// <summary>
     /// Represents Cache (Asp.net server cache) manager,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public sealed class CacheManager<T> : StateManagerBase<T> where T : StateEntityBase, new()

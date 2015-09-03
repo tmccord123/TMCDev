@@ -7,7 +7,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Represents abstract base class for Notices,
-    /// Author: Nagarro
+    /// Author: TMC
     /// </summary>
     public abstract class NotificationBase : INotification
     {

@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// Defines a contract for state manager,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public interface IStateManager<T> where T : StateEntityBase, new()

@@ -9,7 +9,7 @@ namespace TMC.Shared
 
     /// <summary>
     /// Represents a result of an business operation (method call),
-    /// Author : Nagarro     
+    /// Author : TMC     
     /// </summary>
     /// <typeparam name="T">Represent the actual return type of the operation/method.</typeparam>
     [Serializable]

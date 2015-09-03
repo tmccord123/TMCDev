@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMC.Web", "TMC.Web\TMC.Web.csproj", "{7F88E760-CFA0-4D95-ACD2-3CB76C9E4AE2}"
-EndProject
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMC.EntityDataModel", "TMC.EntityDataModel\TMC.EntityDataModel.csproj", "{4E487C85-D46E-46EA-ADF7-A4E5C0E30446}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMC.Service", "TMC.Service\TMC.Service.csproj", "{7D37B952-7DAD-4B08-9547-CE70E2EAA1EB}"
@@ -45,10 +45,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7F88E760-CFA0-4D95-ACD2-3CB76C9E4AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F88E760-CFA0-4D95-ACD2-3CB76C9E4AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F88E760-CFA0-4D95-ACD2-3CB76C9E4AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F88E760-CFA0-4D95-ACD2-3CB76C9E4AE2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4E487C85-D46E-46EA-ADF7-A4E5C0E30446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4E487C85-D46E-46EA-ADF7-A4E5C0E30446}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E487C85-D46E-46EA-ADF7-A4E5C0E30446}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -98,7 +94,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{7F88E760-CFA0-4D95-ACD2-3CB76C9E4AE2} = {D90B5B3B-D904-4A50-86CF-1F73E783E6C8}
 		{E6AF7F82-C3BD-4BB0-A5A7-FA4A0252F73C} = {D90B5B3B-D904-4A50-86CF-1F73E783E6C8}
 		{46AB9CA3-B0E5-4651-A096-355115A6AFAE} = {D90B5B3B-D904-4A50-86CF-1F73E783E6C8}
 		{FF34BCD5-A05D-477A-9618-499EA94D9AAA} = {D90B5B3B-D904-4A50-86CF-1F73E783E6C8}

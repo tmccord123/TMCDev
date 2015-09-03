@@ -6,7 +6,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Represents the abstract base class for all facades,
-    /// Author : Nagarro     
+    /// Author : TMC     
     /// </summary>
     public abstract class FacadeBase : IFacade
     {

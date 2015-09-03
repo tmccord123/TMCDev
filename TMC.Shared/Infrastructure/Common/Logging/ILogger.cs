@@ -7,7 +7,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Defines a contract for Logger,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     public interface ILogger
     {

@@ -11,7 +11,7 @@ namespace TMC.Web.Shared
 {
     /// <summary>
     /// Contains common methods to be cached,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     /*public static class CacheMethods
     {

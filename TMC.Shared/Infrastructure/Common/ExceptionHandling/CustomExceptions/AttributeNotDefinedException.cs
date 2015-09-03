@@ -5,7 +5,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Represent an attribute not defined exception,
-    /// Author : Nagarro
+    /// Author : TMC
     /// </summary>
     [Serializable]
     public class AttributeNotDefinedException : ExceptionBase

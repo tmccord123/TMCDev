@@ -8,7 +8,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Represents Email notice,
-    /// Author: Nagarro
+    /// Author: TMC
     /// </summary>
     public class EmailNotification : NotificationBase, IEmailNotification
     {

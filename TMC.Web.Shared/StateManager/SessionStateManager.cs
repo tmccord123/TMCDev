@@ -7,7 +7,7 @@ namespace TMC.Web.Shared
 {
     /// <summary>
     /// Represents Session state manager,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public sealed class SessionStateManager<T> : StateManagerBase<T> where T : StateEntityBase, new()

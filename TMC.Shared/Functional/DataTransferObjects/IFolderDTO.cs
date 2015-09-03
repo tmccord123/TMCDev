@@ -1,10 +1,10 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IFolderDTO.cs" company="Nagarro">
+// <copyright file="IFolderDTO.cs" company="TMC">
 //   
 // </copyright>
 // <summary>
 //   Defines a contract for interface IFolderDTO,
-//   Author		: Nagarro
+//   Author		: TMC
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -14,7 +14,7 @@ namespace TMC.Shared
 
     /// <summary>
     /// Defines a contract for Folder DTO,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     public interface IFolderDTO : IDTO
     {

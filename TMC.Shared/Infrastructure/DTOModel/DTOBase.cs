@@ -10,7 +10,7 @@ namespace TMC.Shared
 
     /// <summary>
     /// Represents the abstract base class for all Data Transfer Objects,
-    /// Author : Nagarro     
+    /// Author : TMC     
     /// </summary>
     [Serializable]
     [DataContract(Name = "DTOBase", Namespace = "TMC.Shared")]
@@ -47,7 +47,7 @@ namespace TMC.Shared
         /// private gets or private sets the unique ID.
         /// </summary>
         /// <value>The unique ID.</value>
-        //[DataMember]
+        [DataMember]
         public Guid? UniqueID
         {
             get { return _uniqueID; }

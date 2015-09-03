@@ -4,7 +4,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Defines a contract for User DTO,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     public interface IUserDTO : IDTO
     {

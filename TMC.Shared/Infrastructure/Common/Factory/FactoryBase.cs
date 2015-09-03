@@ -12,7 +12,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Represents the abstract base class for all factories,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     public abstract class FactoryBase
     {

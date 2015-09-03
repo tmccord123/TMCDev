@@ -4,7 +4,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Defines a contract for data access component,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     public interface IDataAccessComponent
     {

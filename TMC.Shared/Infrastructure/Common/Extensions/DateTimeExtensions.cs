@@ -5,7 +5,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Provides extension utility methods for Date and Time processing,
-    /// Author : Nagarro 
+    /// Author : TMC 
     /// </summary>
     public static class DateTimeExtensions
     {

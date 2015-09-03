@@ -11,7 +11,7 @@
 
     /// <summary>
     /// Represents viewModel converter,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     public sealed class DTOConverter
     {

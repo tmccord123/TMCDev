@@ -1,10 +1,10 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IFileExtensionTypeDTO.cs" company="Nagarro">
+// <copyright file="IFileExtensionTypeDTO.cs" company="TMC">
 //   
 // </copyright>
 // <summary>
 //   Defines a contract for interface IFileExtensionTypeDTO,
-//   Author		: Nagarro
+//   Author		: TMC
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -12,7 +12,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Defines a contract for File Extension Type DTO,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     public interface IFileExtensionTypeDTO : IDTO
     {

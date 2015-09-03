@@ -4,7 +4,7 @@
 
     /// <summary>
     /// Contains/Represents/Provides ViewModel property mapping attribute,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
     public sealed class ViewModelPropertyMappingAttribute : Attribute

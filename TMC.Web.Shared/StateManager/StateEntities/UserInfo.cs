@@ -7,7 +7,7 @@ namespace TMC.Web.Shared
 {
     /// <summary>
     /// Represents User Info state entity,
-    /// Author		: Nagarro
+    /// Author		: TMC
     /// </summary>
     public class UserInfo : StateEntityBase
     {

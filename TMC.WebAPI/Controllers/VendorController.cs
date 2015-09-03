@@ -62,12 +62,25 @@ namespace TMC.Controllers
                 string egsContent = await egsResponse.Content.ReadAsStringAsync();
                 var lstExpenseGroupStatusses = JsonConvert.DeserializeObject<ListingItemViewModel>(egsContent);
                 model = lstExpenseGroupStatusses;
+
+                model.ActionName = "AddEditListing";
+                model.ControllerName = "VendorController";
+                model.FormId = "listingForm";
+
             }
             else
             {
                 return Content("An error occurred.");
             }
             return View("AddEditListing", model);
+        }
+
+        [HttpPost]
+         public async Task<ActionResult> AddEditListing(ListingItemViewModel listingViewModel)
+        {
+            var client = TMCHttpClient.GetClient();
+
+            return View("AddEditListing", listingViewModel);
         }
     }
 }

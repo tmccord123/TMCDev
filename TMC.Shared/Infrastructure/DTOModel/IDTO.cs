@@ -7,7 +7,7 @@ namespace TMC.Shared
 {
     /// <summary>
     /// Defines a contract for base DTO,
-    /// Author : Nagarro 
+    /// Author : TMC 
     /// </summary>
     public interface IDTO : ICloneable, INotifyPropertyChanged, INotifyPropertyChanging
     {
