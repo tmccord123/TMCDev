@@ -54,6 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\EntityConverter.cs" />
+    <Compile Include="EntityModels\AdditionalInfo.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Area.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityModels\AspNetRole.cs">
       <DependentUpon>TMCModel.tt</DependentUpon>
     </Compile>
@@ -69,10 +75,64 @@
     <Compile Include="EntityModels\Blog.cs">
       <DependentUpon>TMCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityModels\Category.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\CategoryRelation.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\City.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\ContactType.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Country.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityModels\C__MigrationHistory.cs">
       <DependentUpon>TMCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityModels\File.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\FileExtension.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\FileType.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Listing.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\ListingContact.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\ListingLocation.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\ListingMedia.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\ListingPaymentMode.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\PaymentMode.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityModels\Products.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Requirement.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\RequirementCategory.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\RequirementLocation.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\State.cs">
       <DependentUpon>TMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModels\TMCModel.Context.cs">
@@ -90,6 +150,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TMCModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="EntityModels\User.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\UserType.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Vendor.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\VendorServiceLocation.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Exceptions\EntityConversionException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

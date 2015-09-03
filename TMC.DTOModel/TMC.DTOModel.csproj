@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DataTransferObjects\BlogDTO.cs" />
+    <Compile Include="DataTransferObjects\CityDTO.cs" />
     <Compile Include="DataTransferObjects\DTOBase.cs" />
     <Compile Include="DataTransferObjects\ListingDTO.cs" />
     <Compile Include="DataTransferObjects\UserDTO.cs" />

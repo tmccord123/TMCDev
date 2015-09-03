@@ -56,9 +56,11 @@
     <Compile Include="Functional\BusinessFacades\IVendorFacade.cs" />
     <Compile Include="Functional\BusinessFacades\IProductFacade.cs" />
     <Compile Include="Functional\BusinessFacades\IUserFacade.cs" />
+    <Compile Include="Functional\DataAccessComponents\ICommonDAC.cs" />
     <Compile Include="Functional\DataAccessComponents\IVendorDAC.cs" />
     <Compile Include="Functional\DataAccessComponents\IUserDAC.cs" />
     <Compile Include="Functional\DataAccessComponents\IProductDAC.cs" />
+    <Compile Include="Functional\DataTransferObjects\ICityDTO.cs" />
     <Compile Include="Functional\DataTransferObjects\DTOType.cs" />
     <Compile Include="Functional\DataTransferObjects\IBlogDTO.cs" />
     <Compile Include="Functional\DataTransferObjects\IFileDTO.cs" />

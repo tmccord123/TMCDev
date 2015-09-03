@@ -29,6 +29,7 @@ namespace EntityDataModel.EntityModels
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Discriminator { get; set; }
+        public string MobileNo { get; set; }
     
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }

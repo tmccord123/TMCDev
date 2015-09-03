@@ -35,6 +35,12 @@ namespace TMC.Shared
         /// The Listing DTO
         /// </summary>
         [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ListingDTO")]
-        Listing = 4
+        Listing = 4,
+
+        /// <summary>
+        /// The City DTO
+        /// </summary>
+        [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.CityDTO")]
+        City = 4,
     }
 }

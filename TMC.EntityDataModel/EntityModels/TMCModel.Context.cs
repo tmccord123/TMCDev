@@ -32,5 +32,29 @@ namespace EntityDataModel.EntityModels
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Blog> Blogs { get; set; }
         public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<AdditionalInfo> AdditionalInfo { get; set; }
+        public virtual DbSet<Area> Area { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<CategoryRelation> CategoryRelation { get; set; }
+        public virtual DbSet<City> City { get; set; }
+        public virtual DbSet<ContactType> ContactType { get; set; }
+        public virtual DbSet<Country> Country { get; set; }
+        public virtual DbSet<File> File { get; set; }
+        public virtual DbSet<FileExtension> FileExtension { get; set; }
+        public virtual DbSet<FileType> FileType { get; set; }
+        public virtual DbSet<Listing> Listing { get; set; }
+        public virtual DbSet<ListingContact> ListingContact { get; set; }
+        public virtual DbSet<ListingLocation> ListingLocation { get; set; }
+        public virtual DbSet<ListingMedia> ListingMedia { get; set; }
+        public virtual DbSet<ListingPaymentMode> ListingPaymentMode { get; set; }
+        public virtual DbSet<PaymentMode> PaymentMode { get; set; }
+        public virtual DbSet<Requirement> Requirement { get; set; }
+        public virtual DbSet<RequirementCategory> RequirementCategory { get; set; }
+        public virtual DbSet<RequirementLocation> RequirementLocation { get; set; }
+        public virtual DbSet<State> State { get; set; }
+        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<UserType> UserType { get; set; }
+        public virtual DbSet<Vendor> Vendor { get; set; }
+        public virtual DbSet<VendorServiceLocation> VendorServiceLocation { get; set; }
     }
 }

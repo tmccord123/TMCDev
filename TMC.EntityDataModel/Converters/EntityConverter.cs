@@ -7,15 +7,16 @@ namespace EntityDataModel.EntityModels
     using System.Reflection;
     using System.Threading;
 
+    using JCC.JCCSems.EntityDataModel;
+
     using TMC.Shared;
 
     using MappingType = TMC.Shared.MappingType;
 
     /// <summary>
-    /// Represents entity converter,
-    /// Author		: Nagarro
+    /// The entity converter.
     /// </summary>
-   /* public sealed class EntityConverter
+    public sealed class EntityConverter
     {
         #region Ctor
 
@@ -345,5 +346,5 @@ namespace EntityDataModel.EntityModels
         }
 
         #endregion
-    }*/
+    }
 }
