@@ -35,8 +35,6 @@
         <EntityTypeShape EntityType="TMCModel.RequirementCategory" Width="1.5" PointX="17" PointY="5.75" />
         <EntityTypeShape EntityType="TMCModel.RequirementLocation" Width="1.5" PointX="17" PointY="10.375" />
         <EntityTypeShape EntityType="TMCModel.State" Width="1.5" PointX="3" PointY="17.125" />
-        <EntityTypeShape EntityType="TMCModel.User" Width="1.5" PointX="12.5" PointY="0.75" />
-        <EntityTypeShape EntityType="TMCModel.UserType" Width="1.5" PointX="7.5" PointY="3.25" />
         <EntityTypeShape EntityType="TMCModel.Vendor" Width="1.5" PointX="7.5" PointY="13.25" />
         <EntityTypeShape EntityType="TMCModel.VendorServiceLocation" Width="1.5" PointX="9.75" PointY="11" />
         <AssociationConnector Association="TMCModel.FK_Requirement_AdditionalInfo" />
@@ -62,10 +60,13 @@
         <AssociationConnector Association="TMCModel.FK_ListingMedia_Listing" />
         <AssociationConnector Association="TMCModel.FK_ListingPaymentMode_Listing" />
         <AssociationConnector Association="TMCModel.FK_ListingPaymentMode_PaymentMode" />
-        <AssociationConnector Association="TMCModel.FK_Requirement_User" />
         <AssociationConnector Association="TMCModel.FK_RequirementCategory_Requirement" />
         <AssociationConnector Association="TMCModel.FK_RequirementLocation_Requirement" />
         <AssociationConnector Association="TMCModel.FK_VendorServiceLocation_Vendor" />
+        <EntityTypeShape EntityType="TMCModel.User" Width="1.5" PointX="12.5" PointY="0.75" />
+        <EntityTypeShape EntityType="TMCModel.UserType" Width="1.5" PointX="10.25" PointY="1.875" />
+        <AssociationConnector Association="TMCModel.FK_Requirement_User" />
+        <AssociationConnector Association="TMCModel.FK_User_UserType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

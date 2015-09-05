@@ -37,8 +37,8 @@ namespace EntityDataModel.EntityModels
         public bool IsDeleted { get; set; }
     
         public virtual AdditionalInfo AdditionalInfo { get; set; }
-        public virtual User User { get; set; }
         public virtual ICollection<RequirementCategory> RequirementCategory { get; set; }
         public virtual ICollection<RequirementLocation> RequirementLocation { get; set; }
+        public virtual User User { get; set; }
     }
 }

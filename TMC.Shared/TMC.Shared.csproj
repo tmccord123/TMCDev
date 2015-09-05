@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Enums\MappingType.cs" />
     <Compile Include="Functional\BusinessDomainComponents\BDCType.cs" />
+    <Compile Include="Functional\BusinessDomainComponents\ICommonBDC.cs" />
     <Compile Include="Functional\BusinessDomainComponents\IProductBDC.cs" />
     <Compile Include="Functional\BusinessDomainComponents\IVendorBDC.cs" />
     <Compile Include="Functional\BusinessDomainComponents\IUserBDC.cs" />

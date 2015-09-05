@@ -26,7 +26,7 @@ namespace EntityDataModel.EntityModels
         public Nullable<int> CityId { get; set; }
         public string AreaId { get; set; }
         public Nullable<int> PinCode { get; set; }
-        public string UserTypeId { get; set; }
+        public short UserTypeId { get; set; }
         public System.DateTime CreatedOn { get; set; }
         public System.DateTime UpdatedOn { get; set; }
         public long CreatedBy { get; set; }
@@ -35,5 +35,6 @@ namespace EntityDataModel.EntityModels
         public Nullable<bool> IsDeleted { get; set; }
     
         public virtual ICollection<Requirement> Requirement { get; set; }
+        public virtual UserType UserType { get; set; }
     }
 }

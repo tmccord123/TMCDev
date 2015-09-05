@@ -349,7 +349,7 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="CityId" Type="int" />
           <Property Name="AreaId" Type="nvarchar" MaxLength="255" />
           <Property Name="PinCode" Type="int" />
-          <Property Name="UserTypeId" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="UserTypeId" Type="smallint" Nullable="false" />
           <Property Name="CreatedOn" Type="datetime" Nullable="false" />
           <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="bigint" Nullable="false" />
@@ -735,6 +735,18 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_User_UserType">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_VendorServiceLocation_Area">
           <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
           <End Role="VendorServiceLocation" Type="Self.VendorServiceLocation" Multiplicity="*" />
@@ -930,6 +942,10 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
             <End Role="Country" EntitySet="Country" />
             <End Role="State" EntitySet="State" />
           </AssociationSet>
+          <AssociationSet Name="FK_User_UserType" Association="Self.FK_User_UserType">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
           <AssociationSet Name="FK_VendorServiceLocation_Area" Association="Self.FK_VendorServiceLocation_Area">
             <End Role="Area" EntitySet="Area" />
             <End Role="VendorServiceLocation" EntitySet="VendorServiceLocation" />
@@ -1094,8 +1110,6 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <EntitySet Name="RequirementCategory" EntityType="TMCModel.RequirementCategory" />
           <EntitySet Name="RequirementLocation" EntityType="TMCModel.RequirementLocation" />
           <EntitySet Name="State" EntityType="TMCModel.State" />
-          <EntitySet Name="User" EntityType="TMCModel.User" />
-          <EntitySet Name="UserType" EntityType="TMCModel.UserType" />
           <EntitySet Name="Vendor" EntityType="TMCModel.Vendor" />
           <EntitySet Name="VendorServiceLocation" EntityType="TMCModel.VendorServiceLocation" />
           <AssociationSet Name="FK_Requirement_AdditionalInfo" Association="TMCModel.FK_Requirement_AdditionalInfo">
@@ -1190,10 +1204,6 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
             <End Role="PaymentMode" EntitySet="PaymentMode" />
             <End Role="ListingPaymentMode" EntitySet="ListingPaymentMode" />
           </AssociationSet>
-          <AssociationSet Name="FK_Requirement_User" Association="TMCModel.FK_Requirement_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Requirement" EntitySet="Requirement" />
-          </AssociationSet>
           <AssociationSet Name="FK_RequirementCategory_Requirement" Association="TMCModel.FK_RequirementCategory_Requirement">
             <End Role="Requirement" EntitySet="Requirement" />
             <End Role="RequirementCategory" EntitySet="RequirementCategory" />
@@ -1205,6 +1215,16 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <AssociationSet Name="FK_VendorServiceLocation_Vendor" Association="TMCModel.FK_VendorServiceLocation_Vendor">
             <End Role="Vendor" EntitySet="Vendor" />
             <End Role="VendorServiceLocation" EntitySet="VendorServiceLocation" />
+          </AssociationSet>
+          <EntitySet Name="User" EntityType="TMCModel.User" />
+          <EntitySet Name="UserType" EntityType="TMCModel.UserType" />
+          <AssociationSet Name="FK_Requirement_User" Association="TMCModel.FK_Requirement_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Requirement" EntitySet="Requirement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserType" Association="TMCModel.FK_User_UserType">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Products">
@@ -1466,9 +1486,9 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="AdditionalInfo" Relationship="TMCModel.FK_Requirement_AdditionalInfo" FromRole="Requirement" ToRole="AdditionalInfo" />
-          <NavigationProperty Name="User" Relationship="TMCModel.FK_Requirement_User" FromRole="Requirement" ToRole="User" />
           <NavigationProperty Name="RequirementCategory" Relationship="TMCModel.FK_RequirementCategory_Requirement" FromRole="Requirement" ToRole="RequirementCategory" />
           <NavigationProperty Name="RequirementLocation" Relationship="TMCModel.FK_RequirementLocation_Requirement" FromRole="Requirement" ToRole="RequirementLocation" />
+          <NavigationProperty Name="User" Relationship="TMCModel.FK_Requirement_User" FromRole="Requirement" ToRole="User" />
         </EntityType>
         <EntityType Name="RequirementCategory">
           <Key>
@@ -1508,34 +1528,6 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="City" Relationship="TMCModel.FK_City_State" FromRole="State" ToRole="City" />
           <NavigationProperty Name="Country" Relationship="TMCModel.FK_State_Country" FromRole="State" ToRole="Country" />
-        </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="AddressLine1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="AddressLine2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="CityId" Type="Int32" />
-          <Property Name="AreaId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="PinCode" Type="Int32" />
-          <Property Name="UserTypeId" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="Int64" Nullable="false" />
-          <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Requirement" Relationship="TMCModel.FK_Requirement_User" FromRole="User" ToRole="Requirement" />
-        </EntityType>
-        <EntityType Name="UserType">
-          <Key>
-            <PropertyRef Name="UserTypeId" />
-          </Key>
-          <Property Name="UserTypeId" Type="Int16" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Vendor">
           <Key>
@@ -1844,18 +1836,6 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Requirement_User">
-          <End Type="TMCModel.User" Role="User" Multiplicity="1" />
-          <End Type="TMCModel.Requirement" Role="Requirement" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="Requirement">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_RequirementCategory_Requirement">
           <End Type="TMCModel.Requirement" Role="Requirement" Multiplicity="1" />
           <End Type="TMCModel.RequirementCategory" Role="RequirementCategory" Multiplicity="*" />
@@ -1889,6 +1869,60 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
             </Principal>
             <Dependent Role="VendorServiceLocation">
               <PropertyRef Name="VendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CityId" Type="Int32" />
+          <Property Name="AreaId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PinCode" Type="Int32" />
+          <Property Name="UserTypeId" Type="Int16" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+          <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Requirement" Relationship="TMCModel.FK_Requirement_User" FromRole="User" ToRole="Requirement" />
+          <NavigationProperty Name="UserType" Relationship="TMCModel.FK_User_UserType" FromRole="User" ToRole="UserType" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="UserTypeId" />
+          </Key>
+          <Property Name="UserTypeId" Type="Int16" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="TMCModel.FK_User_UserType" FromRole="UserType" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Requirement_User">
+          <End Type="TMCModel.User" Role="User" Multiplicity="1" />
+          <End Type="TMCModel.Requirement" Role="Requirement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Requirement">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserType">
+          <End Type="TMCModel.UserType" Role="UserType" Multiplicity="1" />
+          <End Type="TMCModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserTypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2249,6 +2283,34 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Vendor">
+            <EntityTypeMapping TypeName="TMCModel.Vendor">
+              <MappingFragment StoreEntitySet="Vendor">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VendorServiceLocation">
+            <EntityTypeMapping TypeName="TMCModel.VendorServiceLocation">
+              <MappingFragment StoreEntitySet="VendorServiceLocation">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="IsCityLevel" ColumnName="IsCityLevel" />
+                <ScalarProperty Name="IsStateLevel" ColumnName="IsStateLevel" />
+                <ScalarProperty Name="IsCountryLevel" ColumnName="IsCountryLevel" />
+                <ScalarProperty Name="IsGlobalLevel" ColumnName="IsGlobalLevel" />
+                <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+                <ScalarProperty Name="VendorServiceLocationId" ColumnName="VendorServiceLocationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="TMCModel.User">
               <MappingFragment StoreEntitySet="User">
@@ -2275,34 +2337,6 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Vendor">
-            <EntityTypeMapping TypeName="TMCModel.Vendor">
-              <MappingFragment StoreEntitySet="Vendor">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="VendorId" ColumnName="VendorId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VendorServiceLocation">
-            <EntityTypeMapping TypeName="TMCModel.VendorServiceLocation">
-              <MappingFragment StoreEntitySet="VendorServiceLocation">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-                <ScalarProperty Name="IsCityLevel" ColumnName="IsCityLevel" />
-                <ScalarProperty Name="IsStateLevel" ColumnName="IsStateLevel" />
-                <ScalarProperty Name="IsCountryLevel" ColumnName="IsCountryLevel" />
-                <ScalarProperty Name="IsGlobalLevel" ColumnName="IsGlobalLevel" />
-                <ScalarProperty Name="VendorId" ColumnName="VendorId" />
-                <ScalarProperty Name="VendorServiceLocationId" ColumnName="VendorServiceLocationId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
