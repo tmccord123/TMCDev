@@ -37,8 +37,6 @@ namespace TMC.WebAPI.Controllers.Api
                 listingViewModel.Owner = vendorViewModel;
             }
 
-
-
             return Ok(vendorViewModel);
 
 

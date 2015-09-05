@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity.Core.Objects.DataClasses;
+ 
 
-namespace EntityDataModel.EntityModels
+namespace TMC.EntityDataModel
 {
     using System; 
     using System.Linq;
