@@ -4,11 +4,14 @@ using TMC.ViewModels;
 
 namespace TMC.WebAPI.Controllers.Api
 {
-    // call like this http://localhost:59974//api/vendorapi/1
-    [System.Web.Http.RoutePrefix("api/listing")]
+    //http://www.asp.net/web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
+    [System.Web.Http.RoutePrefix("api/listing")]// this is the base http://localhost:59974/api/listing
     public class ListingApiController : ApiController
     {
-        public IHttpActionResult Get(int id, string fields = null)
+        [Route("{id:int}")]  // call like this http://localhost:59974/api/listing/1
+        //[Route("{id:int}/details")] // call like this http://localhost:59974/api/listing/1/details
+        public IHttpActionResult Getsdfdf(int id, string fields = null)// Hey the name of the method not necessarily to be Get only 
+            //you can give any name starting with "Get" as it is using the route attribute here
         {
             var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
             var listingResult = listingFacade.GetlistingById(id);

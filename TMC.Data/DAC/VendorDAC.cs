@@ -34,7 +34,7 @@ namespace TMC.Data
  
         public IListingDTO GetListingById(int listingId)
         {
-            var userDto = (IUserDTO)DTOFactory.Instance.Create(DTOType.User);
+           // var userDto = (IUserDTO)DTOFactory.Instance.Create(DTOType.User);
  	        var listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
             try
             {

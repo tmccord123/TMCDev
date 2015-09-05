@@ -41,6 +41,6 @@ namespace TMC.Shared
         /// The City DTO
         /// </summary>
         [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.CityDTO")]
-        City = 4,
+        City = 5,
     }
 }
