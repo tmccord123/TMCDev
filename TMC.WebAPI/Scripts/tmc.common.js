@@ -444,4 +444,9 @@ var tmcCommon = new function () {
             'margin-left': newMarginLeft + 'px'
         });
     };
+    
+    this.attachEvent = function (outerSelector, eventName, innerSelector, callback) {
+        $(outerSelector).off(eventName, innerSelector);
+        $(outerSelector).on(eventName, innerSelector, callback);
+    };
 };

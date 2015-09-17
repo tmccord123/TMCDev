@@ -186,6 +186,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\Resource.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -194,7 +199,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\Api\CommonApiController.cs" />
+    <Compile Include="Controllers\Api\CategoryApiController.cs" />
+    <Compile Include="Controllers\Api\CityApiController.cs" />
     <Compile Include="Controllers\Api\PlaceAutoCompleteApiController .cs" />
     <Compile Include="Controllers\Api\ListingApiController.cs" />
     <Compile Include="Controllers\Api\VendorApiController.cs" />
@@ -216,6 +222,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\BlogViewModel.cs" />
+    <Compile Include="ViewModels\Common\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\Common\CityViewModel.cs" />
+    <Compile Include="ViewModels\Home\HomeViewModel.cs" />
     <Compile Include="ViewModels\ProductItemViewModel.cs" />
     <Compile Include="ViewModels\Vendor\BaseViewModel.cs" />
     <Compile Include="ViewModels\Vendor\UserViewModel.cs" />
@@ -230,6 +239,7 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\EditorStyle.css" />
     <Content Include="css\flexslider.css" />
+    <Content Include="css\jquery-ui.css" />
     <Content Include="css\modern-business.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -437,6 +447,7 @@
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\x%282%29" />
     <Content Include="css\flexslider.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\tmc.common.dataService.js" />
     <Content Include="Scripts\tmc.common.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -450,6 +461,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\tmc.home.index.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -499,8 +511,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ViewModels\Account\" />
-    <Folder Include="ViewModels\Common\" />
-    <Folder Include="ViewModels\Home\" />
     <Folder Include="ViewModels\User\" />
   </ItemGroup>
   <ItemGroup>
@@ -519,6 +529,12 @@
       <Project>{e6af7f82-c3bd-4bb0-a5a7-fa4a0252f73c}</Project>
       <Name>TMC.Web.Shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Resource.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

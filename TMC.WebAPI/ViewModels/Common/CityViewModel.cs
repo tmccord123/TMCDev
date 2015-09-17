@@ -1,49 +1,47 @@
 ﻿
-namespace TMC.Shared
+namespace TMC.ViewModels
 {
+    using TMC.Web.Shared;
+
     /// <summary>
-    /// The CityDTO interface.
+    /// The city view model.
     /// </summary>
-    public interface ICityDTO : IDTO
+    public class CityViewModel : ViewModelBase
     {
         /// <summary>
         /// Gets or sets the city id.
         /// </summary>
-        int CityId { get; set; }
+        public int CityId { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
-        string Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the state id.
         /// </summary>
-        int StateId { get; set; }
+        public int StateId { get; set; }
 
         /// <summary>
         /// Gets or sets the latitude.
         /// </summary>
-        string Lat { get; set; }
+        public string Lat { get; set; }
 
         /// <summary>
         /// Gets or sets the longitude.
         /// </summary>
-        string Long { get; set; }
-
-        /// <summary>
-        /// Gets or sets the pin code.
-        /// </summary>
-        //int PinCode { get; set; }
+        public string Long { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether is popular.
         /// </summary>
-        bool IsPopular { get; set; }
+        public bool IsPopular { get; set; }
 
         /// <summary>
         /// Gets or sets the population class.
         /// </summary>
-        short PopulationClass { get; set; }
+        public short PopulationClass { get; set; }
+
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="Functional\BusinessDomainComponents\IVendorBDC.cs" />
     <Compile Include="Functional\BusinessDomainComponents\IUserBDC.cs" />
     <Compile Include="Functional\BusinessFacades\IAccountManagementFacade.cs" />
+    <Compile Include="Functional\BusinessFacades\ICommonFacade.cs" />
     <Compile Include="Functional\BusinessFacades\IListingFacade.cs" />
     <Compile Include="Functional\BusinessFacades\IVendorFacade.cs" />
     <Compile Include="Functional\BusinessFacades\IProductFacade.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Functional\DataAccessComponents\IVendorDAC.cs" />
     <Compile Include="Functional\DataAccessComponents\IUserDAC.cs" />
     <Compile Include="Functional\DataAccessComponents\IProductDAC.cs" />
+    <Compile Include="Functional\DataTransferObjects\ICategoryDTO.cs" />
     <Compile Include="Functional\DataTransferObjects\ICityDTO.cs" />
     <Compile Include="Functional\DataTransferObjects\DTOType.cs" />
     <Compile Include="Functional\DataTransferObjects\IBlogDTO.cs" />

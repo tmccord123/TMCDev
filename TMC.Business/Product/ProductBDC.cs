@@ -42,8 +42,7 @@ namespace TMC.Business
                                                       ? OperationResult<IList<IProductDTO>>.CreateSuccessResult(products)
                                                       : OperationResult<IList<IProductDTO>>.CreateFailureResult(
                                                        ResourceUtility.GetCaptionFor(
-                                              ResourceConstants.Training.TrainingPlan.Index.Messages
-                                                               .FailedToFetchTrainingCompanies));
+                                              ResourceConstants.Vendor.ErrorMessages.FailedToFetchListing));
 
             }
             catch (DACException dacEx)

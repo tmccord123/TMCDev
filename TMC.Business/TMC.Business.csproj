@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\CommonBDC.cs" />
     <Compile Include="ErrorHandling\BusinessServiceException.cs" />
     <Compile Include="ErrorHandling\ErrorHandler.cs" />
     <Compile Include="ErrorHandling\ErrorHandlerBehavior.cs" />

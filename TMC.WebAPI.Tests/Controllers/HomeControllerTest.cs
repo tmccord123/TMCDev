@@ -9,6 +9,8 @@ using TMC.WebAPI.Controllers;
 
 namespace TMC.WebAPI.Tests.Controllers
 {
+    using System.Threading.Tasks;
+
     [TestClass]
     public class HomeControllerTest
     {
@@ -19,7 +21,7 @@ namespace TMC.WebAPI.Tests.Controllers
             HomeController controller = new HomeController();
 
             // Act
-            ViewResult result = controller.Index("Test") as ViewResult;
+            Task<ActionResult> result = controller.Index("Test") as Task<ActionResult>;
 
             // Assert
             Assert.IsNotNull(result);

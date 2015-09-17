@@ -23,8 +23,11 @@ namespace TMC.WebAPI
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/slider").Include(
-                     "~/Scripts/jquery.flexslider.js"));
+            bundles.Add(new ScriptBundle("~/bundles/site").Include(
+                     "~/Scripts/jquery.flexslider.js",
+                     "~/Scripts/jquery-ui.js",
+                     "~/Scripts/tmc.common.js"));
+
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
@@ -32,7 +35,8 @@ namespace TMC.WebAPI
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                       "~/css/modern-business.css",
-                      "~/css/flexslider.css"));
+                      "~/css/flexslider.css",
+                      "~/css/jquery-ui.css"));
         }
     }
 }

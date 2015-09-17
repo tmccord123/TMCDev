@@ -78,6 +78,6 @@ namespace TMC.DTOModel
         [DataMember]
         [ViewModelPropertyMapping(MappingDirectionType.Both, "PopulationClass")]
         [EntityPropertyMapping(MappingDirectionType.Both, "PopulationClass")]
-        public int PopulationClass { get; set; }
+        public short PopulationClass { get; set; }
     }
 }

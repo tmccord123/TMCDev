@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Facades\AccountManagementFacade.cs" />
+    <Compile Include="Facades\CommonFacade.cs" />
     <Compile Include="Facades\ProductFacade.cs" />
     <Compile Include="Facades\ListingFacade.cs" />
     <Compile Include="Facades\UserFacade.cs" />

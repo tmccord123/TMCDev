@@ -27,7 +27,14 @@ namespace TMC.Shared
         /// Vendor BDC
         /// </summary>
         [QualifiedTypeName("TMC.Business.dll", "TMC.Business.VendorBDC")]
-        Vendor = 3
+        Vendor = 3,
+
+        /// <summary>
+        /// Common BDC
+        /// </summary>
+        [QualifiedTypeName("TMC.Business.dll", "TMC.Business.CommonBDC")]
+        Common = 4,
+        
         
     }
 }

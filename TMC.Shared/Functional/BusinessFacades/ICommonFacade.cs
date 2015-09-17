@@ -1,31 +1,27 @@
 ﻿
 namespace TMC.Shared
 {
-    #region NameSpaces
-
     using System.Collections.Generic;
 
-    #endregion
-
     /// <summary>
-    /// File DAC interface.
+    /// The CommonFacade interface.
     /// </summary>
-    public interface ICommonDAC : IDataAccessComponent
+    public interface ICommonFacade : IFacade
     {
         /// <summary>
         /// The get cities.
         /// </summary>
         /// <returns>
-        /// List of cities <see cref="IList"/>.
+        /// The <see cref="OperationResult"/>.
         /// </returns>
-        IList<ICityDTO> ReadCities();
+        OperationResult<IList<ICityDTO>> GetCities();
 
         /// <summary>
         /// The get categories.
         /// </summary>
         /// <returns>
-        /// Fetch list of categories <see cref="IList"/>.
+        /// The <see cref="OperationResult"/>.
         /// </returns>
-        IList<ICategoryDTO> ReadCategories();
+        OperationResult<IList<ICategoryDTO>> GetCategories();
     }
 }

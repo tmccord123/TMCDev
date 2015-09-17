@@ -1,23 +1,100 @@
-﻿@{
+﻿@using TMC.Shared
+@using TMC.ViewModels
+@model HomeViewModel
+@{
     ViewBag.Title = "Home";
 }
 
-<script>
-    $(window).load(function () {
-        $('.flexslider').flexslider({
-            slideshowSpeed: 5000,
-            animationSpeed: 3000,
-            controlNav: false,
-            directionNav: false,
-            prevText: '',
-            nextText:''
+@section scripts{
+    @Scripts.Render("~/Scripts/tmc.home.index.js")
+
+    <script type="text/javascript">
+
+        $(function () {
+            homeIndex = new HomeIndex();
+            homeIndex.initialize();
         });
-    });
+
+    </script>
+}
+<style>
+    .flexslider {
+        margin: 0;
+    }
+.img-home-portfolio {
+    margin-bottom: 0;
+}
+.home-category-list {
+    font-size: 11px;
     
-</script>
+}
+.searchPopup {
+    position: absolute;
+    margin: auto;
+    padding: 20%;
+    z-index: 3;
+}
+
+.topFields {
+    position: relative;
+    background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
+    border-radius: 5px;
+    float: left;
+    padding: 13px;
+    z-index: 3;
+}
+.ul-no-bullets {
+    list-style-type: none;
+}
+
+    .li-red {
+        color: #D5535A;
+    }
+.font-30 {
+    font-size: 30px;
+}
+
+.font-20 {
+    font-size: 20px;
+}
+.tmc-blue {
+    color: #4E92DB;
+}
+.margin-left-10 {
+    margin-left: 10px;
+}
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+.ui-autocomplete-loading {
+    background: white url("/img/autocomplete/ui-anim_basic_16x16.gif") right center no-repeat;
+  }
+  /*.tmc-auto { width: 25em; }*/
+/*.ui-autocomplete {
+    max-height: 100px;
+    overflow-y: auto;
+  
+    overflow-x: hidden;
+  }*/
+</style>
+<div class="searchPopup row">
+    <div class="col-sm-12 topFields">
+        <div class="col-sm-5">
+            <input type="text" id="ddlCities" class="form-control" placeholder="e.g. Delhi, Gurgaon"/>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="ddlCategories" class="form-control" placeholder="e.g. Tution, Hotels"/>
+        </div>
+       
+            <button id="btnSearchMain" class="col-sm-1 btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        
+    </div>
+</div>
 
 <!-- New Slider Start-->
-<div class="flexslider">
+<div class="row">
+<div class="flexslider col-sm-12" style="position: relative">
+   
     <ul class="slides">
         <li>
             <img src="/img/banner.jpg" alt=""></li>
@@ -26,49 +103,41 @@
         <li>
             <img src="/img/banner2.jpg" alt=""></li>
     </ul>
+    
 </div>
-
+</div>
 <!-- New Slider END-->
-@*<div id="myCarousel" class="carousel slide">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-        <div class="item active">
-            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Local Cord');"></div>
-            <div class="carousel-caption">
-                <h1> A free platform to fullfill your service needs and sharing trends</h1>
-            </div>
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image: url('/img/fashion.png');padding-left:20%;  height: 100% !important; width: 70% !important; "></div>
-              
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
-            <div class="carousel-caption">
-                <h1>
-                    Additional Layout Options at <a href="http://startbootstrap.com">http://startbootstrap.com</a>
-                </h1>
-            </div>
-        </div>
-    </div>
-
-    <!-- Controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="icon-prev"></span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="icon-next"></span>
-    </a>
-</div>*@
+<!-- Categories Section Start-->
 
 <div class="section">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h2>@ResourceUtility.GetCaptionFor(
+                                              ResourceConstants.Common.Labels.MoreCategories)</h2>
+                <hr>
+            </div>
+            @foreach (var category in Model.TopCategories)
+            {
+                <div class="col-sm-1">
+                    <a href="" class="home-category-list">
+                        <img class="img-responsive img-home-portfolio" src="/img/nav.png">
+                        @category.ShortName
+                    </a>
+                </div>
+            }
+        <!-- /.row -->
+</div>
+    </div>
+    <!-- /.container -->
+
+</div>
+
+<!-- Categories Section END-->
+@*<div class="section">
 
     <div class="container">
 
@@ -91,96 +160,30 @@
     </div>
     <!-- /.container -->
 
-</div>
-<!-- /.section -->
-
-<div class="section-colored text-center">
-
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-12">
-                <h2>Modern Business: A Clean &amp; Simple Full Website Template by Start Bootstrap</h2>
-                <p>A complete website design featuring various single page templates from Start Bootstraps library of free HTML starter templates.</p>
-                <hr>
-            </div>
-        </div>
-        <!-- /.row -->
-
-    </div>
-    <!-- /.container -->
-
-</div>
-<!-- /.section-colored -->
-
-<div class="section">
-
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2>Display Some Work on the Home Page Portfolio</h2>
-                <hr>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
-                </a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-    </div>
-    <!-- /.container -->
-
-</div>
+</div>*@
 <!-- /.section -->
 
 <div class="section-colored">
 
     <div class="container">
 
+        <div class="row  text-center">
+            <div class="col-sm-12">
+                <h2>How LocalCord Works</h2>
+                <p>Your search will end here</p>
+                <hr>
+            </div>
+        </div>
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <h2>Modern Business Features Include:</h2>
-                <ul>
-                    <li>Bootstrap 3 Framework</li>
-                    <li>Mobile Responsive Design</li>
-                    <li>Predefined File Paths</li>
-                    <li>Working PHP Contact Page</li>
-                    <li>Minimal Custom CSS Styles</li>
-                    <li>Unstyled: Add Your Own Style and Content!</li>
-                    <li>Font-Awesome fonts come pre-installed!</li>
-                    <li>100% <strong>Free</strong> to Use</li>
-                    <li>Open Source: Use for any project, private or commercial!</li>
+            <div class="col-sm-6">
+                <h2 class="tmc-blue">Get your job done. Fast and easy.</h2>
+                <ul class="ul-no-bullets">
+                    <li class="li-red margin-bottom-10"><span class="glyphicon glyphicon-pencil font-30"></span><span class="font-20 margin-left-10">  Tell us about the local service you are looking for</span></li>
+                    <li class="li-red margin-bottom-10"><span class="glyphicon glyphicon-earphone font-30"></span><span class="font-20 margin-left-10">  Get free quotes from right businesses</span></li>
+                    <li class="li-red margin-bottom-10"><span class="glyphicon glyphicon-ok font-30"></span><span class="font-20 margin-left-10">  Choose the business that best fits your need. Done!</span></li>
                 </ul>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="col-sm-4">
                 <img class="img-responsive" src="http://placehold.it/700x450/ffffff/cccccc">
             </div>
         </div>
@@ -192,27 +195,34 @@
 </div>
 <!-- /.section-colored -->
 
+
+<!-- /.section -->
+
+
+
+
 <div class="section">
 
     <div class="container">
-
+        <div class="row  text-center">
+            <div class="col-sm-12">
+                <h2>Be a Professional</h2>
+                <p>Connect with consumers</p>
+                <hr>
+            </div>
+        </div>
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="col-sm-4">
                 <img class="img-responsive" src="http://placehold.it/700x450">
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <h2>Modern Business Features Include:</h2>
-                <ul>
-                    <li>Bootstrap 3 Framework</li>
-                    <li>Mobile Responsive Design</li>
-                    <li>Predefined File Paths</li>
-                    <li>Working PHP Contact Page</li>
-                    <li>Minimal Custom CSS Styles</li>
-                    <li>Unstyled: Add Your Own Style and Content!</li>
-                    <li>Font-Awesome fonts come pre-installed!</li>
-                    <li>100% <strong>Free</strong> to Use</li>
-                    <li>Open Source: Use for any project, private or commercial!</li>
+            <div class="col-sm-6">
+                <h2 class="tmc-blue">Get your job done. Fast and easy.</h2>
+                <ul class="ul-no-bullets">
+                    <li class="li-red margin-bottom-10"><span class="glyphicon glyphicon-pencil font-30"></span><span class="font-20 margin-left-10">  Create Free Profile</span></li>
+                    <li class="li-red margin-bottom-10"><span class="glyphicon glyphicon-earphone font-30"></span><span class="font-20 margin-left-10">  Search Prospective Customers in Your Location</span></li>
+                    <li class="li-red margin-bottom-10"><span class="glyphicon glyphicon-ok font-30"></span><span class="font-20 margin-left-10">  Enrich your Profile & Reach out to more Customers</span></li>
                 </ul>
+             <a class="btn btn-lg btn-primary pull-right" href="">Be a Professional</a>
             </div>
         </div>
         <!-- /.row -->
@@ -223,18 +233,3 @@
 </div>
 <!-- /.section -->
 
-<div class="container">
-
-    <div class="row well">
-        <div class="col-lg-8 col-md-8">
-            <h4>'Modern Business' is a ready-to-use, Bootstrap 3 updated, multi-purpose HTML theme!</h4>
-            <p>For more templates and more page options that you can integrate into this website template, visit Start Bootstrap!</p>
-        </div>
-        <div class="col-lg-4 col-md-4">
-            <a class="btn btn-lg btn-primary pull-right" href="http://startbootstrap.com">See More Templates!</a>
-        </div>
-    </div>
-    <!-- /.row -->
-
-</div>
-<!-- /.container -->

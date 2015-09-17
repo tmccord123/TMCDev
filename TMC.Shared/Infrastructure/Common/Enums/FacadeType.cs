@@ -23,21 +23,28 @@
         AccountManagement = 2,
 
         /// <summary>
-        /// User Facade
+        /// Product Facade
         /// </summary>
         [QualifiedTypeName("TMC.BusinessFacade.dll", "TMC.BusinessFacade.ProductFacade")]
         Product = 3,
         
         /// <summary>
-        /// User Facade
+        /// Vendor Facade
         /// </summary>
         [QualifiedTypeName("TMC.BusinessFacade.dll", "TMC.BusinessFacade.VendorFacade")]
         Vendor = 4,
 
         /// <summary>
-        /// User Facade
+        /// Listing Facade
         /// </summary>
         [QualifiedTypeName("TMC.BusinessFacade.dll", "TMC.BusinessFacade.ListingFacade")]
         Listing = 5,
+
+        /// <summary>
+        /// Common Facade
+        /// </summary>
+        [QualifiedTypeName("TMC.BusinessFacade.dll", "TMC.BusinessFacade.CommonFacade")]
+        Common = 6,
+        
     }
 }

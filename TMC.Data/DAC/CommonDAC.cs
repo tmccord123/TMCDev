@@ -65,10 +65,51 @@ namespace TMC.Data
             catch (Exception ex)
             {
                 ExceptionManager.HandleException(ex);
-                throw new DACException("Error while fetching the organization locations.", ex);
+                throw new DACException("Error while fetching the cities.", ex);
             }
 
             return cities;
+        }
+
+
+
+        /// <summary>
+        /// The get categories.
+        /// </summary>
+        /// <returns>
+        /// Fetch list of categories <see cref=""/>.
+        /// </returns>
+        public IList<ICategoryDTO> ReadCategories()
+        {
+            IList<ICategoryDTO> categories = new List<ICategoryDTO>();
+
+            try
+            {
+                using (var tmcContext = new TMCContext())
+                {
+                    var categoryEntities = (from category in tmcContext.Category select category).ToList();
+                    ICategoryDTO categoryDto = null;
+                    foreach (var categoryEntity in categoryEntities)
+                    {
+                        categoryDto = (ICategoryDTO)DTOFactory.Instance.Create(DTOType.Category);
+
+                        categoryDto.CategoryId = categoryEntity.CategoryId;
+                        categoryDto.Name = categoryEntity.Name;
+                        categoryDto.ShortName = categoryEntity.ShortName;
+                        categoryDto.Description = categoryEntity.Description;
+                        categoryDto.Popularity = categoryEntity.Popularity;
+
+                        categories.Add(categoryDto);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                throw new DACException("Error while fetching the categories.", ex);
+            }
+
+            return categories;
         }
         #endregion
     
