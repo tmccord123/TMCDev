@@ -29,24 +29,24 @@ function HomeIndex() {
         $("#ddlCities").autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "http://localhost:59974//api/cityapi/",
+                    url: "..//api/cityapi/",
                     dataType: "json",
                     data: { searchStr: $("#ddlCities").val() },
                     success: function (data) {
-                        var obj = {};
-                        $.each(data, function (i, v) {
-                            obj[v.cityId] = v.name;
-                        });
-                        response(obj);
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.name,
+                                id: item.cityId     // EDIT
+                            };
+                        }));
                     }
                 });
             },
             minLength: 2,
-            //select: function (event, ui) {
-            //    log(ui.item ?
-            //      "Selected: " + ui.item.label :
-            //      "Nothing selected, input was " + this.value);
-            //},
+            select: function (event, ui) {
+                $('#hdnCityName').val(ui.item.label);
+                $('#hdnCityId').val(ui.item.id);
+            },
             open: function () {
                 $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
             },
@@ -59,24 +59,24 @@ function HomeIndex() {
         $("#ddlCategories").autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "http://localhost:59974//api/categoryapi/",
+                    url: "..//api/categoryapi/",
                     dataType: "json",
                     data: { searchStr: $("#ddlCategories").val() },
                     success: function (data) {
-                        var obj = {};
-                        $.each(data, function (i, v) {
-                            obj[v.categoryId] = v.name;
-                        });
-                        response(obj);
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.name,
+                                id: item.categoryId     // EDIT
+                            };
+                        }));
                     }
                 });
             },
             minLength: 2,
-            //select: function (event, ui) {
-            //    log(ui.item ?
-            //      "Selected: " + ui.item.label :
-            //      "Nothing selected, input was " + this.value);
-            //},
+            select: function (event, ui) {
+                $('#hdnCategoryName').val(ui.item.label);
+                $('#hdnCategoryId').val(ui.item.id);
+            },
             open: function () {
                 $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
             },
@@ -86,7 +86,7 @@ function HomeIndex() {
         });
 
         tmcCommon.attachEvent(document, 'click', '#btnSearchMain', function () {
-            alert('Functionality required');
+            window.location.href = '..//localboard/Index/' + $('#hdnCityName').val() + '/' + $('#hdnCategoryName').val() + '/' + $('#hdnCityId').val() + '/' + $('#hdnCategoryId').val();
         });
     };
 

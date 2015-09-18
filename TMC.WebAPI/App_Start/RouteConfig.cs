@@ -18,6 +18,12 @@ namespace TMC.WebAPI
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+            "LocalBoard",                                              // Route name
+            "{controller}/{action}/{cityName}/{categoryName}/{cityId}/{categoryId}",                           // URL with parameters
+            new { controller = "LocalBoard", action = "Index", cityName = "", categoryName = "", cityId = "", categoryId = "" }  // Parameter defaults
+        );
         }
     }
 }
