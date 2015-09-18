@@ -7,7 +7,7 @@ namespace TMC.WebAPI.Controllers.Api
 
     using TMC.Shared;
     using TMC.ViewModels;
-
+    using TMC.Web.Shared;
 
     /// <summary>
     /// The city api controller.
@@ -23,17 +23,15 @@ namespace TMC.WebAPI.Controllers.Api
         /// </returns>
         public IHttpActionResult Get(string searchStr)
         {
-            var commonFacade = (ICommonFacade)FacadeFactory.Instance.Create(FacadeType.Common);
             var searchString = searchStr.ToLower();
-            var citiesResult = commonFacade.GetCities();
+            var citiesResult = CacheMethods.FetchAllCities();
             var cities = new List<CityViewModel>();
             
-            if (citiesResult.IsValid() && citiesResult.Data != null)
+            if (citiesResult != null)
             {
-                var searchResult = citiesResult.Data.Where(c => c.Name.ToLower().Contains(searchString));
+                var searchResult = citiesResult.Where(c => c.Name.ToLower().Contains(searchString));
                 foreach (var cityDTO in searchResult)
                 {
-                   
                         var city = new CityViewModel();
                         //DTOConverter.FillViewModelFromDTO(city, cityDTO);
                         city.CityId = cityDTO.CityId;

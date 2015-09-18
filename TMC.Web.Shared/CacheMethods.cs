@@ -11,212 +11,59 @@ namespace TMC.Web.Shared
 {
     /// <summary>
     /// Contains common methods to be cached,
-    /// Author		: TMC
+    /// Author: TMC
     /// </summary>
-    /*public static class CacheMethods
+    public static class CacheMethods
     {
         #region "Methods"
         /// <summary>
-        /// This Method is used to get the list of states and put in cache
+        /// This Method is used to get the list of cities and put in cache
         /// </summary>
         [SuppressMessage(SuppressMessageConstants.DesignCategory, SuppressMessageConstants.NestedTypeShouldNotBeVisible)
         ]
-        public static IList<IStateDTO> FetchAllStates()
+        public static IList<ICityDTO> FetchAllCities()
         {
-            if (CacheManager<StateProvinceState>.Data.StateProvinces == null)
+            if (CacheManager<CityState>.Data.Cities == null)
             {
-                OperationResult<IList<IStateDTO>> states = null;
-                IOrganizationFacade organizationFacadeFacade = (IOrganizationFacade)FacadeFactory.Instance.Create(FacadeType.Organization);
-                states = organizationFacadeFacade.FetchAllStates();
-                if (states != null && states.IsValid())
+                OperationResult<IList<ICityDTO>> cities = null;
+                ICommonFacade commonFacade = (ICommonFacade)FacadeFactory.Instance.Create(FacadeType.Common);
+                cities = commonFacade.GetCities();
+                if (cities != null && cities.IsValid())
                 {
-                    CacheManager<StateProvinceState>.Data.StateProvinces = states.Data;
+                    CacheManager<CityState>.Data.Cities = cities.Data;
                 }
                 else
                 {
-                   throw new Exception(ResourceUtility.GetCaptionFor(ResourceConstants.Company.BusinessLocation.NotificationMessage.FetchAllStatesFailure));
+                   throw new Exception(ResourceUtility.GetCaptionFor(ResourceConstants.Common.ErrorMessages.FailedToFetchCities));
                 }
             }
-            return CacheManager<StateProvinceState>.Data.StateProvinces;
+            return CacheManager<CityState>.Data.Cities;
         }
 
-                /// <summary>
-        /// This Method is used to get the list of states and put in cache
+        /// <summary>
+        /// This Method is used to get the list of categories and put in cache
         /// </summary>
         [SuppressMessage(SuppressMessageConstants.DesignCategory, SuppressMessageConstants.NestedTypeShouldNotBeVisible)
         ]
-        public static IList<IOrganizationLocationTypeDTO> FetchAllOrganizationLocaationTypes()
+        public static IList<ICategoryDTO> FetchAllCategories()
         {
-            if (CacheManager<OrganizationLocationTypeState>.Data.OrganizationLocationTypeStates == null)
+            if (CacheManager<CategoryState>.Data.Categories == null)
             {
-                OperationResult<IList<IOrganizationLocationTypeDTO>> locationTypes = null;
-                IOrganizationFacade organizationFacadeFacade = (IOrganizationFacade)FacadeFactory.Instance.Create(FacadeType.Organization);
-                locationTypes = organizationFacadeFacade.FetchAllOrganizationLocaationTypes();
-                if (locationTypes != null && locationTypes.IsValid())
+                OperationResult<IList<ICategoryDTO>> categories = null;
+                ICommonFacade commonFacade = (ICommonFacade)FacadeFactory.Instance.Create(FacadeType.Common);
+                categories = commonFacade.GetCategories();
+                if (categories != null && categories.IsValid())
                 {
-                    CacheManager<OrganizationLocationTypeState>.Data.OrganizationLocationTypeStates = locationTypes.Data;
+                    CacheManager<CategoryState>.Data.Categories = categories.Data;
                 }
                 else
                 {
-                    throw new Exception(ResourceUtility.GetCaptionFor(ResourceConstants.Company.BusinessLocation.NotificationMessage.FetchAlllocationTypesFailure));
+                    throw new Exception(ResourceUtility.GetCaptionFor(ResourceConstants.Common.ErrorMessages.FailedToFetchCities));
                 }
             }
-            return CacheManager<OrganizationLocationTypeState>.Data.OrganizationLocationTypeStates;
+            return CacheManager<CategoryState>.Data.Categories;
         }
-
-        /// <summary>
-        /// Fetch all company types.
-        /// </summary>
-        /// <returns>
-        /// List of company types <see cref="IList"/>.
-        /// </returns>
-        public static IList<ICompanyTypeDTO> FetchAllCompanyTypes()
-        {
-            if (CacheManager<CompanyTypeState>.Data.CompanyTypes == null)
-            {
-                OperationResult<IList<ICompanyTypeDTO>> companyTypes = null;
-                var organizationFacade = (IOrganizationFacade)FacadeFactory.Instance.Create(FacadeType.Organization);
-                companyTypes = organizationFacade.FetchAllCompanyTypes();
-                if (companyTypes != null && companyTypes.IsValid())
-                {
-                    CacheManager<CompanyTypeState>.Data.CompanyTypes = companyTypes.Data;
-                }
-                else
-                {
-                    throw new Exception(ResourceUtility.GetCaptionFor(ResourceConstants.Company.CompanyProfile.NotificationMessage.FetchAllCompanyTypeFailure));
-                }
-            }
-            return CacheManager<CompanyTypeState>.Data.CompanyTypes;
-        }
-
-        /// <summary>
-        /// The fetch all contact types.
-        /// </summary>
-        /// <returns>
-        /// List of contact types <see cref="IList"/>.
-        /// </returns>
-        public static IList<IContactTypeDTO> FetchAllContactTypes()
-        {
-            if (CacheManager<ContactTypeState>.Data.ContactTypes == null)
-            {
-                OperationResult<IList<IContactTypeDTO>> companyTypes = null;
-                var organizationFacade = (IOrganizationFacade)FacadeFactory.Instance.Create(FacadeType.Organization);
-                companyTypes = organizationFacade.FetchAllContactTypes();
-                if (companyTypes != null && companyTypes.IsValid())
-                {
-                    CacheManager<ContactTypeState>.Data.ContactTypes = companyTypes.Data;
-                }
-                else
-                {
-                    throw new Exception(ResourceUtility.GetCaptionFor(ResourceConstants.Company.BusinessContact.Validation.FailedToFetchContactTypes));
-                }
-            }
-            return CacheManager<ContactTypeState>.Data.ContactTypes;
-        }
-
-        /// <summary>
-        /// Fetch all affiliation types.
-        /// </summary>
-        /// <returns>
-        /// List of affiliation types <see cref="IList"/>.
-        /// </returns>
-        public static IList<IAffiliationTypeDTO> FetchAllAffiliationTypes()
-        {
-            if (CacheManager<AffiliationTypeState>.Data.AffiliationTypes == null)
-            {
-                OperationResult<IList<IAffiliationTypeDTO>> affiliationTypes = null;
-                var trainingPlanFacade = (ITrainingPlanFacade)FacadeFactory.Instance.Create(FacadeType.TrainingPlan);
-                affiliationTypes = trainingPlanFacade.FetchAllAffiliationTypes();
-                if (affiliationTypes != null && affiliationTypes.IsValid())
-                {
-                    CacheManager<AffiliationTypeState>.Data.AffiliationTypes = affiliationTypes.Data;
-                }
-                else
-                {
-                    throw new Exception(ResourceUtility.GetCaptionFor(ResourceConstants.Training.TrainingPlan.Index.Messages.FailedToFetchAffiliationTypes));
-                }
-            }
-            return CacheManager<AffiliationTypeState>.Data.AffiliationTypes;
-        }
-
-        /// <summary>
-        /// Fetch all certificate regulations.
-        /// </summary>
-        /// <returns>
-        /// List of certificate regulations <see cref="IList"/>.
-        /// </returns>
-        public static IList<ICertificateRegulationDTO> FetchAllCertificateRegulations()
-        {
-            if (CacheManager<CertificateReglationState>.Data.CertificateReglations == null)
-            {
-                OperationResult<IList<ICertificateRegulationDTO>> cetrificateRegulations = null;
-                var trainingPlanFacade = (ITrainingPlanFacade)FacadeFactory.Instance.Create(FacadeType.TrainingPlan);
-                cetrificateRegulations = trainingPlanFacade.FetchAllCertificateRegulations();
-                if (cetrificateRegulations != null && cetrificateRegulations.IsValid())
-                {
-                    CacheManager<CertificateReglationState>.Data.CertificateReglations = cetrificateRegulations.Data;
-                }
-                else
-                {
-                    throw new Exception(ResourceUtility.GetCaptionFor(ResourceConstants.Training.TrainingPlan.Index.Messages.FetchCertificateRegulationsFailure));
-                }
-            }
-            return CacheManager<CertificateReglationState>.Data.CertificateReglations;
-        }
-
-        /// <summary>
-        /// Fetch all certificate frequencies.
-        /// </summary>
-        /// <returns>
-        /// List of certificate frequencies <see cref="IList"/>.
-        /// </returns>
-        public static IList<ICertificateFrequencyDTO> FetchAllCertificationFrequencies()
-        {
-            if (CacheManager<CertificateFequencyState>.Data.CertificateFequencies == null)
-            {
-                OperationResult<IList<ICertificateFrequencyDTO>> certificateFrequencies = null;
-                var trainingPlanFacade = (ITrainingPlanFacade)FacadeFactory.Instance.Create(FacadeType.TrainingPlan);
-                certificateFrequencies = trainingPlanFacade.FetchAllCertificateFrequencies();
-                if (certificateFrequencies != null && certificateFrequencies.IsValid())
-                {
-                    CacheManager<CertificateFequencyState>.Data.CertificateFequencies = certificateFrequencies.Data;
-                }
-                else
-                {
-                    throw new Exception(ResourceUtility.GetCaptionFor(ResourceConstants.Training.TrainingPlan.Index.Messages.FetchCertificateFrequenciesFailure));
-                }
-            }
-            return CacheManager<CertificateFequencyState>.Data.CertificateFequencies;
-        }
-
-        /// <summary>
-        /// Fetch all certificate types.
-        /// </summary>
-        /// <returns>
-        /// List of certificate types <see cref="IList"/>.
-        /// </returns>
-        public static IList<ICertificationTypeDTO> FetchAllCertificationTypes()
-        {
-            if (CacheManager<CertificationTypeState>.Data.CertificationTypes == null)
-            {
-                OperationResult<IList<ICertificationTypeDTO>> cetrificationTypes = null;
-                var trainingPlanFacade = (ITrainingPlanFacade)FacadeFactory.Instance.Create(FacadeType.TrainingPlan);
-                cetrificationTypes = trainingPlanFacade.FetchAllCertificationTypes();
-                
-                if (cetrificationTypes != null && cetrificationTypes.IsValid())
-                {
-                    CacheManager<CertificationTypeState>.Data.CertificationTypes = cetrificationTypes.Data;
-                }
-                else
-                {
-                    throw new Exception(ResourceUtility.GetCaptionFor(ResourceConstants.Training.TrainingPlan.Index.Messages.FetchCertificateRegulationsFailure));
-                }
-            }
-            return CacheManager<CertificationTypeState>.Data.CertificationTypes;
-        }
-
-
 
         #endregion
-    }*/
+    }
 }

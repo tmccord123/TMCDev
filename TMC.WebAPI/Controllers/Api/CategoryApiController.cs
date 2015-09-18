@@ -23,14 +23,13 @@ namespace TMC.WebAPI.Controllers.Api
         /// </returns>
         public IHttpActionResult Get(string searchStr)
         {
-            var commonFacade = (ICommonFacade)FacadeFactory.Instance.Create(FacadeType.Common);
             var searchString = searchStr.ToLower();
-            var categoriesResult = commonFacade.GetCategories();
+            var categoriesResult = CacheMethods.FetchAllCategories();
             var categories = new List<CategoryViewModel>();
             
-            if (categoriesResult.IsValid() && categoriesResult.Data != null)
+            if (categoriesResult != null)
             {
-                var searchResult = categoriesResult.Data.Where(c => c.Name.ToLower().Contains(searchString));
+                var searchResult = categoriesResult.Where(c => c.Name.ToLower().Contains(searchString));
                 foreach (var categoryDTO in searchResult)
                 {
                     var category = new CategoryViewModel();
@@ -54,14 +53,12 @@ namespace TMC.WebAPI.Controllers.Api
         /// </returns>
         public IHttpActionResult Get()
         {
-            var commonFacade = (ICommonFacade)FacadeFactory.Instance.Create(FacadeType.Common);
-          
-            var categoriesResult = commonFacade.GetCategories();
+            var categoriesResult = CacheMethods.FetchAllCategories();
             var categories = new List<CategoryViewModel>();
 
-            if (categoriesResult.IsValid() && categoriesResult.Data != null)
+            if (categoriesResult != null)
             {
-                var searchResult = categoriesResult.Data.Where(c => c.Popularity == 1);
+                var searchResult = categoriesResult.Where(c => c.Popularity == 1);
                 foreach (var categoryDTO in searchResult)
                 {
                     var category = new CategoryViewModel();
