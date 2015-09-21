@@ -26,7 +26,7 @@ namespace TMC.WebAPI
             // ... or ensure the json formatter accepts text/html
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
             var json = config.Formatters.JsonFormatter;
-            //json.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+            json.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
             json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
          
