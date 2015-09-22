@@ -245,6 +245,20 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\autocomplete\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="img\autocomplete\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="img\autocomplete\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="img\autocomplete\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="img\autocomplete\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="img\autocomplete\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="img\autocomplete\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="img\autocomplete\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="img\autocomplete\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="img\autocomplete\ui-icons_222222_256x240.png" />
+    <Content Include="img\autocomplete\ui-icons_228ef1_256x240.png" />
+    <Content Include="img\autocomplete\ui-icons_ef8c08_256x240.png" />
+    <Content Include="img\autocomplete\ui-icons_ffd27a_256x240.png" />
+    <Content Include="img\autocomplete\ui-icons_ffffff_256x240.png" />
     <Content Include="img\banner.jpg" />
     <Content Include="img\banner1.jpg" />
     <Content Include="img\banner2.jpg" />
@@ -253,6 +267,7 @@
     <Content Include="img\fb_color_ico.png" />
     <Content Include="img\fb_ico.png" />
     <Content Include="img\gplus_ico.png" />
+    <Content Include="img\home-search-icon.jpg" />
     <Content Include="img\image_freecharge.jpg" />
     <Content Include="img\image_olaCabs.jpg" />
     <Content Include="img\image_payTM.jpg" />
@@ -354,6 +369,7 @@
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\widget.min.css" />
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\widget.min.js" />
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\ZeroClipboard.min.js" />
+    <Content Include="img\nav.png" />
     <Content Include="img\pintrest_color_ico.png" />
     <Content Include="img\twitter_color_ico.png" />
     <Content Include="img\twitter_ico.png" />

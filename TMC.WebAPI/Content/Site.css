@@ -40,3 +40,55 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+.img-home-portfolio {
+    margin-bottom: 0;
+}
+
+.home-category-list {
+    font-size: 11px;
+}
+
+.searchPopup {
+    position: absolute;
+    margin: auto;
+    padding: 20%;
+    z-index: 3;
+}
+
+.topFields {
+    position: relative;
+    background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
+    border-radius: 5px;
+    float: left;
+    padding: 13px;
+    z-index: 3;
+}
+
+.ul-no-bullets {
+    list-style-type: none;
+}
+
+.li-red {
+    color: #D5535A;
+}
+
+.font-30 {
+    font-size: 30px;
+}
+
+.font-20 {
+    font-size: 20px;
+}
+
+.tmc-blue {
+    color: #4E92DB;
+}
+
+.margin-left-10 {
+    margin-left: 10px;
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
