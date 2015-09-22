@@ -21,7 +21,8 @@ namespace TMC.WebAPI.Controllers.Api
         /// <returns>
         /// The <see cref="IHttpActionResult"/>.
         /// </returns>
-        public IHttpActionResult Get(string searchStr)
+        [Route("{searchStr}")] 
+        public IHttpActionResult GetCategoriesByString(string searchStr)
         {
             var searchString = searchStr.ToLower();
             var categoriesResult = CacheMethods.FetchAllCategories();
@@ -51,7 +52,8 @@ namespace TMC.WebAPI.Controllers.Api
         /// <returns>
         /// The <see cref="IHttpActionResult"/>.
         /// </returns>
-        public IHttpActionResult Get()
+        [Route("")]
+        public IHttpActionResult GetPopularCategories()
         {
             var categoriesResult = CacheMethods.FetchAllCategories();
             var categories = new List<CategoryViewModel>();

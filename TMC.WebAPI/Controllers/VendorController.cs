@@ -55,7 +55,7 @@ namespace TMC.Controllers
 
             var model = new ListingItemViewModel();
 
-            HttpResponseMessage egsResponse = await client.GetAsync("api/listingapi/1");
+            HttpResponseMessage egsResponse = await client.GetAsync("api/listing/1");
 
             if (egsResponse.IsSuccessStatusCode)
             {

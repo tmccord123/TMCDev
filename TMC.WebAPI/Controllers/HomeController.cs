@@ -32,7 +32,7 @@ namespace TMC.WebAPI.Controllers
             var model = new HomeViewModel();
 
             //HttpResponseMessage citiesResponse = await client.GetAsync("api/cityapi/");
-            HttpResponseMessage categoriesResponse = await client.GetAsync("api/categoryapi");
+            HttpResponseMessage categoriesResponse = await client.GetAsync("api/category");
             //if (citiesResponse.IsSuccessStatusCode && categoriesResponse.IsSuccessStatusCode)
             if (categoriesResponse.IsSuccessStatusCode)
             {

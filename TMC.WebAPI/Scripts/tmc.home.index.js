@@ -29,9 +29,9 @@ function HomeIndex() {
         $("#ddlCities").autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "..//api/cityapi/",
+                    url: "..//api/city/" + $("#ddlCities").val(),
                     dataType: "json",
-                    data: { searchStr: $("#ddlCities").val() },
+                    //data: { searchStr: $("#ddlCities").val() },
                     success: function (data) {
                         response($.map(data, function (item) {
                             return {
@@ -59,9 +59,10 @@ function HomeIndex() {
         $("#ddlCategories").autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "..//api/categoryapi/",
+                    //method: 'GET',
+                    url: "..//api/category/" + $("#ddlCategories").val(),
                     dataType: "json",
-                    data: { searchStr: $("#ddlCategories").val() },
+                   // data: { searchStr: $("#ddlCategories").val() },
                     success: function (data) {
                         response($.map(data, function (item) {
                             return {

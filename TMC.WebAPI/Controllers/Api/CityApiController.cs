@@ -21,7 +21,8 @@ namespace TMC.WebAPI.Controllers.Api
         /// <returns>
         /// The <see cref="IHttpActionResult"/>.
         /// </returns>
-        public IHttpActionResult Get(string searchStr)
+        [Route("{searchStr}")] 
+        public IHttpActionResult GetCitiesByString(string searchStr)
         {
             var searchString = searchStr.ToLower();
             var citiesResult = CacheMethods.FetchAllCities();
