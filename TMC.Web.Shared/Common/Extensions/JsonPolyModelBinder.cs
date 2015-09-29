@@ -5,6 +5,10 @@ using System.Net.Http;
 
 namespace TMC.Web.Shared.Common.Extensions
 {
+    /// <summary>
+    /// 
+    /// http://stackoverflow.com/questions/14124189/can-i-pass-an-interface-based-object-to-an-mvc-4-webapi-post
+    /// </summary>
     public class JsonPolyModelBinder : IModelBinder
     {
         readonly JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };

@@ -12,10 +12,6 @@ namespace TMC.Web.Shared
 
         public string Heading { get; set; }
 
-
-
-
-
         /// <summary>
         /// Gets or sets the action name for add edit business contact
         /// </summary>

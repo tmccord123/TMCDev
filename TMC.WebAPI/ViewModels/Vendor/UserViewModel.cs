@@ -21,7 +21,7 @@ namespace TMC.ViewModels
         public Int16 StateId { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
-
+         
         public int AreaId { get; set; }
         public int PinCode { get; set; }
         public int CityId { get; set; }

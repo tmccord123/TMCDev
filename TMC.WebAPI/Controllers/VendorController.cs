@@ -4,7 +4,9 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using TMC.Shared;
+using TMC.Shared.Factories;
 using TMC.ViewModels;
+using TMC.Web.Shared;
 using TMC.WebAPI;
 
 
@@ -52,6 +54,10 @@ namespace TMC.Controllers
         public async Task<ActionResult> AddEditListing(int id = 0)
         {
             var listingItemViewModel = new ListingItemViewModel();
+            ListingContactViewModel listingContact = new ListingContactViewModel();
+            listingContact.ContactNumber = "9988765432";
+            listingContact.ContactTypeId = ListingContactType.Landline;
+            listingItemViewModel.ListingContacts.Contacts.Add(listingContact);
             listingItemViewModel.ActionName = "AddEditListing";
             listingItemViewModel.ControllerName = "Vendor";
             listingItemViewModel.FormId = "listingForm";
@@ -83,16 +89,21 @@ namespace TMC.Controllers
         public async Task<ActionResult> AddEditListing(ListingItemViewModel listingViewModel)
         {
             var client = TMCHttpClient.GetClient();
-            var trimmedlitingViewModel = new ListingItemViewModel1();
-            trimmedlitingViewModel.BusinessName = listingViewModel.BusinessName;
-            trimmedlitingViewModel.ContactEmailId = listingViewModel.ContactEmailId;
-            trimmedlitingViewModel.ContactPerson = listingViewModel.ContactPerson;
-            trimmedlitingViewModel.ListingId = 1;
-            trimmedlitingViewModel.VendorId = 2;
+            //var listingDTO = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
+            //DTOConverter.FillDTOFromViewModel(listingDTO, listingViewModel);
+
+
+            // todo
+            var trimmedlistingViewModel = new ListingItemViewModel1();
+            trimmedlistingViewModel.BusinessName = listingViewModel.BusinessName;
+            trimmedlistingViewModel.ContactEmailId = listingViewModel.ContactEmailId;
+            trimmedlistingViewModel.ContactPerson = listingViewModel.ContactPerson;
+            trimmedlistingViewModel.ListingId = 1;
+            trimmedlistingViewModel.VendorId = 2;
           //  var serializedItemToCreate = JsonConvert.SerializeObject(trimmedlitingViewModel);
 
             JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
-            string serializedItemToCreate = JsonConvert.SerializeObject(trimmedlitingViewModel, typeof(ITrimmedListingDTO), settings);
+            string serializedItemToCreate = JsonConvert.SerializeObject(trimmedlistingViewModel, typeof(ITrimmedListingDTO), settings);
 
             var response = await client.PostAsync("api/listing",
               new StringContent(serializedItemToCreate,

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\ListingContactType.cs" />
     <Compile Include="Enums\MappingType.cs" />
     <Compile Include="Functional\BusinessDomainComponents\BDCType.cs" />
     <Compile Include="Functional\BusinessDomainComponents\ICommonBDC.cs" />

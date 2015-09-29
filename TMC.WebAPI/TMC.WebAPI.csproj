@@ -227,6 +227,8 @@
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
     <Compile Include="ViewModels\ProductItemViewModel.cs" />
     <Compile Include="ViewModels\Vendor\BaseViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ListingContactViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ListingContactsViewModel.cs" />
     <Compile Include="ViewModels\Vendor\UserViewModel.cs" />
     <Compile Include="ViewModels\Vendor\ListingItemViewModel.cs" />
   </ItemGroup>
