@@ -46,8 +46,8 @@
         public static string SmartAction(this UrlHelper url, string actionName, string controllerName, object routeValues)
         {
             string result = string.Empty;
-
-            /*if (PortalUtility.IsClientPortalSelected)
+            result = url.Action(actionName, controllerName, routeValues);
+          /*  if (PortalUtility.IsClientPortalSelected)
             {
                 if (routeValues == null)
                 {

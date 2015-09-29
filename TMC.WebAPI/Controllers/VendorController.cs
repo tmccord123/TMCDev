@@ -51,6 +51,7 @@ namespace TMC.Controllers
 
         public async Task<ActionResult> AddEditListing()
         {
+            
             var client = TMCHttpClient.GetClient();
 
             var model = new ListingItemViewModel();
@@ -64,7 +65,7 @@ namespace TMC.Controllers
                 model = lstExpenseGroupStatusses;
 
                 model.ActionName = "AddEditListing";
-                model.ControllerName = "VendorController";
+                model.ControllerName = "Vendor";
                 model.FormId = "listingForm";
 
             }

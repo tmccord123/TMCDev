@@ -464,6 +464,8 @@
     <Content Include="css\flexslider.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\tmc.common.dataService.js" />
     <Content Include="Scripts\tmc.common.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
