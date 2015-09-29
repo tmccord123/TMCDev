@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Web.Http;
+using System.Web.Http.ModelBinding;
 using TMC.Shared;
 using TMC.ViewModels;
+using TMC.Web.Shared.Common.Extensions;
 
 namespace TMC.WebAPI.Controllers.Api
 {
@@ -29,7 +31,7 @@ namespace TMC.WebAPI.Controllers.Api
 
         [Route("")]
         [HttpPost]
-        public IHttpActionResult Post([FromBody]TrimmedListingDTO expenseGroup)
+        public IHttpActionResult Post([ModelBinder(typeof(JsonPolyModelBinder))]ITrimmedListingDTO expenseGroup)
         {
             try
             {
@@ -58,5 +60,37 @@ namespace TMC.WebAPI.Controllers.Api
                 return InternalServerError();
             }
         }
+        
+        /*[working one] [Route("")]
+        [HttpPost]
+        public IHttpActionResult Post([FromBody]TrimmedListingDTO expenseGroup)
+        {
+            try
+            {
+                if (expenseGroup == null)
+                {
+                    return BadRequest();
+                }
+
+                /#1#/ try mapping & saving
+                var eg = _expenseGroupFactory.CreateExpenseGroup(expenseGroup);
+
+                var result = _repository.InsertExpenseGroup(eg);
+                if (result.Status == RepositoryActionStatus.Created)
+                {
+                    // map to dto
+                    var newExpenseGroup = _expenseGroupFactory.CreateExpenseGroup(result.Entity);
+                    return Created<DTO.ExpenseGroup>(Request.RequestUri
+                        + "/" + newExpenseGroup.Id.ToString(), newExpenseGroup);
+                }#1#
+
+                return BadRequest();
+
+            }
+            catch (Exception)
+            {
+                return InternalServerError();
+            }
+        }*/
     }
 }

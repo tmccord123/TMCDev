@@ -1,4 +1,5 @@
 ﻿using System;
+using TMC.Shared;
 using TMC.Web.Shared;
 
 namespace TMC.ViewModels
@@ -27,7 +28,7 @@ namespace TMC.ViewModels
 
     }
 
-    public class ListingItemViewModel1  
+    public class ListingItemViewModel1  : ITrimmedListingDTO
     {
         public int ListingId { get; set; }
         public int VendorId { get; set; }

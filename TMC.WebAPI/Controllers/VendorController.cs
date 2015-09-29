@@ -89,7 +89,10 @@ namespace TMC.Controllers
             trimmedlitingViewModel.ContactPerson = listingViewModel.ContactPerson;
             trimmedlitingViewModel.ListingId = 1;
             trimmedlitingViewModel.VendorId = 2;
-            var serializedItemToCreate = JsonConvert.SerializeObject(trimmedlitingViewModel);
+          //  var serializedItemToCreate = JsonConvert.SerializeObject(trimmedlitingViewModel);
+
+            JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
+            string serializedItemToCreate = JsonConvert.SerializeObject(trimmedlitingViewModel, typeof(ITrimmedListingDTO), settings);
 
             var response = await client.PostAsync("api/listing",
               new StringContent(serializedItemToCreate,
