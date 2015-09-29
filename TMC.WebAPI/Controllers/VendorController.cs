@@ -10,7 +10,7 @@ using TMC.WebAPI;
 
 namespace TMC.Controllers
 {
-    
+
 
     public class VendorController : Controller
     {
@@ -49,37 +49,60 @@ namespace TMC.Controllers
             return View();
         }
 
-        public async Task<ActionResult> AddEditListing()
+        public async Task<ActionResult> AddEditListing(int id = 0)
         {
-            
-            var client = TMCHttpClient.GetClient();
-
-            var model = new ListingItemViewModel();
-
-            HttpResponseMessage egsResponse = await client.GetAsync("api/listing/1");
-
-            if (egsResponse.IsSuccessStatusCode)
+            var listingItemViewModel = new ListingItemViewModel();
+            listingItemViewModel.ActionName = "AddEditListing";
+            listingItemViewModel.ControllerName = "Vendor";
+            listingItemViewModel.FormId = "listingForm";
+            if (id == 0)
             {
-                string egsContent = await egsResponse.Content.ReadAsStringAsync();
-                var lstExpenseGroupStatusses = JsonConvert.DeserializeObject<ListingItemViewModel>(egsContent);
-                model = lstExpenseGroupStatusses;
-
-                model.ActionName = "AddEditListing";
-                model.ControllerName = "Vendor";
-                model.FormId = "listingForm";
 
             }
             else
             {
-                return Content("An error occurred.");
+                var client = TMCHttpClient.GetClient();
+                HttpResponseMessage egsResponse = await client.GetAsync("api/listing/1");
+
+                if (egsResponse.IsSuccessStatusCode)
+                {
+                    string egsContent = await egsResponse.Content.ReadAsStringAsync();
+                    var lstExpenseGroupStatusses = JsonConvert.DeserializeObject<ListingItemViewModel>(egsContent);
+                    listingItemViewModel = lstExpenseGroupStatusses; 
+                }
+                else
+                {
+                    return Content("An error occurred.");
+                }
             }
-            return View("AddEditListing", model);
+
+            return View("AddEditListing", listingItemViewModel);
         }
 
         [HttpPost]
-         public async Task<ActionResult> AddEditListing(ListingItemViewModel listingViewModel)
+        public async Task<ActionResult> AddEditListing(ListingItemViewModel listingViewModel)
         {
             var client = TMCHttpClient.GetClient();
+            var trimmedlitingViewModel = new ListingItemViewModel1();
+            trimmedlitingViewModel.BusinessName = listingViewModel.BusinessName;
+            trimmedlitingViewModel.ContactEmailId = listingViewModel.ContactEmailId;
+            trimmedlitingViewModel.ContactPerson = listingViewModel.ContactPerson;
+            trimmedlitingViewModel.ListingId = 1;
+            trimmedlitingViewModel.VendorId = 2;
+            var serializedItemToCreate = JsonConvert.SerializeObject(trimmedlitingViewModel);
+
+            var response = await client.PostAsync("api/listing",
+              new StringContent(serializedItemToCreate,
+              System.Text.Encoding.Unicode, "application/json"));
+
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return Content("An error occurred");
+            }
 
             return View("AddEditListing", listingViewModel);
         }

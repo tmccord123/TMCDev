@@ -38,10 +38,10 @@ namespace TMC.Data
  	        var listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
             try
             {
-                listingDto.CompanyName = "this is the contact 1";
+                //listingDto.CompanyName = "this is the contact 1";
                 listingDto.ContactPerson = "this is the ontact persone mane";
-                listingDto.EmailId = "user1@email.com";
-                listingDto.City = "Banglore";
+               // listingDto.EmailId = "user1@email.com";
+               // listingDto.City = "Banglore";
             }
             catch (Exception ex)
             {

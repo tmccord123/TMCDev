@@ -15,17 +15,21 @@ namespace TMC.DTOModel
     [ViewModelMapping("TMC.Web.ViewModels.ListingViewModel", MappingType.TotalExplicit)]
     public class ListingDTO : DTOBase, IListingDTO
     {
-
-
         public int ListingId { get; set; }
-        public string CompanyName { get; set; }
+        public int VendorId { get; set; }
+        public string BusinessName { get; set; }
         public string ContactPerson { get; set; }
-        public string City { get; set; }
-        public int PinCode { get; set; }
-        public string EmailId { get; set; }
-        public string LandlineNo { get; set; }
-        public string MobileNo { get; set; }
-        public int YearStarted { get; set; } 
+        public string ContactEmailId { get; set; } 
+
+        //public int ListingId { get; set; }
+        //public string CompanyName { get; set; }
+        //public string ContactPerson { get; set; }
+        //public string City { get; set; }
+        //public int PinCode { get; set; }
+        //public string EmailId { get; set; }
+        //public string LandlineNo { get; set; }
+        //public string MobileNo { get; set; }
+        //public int YearStarted { get; set; } 
          
     }
 }

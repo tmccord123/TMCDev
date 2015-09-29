@@ -15,7 +15,7 @@ namespace TMC.WebAPI.Controllers.Api
     [System.Web.Http.RoutePrefix("api/vendor")]
     public class VendorApiController : ApiController
     {
-         [Route("{id:int}")] 
+        [Route("{id:int}")] 
         public System.Web.Http.IHttpActionResult Get(int id, string fields = null)
         {
             var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
@@ -35,7 +35,7 @@ namespace TMC.WebAPI.Controllers.Api
                 vendorViewModel.AddressLine2 = vendorResult.Data.AddressLine2;
                 vendorViewModel.UserName = vendorResult.Data.UserName;
                 vendorViewModel.FirstName = vendorResult.Data.FirstName;
-                listingViewModel.Owner = vendorViewModel;
+               // listingViewModel.Owner = vendorViewModel;
             }
 
 
@@ -44,6 +44,9 @@ namespace TMC.WebAPI.Controllers.Api
 
 
         }
+
+      
+
 
 
     }

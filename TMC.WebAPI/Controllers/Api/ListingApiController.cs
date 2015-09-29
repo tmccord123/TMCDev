@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 using TMC.Shared;
 using TMC.ViewModels;
 
@@ -18,12 +19,44 @@ namespace TMC.WebAPI.Controllers.Api
             var listingViewModel = new ListingItemViewModel();
             if (listingResult.IsValid())
             {
-                listingViewModel.ContactEmailId = listingResult.Data.EmailId;
-                listingViewModel.BusinessName = listingResult.Data.CompanyName;
+                listingViewModel.ContactEmailId = listingResult.Data.ContactEmailId;
+                listingViewModel.BusinessName = listingResult.Data.BusinessName;
                 listingViewModel.ContactPerson = listingResult.Data.ContactPerson;
 
             }
             return Ok(listingViewModel);
+        }
+
+        [Route("")]
+        [HttpPost]
+        public IHttpActionResult Post([FromBody]TrimmedListingDTO expenseGroup)
+        {
+            try
+            {
+                if (expenseGroup == null)
+                {
+                    return BadRequest();
+                }
+
+                /*// try mapping & saving
+                var eg = _expenseGroupFactory.CreateExpenseGroup(expenseGroup);
+
+                var result = _repository.InsertExpenseGroup(eg);
+                if (result.Status == RepositoryActionStatus.Created)
+                {
+                    // map to dto
+                    var newExpenseGroup = _expenseGroupFactory.CreateExpenseGroup(result.Entity);
+                    return Created<DTO.ExpenseGroup>(Request.RequestUri
+                        + "/" + newExpenseGroup.Id.ToString(), newExpenseGroup);
+                }*/
+
+                return BadRequest();
+
+            }
+            catch (Exception)
+            {
+                return InternalServerError();
+            }
         }
     }
 }
