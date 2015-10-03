@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="DAC\BlogDAC.cs" />
     <Compile Include="DAC\CommonDAC.cs" />
+    <Compile Include="DAC\ListingDAC.cs" />
     <Compile Include="DAC\VendorDAC.cs" />
     <Compile Include="DAC\UserDAC.cs" />
     <Compile Include="DAC\ProductDAC.cs" />

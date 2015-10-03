@@ -18,14 +18,14 @@ namespace TMC.Data
     /// <summary>
     /// Implementation for 
     /// </summary>
-    public class CommonDAC : DACBase, ICommonDAC
+    public class ListingDAC : DACBase, IListingDAC
     {
         #region Constructor
         /// <summary>
         /// Initializes a new instance of the <see cref="CommonDAC"/> class.
         /// </summary>
-        public CommonDAC()
-            : base(DACType.Common)
+        public ListingDAC()
+            : base(DACType.Listing)
         {
         }
         #endregion
@@ -33,32 +33,50 @@ namespace TMC.Data
         #region Public Methods
 
         /// <summary>
-        /// The read cities.
+        /// The read listings.
         /// </summary>
+        /// <param name="cityId">
+        /// The city id.
+        /// </param>
+        /// <param name="placeId">
+        /// The place id.
+        /// </param>
+        /// <param name="categoryId">
+        /// The category id.
+        /// </param>
         /// <returns>
-        /// Fetch all cities <see cref="IList"/>.
+        /// The <see cref="IList"/>.
         /// </returns>
-        public IList<ICityDTO> ReadCities()
+        public IList<IListingDTO> ReadListings(int cityId, string placeId, int categoryId)
         {
-            IList<ICityDTO> cities = new List<ICityDTO>();
+            IList<IListingDTO> listings = new List<IListingDTO>();
            
             try
             {
                 using (var tmcContext = new TMCContext())
                 {
-                    var cityEntities = (from city in tmcContext.City select city).ToList();
-                     ICityDTO cityDto = null;
-                     foreach (var cityEntity in cityEntities)
+                    var listingEntities = (from listing in tmcContext.Listing
+                                           join loc in tmcContext.ListingLocation on listing.ListingId equals loc.ListingId
+                                           join area in tmcContext.Area on loc.AreaId equals area.AreaId
+                                           where loc.CityId == cityId
+                                           && area.CityId == cityId
+                                           && (placeId == null || area.PlaceId == placeId)
+                                           select listing).ToList();
+                    IListingDTO listingDto = null;
+                     foreach (var listingEntity in listingEntities)
                      {
-                         cityDto = (ICityDTO)DTOFactory.Instance.Create(DTOType.City);
+                         listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
                         
-                         cityDto.CityId = cityEntity.CityId;
-                         cityDto.Name = cityEntity.Name;
-                         cityDto.StateId = cityEntity.StateId;
-                         cityDto.Lat = cityEntity.Lat;
-                         cityDto.Long = cityEntity.Long;
-                         cityDto.Radius = GlobalUtility.GetCityRadius(cityEntity.PopulationClass);
-                         cities.Add(cityDto);
+                         listingDto.ListingId = listingEntity.ListingId;
+                         listingDto.BusinessName = listingEntity.BusinessName;
+                         listingDto.BusinessDays = listingEntity.BusinessDays;
+                         listingDto.BusinessHours = listingEntity.BusinessHours;
+                         listingDto.ContactPerson = listingEntity.ContactPerson;
+                         listingDto.ContactEmailId = listingEntity.ContactEmailId;
+                         listingDto.Designation = listingEntity.Designation;
+                         listingDto.WebSite = listingEntity.Website;
+                         listingDto.YearStarted = listingEntity.YearStarted;
+                         listings.Add(listingDto);
                      }
                 }
             }
@@ -68,7 +86,7 @@ namespace TMC.Data
                 throw new DACException("Error while fetching the cities.", ex);
             }
 
-            return cities;
+            return listings;
         }
 
 

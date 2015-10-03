@@ -17,7 +17,7 @@ namespace TMC.Controllers
     {
 
         //[Route("seo/Coupons/{permalink}")]
-        public ActionResult Index(string cityName,string categoryName ,int? cityId,int? categoryId)
+        public ActionResult Index(string cityName,string categoryName ,int? cityId,int? categoryId,string placeId)
         {
 
             var seoTitle = Request.RawUrl.Replace("/LocalBoard/", "");

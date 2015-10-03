@@ -4,11 +4,28 @@ namespace TMC.Shared
 {
     public interface IListingDTO : IDTO
     {
-        int ListingId { get; set; }
+        long ListingId { get; set; }
         int VendorId { get; set; }
         string BusinessName { get; set; }
         string ContactPerson { get; set; }
-        string ContactEmailId { get; set; } 
+        string ContactEmailId { get; set; }
+
+        short? YearStarted { get; set; }
+        string Designation { get; set; }
+        string WebSite { get; set; }
+        short BusinessDays { get; set; }
+        short BusinessHours { get; set; }
+
+        string CreatedOn { get;set; }
+        string CreatedBy { get;set; }
+
+        string UpdatedOn { get; set; }
+
+        string UpdatedBy { get; set; }
+
+        string IsActive { get; set; }
+        string IsDeleted { get; set; }
+
         //string CompanyName { get; set; } 
         //string City { get; set; }
         //int PinCode { get; set; }

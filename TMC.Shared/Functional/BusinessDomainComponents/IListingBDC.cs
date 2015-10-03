@@ -3,10 +3,11 @@ namespace TMC.Shared
 {
     using System.Collections.Generic;
 
-    public interface IListingFacade : IFacade
+    /// <summary>
+    /// The VendorBDC interface.
+    /// </summary>
+    public interface IListingBDC : IBusinessDomainComponent
     {
-        OperationResult<IListingDTO> GetlistingById(int listingId);
-        OperationResult<IList<IListingDTO>> GetlistingsByVendorId(int vendorId);
         /// <summary>
         /// The get listings.
         /// </summary>
@@ -23,5 +24,6 @@ namespace TMC.Shared
         /// List of listings <see cref="IList"/>.
         /// </returns>
         OperationResult<IList<IListingDTO>> GetListings(int cityId, string placeId, int categoryId);
+       
     }
 }

@@ -1,12 +1,16 @@
 ﻿
 namespace TMC.Shared
 {
+    #region NameSpaces
+
     using System.Collections.Generic;
 
-    public interface IListingFacade : IFacade
+    #endregion
+    /// <summary>
+    /// File DAC interface.
+    /// </summary>
+    public interface IListingDAC : IDataAccessComponent
     {
-        OperationResult<IListingDTO> GetlistingById(int listingId);
-        OperationResult<IList<IListingDTO>> GetlistingsByVendorId(int vendorId);
         /// <summary>
         /// The get listings.
         /// </summary>
@@ -22,6 +26,7 @@ namespace TMC.Shared
         /// <returns>
         /// List of listings <see cref="IList"/>.
         /// </returns>
-        OperationResult<IList<IListingDTO>> GetListings(int cityId, string placeId, int categoryId);
+        IList<IListingDTO> ReadListings(int cityId, string placeId, int categoryId);
+        
     }
 }

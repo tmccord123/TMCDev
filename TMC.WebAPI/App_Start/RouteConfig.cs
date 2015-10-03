@@ -21,8 +21,8 @@ namespace TMC.WebAPI
 
             routes.MapRoute(
             "LocalBoard",                                              // Route name
-            "{controller}/{action}/{cityName}/{categoryName}/{cityId}/{categoryId}",                           // URL with parameters
-            new { controller = "LocalBoard", action = "Index", cityName = "", categoryName = "", cityId = "", categoryId = "" }  // Parameter defaults
+            "{controller}/{action}/{cityName}/{categoryName}/{cityId}/{categoryId}/{placeId}",                           // URL with parameters
+            new { controller = "LocalBoard", action = "Index", cityName = "", categoryName = "", cityId = "", categoryId = "", placeId = "" }  // Parameter defaults
         );
         }
     }

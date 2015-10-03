@@ -32,11 +32,6 @@ namespace TMC.Shared
         string Long { get; set; }
 
         /// <summary>
-        /// Gets or sets the pin code.
-        /// </summary>
-        //int PinCode { get; set; }
-
-        /// <summary>
         /// Gets or sets a value indicating whether is popular.
         /// </summary>
         bool IsPopular { get; set; }
@@ -45,5 +40,15 @@ namespace TMC.Shared
         /// Gets or sets the population class.
         /// </summary>
         short PopulationClass { get; set; }
+
+        /// <summary>
+        /// Gets or sets the radius.
+        /// </summary>
+        int Radius { get; set; }
+
+        /// <summary>
+        /// Gets or sets the CombinedCityDetails.
+        /// </summary>
+        int CombinedCityDetails { get; set; }
     }
 }

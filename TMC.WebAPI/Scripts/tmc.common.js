@@ -449,4 +449,14 @@ var tmcCommon = new function () {
         $(outerSelector).off(eventName, innerSelector);
         $(outerSelector).on(eventName, innerSelector, callback);
     };
+
+    this.resizeDiv = function (divSelector, minWidthValue, maxWidthValue) {
+        $(divSelector).resizable({
+            minWidth: minWidthValue,
+            maxWidth: maxWidthValue,
+            handles: 'e'
+        });
+
+    };
+
 };

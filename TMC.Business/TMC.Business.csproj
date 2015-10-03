@@ -46,6 +46,7 @@
     <Compile Include="ErrorHandling\BusinessServiceException.cs" />
     <Compile Include="ErrorHandling\ErrorHandler.cs" />
     <Compile Include="ErrorHandling\ErrorHandlerBehavior.cs" />
+    <Compile Include="Listing\ListingBDC.cs" />
     <Compile Include="Product\ProductBDC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VendorBDC.cs" />

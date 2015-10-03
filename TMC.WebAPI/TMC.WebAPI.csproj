@@ -40,10 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\TMCSupportedDlls\Newtonsoft.Json.dll</HintPath>
-    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Swashbuckle.Core.Net45.5.2.1\lib\net45\Swashbuckle.Core.dll</HintPath>
@@ -137,7 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
@@ -225,6 +222,7 @@
     <Compile Include="ViewModels\Common\CategoryViewModel.cs" />
     <Compile Include="ViewModels\Common\CityViewModel.cs" />
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
+    <Compile Include="ViewModels\LocalBoard\LocalBoardViewModel.cs" />
     <Compile Include="ViewModels\ProductItemViewModel.cs" />
     <Compile Include="ViewModels\Vendor\BaseViewModel.cs" />
     <Compile Include="ViewModels\Vendor\ListingContactViewModel.cs" />
@@ -482,8 +480,11 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\tmc.home.index.js" />
+    <Content Include="Scripts\tmc.localCord.index.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

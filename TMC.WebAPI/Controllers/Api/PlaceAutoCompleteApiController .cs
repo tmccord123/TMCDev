@@ -14,9 +14,10 @@ using TMC.Web.Shared;
 namespace TMC.WebAPI.Controllers.Api
 {
     // call like this http://localhost:59974/api/PlaceAutoCompleteApi?searchParams=28.459497,77.026634,20000,palam
-  //  [RoutePrefix("api/vendor")]PlaceAutoCompleteApi
+    [RoutePrefix("api/placeAutoComplete")]
     public class PlaceAutoCompleteApiController : ApiController
     {
+        [Route("{searchParams}")] 
         public IHttpActionResult Get(string searchParams)
         {
              var jsonAutoCompleteResult = string.Empty;

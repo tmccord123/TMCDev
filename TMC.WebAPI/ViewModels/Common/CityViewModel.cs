@@ -43,5 +43,15 @@ namespace TMC.ViewModels
         /// </summary>
         public short PopulationClass { get; set; }
 
+        /// <summary>
+        /// Gets or sets the radius.
+        /// </summary>
+        public int Radius { get; set; }
+
+        /// <summary>
+        /// Gets or sets the CombinedCityDetails.
+        /// </summary>
+        public int CombinedCityDetails { get; set; }
+
     }
 }

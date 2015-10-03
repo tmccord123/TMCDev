@@ -79,5 +79,15 @@ namespace TMC.DTOModel
         [ViewModelPropertyMapping(MappingDirectionType.Both, "PopulationClass")]
         [EntityPropertyMapping(MappingDirectionType.Both, "PopulationClass")]
         public short PopulationClass { get; set; }
+
+        /// <summary>
+        /// Gets or sets the radius.
+        /// </summary>
+        public int Radius { get; set; }
+
+        /// <summary>
+        /// Gets or sets the CombinedCityDetails.
+        /// </summary>
+        public int CombinedCityDetails { get; set; }
     }
 }

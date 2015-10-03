@@ -104,5 +104,14 @@ namespace Resources {
                 return ResourceManager.GetString("TMC_Common_Labels_MoreCategories", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to fetch records..
+        /// </summary>
+        internal static string TMC_Listing_ErrorMessages_FailedToFetchListings {
+            get {
+                return ResourceManager.GetString("TMC_Listing_ErrorMessages_FailedToFetchListings", resourceCulture);
+            }
+        }
     }
 }

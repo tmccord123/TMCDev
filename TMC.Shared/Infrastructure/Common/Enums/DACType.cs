@@ -33,5 +33,11 @@
         /// </summary>
         [QualifiedTypeName("TMC.Data.dll", "TMC.Data.CommonDAC")]
         Common = 4,
+
+        /// <summary>
+        /// Listing DAC
+        /// </summary>
+        [QualifiedTypeName("TMC.Data.dll", "TMC.Data.ListingDAC")]
+        Listing = 5,
     }
 }

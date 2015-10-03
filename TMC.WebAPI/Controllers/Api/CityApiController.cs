@@ -42,6 +42,7 @@ namespace TMC.WebAPI.Controllers.Api
                         city.Long = cityDTO.Long;
                         city.StateId = cityDTO.StateId;
                         city.PopulationClass = cityDTO.PopulationClass;
+                        city.Radius = cityDTO.Radius;
                         cities.Add(city);
                 }
                

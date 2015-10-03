@@ -132,4 +132,7 @@
   <data name="TMC_Common_Labels_MoreCategories" xml:space="preserve">
     <value>Search for Categories</value>
   </data>
+  <data name="TMC_Listing_ErrorMessages_FailedToFetchListings" xml:space="preserve">
+    <value>Failed to fetch records.</value>
+  </data>
 </root>

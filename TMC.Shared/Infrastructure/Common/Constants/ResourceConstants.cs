@@ -37,6 +37,23 @@ namespace TMC.Shared
         }
 
         /// <summary>
+        /// The listing.
+        /// </summary>
+        public static class Listing
+        {
+            public static class ErrorMessages
+            {
+                public const string FailedToFetchListings = "TMC_Listing_ErrorMessages_FailedToFetchListings";
+            }
+
+            public static class Labels
+            {
+                
+
+            }
+        }
+
+        /// <summary>
         /// Class for Constants for Layout
         /// </summary>
         [SuppressMessage(SuppressMessageConstants.DesignCategory, SuppressMessageConstants.NestedTypeShouldNotBeVisible)]

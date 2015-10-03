@@ -49,6 +49,7 @@
     <Compile Include="Enums\ListingContactType.cs" />
     <Compile Include="Enums\MappingType.cs" />
     <Compile Include="Functional\BusinessDomainComponents\BDCType.cs" />
+    <Compile Include="Functional\BusinessDomainComponents\IListingBDC.cs" />
     <Compile Include="Functional\BusinessDomainComponents\ICommonBDC.cs" />
     <Compile Include="Functional\BusinessDomainComponents\IProductBDC.cs" />
     <Compile Include="Functional\BusinessDomainComponents\IVendorBDC.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Functional\BusinessFacades\IVendorFacade.cs" />
     <Compile Include="Functional\BusinessFacades\IProductFacade.cs" />
     <Compile Include="Functional\BusinessFacades\IUserFacade.cs" />
+    <Compile Include="Functional\DataAccessComponents\IListingDAC.cs" />
     <Compile Include="Functional\DataAccessComponents\ICommonDAC.cs" />
     <Compile Include="Functional\DataAccessComponents\IVendorDAC.cs" />
     <Compile Include="Functional\DataAccessComponents\IUserDAC.cs" />
@@ -133,6 +135,7 @@
     <Compile Include="Infrastructure\Common\Utilities\AppConstantsUtility.cs" />
     <Compile Include="Infrastructure\Common\Utilities\EmailUtility.cs" />
     <Compile Include="Infrastructure\Common\Utilities\EnumAttributeUtility.cs" />
+    <Compile Include="Infrastructure\Common\Utilities\GlobalUtility.cs" />
     <Compile Include="Infrastructure\Common\Utilities\PredicateBuilder.cs" />
     <Compile Include="Infrastructure\Common\Utilities\RandomNumberGenerationUtility.cs" />
     <Compile Include="Infrastructure\Common\Utilities\ResourceUtility.cs" />
