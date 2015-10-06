@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using TMC.Shared;
 
 namespace TMC.Web.Shared
@@ -51,5 +52,26 @@ namespace TMC.Web.Shared
         /// Gets or sets call back for cancel button of add edit business contact form
         /// </summary>
         public string FormCancelCallBack { get; set; }
+
+
+
+        /// <summary>
+        /// Gets or sets date time when folder is being created
+        /// </summary>
+        public DateTime CreatedOn { get; set; }
+
+        /// <summary>
+        /// Gets or sets date time when folder is being last updated
+        /// </summary>
+        public DateTime UpdatedOn { get; set; }
+
+        /// <summary>
+        /// Gets or sets detail of user by whom folder is last updated
+        /// </summary>
+        public string UpdatedBy { get; set; }
+        public string CreatedBy { get; set; }
+        public string IsActive { get; set; }
+        public string IsDeleted { get; set; }
+
     }
 }

@@ -2,11 +2,11 @@
 using TMC.Shared;
 using TMC.Web.Shared;
 
-namespace TMC.ViewModels
+namespace TMC.Web.ViewModels
 {
-    public class ListingItemViewModel : ViewModelBase
+    public class ListingViewModel : ViewModelBase
     {
-        public ListingItemViewModel()
+        public ListingViewModel()
         {
             ListingContacts = new ListingContactsViewModel();
         }

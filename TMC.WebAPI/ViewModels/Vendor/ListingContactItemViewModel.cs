@@ -6,11 +6,11 @@ using System.Web;
 using TMC.Shared;
 using TMC.Web.Shared;
 
-namespace TMC.ViewModels
+namespace TMC.Web.ViewModels
 {
-    public class ListingContactViewModel : ViewModelBase
+    public class ListingContactItemViewModel : ViewModelBase
     {
         public string ContactNumber { get; set; }
-        public ListingContactType ContactTypeId { get; set; } 
+        public int ListingContactTypeId { get; set; } 
     }
 }

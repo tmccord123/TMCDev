@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 
 using TMC.Shared;
-using TMC.ViewModels;
+using TMC.Web.ViewModels;
 
 
 namespace TMC.Controllers

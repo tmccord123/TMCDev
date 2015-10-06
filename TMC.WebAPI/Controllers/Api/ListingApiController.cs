@@ -2,7 +2,7 @@
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
 using TMC.Shared;
-using TMC.ViewModels;
+using TMC.Web.ViewModels;
 using TMC.Web.Shared.Common.Extensions;
 
 namespace TMC.WebAPI.Controllers.Api
@@ -18,7 +18,7 @@ namespace TMC.WebAPI.Controllers.Api
         {
             var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
             var listingResult = listingFacade.GetlistingById(id);
-            var listingViewModel = new ListingItemViewModel();
+            var listingViewModel = new ListingViewModel();
             if (listingResult.IsValid())
             {
                 listingViewModel.ContactEmailId = listingResult.Data.ContactEmailId;

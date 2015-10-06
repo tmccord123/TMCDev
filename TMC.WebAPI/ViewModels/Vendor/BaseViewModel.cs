@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace TMC.ViewModels
+namespace TMC.Web.ViewModels
 {
     public class BaseViewModel
     {

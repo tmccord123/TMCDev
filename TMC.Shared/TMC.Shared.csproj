@@ -66,6 +66,8 @@
     <Compile Include="Functional\DataAccessComponents\IUserDAC.cs" />
     <Compile Include="Functional\DataAccessComponents\IProductDAC.cs" />
     <Compile Include="Functional\DataTransferObjects\ICategoryDTO.cs" />
+    <Compile Include="Functional\DataTransferObjects\IListingContactDTO.cs" />
+    <Compile Include="Functional\DataTransferObjects\IListingContactsDTO.cs" />
     <Compile Include="Functional\DataTransferObjects\ICityDTO.cs" />
     <Compile Include="Functional\DataTransferObjects\DTOType.cs" />
     <Compile Include="Functional\DataTransferObjects\IBlogDTO.cs" />

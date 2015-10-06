@@ -8,7 +8,7 @@ using System.Web.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using TMC.Shared;
-using TMC.ViewModels;
+using TMC.Web.ViewModels;
 using TMC.Web.Shared;
 
 namespace TMC.WebAPI.Controllers.Api

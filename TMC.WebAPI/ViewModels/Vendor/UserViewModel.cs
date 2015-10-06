@@ -6,7 +6,7 @@ using System.Web;
 using TMC.Shared;
 using TMC.Web.Shared;
 
-namespace TMC.ViewModels
+namespace TMC.Web.ViewModels
 {
     public class UserViewModel : ViewModelBase
     {

@@ -8,7 +8,7 @@ namespace TMC.WebAPI.Controllers
 
     using Newtonsoft.Json;
 
-    using TMC.ViewModels;
+    using TMC.Web.ViewModels;
     using TMC.WebAPI;
 
     /// <summary>

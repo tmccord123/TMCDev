@@ -6,7 +6,7 @@ namespace TMC.WebAPI.Controllers.Api
     using System.Web.Http;
 
     using TMC.Shared;
-    using TMC.ViewModels;
+    using TMC.Web.ViewModels;
     using TMC.Web.Shared;
 
     /// <summary>

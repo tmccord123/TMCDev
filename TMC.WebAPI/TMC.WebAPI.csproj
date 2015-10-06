@@ -225,10 +225,10 @@
     <Compile Include="ViewModels\LocalBoard\LocalBoardViewModel.cs" />
     <Compile Include="ViewModels\ProductItemViewModel.cs" />
     <Compile Include="ViewModels\Vendor\BaseViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\ListingContactViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ListingContactItemViewModel.cs" />
     <Compile Include="ViewModels\Vendor\ListingContactsViewModel.cs" />
     <Compile Include="ViewModels\Vendor\UserViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\ListingItemViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ListingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

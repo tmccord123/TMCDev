@@ -6,7 +6,7 @@ using Microsoft.Ajax.Utilities;
 
 using TMC.Shared;
 using TMC.Shared.Factories;
-using TMC.ViewModels;
+using TMC.Web.ViewModels;
 
 
 namespace TMC.Controllers

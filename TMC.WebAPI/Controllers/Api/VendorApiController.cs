@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TMC.Shared;
-using TMC.ViewModels;
+using TMC.Web.ViewModels;
 using TMC.Web.Shared;
 
 namespace TMC.WebAPI.Controllers.Api
@@ -25,7 +25,7 @@ namespace TMC.WebAPI.Controllers.Api
             if (vendorResult.IsValid())
             {
                 //todo check if the data is valid
-                var listingViewModel = new ListingItemViewModel();
+                var listingViewModel = new ListingViewModel();
                 
                // var listingResult = listingFacade.GetlistingById(1);// todo
 

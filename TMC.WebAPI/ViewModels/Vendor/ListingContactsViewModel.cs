@@ -6,15 +6,15 @@ using System.Web;
 using TMC.Shared;
 using TMC.Web.Shared;
 
-namespace TMC.ViewModels
+namespace TMC.Web.ViewModels
 {
     public class ListingContactsViewModel : ViewModelBase
     {
         public ListingContactsViewModel()
         {
-            Contacts = new List<ListingContactViewModel>();
+            Contacts = new List<ListingContactItemViewModel>();
 
         }
-        public List<ListingContactViewModel> Contacts { get; set; }
+        public List<ListingContactItemViewModel> Contacts { get; set; }
     }
 }

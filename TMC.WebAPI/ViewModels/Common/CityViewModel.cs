@@ -1,5 +1,5 @@
 ﻿
-namespace TMC.ViewModels
+namespace TMC.Web.ViewModels
 {
     using TMC.Web.Shared;
 

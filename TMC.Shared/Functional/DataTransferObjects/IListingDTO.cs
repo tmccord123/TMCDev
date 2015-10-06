@@ -15,14 +15,12 @@ namespace TMC.Shared
         string WebSite { get; set; }
         short BusinessDays { get; set; }
         short BusinessHours { get; set; }
+        IListingContactsDTO ListingContacts { get; set; }
 
         string CreatedOn { get;set; }
         string CreatedBy { get;set; }
-
         string UpdatedOn { get; set; }
-
         string UpdatedBy { get; set; }
-
         string IsActive { get; set; }
         string IsDeleted { get; set; }
 
