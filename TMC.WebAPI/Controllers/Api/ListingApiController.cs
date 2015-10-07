@@ -31,7 +31,7 @@ namespace TMC.WebAPI.Controllers.Api
 
         [Route("")]
         [HttpPost]
-        public IHttpActionResult Post([ModelBinder(typeof(JsonPolyModelBinder))]ITrimmedListingDTO expenseGroup)
+        public IHttpActionResult Post([ModelBinder(typeof(JsonPolyModelBinder))]IListingDTO expenseGroup)
         {
             try
             {

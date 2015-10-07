@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using TMC.Web.Shared
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -17,7 +18,10 @@
 
     @RenderSection("stylesheet", required: false)
     @RenderSection("scripts", required: false)    
+    <script type="text/javascript">
+        ErrorRedirectUrl = '@Url.SmartAction("Index", "Error")';
 
+    </script>
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>

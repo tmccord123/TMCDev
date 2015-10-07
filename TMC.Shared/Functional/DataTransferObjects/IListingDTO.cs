@@ -12,14 +12,14 @@ namespace TMC.Shared
 
         short? YearStarted { get; set; }
         string Designation { get; set; }
-        string WebSite { get; set; }
+        string Website { get; set; }
         short BusinessDays { get; set; }
         short BusinessHours { get; set; }
         IListingContactsDTO ListingContacts { get; set; }
 
-        string CreatedOn { get;set; }
+        DateTime CreatedOn { get;set; }
         string CreatedBy { get;set; }
-        string UpdatedOn { get; set; }
+        DateTime UpdatedOn { get; set; }
         string UpdatedBy { get; set; }
         string IsActive { get; set; }
         string IsDeleted { get; set; }

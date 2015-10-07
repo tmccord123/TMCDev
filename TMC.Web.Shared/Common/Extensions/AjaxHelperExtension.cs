@@ -12,13 +12,13 @@
         #region "Constants"
 
         private const string CommonFormSubmitSuccessCallback =
-            "jccCommon.postFormSuccess(data, status, xhr, ##successCallback##, ##failureCallback##, ##validationCallback##);";
+            "tmcCommon.postFormSuccess(data, status, xhr, ##successCallback##, ##failureCallback##, ##validationCallback##);";
         private const string SuccessCallbackPlaceholder = "##successCallback##";
         private const string FailureCallbackPlaceholder = "##failureCallback##";
         private const string ValidationCallbackPlaceholder = "##validationCallback##";
 
         private const string CommonFormSubmitFailureCallback =
-            "jccCommon.handleError";
+            "tmcCommon.handleError";
 
         private const string Undefined = "undefined";
 

@@ -74,7 +74,7 @@ namespace TMC.Data
                          listingDto.ContactPerson = listingEntity.ContactPerson;
                          listingDto.ContactEmailId = listingEntity.ContactEmailId;
                          listingDto.Designation = listingEntity.Designation;
-                         listingDto.WebSite = listingEntity.Website;
+                         listingDto.Website = listingEntity.Website;
                          listingDto.YearStarted = listingEntity.YearStarted;
                          listings.Add(listingDto);
                      }

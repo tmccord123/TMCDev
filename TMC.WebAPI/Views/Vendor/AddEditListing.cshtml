@@ -1,6 +1,6 @@
 ﻿@using TMC.Web.ViewModels
 @using TMC.Web.Shared
-@model TMC.Web.ViewModels.ListingItemViewModel
+@model TMC.Web.ViewModels.ListingViewModel
 @{
     ViewBag.Title = "Add or Edit Listing";
 }
@@ -8,7 +8,7 @@
 @section scripts
 {
     <script src="@Url.Content("~/js/tmc.AddEditListing.js")" type="text/javascript"></script>
-    @Scripts.Render("~/bundles/jqueryval")
+    @*@Scripts.Render("~/bundles/jqueryval")*@
 }
 
 <div class="container">
@@ -139,10 +139,10 @@
                                 }))
                             {
                                 @Html.ValidationSummary()
-                                foreach (ListingContactViewModel listingContactViewModel in @Model.ListingContacts.Contacts)
+                                foreach (ListingContactItemViewModel listingContactViewModel in @Model.ListingContacts.Contacts)
                                 {
                                     <div class="form-group">
-                                        @Html.LabelFor(x => listingContactViewModel.ContactTypeId, new { @class = "col-md-2 control-label" })
+                                        @Html.LabelFor(x => listingContactViewModel.ListingContactTypeId, new { @class = "col-md-2 control-label" })
 
 
                                         @Html.LabelFor(x => listingContactViewModel.ContactNumber, new { @class = "col-md-2 control-label" })

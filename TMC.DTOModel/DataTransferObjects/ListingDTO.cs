@@ -9,8 +9,8 @@ namespace TMC.DTOModel
     /// <summary>
     /// Contract for Action DTO.
     /// </summary>
-    [DataContract(Name = "ListingDTO", Namespace = "TMC.DTOModel")]
-    [EntityMapping("TMC.Entities.EntityModels.Listing", MappingType.TotalExplicit)]
+    [DataContract(Name = "Listing", Namespace = "TMC.DTOModel")]
+    //[EntityMapping("TMC.Entities.EntityModels.Listing", MappingType.TotalExplicit)]
     [Serializable]
     [ViewModelMapping("TMC.Web.ViewModels.ListingViewModel", MappingType.TotalExplicit)]
     public class ListingDTO : DTOBase, IListingDTO
@@ -37,8 +37,8 @@ namespace TMC.DTOModel
         [ViewModelPropertyMapping(MappingDirectionType.Both, "Designation")]
         public string Designation { get; set; }
 
-        [ViewModelPropertyMapping(MappingDirectionType.Both, "WebSite")]
-        public string WebSite { get; set; }
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "Website")]
+        public string Website { get; set; }
 
         [ViewModelPropertyMapping(MappingDirectionType.Both, "BusinessDays")]
         public short BusinessDays { get; set; }
@@ -50,13 +50,13 @@ namespace TMC.DTOModel
 
 
         [ViewModelPropertyMapping(MappingDirectionType.Both, "CreatedOn")]
-        public string CreatedOn { get; set; }
+        public DateTime CreatedOn { get; set; }
 
         [ViewModelPropertyMapping(MappingDirectionType.Both, "CreatedBy")]
         public string CreatedBy { get; set; }
 
         [ViewModelPropertyMapping(MappingDirectionType.Both, "UpdatedOn")]
-        public string UpdatedOn { get; set; }
+        public DateTime UpdatedOn { get; set; }
 
         [ViewModelPropertyMapping(MappingDirectionType.Both, "UpdatedBy")]
         public string UpdatedBy { get; set; }

@@ -90,7 +90,7 @@ namespace TMC.Controllers
         {
             var client = TMCHttpClient.GetClient();
             var listingDTO = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
-            DTOConverter.FillDTOFromViewModel(listingDTO, listingViewModel);
+                DTOConverter.FillDTOFromViewModel(listingDTO, listingViewModel);
 
 
             // todo
@@ -103,7 +103,7 @@ namespace TMC.Controllers
           //  var serializedItemToCreate = JsonConvert.SerializeObject(trimmedlitingViewModel);
 
             JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
-            string serializedItemToCreate = JsonConvert.SerializeObject(listingViewModel, typeof(ITrimmedListingDTO), settings);
+            string serializedItemToCreate = JsonConvert.SerializeObject(listingDTO, typeof(IListingDTO), settings);
 
             var response = await client.PostAsync("api/listing",
               new StringContent(serializedItemToCreate,

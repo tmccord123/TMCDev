@@ -13,13 +13,13 @@ namespace TMC.Web.ViewModels
         public int ListingId { get; set; }
         public int VendorId { get; set; }
         public string BusinessName { get; set; }
-        public DateTime YearStarted { get; set; }
+        public short YearStarted { get; set; }
         public string ContactPerson { get; set; }
         public string ContactEmailId { get; set; }
         public string Designation { get; set; }
         public string Website { get; set; }
-        public int BusinessDays { get; set; }
-        public int BusinessHours { get; set; }
+        public short BusinessDays { get; set; }
+        public short BusinessHours { get; set; }
         public ListingContactsViewModel ListingContacts { get; set; }
 
         //public UserViewModel Owner { get; set; }
