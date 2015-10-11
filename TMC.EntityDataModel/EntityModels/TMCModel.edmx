@@ -206,6 +206,14 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="ListingCategory">
+          <Key>
+            <PropertyRef Name="ListingCategoryId" />
+          </Key>
+          <Property Name="ListingCategoryId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ListingId" Type="bigint" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="ListingContact">
           <Key>
             <PropertyRef Name="ListingContactId" />
@@ -531,6 +539,30 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ListingCategory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="ListingCategory" Type="Self.ListingCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="ListingCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListingCategory_Listing">
+          <End Role="Listing" Type="Self.Listing" Multiplicity="1" />
+          <End Role="ListingCategory" Type="Self.ListingCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Listing">
+              <PropertyRef Name="ListingId" />
+            </Principal>
+            <Dependent Role="ListingCategory">
+              <PropertyRef Name="ListingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ListingContact_ContactType">
           <End Role="ContactType" Type="Self.ContactType" Multiplicity="1" />
           <End Role="ListingContact" Type="Self.ListingContact" Multiplicity="*" />
@@ -801,6 +833,7 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <EntitySet Name="FileExtension" EntityType="Self.FileExtension" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FileType" EntityType="Self.FileType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Listing" EntityType="Self.Listing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ListingCategory" EntityType="Self.ListingCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ListingContact" EntityType="Self.ListingContact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ListingLocation" EntityType="Self.ListingLocation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ListingMedia" EntityType="Self.ListingMedia" Schema="dbo" store:Type="Tables" />
@@ -873,6 +906,14 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <AssociationSet Name="FK_Listing_Vendor" Association="Self.FK_Listing_Vendor">
             <End Role="Vendor" EntitySet="Vendor" />
             <End Role="Listing" EntitySet="Listing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingCategory_Category" Association="Self.FK_ListingCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="ListingCategory" EntitySet="ListingCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingCategory_Listing" Association="Self.FK_ListingCategory_Listing">
+            <End Role="Listing" EntitySet="Listing" />
+            <End Role="ListingCategory" EntitySet="ListingCategory" />
           </AssociationSet>
           <AssociationSet Name="FK_ListingContact_ContactType" Association="Self.FK_ListingContact_ContactType">
             <End Role="ContactType" EntitySet="ContactType" />
@@ -1226,6 +1267,15 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
             <End Role="UserType" EntitySet="UserType" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
+          <EntitySet Name="ListingCategory" EntityType="TMCModel.ListingCategory" />
+          <AssociationSet Name="FK_ListingCategory_Category" Association="TMCModel.FK_ListingCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="ListingCategory" EntitySet="ListingCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingCategory_Listing" Association="TMCModel.FK_ListingCategory_Listing">
+            <End Role="Listing" EntitySet="Listing" />
+            <End Role="ListingCategory" EntitySet="ListingCategory" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Products">
           <Key>
@@ -1280,6 +1330,7 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <NavigationProperty Name="CategoryRelation" Relationship="TMCModel.FK_CategoryRelation_ChildCategory" FromRole="Category" ToRole="CategoryRelation" />
           <NavigationProperty Name="CategoryRelation1" Relationship="TMCModel.FK_CategoryRelation_ParentCategory" FromRole="Category" ToRole="CategoryRelation" />
           <NavigationProperty Name="RequirementCategory" Relationship="TMCModel.FK_RequirementCategory_Category" FromRole="Category" ToRole="RequirementCategory" />
+          <NavigationProperty Name="ListingCategory" Relationship="TMCModel.FK_ListingCategory_Category" FromRole="Category" ToRole="ListingCategory" />
         </EntityType>
         <EntityType Name="CategoryRelation">
           <Key>
@@ -1393,6 +1444,7 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <NavigationProperty Name="ListingLocation" Relationship="TMCModel.FK_ListingLocation_Listing" FromRole="Listing" ToRole="ListingLocation" />
           <NavigationProperty Name="ListingMedia" Relationship="TMCModel.FK_ListingMedia_Listing" FromRole="Listing" ToRole="ListingMedia" />
           <NavigationProperty Name="ListingPaymentMode" Relationship="TMCModel.FK_ListingPaymentMode_Listing" FromRole="Listing" ToRole="ListingPaymentMode" />
+          <NavigationProperty Name="ListingCategory" Relationship="TMCModel.FK_ListingCategory_Listing" FromRole="Listing" ToRole="ListingCategory" />
         </EntityType>
         <EntityType Name="ListingContact">
           <Key>
@@ -1926,6 +1978,40 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ListingCategory">
+          <Key>
+            <PropertyRef Name="ListingCategoryId" />
+          </Key>
+          <Property Name="ListingCategoryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ListingId" Type="Int64" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="TMCModel.FK_ListingCategory_Category" FromRole="ListingCategory" ToRole="Category" />
+          <NavigationProperty Name="Listing" Relationship="TMCModel.FK_ListingCategory_Listing" FromRole="ListingCategory" ToRole="Listing" />
+        </EntityType>
+        <Association Name="FK_ListingCategory_Category">
+          <End Type="TMCModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="TMCModel.ListingCategory" Role="ListingCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="ListingCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListingCategory_Listing">
+          <End Type="TMCModel.Listing" Role="Listing" Multiplicity="1" />
+          <End Type="TMCModel.ListingCategory" Role="ListingCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Listing">
+              <PropertyRef Name="ListingId" />
+            </Principal>
+            <Dependent Role="ListingCategory">
+              <PropertyRef Name="ListingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2337,6 +2423,15 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListingCategory">
+            <EntityTypeMapping TypeName="TMCModel.ListingCategory">
+              <MappingFragment StoreEntitySet="ListingCategory">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="ListingId" ColumnName="ListingId" />
+                <ScalarProperty Name="ListingCategoryId" ColumnName="ListingCategoryId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

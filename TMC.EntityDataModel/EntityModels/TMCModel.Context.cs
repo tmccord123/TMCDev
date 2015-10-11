@@ -56,5 +56,6 @@ namespace EntityDataModel.EntityModels
         public virtual DbSet<VendorServiceLocation> VendorServiceLocation { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserType> UserType { get; set; }
+        public virtual DbSet<ListingCategory> ListingCategory { get; set; }
     }
 }

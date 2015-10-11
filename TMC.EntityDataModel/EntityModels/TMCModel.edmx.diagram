@@ -67,6 +67,9 @@
         <EntityTypeShape EntityType="TMCModel.UserType" Width="1.5" PointX="10.25" PointY="1.875" />
         <AssociationConnector Association="TMCModel.FK_Requirement_User" />
         <AssociationConnector Association="TMCModel.FK_User_UserType" />
+        <EntityTypeShape EntityType="TMCModel.ListingCategory" Width="1.5" PointX="18" PointY="15.625" />
+        <AssociationConnector Association="TMCModel.FK_ListingCategory_Category" />
+        <AssociationConnector Association="TMCModel.FK_ListingCategory_Listing" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

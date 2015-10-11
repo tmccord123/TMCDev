@@ -20,6 +20,7 @@ namespace EntityDataModel.EntityModels
             this.ListingLocation = new HashSet<ListingLocation>();
             this.ListingMedia = new HashSet<ListingMedia>();
             this.ListingPaymentMode = new HashSet<ListingPaymentMode>();
+            this.ListingCategory = new HashSet<ListingCategory>();
         }
     
         public long ListingId { get; set; }
@@ -44,5 +45,6 @@ namespace EntityDataModel.EntityModels
         public virtual ICollection<ListingLocation> ListingLocation { get; set; }
         public virtual ICollection<ListingMedia> ListingMedia { get; set; }
         public virtual ICollection<ListingPaymentMode> ListingPaymentMode { get; set; }
+        public virtual ICollection<ListingCategory> ListingCategory { get; set; }
     }
 }

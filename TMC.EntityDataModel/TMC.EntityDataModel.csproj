@@ -105,6 +105,9 @@
     <Compile Include="EntityModels\Listing.cs">
       <DependentUpon>TMCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityModels\ListingCategory.cs">
+      <DependentUpon>TMCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityModels\ListingContact.cs">
       <DependentUpon>TMCModel.tt</DependentUpon>
     </Compile>

@@ -19,6 +19,7 @@ namespace EntityDataModel.EntityModels
             this.CategoryRelation = new HashSet<CategoryRelation>();
             this.CategoryRelation1 = new HashSet<CategoryRelation>();
             this.RequirementCategory = new HashSet<RequirementCategory>();
+            this.ListingCategory = new HashSet<ListingCategory>();
         }
     
         public int CategoryId { get; set; }
@@ -30,5 +31,6 @@ namespace EntityDataModel.EntityModels
         public virtual ICollection<CategoryRelation> CategoryRelation { get; set; }
         public virtual ICollection<CategoryRelation> CategoryRelation1 { get; set; }
         public virtual ICollection<RequirementCategory> RequirementCategory { get; set; }
+        public virtual ICollection<ListingCategory> ListingCategory { get; set; }
     }
 }
