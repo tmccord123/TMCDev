@@ -10,7 +10,7 @@ namespace TMC.Web.ViewModels
         {
             ListingContacts = new ListingContactsViewModel();
         }
-        public int ListingId { get; set; }
+        public long ListingId { get; set; }
         public int VendorId { get; set; }
         public string BusinessName { get; set; }
         public short YearStarted { get; set; }

@@ -7,8 +7,10 @@ using TMC.Web.Shared.Common.Extensions;
 
 namespace TMC.WebAPI.Controllers.Api
 {
+    using System.Collections.Generic;
+
     //http://www.asp.net/web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
-    [System.Web.Http.RoutePrefix("api/listing")]// this is the base http://localhost:59974/api/listing
+    [RoutePrefix("api/listing")]// this is the base http://localhost:59974/api/listing
     public class ListingApiController : ApiController
     {
         [Route("{id:int}")]  // call like this http://localhost:59974/api/listing/1
@@ -92,5 +94,32 @@ namespace TMC.WebAPI.Controllers.Api
                 return InternalServerError();
             }
         }*/
+
+        [Route("{cityId:int}/{categoryId:int}/{placeId:int}")]
+        public IHttpActionResult GetListings(int cityId, int categoryId, string placeId)
+        {
+            var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+            var listingResult = listingFacade.GetListings(cityId, placeId, categoryId);
+            var allListings = new List<ListingViewModel>();
+            if (listingResult.IsValid())
+            {
+                foreach (var listing in listingResult.Data)
+                {
+                    var listingViewModel = new ListingViewModel();
+                    listingViewModel.ListingId = listing.ListingId;
+                    listingViewModel.VendorId = listing.VendorId;
+                    listingViewModel.BusinessDays = listing.BusinessDays;
+                    listingViewModel.BusinessHours = listing.BusinessHours;
+                    listingViewModel.ContactEmailId = listing.ContactEmailId;
+                    listingViewModel.BusinessName = listing.BusinessName;
+                    listingViewModel.ContactPerson = listing.ContactPerson;
+                    listingViewModel.Designation = listing.Designation;
+                    allListings.Add(listingViewModel);
+                }
+                
+
+            }
+            return Ok(allListings);
+        }
     }
 }

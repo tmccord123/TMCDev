@@ -48,8 +48,8 @@ namespace TMC.Shared
 
             public static class Labels
             {
-                
 
+                public const string LocalBoardSearchHeading = "TMC_Listing_Labels_LocalBoardSearchHeading";
             }
         }
 

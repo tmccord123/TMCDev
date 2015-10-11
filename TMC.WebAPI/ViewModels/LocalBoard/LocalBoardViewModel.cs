@@ -6,19 +6,39 @@ namespace TMC.Web.ViewModels
     using TMC.Web.Shared;
 
     /// <summary>
-    /// The home view model.
+    /// The local board view model.
     /// </summary>
     public class LocalBoardViewModel : ViewModelBase
     {
         /// <summary>
-        /// Gets or sets the cities.
+        /// The city place holder.
         /// </summary>
-        public List<CityViewModel> Cities { get; set; }
+        public string CityPlaceHolder = "##CityPlaceHolder##";
 
         /// <summary>
-        /// Gets or sets the Top Categories.
+        /// The category place holder.
         /// </summary>
-        public List<CategoryViewModel> TopCategories { get; set; }
+        public string CategoryPlaceHolder = "##CategoryPlaceHolder##";
+
+        /// <summary>
+        /// Gets or sets the city name.
+        /// </summary>
+        public string CityName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the category name.
+        /// </summary>
+        public string CategoryName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the heading.
+        /// </summary>
+        public string SearchResultHeading { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Listings.
+        /// </summary>
+        public List<ListingViewModel> Listings { get; set; }
 
     }
 }

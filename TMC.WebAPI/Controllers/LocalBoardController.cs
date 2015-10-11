@@ -11,34 +11,64 @@ using TMC.Web.ViewModels;
 
 namespace TMC.Controllers
 {
+    using System.Net.Http;
+    using System.Threading.Tasks;
 
+    using Newtonsoft.Json;
+
+    using TMC.WebAPI;
 
     public class LocalBoardController : Controller
     {
-
-        //[Route("seo/Coupons/{permalink}")]
-        public ActionResult Index(string cityName,string categoryName ,int? cityId,int? categoryId,string placeId)
+        /// <summary>
+        /// The index.
+        /// </summary>
+        /// <param name="cityName">
+        /// The city name.
+        /// </param>
+        /// <param name="categoryName">
+        /// The category name.
+        /// </param>
+        /// <param name="cityId">
+        /// The city id.
+        /// </param>
+        /// <param name="categoryId">
+        /// The category id.
+        /// </param>
+        /// <param name="placeId">
+        /// The place id.
+        /// </param>
+        /// <returns>
+        /// The <see cref="Task"/>.
+        /// </returns>
+        public async Task<ActionResult> Index(string cityName, string categoryName, int? cityId, int? categoryId, string placeId)
         {
-
-            var seoTitle = Request.RawUrl.Replace("/LocalBoard/", "");
-            seoTitle = "paytm-coupons-cashback-offers";//todo
-            //todo remove the TMC.Data regerence from the web project later after Service layer implementation
-            var productDAC = (IProductDAC)DACFactory.Instance.Create(DACType.Product);
-            var productDto = productDAC.ReadProductBySeoTitle(seoTitle);
-            var productItemModel = new ProductItemViewModel();
-            productItemModel.Description = "";// productDto.Description;
-            productItemModel.Name = productDto.Name;
-            productItemModel.Content = productDto.Content;
-            productItemModel.SeoTitle = "The one stop to all your needs";// productDto.SeoTitle;
-            productItemModel.ImageURL = productDto.ImageURL;
-
-            if (seoTitle.IsNullOrWhiteSpace() || productItemModel.SeoTitle.IsNullOrWhiteSpace() || seoTitle == "Index")
+            var model = new LocalBoardViewModel();
+            model.SeoTitle = Request.RawUrl.Replace("/LocalBoard/", "");
+            if (!String.IsNullOrWhiteSpace(cityName) && !String.IsNullOrWhiteSpace(categoryName))
             {
-                return RedirectToAction("FourOhFour", "Other");
+                model.SearchResultHeading =
+                    ResourceUtility.GetCaptionFor(ResourceConstants.Listing.Labels.LocalBoardSearchHeading)
+                                   .Replace(model.CategoryPlaceHolder, categoryName)
+                                   .Replace(model.CityPlaceHolder, cityName);
             }
+            //var client = TMCHttpClient.GetClient();
+            //var listingUrl = "api/listing" + "/" + cityId.ToString() + "/" + categoryId.ToString() + "/" + placeId;
+            //HttpResponseMessage listingResponse = await client.GetAsync(listingUrl);
+            //if (listingResponse.IsSuccessStatusCode)
+            //{
+            //    string categoriesContent = await listingResponse.Content.ReadAsStringAsync();
+            //    var listings = JsonConvert.DeserializeObject<List<ListingViewModel>>(categoriesContent);
 
+            //    model.Listings = listings;
+            //    model.ControllerName = "LocalBoard";
+            //}
+            //else
+            //{
+            //    return Content("An error occurred.");
+            //}
 
-            return View(productItemModel);
+            return View(model);
         }
 
         private IProductDTO getProductDTO(ProductItemViewModel productMaster, bool creatingProduct)

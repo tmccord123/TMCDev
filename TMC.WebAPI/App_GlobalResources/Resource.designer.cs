@@ -113,5 +113,14 @@ namespace Resources {
                 return ResourceManager.GetString("TMC_Listing_ErrorMessages_FailedToFetchListings", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ##CategoryPlaceHolder## in ##CityPlaceHolder##.
+        /// </summary>
+        internal static string TMC_Listing_Labels_LocalBoardSearchHeading {
+            get {
+                return ResourceManager.GetString("TMC_Listing_Labels_LocalBoardSearchHeading", resourceCulture);
+            }
+        }
     }
 }

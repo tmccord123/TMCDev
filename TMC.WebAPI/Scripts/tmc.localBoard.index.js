@@ -2,9 +2,9 @@
 /// <reference path='..\tmc.common.js' />
 /// <reference path='..\tmc.dataService.js' />
 
-var localCordIndex;
+var localBoardIndex;
 
-function LocalCordIndex() {
+function LocalBoardIndex() {
 
 
     var context = this;

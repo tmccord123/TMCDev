@@ -73,5 +73,7 @@ namespace TMC.Web.Shared
         public string IsActive { get; set; }
         public string IsDeleted { get; set; }
 
+        public string SeoTitle { get; set; }
+
     }
 }

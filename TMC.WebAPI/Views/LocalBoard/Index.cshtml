@@ -1,4 +1,4 @@
-﻿@model TMC.Web.ViewModels.ProductItemViewModel
+﻿@model TMC.Web.ViewModels.LocalBoardViewModel
 @{
     ViewBag.Title = @Model.SeoTitle.Replace("-", " ");
 }
@@ -8,8 +8,8 @@
     <script type="text/javascript">
 
         $(function () {
-            localCordIndex = new LocalCordIndex();
-            localCordIndex.initialize();
+            localBoardIndex = new LocalBoardIndex();
+            localBoardIndex.initialize();
         });
 
     </script>
@@ -29,7 +29,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <div id="divSidebarNav" class="col-sm-2 sidebar" style="padding-right: 0 !important;">
+       @* <div id="divSidebarNav" class="col-sm-2 sidebar" style="padding-right: 0 !important;">
             <ul class="nav nav-stacked nav-pills">
                 <li>
                     @Html.ActionLink("Home", "Index", "Home")
@@ -86,45 +86,28 @@
                     <a href="#">Pricing Table</a>
                 </li>
             </ul>
-        </div>
-        <div class="col-sm-7" id="divListing">
+        </div>*@
+        <div class="col-sm-9" id="divListing">
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Local  Board@*@Model.Name*@
-                        <small>(@Model.SeoTitle.Replace("-", " "))  </small>
+                        Local  Board
+                        <small>(@Model.SearchResultHeading)  </small>
                     </h1>
                     <ol class="breadcrumb ">
                         <li>
                             @Html.ActionLink("Home", "Index", "Home")
                         </li>
                         <li>
-                            @Html.ActionLink("Local Board", "Index", "CouponBoard")
+                            @Html.ActionLink("Local Board", "Index", "LocalBoard")
                         </li>
-                        <li class="active">@(@Model.Name + " coupons")</li>
+                       
                     </ol>
                 </div>
             </div>
+            
 
-            <div class="row" id="divProductContent">
-                <div class="col-lg-11">
-                    @*<p>@Model.Description <a href="@Model.SiteURL"></a></p>*@
-                    <p>
-                        Post your service needs and current trends to the board. The service requirement will be shared to the appropriate vendors or so called service
-                        providers. We recomend to pull down the requirement once the same is serviced.
-                    </p>
-
-                    @* <label id="lblProductContent">@Html.Raw(@Model.Content)</label>*@
-                </div>
-                @*<div class="col-lg-1">
-                            <div id="addUpdateProduct">
-                                <div id="addUpdateProduct" class="btn btn-link btn-sm pull-right">Edit  </div>
-                            </div>
-
-                        </div>*@
-            </div>
-
-            <div class="row">
+            <div class="row trending-card">
                 <div class="col-sm-12">
                     <div class="header-bar cursor">
                         <h3>Vendors in your area</h3>
@@ -132,14 +115,14 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-lg-12  trending-card">
-                    <div class="col-md-3">
+            <div class="row trending-card">
+                <div class="col-sm-12 ">
+                    <div class="col-sm-3">
                         <a href="/Coupons/paytm-coupons-cashback-offers">
                             <img src="~/img/image_payTM.jpg">
                         </a>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-sm-5">
                         <h3>
                             <a href="/Coupons/paytm-coupons-cashback-offers">PayTM</a>
                         </h3>
@@ -151,7 +134,7 @@
                         <a href="/Coupons/paytm-coupons-cashback-offers">Show all PayTM coupons </a>
 
                     </div>
-                    <div class="col-md-4" style="padding-top: 10px">
+                    <div class="col-sm-4" style="padding-top: 10px">
                         <p>
                             Fee coupons for ICICI50 and many more
                         </p><ul>
@@ -194,196 +177,6 @@
                         <p></p>
                     </div>
                 </div>
-            </div>
-
-            <div class="row trending-card">
-                <div class="col-lg-12">
-                    <div class="col-md-3">
-                        <a href="/Coupons/paytm-coupons-cashback-offers">
-                            <img src="~/img/image_payTM.jpg">
-                        </a>
-                    </div>
-                    <div class="col-md-5">
-                        <h3>
-                            <a href="/Coupons/paytm-coupons-cashback-offers">PayTM</a>
-                        </h3>
-                        <p>
-                            updated by <a href="#">TMC</a> on May 24, 2013
-                        </p>
-                        <p> Paytm is Indias largest mobile commerce platform. Paytm started by offering mobile recharge and utility bill payments and today it offers a full marketplace to consumers on its mobile apps. We have over 20mn registered users. In a short span of time Paytm has scaled to more than 15 Million orders per month.</p>
-
-                        <a href="/Coupons/paytm-coupons-cashback-offers">Show all PayTM coupons </a>
-
-                    </div>
-                    <div class="col-md-4" style="padding-top: 10px">
-                        <p>
-                            Fee coupons for ICICI50 and many more
-                        </p><ul>
-                                <li>One</li>
-                                <li>Two</li>
-                                <li>Three</li>
-                            </ul>
-                        <p></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row trending-card">
-                <div class="col-lg-12">
-                    <div class="col-md-3">
-                        <a href="/Coupons/paytm-coupons-cashback-offers">
-                            <img src="~/img/image_payTM.jpg">
-                        </a>
-                    </div>
-                    <div class="col-md-5">
-                        <h3>
-                            <a href="/Coupons/paytm-coupons-cashback-offers">PayTM</a>
-                        </h3>
-                        <p>
-                            updated by <a href="#">TMC</a> on May 24, 2013
-                        </p>
-                        <p> Paytm is Indias largest mobile commerce platform. Paytm started by offering mobile recharge and utility bill payments and today it offers a full marketplace to consumers on its mobile apps. We have over 20mn registered users. In a short span of time Paytm has scaled to more than 15 Million orders per month.</p>
-
-                        <a href="/Coupons/paytm-coupons-cashback-offers">Show all PayTM coupons </a>
-
-                    </div>
-                    <div class="col-md-4" style="padding-top: 10px">
-                        <p>
-                            Fee coupons for ICICI50 and many more
-                        </p><ul>
-                                <li>One</li>
-                                <li>Two</li>
-                                <li>Three</li>
-                            </ul>
-                        <p></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row trending-card">
-                <div class="col-lg-12">
-                    <div class="col-md-3">
-                        <a href="/Coupons/paytm-coupons-cashback-offers">
-                            <img src="~/img/image_payTM.jpg">
-                        </a>
-                    </div>
-                    <div class="col-md-5">
-                        <h3>
-                            <a href="/Coupons/paytm-coupons-cashback-offers">PayTM</a>
-                        </h3>
-                        <p>
-                            updated by <a href="#">TMC</a> on May 24, 2013
-                        </p>
-                        <p> Paytm is Indias largest mobile commerce platform. Paytm started by offering mobile recharge and utility bill payments and today it offers a full marketplace to consumers on its mobile apps. We have over 20mn registered users. In a short span of time Paytm has scaled to more than 15 Million orders per month.</p>
-
-                        <a href="/Coupons/paytm-coupons-cashback-offers">Show all PayTM coupons </a>
-
-                    </div>
-                    <div class="col-md-4" style="padding-top: 10px">
-                        <p>
-                            Fee coupons for ICICI50 and many more
-                        </p><ul>
-                                <li>One</li>
-                                <li>Two</li>
-                                <li>Three</li>
-                            </ul>
-                        <p></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row trending-card">
-                <div class="col-lg-12">
-                    <div class="col-md-3">
-                        <a href="/Coupons/paytm-coupons-cashback-offers">
-                            <img src="~/img/image_payTM.jpg">
-                        </a>
-                    </div>
-                    <div class="col-md-5">
-                        <h3>
-                            <a href="/Coupons/paytm-coupons-cashback-offers">PayTM</a>
-                        </h3>
-                        <p>
-                            updated by <a href="#">TMC</a> on May 24, 2013
-                        </p>
-                        <p> Paytm is Indias largest mobile commerce platform. Paytm started by offering mobile recharge and utility bill payments and today it offers a full marketplace to consumers on its mobile apps. We have over 20mn registered users. In a short span of time Paytm has scaled to more than 15 Million orders per month.</p>
-
-                        <a href="/Coupons/paytm-coupons-cashback-offers">Show all PayTM coupons </a>
-
-                    </div>
-                    <div class="col-md-4" style="padding-top: 10px">
-                        <p>
-                            Fee coupons for ICICI50 and many more
-                        </p><ul>
-                                <li>One</li>
-                                <li>Two</li>
-                                <li>Three</li>
-                            </ul>
-                        <p></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row trending-card">
-                <div class="col-lg-12">
-                    <div class="col-md-3">
-                        <a href="/Coupons/paytm-coupons-cashback-offers">
-                            <img src="~/img/image_payTM.jpg">
-                        </a>
-                    </div>
-                    <div class="col-md-5">
-                        <h3>
-                            <a href="/Coupons/paytm-coupons-cashback-offers">PayTM</a>
-                        </h3>
-                        <p>
-                            updated by <a href="#">TMC</a> on May 24, 2013
-                        </p>
-                        <p> Paytm is Indias largest mobile commerce platform. Paytm started by offering mobile recharge and utility bill payments and today it offers a full marketplace to consumers on its mobile apps. We have over 20mn registered users. In a short span of time Paytm has scaled to more than 15 Million orders per month.</p>
-
-                        <a href="/Coupons/paytm-coupons-cashback-offers">Show all PayTM coupons </a>
-
-                    </div>
-                    <div class="col-md-4" style="padding-top: 10px">
-                        <p>
-                            Fee coupons for ICICI50 and many more
-                        </p><ul>
-                                <li>One</li>
-                                <li>Two</li>
-                                <li>Three</li>
-                            </ul>
-                        <p></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row trending-card">
-                 <div class="col-lg-12">
-                     <div class="  mygrid-wrapper-div1" id="divProductEditorContent">
-                            <div class="row">
-                        <div class="col-md-1">
-                            <p>
-                                <i class="fa fa-file-text fa-4x"></i>
-                            </p>
-                            <p>May 24, 2013</p>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="@Url.Action("Post")">
-                                <img class="img-responsive" src="http://placehold.it/600x300">
-                            </a>
-                        </div>
-                        <div class="col-md-6">
-                            <h3>
-                                <a href="@Url.Action("Post")">A Blog Home Template for Bootstrap 3</a>
-                            </h3>
-                            <p>
-                                by <a href="#">Start Bootstrap</a>
-                            </p>
-                            <p>This is a very basic starter template for a blog homepage. It makes use of Font Awesome icons that are built into the 'Modern Business' template, and it makes use of the Bootstrap 3 pager at the bottom of the page.</p>
-                            dfsd kkk")" class="btn btn-primary">Show More <i class="fa fa-angle-right"></i>
-                        </div>
-                    </div>
-                    </div>
-            </div>
             </div>
 
         </div>
@@ -534,6 +327,11 @@
 
             <div class="row">
                 <div class="col-sm-12 ">
+                    <p>
+                        Post your service needs and current trends to the board. The service requirement will be shared to the appropriate vendors or so called service
+                        providers. We recomend to pull down the requirement once the same is serviced.
+                    </p>
+               
                     <ul class="nav nav-pills navbar-default" >
                         <li><a href="#Requirement" data-toggle="collapse" class="active" > Post a requirement</a></li>
                         <li><a href="#Advertisement" data-toggle="collapse"  > Post an advertisement or listing</a></li>

@@ -480,7 +480,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\tmc.home.index.js" />
-    <Content Include="Scripts\tmc.localCord.index.js" />
+    <Content Include="Scripts\tmc.localBoard.index.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
