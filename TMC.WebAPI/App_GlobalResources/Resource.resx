@@ -138,4 +138,7 @@
   <data name="TMC_Listing_Labels_LocalBoardSearchHeading" xml:space="preserve">
     <value>##CategoryPlaceHolder## in ##CityPlaceHolder##</value>
   </data>
+  <data name="TMC_Listing_Labels_LocalBoardTrendsHeading" xml:space="preserve">
+    <value>Service requirements/trends in (##PlacePlaceHolder##)</value>
+  </data>
 </root>

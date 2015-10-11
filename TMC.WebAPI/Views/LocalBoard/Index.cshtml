@@ -87,9 +87,9 @@
                 </li>
             </ul>
         </div>*@
-        <div class="col-sm-9" id="divListing">
+        <div class="col-sm-8" id="divListing">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-sm-12">
                     <h1 class="page-header">
                         Local  Board
                         <small>(@Model.SearchResultHeading)  </small>
@@ -105,7 +105,6 @@
                     </ol>
                 </div>
             </div>
-            
 
             <div class="row trending-card">
                 <div class="col-sm-12">
@@ -115,76 +114,53 @@
                 </div>
             </div>
 
-            <div class="row trending-card">
-                <div class="col-sm-12 ">
-                    <div class="col-sm-3">
-                        <a href="/Coupons/paytm-coupons-cashback-offers">
-                            <img src="~/img/image_payTM.jpg">
-                        </a>
-                    </div>
-                    <div class="col-sm-5">
-                        <h3>
-                            <a href="/Coupons/paytm-coupons-cashback-offers">PayTM</a>
-                        </h3>
-                        <p>
-                            updated by <a href="#">TMC</a> on May 24, 2013
-                        </p>
-                        <p> Paytm is Indias largest mobile commerce platform. Paytm started by offering mobile recharge and utility bill payments and today it offers a full marketplace to consumers on its mobile apps. We have over 20mn registered users. In a short span of time Paytm has scaled to more than 15 Million orders per month.</p>
+            @foreach (var listingViewModel in Model.Listings)
+            {
+              <div class="row trending-card">
+                            <div class="col-sm-12 ">
+                                <div class="col-sm-3">
+                                    <a href="/Coupons/paytm-coupons-cashback-offers">
+                                        <img src="~/img/image_payTM.jpg">
+                                    </a>
+                                </div>
+                                <div class="col-sm-5">
+                                    <h3>
+                                        <a href="/Coupons/paytm-coupons-cashback-offers">@listingViewModel.BusinessName</a>
+                                    </h3>
+                                    <p>
+                                        Business Days:  @listingViewModel.BusinessDays
+                                    </p>
+<p>
+                                        Business Hours:  @listingViewModel.BusinessHours
+                                    </p>
+                                   
 
-                        <a href="/Coupons/paytm-coupons-cashback-offers">Show all PayTM coupons </a>
+                                    <a href="/Coupons/paytm-coupons-cashback-offers">Vendor Details </a>
 
-                    </div>
-                    <div class="col-sm-4" style="padding-top: 10px">
-                        <p>
-                            Fee coupons for ICICI50 and many more
-                        </p><ul>
-                                <li>One</li>
-                                <li>Two</li>
-                                <li>Three</li>
-                            </ul>
-                        <p></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row trending-card">
-                <div class="col-lg-12">
-                    <div class="col-md-3">
-                        <a href="/Coupons/paytm-coupons-cashback-offers">
-                            <img src="~/img/image_payTM.jpg">
-                        </a>
-                    </div>
-                    <div class="col-md-5">
-                        <h3>
-                            <a href="/Coupons/paytm-coupons-cashback-offers">PayTM</a>
-                        </h3>
-                        <p>
-                            updated by <a href="#">TMC</a> on May 24, 2013
-                        </p>
-                        <p> Paytm is Indias largest mobile commerce platform. Paytm started by offering mobile recharge and utility bill payments and today it offers a full marketplace to consumers on its mobile apps. We have over 20mn registered users. In a short span of time Paytm has scaled to more than 15 Million orders per month.</p>
-
-                        <a href="/Coupons/paytm-coupons-cashback-offers">Show all PayTM coupons </a>
-
-                    </div>
-                    <div class="col-md-4" style="padding-top: 10px">
-                        <p>
-                            Fee coupons for ICICI50 and many more
-                        </p><ul>
-                                <li>One</li>
-                                <li>Two</li>
-                                <li>Three</li>
-                            </ul>
-                        <p></p>
-                    </div>
-                </div>
-            </div>
+                                </div>
+                                <div class="col-sm-4" style="padding-top: 10px">
+                                    <p>
+                                        Contact Details:
+                                    </p><ul>
+                                            <li>@listingViewModel.ContactPerson</li>
+                                            <li>@listingViewModel.ContactEmailId</li>
+                                            <li>@listingViewModel.Designation</li>
+                                            <li>@listingViewModel.Website</li>
+                                            <li>@listingViewModel.YearStarted</li>
+                                        </ul>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+            }
+            
 
         </div>
-        <div class="col-sm-3" id="divTrends">
+        <div class="col-sm-4" id="divTrends">
            
             <div class="row" style="padding-bottom: 5px">
                 <div class="col-md-12">
-                    <h3> Service requirements/trends in (Palam Vihar)</h3>
+                    <h3> @Model.TrendHeading</h3>
                 </div>
                 <div class="col-md-12">
                     <div class="  mygrid-wrapper-div" id="divProductEditorContent">
@@ -253,53 +229,6 @@
                                 </div>
                             </div>
                         </div>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />dsfsdfsdf
-                        fasdf
-                        asdf
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        sdf
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        sdfsdf tsdfasdfsadf
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-
-                        <br />
-                        sdf
-                        sdfsd
-                        f
-                        sf
-
-
                     </div>
                 </div>
             </div>

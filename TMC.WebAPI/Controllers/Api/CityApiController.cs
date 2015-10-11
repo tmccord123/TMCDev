@@ -34,15 +34,7 @@ namespace TMC.WebAPI.Controllers.Api
                 foreach (var cityDTO in searchResult)
                 {
                         var city = new CityViewModel();
-                        //DTOConverter.FillViewModelFromDTO(city, cityDTO);
-                        city.CityId = cityDTO.CityId;
-                        city.IsPopular = cityDTO.IsPopular;
-                        city.Name = cityDTO.Name;
-                        city.Lat = cityDTO.Lat;
-                        city.Long = cityDTO.Long;
-                        city.StateId = cityDTO.StateId;
-                        city.PopulationClass = cityDTO.PopulationClass;
-                        city.Radius = cityDTO.Radius;
+                        DTOConverter.FillViewModelFromDTO(city, cityDTO);
                         cities.Add(city);
                 }
                

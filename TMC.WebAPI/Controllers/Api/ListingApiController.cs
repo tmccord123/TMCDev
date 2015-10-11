@@ -9,6 +9,8 @@ namespace TMC.WebAPI.Controllers.Api
 {
     using System.Collections.Generic;
 
+    using TMC.Web.Shared;
+
     //http://www.asp.net/web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
     [RoutePrefix("api/listing")]// this is the base http://localhost:59974/api/listing
     public class ListingApiController : ApiController
@@ -95,7 +97,7 @@ namespace TMC.WebAPI.Controllers.Api
             }
         }*/
 
-        [Route("{cityId:int}/{categoryId:int}/{placeId:int}")]
+        [Route("{cityId:int}/{categoryId:int}/{placeId}")]
         public IHttpActionResult GetListings(int cityId, int categoryId, string placeId)
         {
             var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
@@ -106,14 +108,7 @@ namespace TMC.WebAPI.Controllers.Api
                 foreach (var listing in listingResult.Data)
                 {
                     var listingViewModel = new ListingViewModel();
-                    listingViewModel.ListingId = listing.ListingId;
-                    listingViewModel.VendorId = listing.VendorId;
-                    listingViewModel.BusinessDays = listing.BusinessDays;
-                    listingViewModel.BusinessHours = listing.BusinessHours;
-                    listingViewModel.ContactEmailId = listing.ContactEmailId;
-                    listingViewModel.BusinessName = listing.BusinessName;
-                    listingViewModel.ContactPerson = listing.ContactPerson;
-                    listingViewModel.Designation = listing.Designation;
+                    DTOConverter.FillViewModelFromDTO(listingViewModel, listing);
                     allListings.Add(listingViewModel);
                 }
                 

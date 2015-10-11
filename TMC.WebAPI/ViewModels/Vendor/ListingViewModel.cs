@@ -13,7 +13,7 @@ namespace TMC.Web.ViewModels
         public long ListingId { get; set; }
         public int VendorId { get; set; }
         public string BusinessName { get; set; }
-        public short YearStarted { get; set; }
+        public short? YearStarted { get; set; }
         public string ContactPerson { get; set; }
         public string ContactEmailId { get; set; }
         public string Designation { get; set; }

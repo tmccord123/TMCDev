@@ -16,6 +16,11 @@ namespace TMC.Web.ViewModels
         public string CityPlaceHolder = "##CityPlaceHolder##";
 
         /// <summary>
+        /// The place holder.
+        /// </summary>
+        public string PlacePlaceHolder = "##PlacePlaceHolder##";
+
+        /// <summary>
         /// The category place holder.
         /// </summary>
         public string CategoryPlaceHolder = "##CategoryPlaceHolder##";
@@ -34,6 +39,13 @@ namespace TMC.Web.ViewModels
         /// Gets or sets the heading.
         /// </summary>
         public string SearchResultHeading { get; set; }
+
+        /// <summary>
+        /// Gets or sets the trend heading.
+        /// </summary>
+        public string TrendHeading { get; set; }
+
+        public string ListingLogo { get; set; }
 
         /// <summary>
         /// Gets or sets the Listings.

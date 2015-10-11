@@ -51,22 +51,24 @@ namespace TMC.Controllers
                     ResourceUtility.GetCaptionFor(ResourceConstants.Listing.Labels.LocalBoardSearchHeading)
                                    .Replace(model.CategoryPlaceHolder, categoryName)
                                    .Replace(model.CityPlaceHolder, cityName);
+                model.TrendHeading = ResourceUtility.GetCaptionFor(ResourceConstants.Listing.Labels.LocalBoardTrendsHeading)
+                                   .Replace(model.PlacePlaceHolder, cityName);
             }
-            //var client = TMCHttpClient.GetClient();
-            //var listingUrl = "api/listing" + "/" + cityId.ToString() + "/" + categoryId.ToString() + "/" + placeId;
-            //HttpResponseMessage listingResponse = await client.GetAsync(listingUrl);
-            //if (listingResponse.IsSuccessStatusCode)
-            //{
-            //    string categoriesContent = await listingResponse.Content.ReadAsStringAsync();
-            //    var listings = JsonConvert.DeserializeObject<List<ListingViewModel>>(categoriesContent);
+            var client = TMCHttpClient.GetClient();
+            var listingUrl = "api/listing" + "/" + cityId.ToString() + "/" + categoryId.ToString() + "/" + placeId;
+            HttpResponseMessage listingResponse = await client.GetAsync(listingUrl);
+            if (listingResponse.IsSuccessStatusCode)
+            {
+                string categoriesContent = await listingResponse.Content.ReadAsStringAsync();
+                var listings = JsonConvert.DeserializeObject<List<ListingViewModel>>(categoriesContent);
 
-            //    model.Listings = listings;
-            //    model.ControllerName = "LocalBoard";
-            //}
-            //else
-            //{
-            //    return Content("An error occurred.");
-            //}
+                model.Listings = listings;
+                model.ControllerName = "LocalBoard";
+            }
+            else
+            {
+                return Content("An error occurred.");
+            }
 
             return View(model);
         }

@@ -50,6 +50,7 @@ namespace TMC.Shared
             {
 
                 public const string LocalBoardSearchHeading = "TMC_Listing_Labels_LocalBoardSearchHeading";
+                public const string LocalBoardTrendsHeading = "TMC_Listing_Labels_LocalBoardTrendsHeading";
             }
         }
 

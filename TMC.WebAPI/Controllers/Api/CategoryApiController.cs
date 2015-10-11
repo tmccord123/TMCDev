@@ -34,10 +34,7 @@ namespace TMC.WebAPI.Controllers.Api
                 foreach (var categoryDTO in searchResult)
                 {
                     var category = new CategoryViewModel();
-                    category.CategoryId = categoryDTO.CategoryId;
-                    category.Popularity = categoryDTO.Popularity;
-                    category.Name = categoryDTO.Name;
-                    category.ShortName = categoryDTO.ShortName;
+                    DTOConverter.FillViewModelFromDTO(category, categoryDTO);
                    
                     categories.Add(category);
                 }
@@ -64,11 +61,7 @@ namespace TMC.WebAPI.Controllers.Api
                 foreach (var categoryDTO in searchResult)
                 {
                     var category = new CategoryViewModel();
-                    category.CategoryId = categoryDTO.CategoryId;
-                    category.Popularity = categoryDTO.Popularity;
-                    category.Name = categoryDTO.Name;
-                    category.ShortName = categoryDTO.ShortName;
-
+                    DTOConverter.FillViewModelFromDTO(category, categoryDTO);
                     categories.Add(category);
                 }
             }

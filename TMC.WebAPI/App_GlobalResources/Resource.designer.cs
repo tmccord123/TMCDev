@@ -122,5 +122,14 @@ namespace Resources {
                 return ResourceManager.GetString("TMC_Listing_Labels_LocalBoardSearchHeading", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Service requirements/trends in (##PlacePlaceHolder##).
+        /// </summary>
+        internal static string TMC_Listing_Labels_LocalBoardTrendsHeading {
+            get {
+                return ResourceManager.GetString("TMC_Listing_Labels_LocalBoardTrendsHeading", resourceCulture);
+            }
+        }
     }
 }
