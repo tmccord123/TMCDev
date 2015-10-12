@@ -47,7 +47,7 @@ namespace TMC.Data
                 productItem.Content = productDto.Content;
                 productItem.ContentText = productDto.ContentText;
                 //productItem.IsActive = false; 
-                tmcDBContext.Products.AddOrUpdate(productItem);
+                tmcDBContext.Products.AddObject(productItem);
                 tmcDBContext.SaveChanges();
             }
         

@@ -1,8 +1,9 @@
 ﻿
 using System.Data.Entity.Migrations;
 using EntityDataModel.EntityModels;
+using TMC.EntityDataModel;
 using TMC.Shared.Factories;
-
+using System.Transactions;
 namespace TMC.Data
 {
     #region Namespaces
@@ -130,7 +131,47 @@ namespace TMC.Data
             return categories;
         }
         #endregion
-    
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="listingDto"></param>
+        /// <returns></returns>
+        public IListingDTO CreateListing(IListingDTO listingDto)
+        {
+            try
+            {
+                if (listingDto != null)
+                {
+                    using (TransactionScope trans = new TransactionScope())
+                    {
+                        using (var TMCDbContext = new TMCContext())
+                        {
+                            var listing = new Listing();
+                            EntityConverter.FillEntityFromDTO(listingDto, listing);
+                            listing.CreatedOn = DateTime.Now;
+                            listing.CreatedBy = 11;
+                            listing.UpdatedOn = DateTime.Now;
+                            listing.UpdatedBy = 11;
+                            listing.IsActive = true;
+                            listing.IsDeleted = false;
+                            TMCDbContext.Listing.AddObject(listing);
+                            if (TMCDbContext.SaveChanges() > 0)
+                            {
+                                listingDto.ListingId = listing.ListingId;
+                            }
+                        }
+                        trans.Complete();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                throw new DACException("Error while creating the listing detail.", ex);
+            }
+            return listingDto;
+        }
 
 }
 }

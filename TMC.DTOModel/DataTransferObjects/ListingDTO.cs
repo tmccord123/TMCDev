@@ -10,7 +10,7 @@ namespace TMC.DTOModel
     /// Contract for Action DTO.
     /// </summary>
     [DataContract(Name = "Listing", Namespace = "TMC.DTOModel")]
-    //[EntityMapping("TMC.Entities.EntityModels.Listing", MappingType.TotalExplicit)]
+    [EntityMapping("EntityDataModel.EntityModels.Listing", MappingType.TotalExplicit)]
     [Serializable]
     [ViewModelMapping("TMC.Web.ViewModels.ListingViewModel", MappingType.TotalExplicit)]
     public class ListingDTO : DTOBase, IListingDTO

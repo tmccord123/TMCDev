@@ -102,8 +102,35 @@ namespace TMC.Business
                 operationResult = OperationResult<IList<ICategoryDTO>>.CreateErrorResult(ex.Message, ex.StackTrace);
             }
             return operationResult;
-        }   
-        
+        }
+
+        public OperationResult<IListingDTO> CreateListing(IListingDTO listingDto)
+        {
+            OperationResult<IListingDTO> operationResult = null;
+            try
+            {
+                var listingDAC = (IListingDAC)DACFactory.Instance.Create(DACType.Listing);
+                var listing = listingDAC.CreateListing(listingDto);
+
+                operationResult = listing != null
+                                                      ? OperationResult<IListingDTO>.CreateSuccessResult(listing)
+                                                      : OperationResult<IListingDTO>.CreateFailureResult(
+                                                       ResourceUtility.GetCaptionFor(
+                                              ResourceConstants.Vendor.ErrorMessages.FailedToFetchListing));
+
+            }
+            catch (DACException dacEx)
+            {
+                operationResult = OperationResult<IListingDTO>.CreateErrorResult(dacEx.Message, dacEx.StackTrace);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                operationResult = OperationResult<IListingDTO>.CreateErrorResult(ex.Message, ex.StackTrace);
+            }
+            return operationResult;
+        }
+
         #endregion
     }
 }

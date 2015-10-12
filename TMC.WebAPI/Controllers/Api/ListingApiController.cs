@@ -45,6 +45,13 @@ namespace TMC.WebAPI.Controllers.Api
                 DTOConverter.FillDTOFromViewModel(listingDto, listingViewModel);
                 var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
                 var listingResult = listingFacade.CreateListing(listingDto);
+
+                if (listingResult.IsValid())
+                {
+                    ModelState.Remove("ListingId");
+                    listingDto.ListingId = listingResult.Data.ListingId;
+                    return Ok(listingDto);
+                }
                 if (listingViewModel == null)
                 {
                     return BadRequest();

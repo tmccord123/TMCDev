@@ -28,8 +28,8 @@
 
         public OperationResult<IListingDTO> CreateListing(IListingDTO  listingDto)
         {
-            var vendorBDC = (IVendorBDC)BDCFactory.Instance.Create(BDCType.Vendor);
-            return vendorBDC.CreateListing(listingDto);
+            var listingBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
+            return listingBDC.CreateListing(listingDto);
         }
 
         public OperationResult<IList<IListingDTO>> GetlistingsByVendorId(int vendorId)

@@ -105,6 +105,7 @@ namespace TMC.Controllers
         public async Task<ActionResult> AddEditListing(ListingViewModel listingViewModel)
         {
            var client = TMCHttpClient.GetClient();
+            listingViewModel.VendorId = 1;
            JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
             string serializedItemToCreate = JsonConvert.SerializeObject(listingViewModel, settings);
 

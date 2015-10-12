@@ -24,6 +24,7 @@ namespace TMC.Shared
         /// List of listings <see cref="IList"/>.
         /// </returns>
         OperationResult<IList<IListingDTO>> GetListings(int cityId, string placeId, int categoryId);
-       
+
+        OperationResult<IListingDTO> CreateListing(IListingDTO listingDto);
     }
 }
