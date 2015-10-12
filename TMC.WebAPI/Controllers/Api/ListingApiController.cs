@@ -38,29 +38,20 @@ namespace TMC.WebAPI.Controllers.Api
         [Route("")]
         [HttpPost]
         public IHttpActionResult Post([FromBody]ListingViewModel listingViewModel)
-       // public IHttpActionResult Post([ModelBinder(typeof(JsonPolyModelBinder))]ITrimmedDTO expenseGroup)
         {
-
             try
             {
-                var listingDTO = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
-                DTOConverter.FillDTOFromViewModel(listingDTO, listingViewModel);
+                var listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
+                DTOConverter.FillDTOFromViewModel(listingDto, listingViewModel);
+                var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+                var listingResult = listingFacade.CreateListing(listingDto);
                 if (listingViewModel == null)
                 {
                     return BadRequest();
                 }
 
-                /*// try mapping & saving
-                var eg = _expenseGroupFactory.CreateExpenseGroup(expenseGroup);
-
-                var result = _repository.InsertExpenseGroup(eg);
-                if (result.Status == RepositoryActionStatus.Created)
-                {
-                    // map to dto
-                    var newExpenseGroup = _expenseGroupFactory.CreateExpenseGroup(result.Entity);
-                    return Created<DTO.ExpenseGroup>(Request.RequestUri
-                        + "/" + newExpenseGroup.Id.ToString(), newExpenseGroup);
-                }*/
+                //try mapping & saving
+                
 
                 return BadRequest();
 
@@ -70,38 +61,6 @@ namespace TMC.WebAPI.Controllers.Api
                 return InternalServerError();
             }
         }
-        
-        /*[working one] [Route("")]
-        [HttpPost]
-        public IHttpActionResult Post([FromBody]TrimmedListingDTO expenseGroup)
-        {
-            try
-            {
-                if (expenseGroup == null)
-                {
-                    return BadRequest();
-                }
-
-                /#1#/ try mapping & saving
-                var eg = _expenseGroupFactory.CreateExpenseGroup(expenseGroup);
-
-                var result = _repository.InsertExpenseGroup(eg);
-                if (result.Status == RepositoryActionStatus.Created)
-                {
-                    // map to dto
-                    var newExpenseGroup = _expenseGroupFactory.CreateExpenseGroup(result.Entity);
-                    return Created<DTO.ExpenseGroup>(Request.RequestUri
-                        + "/" + newExpenseGroup.Id.ToString(), newExpenseGroup);
-                }#1#
-
-                return BadRequest();
-
-            }
-            catch (Exception)
-            {
-                return InternalServerError();
-            }
-        }*/
 
         [Route("{cityId:int}/{categoryId:int}/{placeId}")]
         public IHttpActionResult GetListings(int cityId, int categoryId, string placeId)
@@ -117,8 +76,6 @@ namespace TMC.WebAPI.Controllers.Api
                     DTOConverter.FillViewModelFromDTO(listingViewModel, listing);
                     allListings.Add(listingViewModel);
                 }
-                
-
             }
             return Ok(allListings);
         }

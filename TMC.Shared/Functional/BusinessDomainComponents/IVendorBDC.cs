@@ -10,5 +10,6 @@ namespace TMC.Shared
     {
         OperationResult<IListingDTO> GetlistingById(int listingId);
         OperationResult<IList<IListingDTO>> GetlistingsByVendorId(int vendorId);
+        OperationResult<IListingDTO> CreateListing(IListingDTO listingDto);
     }
 }

@@ -13,6 +13,6 @@
     {
  
       IListingDTO GetListingById(int listingId);
-        
+      IListingDTO CreateListing(IListingDTO listingDto);
     }
 }
