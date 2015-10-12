@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
+using TMC.Controllers;
 using TMC.Shared;
+using TMC.Shared.Factories;
 using TMC.Web.ViewModels;
 using TMC.Web.Shared.Common.Extensions;
 
@@ -35,11 +37,15 @@ namespace TMC.WebAPI.Controllers.Api
 
         [Route("")]
         [HttpPost]
-        public IHttpActionResult Post([ModelBinder(typeof(JsonPolyModelBinder))]IListingDTO expenseGroup)
+        public IHttpActionResult Post([FromBody]ListingViewModel listingViewModel)
+       // public IHttpActionResult Post([ModelBinder(typeof(JsonPolyModelBinder))]ITrimmedDTO expenseGroup)
         {
+
             try
             {
-                if (expenseGroup == null)
+                var listingDTO = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
+                DTOConverter.FillDTOFromViewModel(listingDTO, listingViewModel);
+                if (listingViewModel == null)
                 {
                     return BadRequest();
                 }

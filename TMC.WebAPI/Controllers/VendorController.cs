@@ -13,6 +13,17 @@ using TMC.WebAPI;
 namespace TMC.Controllers
 {
 
+    public class TrimmedDTO : ITrimmedDTO
+    {
+        public string Name { get; set; }
+        public int RollNo { get; set; }
+    }
+
+    public interface ITrimmedDTO
+    {
+        string Name { get; set; }
+        int RollNo { get; set; }
+    }
 
     public class VendorController : Controller
     {
@@ -85,28 +96,19 @@ namespace TMC.Controllers
             return View("AddEditListing", listingItemViewModel);
         }
 
+        /// <summary>
+        /// Adds listing 
+        /// </summary>
+        /// <param name="listingViewModel"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult> AddEditListing(ListingViewModel listingViewModel)
         {
-            var client = TMCHttpClient.GetClient();
-            var listingDTO = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
-                DTOConverter.FillDTOFromViewModel(listingDTO, listingViewModel);
+           var client = TMCHttpClient.GetClient();
+           JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
+            string serializedItemToCreate = JsonConvert.SerializeObject(listingViewModel, settings);
 
-
-            // todo
-           /* var trimmedlistingViewModel = new ListingItemViewModel1();
-            trimmedlistingViewModel.BusinessName = listingViewModel.BusinessName;
-            trimmedlistingViewModel.ContactEmailId = listingViewModel.ContactEmailId;
-            trimmedlistingViewModel.ContactPerson = listingViewModel.ContactPerson;
-            trimmedlistingViewModel.ListingId = 1;
-            trimmedlistingViewModel.VendorId = 2;*/
-          //  var serializedItemToCreate = JsonConvert.SerializeObject(trimmedlitingViewModel);
-
-            JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
-            string serializedItemToCreate = JsonConvert.SerializeObject(listingDTO, typeof(IListingDTO), settings);
-
-            var response = await client.PostAsync("api/listing",
-              new StringContent(serializedItemToCreate,
+            var response = await client.PostAsync("api/listing",new StringContent(serializedItemToCreate,
               System.Text.Encoding.Unicode, "application/json"));
 
             if (response.IsSuccessStatusCode)
