@@ -59,11 +59,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityObjects.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityModels\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="EntityModels\TMCModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -81,11 +76,6 @@
     <None Include="EntityModels\EntityObjects.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EntityObjects.cs</LastGenOutput>
-      <DependentUpon>TMCModel.edmx</DependentUpon>
-    </None>
-    <None Include="EntityModels\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.cs</LastGenOutput>
       <DependentUpon>TMCModel.edmx</DependentUpon>
     </None>
     <None Include="EntityModels\TMCModel.edmx.diagram">
