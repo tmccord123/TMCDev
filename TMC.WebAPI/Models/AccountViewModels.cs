@@ -50,7 +50,7 @@ namespace TMC.WebAPI.Models
         public string UserName { get; set; }
 
         [Required]
-        [Display(Name = "First name")]
+        [Display(Name = "Name")]
         public string FirstName { get; set; }
         
         [Required]
@@ -71,10 +71,5 @@ namespace TMC.WebAPI.Models
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
-
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; }
     }
 }
