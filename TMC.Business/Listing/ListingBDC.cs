@@ -110,10 +110,12 @@ namespace TMC.Business
             try
             {
                 var listingDAC = (IListingDAC)DACFactory.Instance.Create(DACType.Listing);
-                var listing = listingDAC.CreateListing(listingDto);
 
-                operationResult = listing != null
-                                                      ? OperationResult<IListingDTO>.CreateSuccessResult(listing)
+                var resultListingDto = listingDto.ListingId > 0
+                  ? listingDAC.UpdateListing(listingDto)
+                  : listingDAC.CreateListing(listingDto); 
+                operationResult = resultListingDto != null
+                                                      ? OperationResult<IListingDTO>.CreateSuccessResult(resultListingDto)
                                                       : OperationResult<IListingDTO>.CreateFailureResult(
                                                        ResourceUtility.GetCaptionFor(
                                               ResourceConstants.Vendor.ErrorMessages.FailedToFetchListing));

@@ -202,6 +202,7 @@
     <Compile Include="Controllers\Api\ListingApiController.cs" />
     <Compile Include="Controllers\Api\VendorApiController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\VendorController.cs" />
     <Compile Include="Controllers\CouponBoardController.cs" />
     <Compile Include="Controllers\CouponsController.cs" />
@@ -224,6 +225,7 @@
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
     <Compile Include="ViewModels\LocalBoard\LocalBoardViewModel.cs" />
     <Compile Include="ViewModels\ProductItemViewModel.cs" />
+    <Compile Include="ViewModels\User\RequirementViewModel.cs" />
     <Compile Include="ViewModels\Vendor\BaseViewModel.cs" />
     <Compile Include="ViewModels\Vendor\ListingContactItemViewModel.cs" />
     <Compile Include="ViewModels\Vendor\ListingContactsViewModel.cs" />
@@ -528,11 +530,12 @@
     <Content Include="Views\Shared\_ProductView.cshtml" />
     <Content Include="Views\Vendor\Index.cshtml" />
     <Content Include="Views\Vendor\AddEditListing.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\AddEditRequirement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ViewModels\Account\" />
-    <Folder Include="ViewModels\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

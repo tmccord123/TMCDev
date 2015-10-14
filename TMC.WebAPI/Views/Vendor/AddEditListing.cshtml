@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Vendor listing Edit Page
+                Vendor listing
                 <small>Edit your free listing here!</small>
             </h1>
             <ol class="breadcrumb">
@@ -40,7 +40,7 @@
             <div class="tab-content">
                 <div id="generalInfo" class="tab-pane fade in active">
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-12" id="">
                             @using (Ajax.BeginPostForm(
                                 Url.SmartAction(Model.ActionName, Model.ControllerName), null,
                                 Model.FormBeginRequestCallBack,
@@ -54,6 +54,7 @@
                                 }))
                             {
                                 @Html.ValidationSummary()
+                                @Html.HiddenFor(m=> m.ListingId)
                                 <div class="form-group">
                                     @Html.LabelFor(m => m.BusinessName, new { @class = "col-md-2 control-label" })
                                     <div class="col-md-6">

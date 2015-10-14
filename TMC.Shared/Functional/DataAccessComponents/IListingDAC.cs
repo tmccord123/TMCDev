@@ -29,5 +29,6 @@ namespace TMC.Shared
         IList<IListingDTO> ReadListings(int cityId, string placeId, int categoryId);
 
         IListingDTO CreateListing(IListingDTO listingDto);
+        IListingDTO UpdateListing(IListingDTO listingDto);
     }
 }

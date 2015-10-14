@@ -12,19 +12,6 @@ using TMC.WebAPI;
 
 namespace TMC.Controllers
 {
-
-    public class TrimmedDTO : ITrimmedDTO
-    {
-        public string Name { get; set; }
-        public int RollNo { get; set; }
-    }
-
-    public interface ITrimmedDTO
-    {
-        string Name { get; set; }
-        int RollNo { get; set; }
-    }
-
     public class VendorController : Controller
     {
         // POST: /User/Create
@@ -85,7 +72,7 @@ namespace TMC.Controllers
                 {
                     string egsContent = await egsResponse.Content.ReadAsStringAsync();
                     var lstExpenseGroupStatusses = JsonConvert.DeserializeObject<ListingViewModel>(egsContent);
-                    listingItemViewModel = lstExpenseGroupStatusses; 
+                    listingItemViewModel = lstExpenseGroupStatusses;
                 }
                 else
                 {
@@ -104,24 +91,34 @@ namespace TMC.Controllers
         [HttpPost]
         public async Task<ActionResult> AddEditListing(ListingViewModel listingViewModel)
         {
-           var client = TMCHttpClient.GetClient();
+            ActionResult result = null;
+            var client = TMCHttpClient.GetClient();
             listingViewModel.VendorId = 1;
-           JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
+            JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
             string serializedItemToCreate = JsonConvert.SerializeObject(listingViewModel, settings);
 
-            var response = await client.PostAsync("api/listing",new StringContent(serializedItemToCreate,
+            var response = await client.PostAsync("api/listing", new StringContent(serializedItemToCreate,
               System.Text.Encoding.Unicode, "application/json"));
 
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index");
+                string content =   response.Content.ReadAsStringAsync().Result;
+                var lstExpenseGroupStatusses = JsonConvert.DeserializeObject<ListingViewModel>(content);
+                listingViewModel = lstExpenseGroupStatusses;
+                listingViewModel.Website = "Test result";
+               // return View("AddEditListing", listingViewModel);
+                result = new JsonResult()
+                {
+                    Data = listingViewModel,
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
             }
             else
             {
-                return Content("An error occurred");
+                 result = Content("An error occurred");
             }
-
-            return View("AddEditListing", listingViewModel);
+           
+            return result;
         }
     }
 }

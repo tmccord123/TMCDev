@@ -10,9 +10,9 @@ namespace TMC.Data
 
     using System;
     using System.Collections.Generic;
-    using System.Linq; 
+    using System.Linq;
     using TMC.Shared;
- 
+
 
     #endregion
 
@@ -51,7 +51,7 @@ namespace TMC.Data
         public IList<IListingDTO> ReadListings(int cityId, string placeId, int categoryId)
         {
             IList<IListingDTO> listings = new List<IListingDTO>();
-           
+
             try
             {
                 using (var tmcContext = new TMCContext())
@@ -64,21 +64,21 @@ namespace TMC.Data
                                            && (placeId == null || area.PlaceId == placeId)
                                            select listing).ToList();
                     IListingDTO listingDto = null;
-                     foreach (var listingEntity in listingEntities)
-                     {
-                         listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
-                        
-                         listingDto.ListingId = listingEntity.ListingId;
-                         listingDto.BusinessName = listingEntity.BusinessName;
-                         listingDto.BusinessDays = listingEntity.BusinessDays;
-                         listingDto.BusinessHours = listingEntity.BusinessHours;
-                         listingDto.ContactPerson = listingEntity.ContactPerson;
-                         listingDto.ContactEmailId = listingEntity.ContactEmailId;
-                         listingDto.Designation = listingEntity.Designation;
-                         listingDto.Website = listingEntity.Website;
-                         listingDto.YearStarted = listingEntity.YearStarted;
-                         listings.Add(listingDto);
-                     }
+                    foreach (var listingEntity in listingEntities)
+                    {
+                        listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
+
+                        listingDto.ListingId = listingEntity.ListingId;
+                        listingDto.BusinessName = listingEntity.BusinessName;
+                        listingDto.BusinessDays = listingEntity.BusinessDays;
+                        listingDto.BusinessHours = listingEntity.BusinessHours;
+                        listingDto.ContactPerson = listingEntity.ContactPerson;
+                        listingDto.ContactEmailId = listingEntity.ContactEmailId;
+                        listingDto.Designation = listingEntity.Designation;
+                        listingDto.Website = listingEntity.Website;
+                        listingDto.YearStarted = listingEntity.YearStarted;
+                        listings.Add(listingDto);
+                    }
                 }
             }
             catch (Exception ex)
@@ -173,5 +173,41 @@ namespace TMC.Data
             return listingDto;
         }
 
-}
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="listingDto"></param>
+        /// <returns></returns>
+        public IListingDTO UpdateListing(IListingDTO listingDto)
+        {
+            try
+            {
+                if (listingDto != null)
+                {
+
+                    using (var TMCDbContext = new TMCContext())
+                    {
+                        var listingEntity = (from listing in TMCDbContext.Listing
+                                             where listing.ListingId == listingDto.ListingId
+                                             select listing).Single();
+                        if (listingEntity != null)
+                        {
+                            listingEntity.UpdatedOn = DateTime.Now;
+                            EntityConverter.FillEntityFromDTO(listingDto, listingEntity);
+                        }
+                        if (TMCDbContext.SaveChanges() > 0)
+                        {
+                            listingDto.ListingId = listingEntity.ListingId;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                throw new DACException("Error while updating the listing detail.", ex);
+            }
+            return listingDto;
+        }
+    }
 }

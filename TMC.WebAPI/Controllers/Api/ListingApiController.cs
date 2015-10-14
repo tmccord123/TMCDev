@@ -50,16 +50,14 @@ namespace TMC.WebAPI.Controllers.Api
                 {
                     ModelState.Remove("ListingId");
                     listingDto.ListingId = listingResult.Data.ListingId;
-                    return Ok(listingDto);
+                    listingViewModel.ListingId = listingResult.Data.ListingId;
+                    return Ok(listingViewModel);
                 }
                 if (listingViewModel == null)
                 {
                     return BadRequest();
                 }
-
-                //try mapping & saving
-                
-
+ 
                 return BadRequest();
 
             }
@@ -68,6 +66,36 @@ namespace TMC.WebAPI.Controllers.Api
                 return InternalServerError();
             }
         }
+
+        ////[Route("expenses/{id}")]
+        //[Route("{id:int}")]
+        //public IHttpActionResult Put(int id, [FromBody]ListingViewModel listingViewModel)
+        //{
+        //    try
+        //    {
+        //        if (listingViewModel == null)
+        //        {
+        //            return BadRequest();
+        //        }
+               
+        //        var listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
+        //        DTOConverter.FillDTOFromViewModel(listingDto, listingViewModel);
+        //        var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+        //        var listingResult = listingFacade.CreateListing(listingDto);
+        //        if (listingResult.IsValid())
+        //        {
+        //            ModelState.Remove("ListingId");
+        //            listingDto.ListingId = listingResult.Data.ListingId;
+        //            listingViewModel.ListingId = listingResult.Data.ListingId;
+        //            return Ok(listingViewModel);
+        //        }
+        //        return BadRequest();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return InternalServerError();
+        //    }
+        //}
 
         [Route("{cityId:int}/{categoryId:int}/{placeId}")]
         public IHttpActionResult GetListings(int cityId, int categoryId, string placeId)

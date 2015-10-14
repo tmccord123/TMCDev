@@ -81,6 +81,14 @@ input[type="checkbox"].input-validation-error {
     font-size: 20px;
 }
 
+.floatL {
+    float: left !important;
+}
+
+
+.floatR {
+    float: right;
+}
 .tmc-blue {
     color: #4E92DB;
 }
