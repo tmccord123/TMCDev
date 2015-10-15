@@ -25,6 +25,15 @@ namespace TMC.Shared
         /// </returns>
         OperationResult<IList<IListingDTO>> GetListings(int cityId, string placeId, int categoryId);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        OperationResult<IList<IListingDTO>> GetListingsByUserId(int userId);
+
         OperationResult<IListingDTO> CreateListing(IListingDTO listingDto);
+
+        OperationResult<IListingDTO> GetlistingById(int listingId);
     }
 }

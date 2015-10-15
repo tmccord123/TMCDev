@@ -4,13 +4,11 @@ using System.Web.Http.ModelBinding;
 using TMC.Controllers;
 using TMC.Shared;
 using TMC.Shared.Factories;
-using TMC.Web.ViewModels;
-using TMC.Web.Shared.Common.Extensions;
+using TMC.Web.ViewModels; 
 
 namespace TMC.WebAPI.Controllers.Api
 {
     using System.Collections.Generic;
-
     using TMC.Web.Shared;
 
     //http://www.asp.net/web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
@@ -19,18 +17,15 @@ namespace TMC.WebAPI.Controllers.Api
     {
         [Route("{id:int}")]  // call like this http://localhost:59974/api/listing/1
         //[Route("{id:int}/details")] // call like this http://localhost:59974/api/listing/1/details
-        public IHttpActionResult Getsdfdf(int id, string fields = null)// Hey the name of the method not necessarily to be Get only 
-            //you can give any name starting with "Get" as it is using the route attribute here
+        // Hey the name of the method not necessarily to be Get only you can give any name starting with "Get" as it is using the route attribute here
+        public IHttpActionResult GetListingById(int id)
         {
             var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
             var listingResult = listingFacade.GetlistingById(id);
             var listingViewModel = new ListingViewModel();
             if (listingResult.IsValid())
             {
-                listingViewModel.ContactEmailId = listingResult.Data.ContactEmailId;
-                listingViewModel.BusinessName = listingResult.Data.BusinessName;
-                listingViewModel.ContactPerson = listingResult.Data.ContactPerson;
-
+                DTOConverter.FillViewModelFromDTO(listingViewModel, listingResult.Data); 
             }
             return Ok(listingViewModel);
         }
@@ -57,7 +52,7 @@ namespace TMC.WebAPI.Controllers.Api
                 {
                     return BadRequest();
                 }
- 
+
                 return BadRequest();
 
             }
@@ -77,7 +72,7 @@ namespace TMC.WebAPI.Controllers.Api
         //        {
         //            return BadRequest();
         //        }
-               
+
         //        var listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
         //        DTOConverter.FillDTOFromViewModel(listingDto, listingViewModel);
         //        var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
@@ -102,6 +97,31 @@ namespace TMC.WebAPI.Controllers.Api
         {
             var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
             var listingResult = listingFacade.GetListings(cityId, placeId, categoryId);
+            var allListings = new List<ListingViewModel>();
+            if (listingResult.IsValid())
+            {
+                foreach (var listing in listingResult.Data)
+                {
+                    var listingViewModel = new ListingViewModel();
+                    DTOConverter.FillViewModelFromDTO(listingViewModel, listing);
+                    allListings.Add(listingViewModel);
+                }
+            }
+            return Ok(allListings);
+        }
+
+        /// <summary>
+        /// This is the overridden api route,
+        /// This is accesed like this /api/listing/GetListingsByUserId/2
+        /// This we can used when the same api rooute is used more than once like GetListingsByUserId/GetListingsByVendorId
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [Route("GetListingsByUserId/{userId:int}")]
+        public IHttpActionResult GetListingsByUserId(int userId)
+        {
+            var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+            var listingResult = listingFacade.GetListingsByUserId(userId);
             var allListings = new List<ListingViewModel>();
             if (listingResult.IsValid())
             {

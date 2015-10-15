@@ -84,13 +84,77 @@ namespace TMC.Data
             catch (Exception ex)
             {
                 ExceptionManager.HandleException(ex);
-                throw new DACException("Error while fetching the cities.", ex);
+                throw new DACException("Error while fetching the listings.", ex);
             }
 
             return listings;
         }
 
+        public IList<IListingDTO> GetListingsByUserId(int userId)
+        {
+            IList<IListingDTO> listings = new List<IListingDTO>();
 
+            try
+            {
+                using (var tmcContext = new TMCContext())
+                {
+                    var listingEntities = (from listing in tmcContext.Listing
+                                           join vendor in tmcContext.Vendor on listing.VendorId equals vendor.VendorId
+                                           where vendor.UserId == userId
+                                           select listing).ToList();
+                    IListingDTO listingDto = null;
+                    foreach (var listingEntity in listingEntities)
+                    {
+                        listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);//todo
+
+                        listingDto.ListingId = listingEntity.ListingId;
+                        listingDto.BusinessName = listingEntity.BusinessName;
+                        listingDto.Website = listingEntity.Website;
+                        listings.Add(listingDto);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                throw new DACException("Error while fetching the listings.", ex);
+            }
+
+            return listings;
+        }
+
+        public IListingDTO GetListingById(int listingId)
+        { 
+            IListingDTO listingDto = null;
+            try
+            {
+                using (var tmcContext = new TMCContext())
+                {
+                    var listingEntity = (from listing in tmcContext.Listing
+                                         where listing.ListingId == listingId && listing.IsActive
+                                         select listing).Single();
+                   
+                    listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
+
+                    listingDto.ListingId = listingEntity.ListingId;
+                    listingDto.BusinessName = listingEntity.BusinessName;
+                    listingDto.BusinessDays = listingEntity.BusinessDays;
+                    listingDto.BusinessHours = listingEntity.BusinessHours;
+                    listingDto.ContactPerson = listingEntity.ContactPerson;
+                    listingDto.ContactEmailId = listingEntity.ContactEmailId;
+                    listingDto.Designation = listingEntity.Designation;
+                    listingDto.Website = listingEntity.Website;
+                    listingDto.YearStarted = listingEntity.YearStarted;
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                throw new DACException("Error while fetching the listing detail.", ex);
+            }
+
+            return listingDto;
+        }
 
         /// <summary>
         /// The get categories.

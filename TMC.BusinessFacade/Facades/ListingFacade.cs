@@ -22,7 +22,7 @@
 
         public OperationResult<IListingDTO> GetlistingById(int listingId)
         {
-            var vendorBDC = (IVendorBDC) BDCFactory.Instance.Create(BDCType.Vendor);
+            var vendorBDC = (IListingBDC) BDCFactory.Instance.Create(BDCType.Listing);
             return vendorBDC.GetlistingById(listingId);
         }
 
@@ -58,6 +58,21 @@
         {
             var listingBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
             return listingBDC.GetListings(cityId, placeId, categoryId);
+        }
+
+        /// <summary>
+        /// The get listings.
+        /// </summary>
+        /// <param name="userId">
+        /// The User id.
+        /// </param>
+        /// <returns>
+        /// The <see cref="OperationResult"/>.
+        /// </returns>
+        public OperationResult<IList<IListingDTO>> GetListingsByUserId(int userId)
+        {
+            var listingBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
+            return listingBDC.GetListingsByUserId(userId);
         }
     }
 }

@@ -7,6 +7,7 @@ namespace TMC.Shared
     {
         OperationResult<IListingDTO> GetlistingById(int listingId);
         OperationResult<IList<IListingDTO>> GetlistingsByVendorId(int vendorId);
+        
         /// <summary>
         /// The get listings.
         /// </summary>
@@ -22,7 +23,9 @@ namespace TMC.Shared
         /// <returns>
         /// List of listings <see cref="IList"/>.
         /// </returns>
-        OperationResult<IList<IListingDTO>> GetListings(int cityId, string placeId, int categoryId);
+        OperationResult<IList<IListingDTO>> GetListings(int cityId, string placeId, int categoryId); 
+        
+        OperationResult<IList<IListingDTO>> GetListingsByUserId(int useId);
 
         OperationResult<IListingDTO> CreateListing(IListingDTO listingDto);
     }

@@ -27,6 +27,9 @@ namespace TMC.Shared
         /// List of listings <see cref="IList"/>.
         /// </returns>
         IList<IListingDTO> ReadListings(int cityId, string placeId, int categoryId);
+        IList<IListingDTO> GetListingsByUserId(int userId);
+
+        IListingDTO GetListingById(int listingId);
 
         IListingDTO CreateListing(IListingDTO listingDto);
         IListingDTO UpdateListing(IListingDTO listingDto);

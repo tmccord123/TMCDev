@@ -12,7 +12,6 @@
     public interface IVendorDAC : IDataAccessComponent
     {
  
-      IListingDTO GetListingById(int listingId);
   
     }
 }

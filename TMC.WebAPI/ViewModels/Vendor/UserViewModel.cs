@@ -10,8 +10,20 @@ namespace TMC.Web.ViewModels
 {
     public class UserViewModel : ViewModelBase
     {
+        public UserViewModel()
+        {
+            Listings = new List<ListingViewModel>();
+            Requirements = new List<RequirementViewModel>();
+        }
         public int UserId { get; set; }
 
+
+        public string FullName {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Int16 UserTypeId { get; set; }
@@ -25,8 +37,9 @@ namespace TMC.Web.ViewModels
         public int AreaId { get; set; }
         public int PinCode { get; set; }
         public int CityId { get; set; }
-         
 
+        public List<ListingViewModel> Listings { get; set; }
+        public List<RequirementViewModel> Requirements { get; set; }
     
         public string UserName { get; set; }
 

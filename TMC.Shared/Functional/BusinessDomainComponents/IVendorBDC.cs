@@ -8,7 +8,7 @@ namespace TMC.Shared
     /// </summary>
     public interface IVendorBDC : IBusinessDomainComponent
     {
-        OperationResult<IListingDTO> GetlistingById(int listingId);
+        
         OperationResult<IList<IListingDTO>> GetlistingsByVendorId(int vendorId);
      
     }

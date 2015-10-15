@@ -1,4 +1,5 @@
-﻿@model TMC.Web.ViewModels.UserViewModel
+﻿@using TMC.Web.ViewModels
+@model TMC.Web.ViewModels.UserViewModel
 @{
     ViewBag.Title = "Index";
 }
@@ -105,9 +106,11 @@
             <div class="col-12" style="padding-left: 0px; padding-right: 10px;">
                 <div class="list">
                     <ul>
-                        <li>
-                            @Html.ActionLink("Requirement 1 ", "AddEditRequirement", "User", new { @id = 1 }, null)
-                        </li>
+                      
+                            <li>
+                                @Html.ActionLink("Requirement 1 ", "AddEditRequirement", "User", new { @id = 1 }, null)
+                            </li>
+
                         <li>@Html.ActionLink("Requirement 2 ", "AddEditRequirement", "User", new { @id = 2 }, null)</li>
 
                         <li>@Html.ActionLink("Post a new requirement", "AddEditRequirement", "User")</li>
@@ -115,20 +118,24 @@
                 </div>
             </div><br>
             <div class="heading-text">Adds/Listings</div> <br>
-            <div class="col-12" >
+            <div class="col-12">
                 <div class="list">
                     <ul>
-                        <li>
-                            @Html.ActionLink("Vendor listing 1 ", "AddEditListing", "Vendor", new { @id = 1 }, null)
-                        </li>
-                        <li>@Html.ActionLink("Vendor listing 2 ", "AddEditListing", "Vendor", new { @id = 2 }, null)</li>
+                        
+                        @foreach (ListingViewModel listingViewModel in @Model.Listings)
+                        {
+                            <li>
+                                @Html.ActionLink(listingViewModel.BusinessName, "AddEditListing", "Vendor", new { @id = listingViewModel.ListingId }, null)
+                            </li>
+                        }
+                         
 
                         <li>@Html.ActionLink("Add New Listing", "AddEditListing", "Vendor")</li>
                     </ul>
                 </div>
             </div>
-            
-           
+
+
         </div>
     </div>
 </div>

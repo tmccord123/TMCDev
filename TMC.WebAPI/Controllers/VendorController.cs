@@ -59,20 +59,31 @@ namespace TMC.Controllers
             listingItemViewModel.ActionName = "AddEditListing";
             listingItemViewModel.ControllerName = "Vendor";
             listingItemViewModel.FormId = "listingForm";
-            if (id == 0)
+            var client = TMCHttpClient.GetClient();
+            if (id > 0)
             {
-
+                HttpResponseMessage egsResponse = await client.GetAsync("api/listing/"+id);
+                if (egsResponse.IsSuccessStatusCode)
+                {
+                    string egsContent = await egsResponse.Content.ReadAsStringAsync();
+                    var cotentResult = JsonConvert.DeserializeObject<ListingViewModel>(egsContent);
+                    listingItemViewModel = cotentResult;
+                }
+                else
+                {
+                    return Content("An error occurred.");
+                }
             }
             else
             {
-                var client = TMCHttpClient.GetClient();
+                
                 HttpResponseMessage egsResponse = await client.GetAsync("api/listing/1");
 
                 if (egsResponse.IsSuccessStatusCode)
                 {
                     string egsContent = await egsResponse.Content.ReadAsStringAsync();
-                    var lstExpenseGroupStatusses = JsonConvert.DeserializeObject<ListingViewModel>(egsContent);
-                    listingItemViewModel = lstExpenseGroupStatusses;
+                    var cotentResult = JsonConvert.DeserializeObject<ListingViewModel>(egsContent);
+                    listingItemViewModel = cotentResult;
                 }
                 else
                 {

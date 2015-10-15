@@ -83,6 +83,12 @@ namespace TMC.Shared
             {
                 public const string FailedToFetchUser = "TMC_Common_ErrorMessages_FailedToFetchUser";
 
+            } 
+            
+            public static class Lavels
+            {
+                public const string FullName = "TMC_User_Lavels_FullName";
+
             }
         }
 
