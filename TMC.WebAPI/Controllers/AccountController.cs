@@ -2,16 +2,38 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
-using TMC.WebAPI.Models;
+using TMC.WebAPI.Models; 
+
 
 namespace TMC.WebAPI.Controllers
 {
+    /// <summary>
+    /// This Extension is added for showing the logged in user's Name instead of user id 
+    /// </summary>
+    public static class GenericPrincipalExtensions
+    {
+        public static string FirstName(this IPrincipal user)
+        {
+            if (user.Identity.IsAuthenticated)
+            {
+                ClaimsIdentity claimsIdentity = user.Identity as ClaimsIdentity;
+                foreach (var claim in claimsIdentity.Claims)
+                {
+                    if (claim.Type == "FirstName")
+                        return claim.Value;
+                }
+                return "";
+            }
+            return "";
+        }
+    }
     [Authorize]
     public class AccountController : Controller
     {
@@ -340,6 +362,7 @@ namespace TMC.WebAPI.Controllers
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+            identity.AddClaim(new Claim("FirstName", user.FirstName));
             AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
         }
 
