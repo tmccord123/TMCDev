@@ -24,7 +24,7 @@
         /// </param>
         /// <returns>
         /// </returns>
-        public static int GetCityRadius(short populationClass)
+        public static int GetCityRadius(short? populationClass)
         {
             int retVal = 0;
             

@@ -25,7 +25,6 @@
         <EntityTypeShape EntityType="TMCModel.File" Width="1.5" PointX="9.75" PointY="26" />
         <EntityTypeShape EntityType="TMCModel.FileExtension" Width="1.5" PointX="7.5" PointY="28.25" />
         <EntityTypeShape EntityType="TMCModel.FileType" Width="1.5" PointX="7.5" PointY="26" />
-        <EntityTypeShape EntityType="TMCModel.Listing" Width="1.5" PointX="9.75" PointY="16.625" />
         <EntityTypeShape EntityType="TMCModel.ListingContact" Width="1.5" PointX="12" PointY="13.5" />
         <EntityTypeShape EntityType="TMCModel.ListingLocation" Width="1.5" PointX="15" PointY="17.125" />
         <EntityTypeShape EntityType="TMCModel.ListingMedia" Width="1.5" PointX="12" PointY="21.625" />
@@ -35,41 +34,43 @@
         <EntityTypeShape EntityType="TMCModel.RequirementCategory" Width="1.5" PointX="17" PointY="5.75" />
         <EntityTypeShape EntityType="TMCModel.RequirementLocation" Width="1.5" PointX="17" PointY="10.375" />
         <EntityTypeShape EntityType="TMCModel.State" Width="1.5" PointX="3" PointY="17.125" />
-        <EntityTypeShape EntityType="TMCModel.Vendor" Width="1.5" PointX="7.5" PointY="13.25" />
-        <EntityTypeShape EntityType="TMCModel.VendorServiceLocation" Width="1.5" PointX="9.75" PointY="11" />
         <AssociationConnector Association="TMCModel.FK_Requirement_AdditionalInfo" />
         <AssociationConnector Association="TMCModel.FK_Area_City" />
         <AssociationConnector Association="TMCModel.FK_ListingLocation_Area" />
         <AssociationConnector Association="TMCModel.FK_RequirementLocation_Area" />
-        <AssociationConnector Association="TMCModel.FK_VendorServiceLocation_Area" />
         <AssociationConnector Association="TMCModel.FK_CategoryRelation_ChildCategory" />
         <AssociationConnector Association="TMCModel.FK_CategoryRelation_ParentCategory" />
         <AssociationConnector Association="TMCModel.FK_RequirementCategory_Category" />
         <AssociationConnector Association="TMCModel.FK_City_State" />
         <AssociationConnector Association="TMCModel.FK_ListingLocation_City" />
         <AssociationConnector Association="TMCModel.FK_RequirementLocation_City" />
-        <AssociationConnector Association="TMCModel.FK_VendorServiceLocation_City" />
         <AssociationConnector Association="TMCModel.FK_ListingContact_ContactType" />
         <AssociationConnector Association="TMCModel.FK_State_Country" />
         <AssociationConnector Association="TMCModel.FK_File_FileExtension" />
         <AssociationConnector Association="TMCModel.FK_File_FileType" />
         <AssociationConnector Association="TMCModel.FK_ListingMedia_File" />
-        <AssociationConnector Association="TMCModel.FK_Listing_Vendor" />
+        <AssociationConnector Association="TMCModel.FK_ListingPaymentMode_PaymentMode" />
+        <AssociationConnector Association="TMCModel.FK_RequirementCategory_Requirement" />
+        <AssociationConnector Association="TMCModel.FK_RequirementLocation_Requirement" />
+        <EntityTypeShape EntityType="TMCModel.ListingCategory" Width="1.5" PointX="18" PointY="15.625" />
+        <AssociationConnector Association="TMCModel.FK_ListingCategory_Category" />
+        <EntityTypeShape EntityType="TMCModel.ListingServiceLocation" Width="1.5" PointX="22" PointY="11.125" />
+        <AssociationConnector Association="TMCModel.FK_ListingServiceLocation_Area" />
+        <AssociationConnector Association="TMCModel.FK_ListingServiceLocation_City" />
+        <AssociationConnector Association="TMCModel.FK_ListingServiceLocation_Country" />
+        <AssociationConnector Association="TMCModel.FK_ListingServiceLocation_State" />
+        <EntityTypeShape EntityType="TMCModel.User" Width="1.5" PointX="9.875" PointY="3" />
+        <EntityTypeShape EntityType="TMCModel.UserType" Width="1.5" PointX="0.75" PointY="10.75" />
+        <AssociationConnector Association="TMCModel.FK_Requirement_User" />
+        <EntityTypeShape EntityType="TMCModel.Listing" Width="1.5" PointX="20.125" PointY="0.75" />
+        <AssociationConnector Association="TMCModel.FK_Listing_City" />
+        <AssociationConnector Association="TMCModel.FK_Listing_User1" />
+        <AssociationConnector Association="TMCModel.FK_ListingCategory_Listing" />
         <AssociationConnector Association="TMCModel.FK_ListingContact_Listing" />
         <AssociationConnector Association="TMCModel.FK_ListingLocation_Listing" />
         <AssociationConnector Association="TMCModel.FK_ListingMedia_Listing" />
         <AssociationConnector Association="TMCModel.FK_ListingPaymentMode_Listing" />
-        <AssociationConnector Association="TMCModel.FK_ListingPaymentMode_PaymentMode" />
-        <AssociationConnector Association="TMCModel.FK_RequirementCategory_Requirement" />
-        <AssociationConnector Association="TMCModel.FK_RequirementLocation_Requirement" />
-        <AssociationConnector Association="TMCModel.FK_VendorServiceLocation_Vendor" />
-        <EntityTypeShape EntityType="TMCModel.User" Width="1.5" PointX="12.5" PointY="0.75" />
-        <EntityTypeShape EntityType="TMCModel.UserType" Width="1.5" PointX="10.25" PointY="1.875" />
-        <AssociationConnector Association="TMCModel.FK_Requirement_User" />
-        <AssociationConnector Association="TMCModel.FK_User_UserType" />
-        <EntityTypeShape EntityType="TMCModel.ListingCategory" Width="1.5" PointX="18" PointY="15.625" />
-        <AssociationConnector Association="TMCModel.FK_ListingCategory_Category" />
-        <AssociationConnector Association="TMCModel.FK_ListingCategory_Listing" />
+        <AssociationConnector Association="TMCModel.FK_ListingServiceLocation_Listing1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

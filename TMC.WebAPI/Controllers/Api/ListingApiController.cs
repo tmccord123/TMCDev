@@ -4,7 +4,7 @@ using System.Web.Http.ModelBinding;
 using TMC.Controllers;
 using TMC.Shared;
 using TMC.Shared.Factories;
-using TMC.Web.ViewModels; 
+using TMC.Web.ViewModels;
 
 namespace TMC.WebAPI.Controllers.Api
 {
@@ -25,7 +25,7 @@ namespace TMC.WebAPI.Controllers.Api
             var listingViewModel = new ListingViewModel();
             if (listingResult.IsValid())
             {
-                DTOConverter.FillViewModelFromDTO(listingViewModel, listingResult.Data); 
+                DTOConverter.FillViewModelFromDTO(listingViewModel, listingResult.Data);
             }
             return Ok(listingViewModel);
         }
@@ -34,32 +34,42 @@ namespace TMC.WebAPI.Controllers.Api
         [HttpPost]
         public IHttpActionResult Post([FromBody]ListingViewModel listingViewModel)
         {
-            try
+
+            if (ModelState.IsValid)
             {
-                var listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
-                DTOConverter.FillDTOFromViewModel(listingDto, listingViewModel);
-                var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
-                var listingResult = listingFacade.CreateListing(listingDto);
-
-                if (listingResult.IsValid())
+                try
                 {
-                    ModelState.Remove("ListingId");
-                    listingDto.ListingId = listingResult.Data.ListingId;
-                    listingViewModel.ListingId = listingResult.Data.ListingId;
-                    return Ok(listingViewModel);
-                }
-                if (listingViewModel == null)
-                {
-                    return BadRequest();
-                }
+                    var listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
+                    DTOConverter.FillDTOFromViewModel(listingDto, listingViewModel);
+                    var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+                    var listingResult = listingFacade.CreateListing(listingDto);
+                    // ModelState.AddModelError("BusinessName", "Business name error occurred");
+                    if (listingResult.IsValid())
+                    {
+                        ModelState.Remove("ListingId");
+                        listingDto.ListingId = listingResult.Data.ListingId;
+                        listingViewModel.ListingId = listingResult.Data.ListingId;
+                        return Ok(listingViewModel);
+                    }
+                    if (listingViewModel == null)
+                    {
+                        return BadRequest();
+                    }
 
-                return BadRequest();
+                    return BadRequest(ModelState);
+
+                }
+                catch (Exception)
+                {
+                    return InternalServerError();
+                }
+            }
+            else
+            {
+                return BadRequest(ModelState);
 
             }
-            catch (Exception)
-            {
-                return InternalServerError();
-            }
+
         }
 
         ////[Route("expenses/{id}")]

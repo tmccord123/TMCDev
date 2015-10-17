@@ -26,32 +26,34 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_Area_City", "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.City), "Area", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Area), true)]
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingLocation_Area", "Area", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Area), "ListingLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingLocation), true)]
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_RequirementLocation_Area", "Area", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Area), "RequirementLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementLocation), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_VendorServiceLocation_Area", "Area", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EntityDataModel.EntityModels.Area), "VendorServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.VendorServiceLocation), true)]
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_CategoryRelation_ChildCategory", "Category", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Category), "CategoryRelation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.CategoryRelation), true)]
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_CategoryRelation_ParentCategory", "Category", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Category), "CategoryRelation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.CategoryRelation), true)]
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_RequirementCategory_Category", "Category", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Category), "RequirementCategory", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementCategory), true)]
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_City_State", "State", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.State), "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.City), true)]
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingLocation_City", "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.City), "ListingLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingLocation), true)]
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_RequirementLocation_City", "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.City), "RequirementLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementLocation), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_VendorServiceLocation_City", "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EntityDataModel.EntityModels.City), "VendorServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.VendorServiceLocation), true)]
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingContact_ContactType", "ContactType", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.ContactType), "ListingContact", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingContact), true)]
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_State_Country", "Country", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Country), "State", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.State), true)]
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_File_FileExtension", "FileExtension", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.FileExtension), "File", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.File), true)]
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_File_FileType", "FileType", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.FileType), "File", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.File), true)]
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingMedia_File", "File", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.File), "ListingMedia", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingMedia), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_Listing_Vendor", "Vendor", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Vendor), "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Listing), true)]
+[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingPaymentMode_PaymentMode", "PaymentMode", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.PaymentMode), "ListingPaymentMode", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingPaymentMode), true)]
+[assembly: EdmRelationshipAttribute("TMCModel", "FK_RequirementCategory_Requirement", "Requirement", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Requirement), "RequirementCategory", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementCategory), true)]
+[assembly: EdmRelationshipAttribute("TMCModel", "FK_RequirementLocation_Requirement", "Requirement", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Requirement), "RequirementLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementLocation), true)]
+[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingCategory_Category", "Category", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Category), "ListingCategory", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingCategory), true)]
+[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingServiceLocation_Area", "Area", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EntityDataModel.EntityModels.Area), "ListingServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingServiceLocation), true)]
+[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingServiceLocation_City", "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.City), "ListingServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingServiceLocation), true)]
+[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingServiceLocation_Country", "Country", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Country), "ListingServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingServiceLocation), true)]
+[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingServiceLocation_State", "State", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.State), "ListingServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingServiceLocation), true)]
+[assembly: EdmRelationshipAttribute("TMCModel", "FK_Requirement_User", "User", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.User), "Requirement", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Requirement), true)]
+[assembly: EdmRelationshipAttribute("TMCModel", "FK_Listing_City", "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.City), "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Listing), true)]
+[assembly: EdmRelationshipAttribute("TMCModel", "FK_Listing_User1", "User", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.User), "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Listing), true)]
+[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingCategory_Listing", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingCategory", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingCategory), true)]
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingContact_Listing", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingContact", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingContact), true)]
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingLocation_Listing", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingLocation), true)]
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingMedia_Listing", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingMedia", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingMedia), true)]
 [assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingPaymentMode_Listing", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingPaymentMode", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingPaymentMode), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingPaymentMode_PaymentMode", "PaymentMode", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.PaymentMode), "ListingPaymentMode", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingPaymentMode), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_RequirementCategory_Requirement", "Requirement", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Requirement), "RequirementCategory", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementCategory), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_RequirementLocation_Requirement", "Requirement", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Requirement), "RequirementLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementLocation), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_VendorServiceLocation_Vendor", "Vendor", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Vendor), "VendorServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.VendorServiceLocation), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_Requirement_User", "User", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.User), "Requirement", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Requirement), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_User_UserType", "UserType", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.UserType), "User", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.User), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingCategory_Category", "Category", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Category), "ListingCategory", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingCategory), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingCategory_Listing", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingCategory", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingCategory), true)]
+[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingServiceLocation_Listing1", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingServiceLocation), true)]
 
 #endregion
 
@@ -378,22 +380,6 @@ namespace EntityDataModel.EntityModels
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Listing> Listing
-        {
-            get
-            {
-                if ((_Listing == null))
-                {
-                    _Listing = base.CreateObjectSet<Listing>("Listing");
-                }
-                return _Listing;
-            }
-        }
-        private ObjectSet<Listing> _Listing;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<ListingContact> ListingContact
         {
             get
@@ -538,34 +524,34 @@ namespace EntityDataModel.EntityModels
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Vendor> Vendor
+        public ObjectSet<ListingCategory> ListingCategory
         {
             get
             {
-                if ((_Vendor == null))
+                if ((_ListingCategory == null))
                 {
-                    _Vendor = base.CreateObjectSet<Vendor>("Vendor");
+                    _ListingCategory = base.CreateObjectSet<ListingCategory>("ListingCategory");
                 }
-                return _Vendor;
+                return _ListingCategory;
             }
         }
-        private ObjectSet<Vendor> _Vendor;
+        private ObjectSet<ListingCategory> _ListingCategory;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<VendorServiceLocation> VendorServiceLocation
+        public ObjectSet<ListingServiceLocation> ListingServiceLocation
         {
             get
             {
-                if ((_VendorServiceLocation == null))
+                if ((_ListingServiceLocation == null))
                 {
-                    _VendorServiceLocation = base.CreateObjectSet<VendorServiceLocation>("VendorServiceLocation");
+                    _ListingServiceLocation = base.CreateObjectSet<ListingServiceLocation>("ListingServiceLocation");
                 }
-                return _VendorServiceLocation;
+                return _ListingServiceLocation;
             }
         }
-        private ObjectSet<VendorServiceLocation> _VendorServiceLocation;
+        private ObjectSet<ListingServiceLocation> _ListingServiceLocation;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -602,18 +588,18 @@ namespace EntityDataModel.EntityModels
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<ListingCategory> ListingCategory
+        public ObjectSet<Listing> Listing
         {
             get
             {
-                if ((_ListingCategory == null))
+                if ((_Listing == null))
                 {
-                    _ListingCategory = base.CreateObjectSet<ListingCategory>("ListingCategory");
+                    _Listing = base.CreateObjectSet<Listing>("Listing");
                 }
-                return _ListingCategory;
+                return _Listing;
             }
         }
-        private ObjectSet<ListingCategory> _ListingCategory;
+        private ObjectSet<Listing> _Listing;
 
         #endregion
 
@@ -756,14 +742,6 @@ namespace EntityDataModel.EntityModels
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Listing EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToListing(Listing listing)
-        {
-            base.AddObject("Listing", listing);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the ListingContact EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToListingContact(ListingContact listingContact)
@@ -836,19 +814,19 @@ namespace EntityDataModel.EntityModels
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Vendor EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the ListingCategory EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToVendor(Vendor vendor)
+        public void AddToListingCategory(ListingCategory listingCategory)
         {
-            base.AddObject("Vendor", vendor);
+            base.AddObject("ListingCategory", listingCategory);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the VendorServiceLocation EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the ListingServiceLocation EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToVendorServiceLocation(VendorServiceLocation vendorServiceLocation)
+        public void AddToListingServiceLocation(ListingServiceLocation listingServiceLocation)
         {
-            base.AddObject("VendorServiceLocation", vendorServiceLocation);
+            base.AddObject("ListingServiceLocation", listingServiceLocation);
         }
     
         /// <summary>
@@ -868,11 +846,11 @@ namespace EntityDataModel.EntityModels
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the ListingCategory EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Listing EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToListingCategory(ListingCategory listingCategory)
+        public void AddToListing(Listing listing)
         {
-            base.AddObject("ListingCategory", listingCategory);
+            base.AddObject("Listing", listing);
         }
 
         #endregion
@@ -1261,18 +1239,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_VendorServiceLocation_Area", "VendorServiceLocation")]
-        public EntityCollection<VendorServiceLocation> VendorServiceLocation
+        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_Area", "ListingServiceLocation")]
+        public EntityCollection<ListingServiceLocation> ListingServiceLocation
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<VendorServiceLocation>("TMCModel.FK_VendorServiceLocation_Area", "VendorServiceLocation");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_Area", "ListingServiceLocation");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<VendorServiceLocation>("TMCModel.FK_VendorServiceLocation_Area", "VendorServiceLocation", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_Area", "ListingServiceLocation", value);
                 }
             }
         }
@@ -2936,15 +2914,13 @@ namespace EntityDataModel.EntityModels
         /// <param name="name">Initial value of the Name property.</param>
         /// <param name="stateId">Initial value of the StateId property.</param>
         /// <param name="isPopular">Initial value of the IsPopular property.</param>
-        /// <param name="populationClass">Initial value of the PopulationClass property.</param>
-        public static City CreateCity(global::System.Int32 cityId, global::System.String name, global::System.Int32 stateId, global::System.Boolean isPopular, global::System.Int16 populationClass)
+        public static City CreateCity(global::System.Int32 cityId, global::System.String name, global::System.Int32 stateId, global::System.Boolean isPopular)
         {
             City city = new City();
             city.CityId = cityId;
             city.Name = name;
             city.StateId = stateId;
             city.IsPopular = isPopular;
-            city.PopulationClass = populationClass;
             return city;
         }
 
@@ -3102,9 +3078,9 @@ namespace EntityDataModel.EntityModels
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int16 PopulationClass
+        public Nullable<global::System.Int16> PopulationClass
         {
             get
             {
@@ -3119,8 +3095,8 @@ namespace EntityDataModel.EntityModels
                 OnPopulationClassChanged();
             }
         }
-        private global::System.Int16 _PopulationClass;
-        partial void OnPopulationClassChanging(global::System.Int16 value);
+        private Nullable<global::System.Int16> _PopulationClass;
+        partial void OnPopulationClassChanging(Nullable<global::System.Int16> value);
         partial void OnPopulationClassChanged();
 
         #endregion
@@ -3237,18 +3213,40 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_VendorServiceLocation_City", "VendorServiceLocation")]
-        public EntityCollection<VendorServiceLocation> VendorServiceLocation
+        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_City", "ListingServiceLocation")]
+        public EntityCollection<ListingServiceLocation> ListingServiceLocation
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<VendorServiceLocation>("TMCModel.FK_VendorServiceLocation_City", "VendorServiceLocation");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_City", "ListingServiceLocation");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<VendorServiceLocation>("TMCModel.FK_VendorServiceLocation_City", "VendorServiceLocation", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_City", "ListingServiceLocation", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_Listing_City", "Listing")]
+        public EntityCollection<Listing> Listing
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Listing>("TMCModel.FK_Listing_City", "Listing");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Listing>("TMCModel.FK_Listing_City", "Listing", value);
                 }
             }
         }
@@ -3537,6 +3535,28 @@ namespace EntityDataModel.EntityModels
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<State>("TMCModel.FK_State_Country", "State", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_Country", "ListingServiceLocation")]
+        public EntityCollection<ListingServiceLocation> ListingServiceLocation
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_Country", "ListingServiceLocation");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_Country", "ListingServiceLocation", value);
                 }
             }
         }
@@ -4347,24 +4367,30 @@ namespace EntityDataModel.EntityModels
         /// Create a new Listing object.
         /// </summary>
         /// <param name="listingId">Initial value of the ListingId property.</param>
-        /// <param name="vendorId">Initial value of the VendorId property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
         /// <param name="businessName">Initial value of the BusinessName property.</param>
         /// <param name="businessDays">Initial value of the BusinessDays property.</param>
         /// <param name="businessHours">Initial value of the BusinessHours property.</param>
+        /// <param name="cityId">Initial value of the CityId property.</param>
+        /// <param name="address">Initial value of the Address property.</param>
+        /// <param name="pinCode">Initial value of the PinCode property.</param>
         /// <param name="createdOn">Initial value of the CreatedOn property.</param>
         /// <param name="updatedOn">Initial value of the UpdatedOn property.</param>
         /// <param name="createdBy">Initial value of the CreatedBy property.</param>
         /// <param name="updatedBy">Initial value of the UpdatedBy property.</param>
         /// <param name="isActive">Initial value of the IsActive property.</param>
         /// <param name="isDeleted">Initial value of the IsDeleted property.</param>
-        public static Listing CreateListing(global::System.Int64 listingId, global::System.Int64 vendorId, global::System.String businessName, global::System.Int16 businessDays, global::System.Int16 businessHours, global::System.DateTime createdOn, global::System.DateTime updatedOn, global::System.Int64 createdBy, global::System.Int64 updatedBy, global::System.Boolean isActive, global::System.Boolean isDeleted)
+        public static Listing CreateListing(global::System.Int64 listingId, global::System.Int64 userId, global::System.String businessName, global::System.Int16 businessDays, global::System.Int16 businessHours, global::System.Int32 cityId, global::System.String address, global::System.Int32 pinCode, global::System.DateTime createdOn, global::System.DateTime updatedOn, global::System.Int64 createdBy, global::System.Int64 updatedBy, global::System.Boolean isActive, global::System.Boolean isDeleted)
         {
             Listing listing = new Listing();
             listing.ListingId = listingId;
-            listing.VendorId = vendorId;
+            listing.UserId = userId;
             listing.BusinessName = businessName;
             listing.BusinessDays = businessDays;
             listing.BusinessHours = businessHours;
+            listing.CityId = cityId;
+            listing.Address = address;
+            listing.PinCode = pinCode;
             listing.CreatedOn = createdOn;
             listing.UpdatedOn = updatedOn;
             listing.CreatedBy = createdBy;
@@ -4410,24 +4436,24 @@ namespace EntityDataModel.EntityModels
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int64 VendorId
+        public global::System.Int64 UserId
         {
             get
             {
-                return _VendorId;
+                return _UserId;
             }
             set
             {
-                OnVendorIdChanging(value);
-                ReportPropertyChanging("VendorId");
-                _VendorId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("VendorId");
-                OnVendorIdChanged();
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
             }
         }
-        private global::System.Int64 _VendorId;
-        partial void OnVendorIdChanging(global::System.Int64 value);
-        partial void OnVendorIdChanged();
+        private global::System.Int64 _UserId;
+        partial void OnUserIdChanging(global::System.Int64 value);
+        partial void OnUserIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4624,6 +4650,126 @@ namespace EntityDataModel.EntityModels
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String BusinessDescription
+        {
+            get
+            {
+                return _BusinessDescription;
+            }
+            set
+            {
+                OnBusinessDescriptionChanging(value);
+                ReportPropertyChanging("BusinessDescription");
+                _BusinessDescription = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("BusinessDescription");
+                OnBusinessDescriptionChanged();
+            }
+        }
+        private global::System.String _BusinessDescription;
+        partial void OnBusinessDescriptionChanging(global::System.String value);
+        partial void OnBusinessDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CityId
+        {
+            get
+            {
+                return _CityId;
+            }
+            set
+            {
+                OnCityIdChanging(value);
+                ReportPropertyChanging("CityId");
+                _CityId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CityId");
+                OnCityIdChanged();
+            }
+        }
+        private global::System.Int32 _CityId;
+        partial void OnCityIdChanging(global::System.Int32 value);
+        partial void OnCityIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Address
+        {
+            get
+            {
+                return _Address;
+            }
+            set
+            {
+                OnAddressChanging(value);
+                ReportPropertyChanging("Address");
+                _Address = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Address");
+                OnAddressChanged();
+            }
+        }
+        private global::System.String _Address;
+        partial void OnAddressChanging(global::System.String value);
+        partial void OnAddressChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Landmark
+        {
+            get
+            {
+                return _Landmark;
+            }
+            set
+            {
+                OnLandmarkChanging(value);
+                ReportPropertyChanging("Landmark");
+                _Landmark = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Landmark");
+                OnLandmarkChanged();
+            }
+        }
+        private global::System.String _Landmark;
+        partial void OnLandmarkChanging(global::System.String value);
+        partial void OnLandmarkChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 PinCode
+        {
+            get
+            {
+                return _PinCode;
+            }
+            set
+            {
+                OnPinCodeChanging(value);
+                ReportPropertyChanging("PinCode");
+                _PinCode = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PinCode");
+                OnPinCodeChanged();
+            }
+        }
+        private global::System.Int32 _PinCode;
+        partial void OnPinCodeChanging(global::System.Int32 value);
+        partial void OnPinCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime CreatedOn
@@ -4775,16 +4921,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_Listing_Vendor", "Vendor")]
-        public Vendor Vendor
+        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_Listing_City", "City")]
+        public City City
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Vendor>("TMCModel.FK_Listing_Vendor", "Vendor").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_Listing_City", "City").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Vendor>("TMCModel.FK_Listing_Vendor", "Vendor").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_Listing_City", "City").Value = value;
             }
         }
         /// <summary>
@@ -4792,17 +4938,77 @@ namespace EntityDataModel.EntityModels
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Vendor> VendorReference
+        public EntityReference<City> CityReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Vendor>("TMCModel.FK_Listing_Vendor", "Vendor");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_Listing_City", "City");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Vendor>("TMCModel.FK_Listing_Vendor", "Vendor", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("TMCModel.FK_Listing_City", "City", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_Listing_User1", "User")]
+        public User User
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("TMCModel.FK_Listing_User1", "User").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("TMCModel.FK_Listing_User1", "User").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<User> UserReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("TMCModel.FK_Listing_User1", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("TMCModel.FK_Listing_User1", "User", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingCategory_Listing", "ListingCategory")]
+        public EntityCollection<ListingCategory> ListingCategory
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingCategory>("TMCModel.FK_ListingCategory_Listing", "ListingCategory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingCategory>("TMCModel.FK_ListingCategory_Listing", "ListingCategory", value);
                 }
             }
         }
@@ -4901,18 +5107,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingCategory_Listing", "ListingCategory")]
-        public EntityCollection<ListingCategory> ListingCategory
+        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_Listing1", "ListingServiceLocation")]
+        public EntityCollection<ListingServiceLocation> ListingServiceLocation
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingCategory>("TMCModel.FK_ListingCategory_Listing", "ListingCategory");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_Listing1", "ListingServiceLocation");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingCategory>("TMCModel.FK_ListingCategory_Listing", "ListingCategory", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_Listing1", "ListingServiceLocation", value);
                 }
             }
         }
@@ -6419,6 +6625,44 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingPaymentMode_PaymentMode", "PaymentMode")]
+        public PaymentMode PaymentMode
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMode>("TMCModel.FK_ListingPaymentMode_PaymentMode", "PaymentMode").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMode>("TMCModel.FK_ListingPaymentMode_PaymentMode", "PaymentMode").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<PaymentMode> PaymentModeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMode>("TMCModel.FK_ListingPaymentMode_PaymentMode", "PaymentMode");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PaymentMode>("TMCModel.FK_ListingPaymentMode_PaymentMode", "PaymentMode", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingPaymentMode_Listing", "Listing")]
         public Listing Listing
         {
@@ -6450,6 +6694,446 @@ namespace EntityDataModel.EntityModels
                 }
             }
         }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="ListingServiceLocation")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ListingServiceLocation : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ListingServiceLocation object.
+        /// </summary>
+        /// <param name="listingServiceLocationId">Initial value of the ListingServiceLocationId property.</param>
+        /// <param name="listingId">Initial value of the ListingId property.</param>
+        /// <param name="cityId">Initial value of the CityId property.</param>
+        /// <param name="stateId">Initial value of the StateId property.</param>
+        /// <param name="countryId">Initial value of the CountryId property.</param>
+        /// <param name="createdOn">Initial value of the CreatedOn property.</param>
+        /// <param name="updatedOn">Initial value of the UpdatedOn property.</param>
+        /// <param name="createdBy">Initial value of the CreatedBy property.</param>
+        /// <param name="updatedBy">Initial value of the UpdatedBy property.</param>
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        /// <param name="isDeleted">Initial value of the IsDeleted property.</param>
+        public static ListingServiceLocation CreateListingServiceLocation(global::System.Int64 listingServiceLocationId, global::System.Int64 listingId, global::System.Int32 cityId, global::System.Int32 stateId, global::System.Int16 countryId, global::System.DateTime createdOn, global::System.DateTime updatedOn, global::System.Int64 createdBy, global::System.Int64 updatedBy, global::System.Boolean isActive, global::System.Boolean isDeleted)
+        {
+            ListingServiceLocation listingServiceLocation = new ListingServiceLocation();
+            listingServiceLocation.ListingServiceLocationId = listingServiceLocationId;
+            listingServiceLocation.ListingId = listingId;
+            listingServiceLocation.CityId = cityId;
+            listingServiceLocation.StateId = stateId;
+            listingServiceLocation.CountryId = countryId;
+            listingServiceLocation.CreatedOn = createdOn;
+            listingServiceLocation.UpdatedOn = updatedOn;
+            listingServiceLocation.CreatedBy = createdBy;
+            listingServiceLocation.UpdatedBy = updatedBy;
+            listingServiceLocation.IsActive = isActive;
+            listingServiceLocation.IsDeleted = isDeleted;
+            return listingServiceLocation;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ListingServiceLocationId
+        {
+            get
+            {
+                return _ListingServiceLocationId;
+            }
+            set
+            {
+                if (_ListingServiceLocationId != value)
+                {
+                    OnListingServiceLocationIdChanging(value);
+                    ReportPropertyChanging("ListingServiceLocationId");
+                    _ListingServiceLocationId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ListingServiceLocationId");
+                    OnListingServiceLocationIdChanged();
+                }
+            }
+        }
+        private global::System.Int64 _ListingServiceLocationId;
+        partial void OnListingServiceLocationIdChanging(global::System.Int64 value);
+        partial void OnListingServiceLocationIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ListingId
+        {
+            get
+            {
+                return _ListingId;
+            }
+            set
+            {
+                OnListingIdChanging(value);
+                ReportPropertyChanging("ListingId");
+                _ListingId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ListingId");
+                OnListingIdChanged();
+            }
+        }
+        private global::System.Int64 _ListingId;
+        partial void OnListingIdChanging(global::System.Int64 value);
+        partial void OnListingIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsGlobalLevel
+        {
+            get
+            {
+                return _IsGlobalLevel;
+            }
+            set
+            {
+                OnIsGlobalLevelChanging(value);
+                ReportPropertyChanging("IsGlobalLevel");
+                _IsGlobalLevel = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsGlobalLevel");
+                OnIsGlobalLevelChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsGlobalLevel;
+        partial void OnIsGlobalLevelChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsGlobalLevelChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsCountryLevel
+        {
+            get
+            {
+                return _IsCountryLevel;
+            }
+            set
+            {
+                OnIsCountryLevelChanging(value);
+                ReportPropertyChanging("IsCountryLevel");
+                _IsCountryLevel = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsCountryLevel");
+                OnIsCountryLevelChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsCountryLevel;
+        partial void OnIsCountryLevelChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsCountryLevelChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsStateLevel
+        {
+            get
+            {
+                return _IsStateLevel;
+            }
+            set
+            {
+                OnIsStateLevelChanging(value);
+                ReportPropertyChanging("IsStateLevel");
+                _IsStateLevel = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsStateLevel");
+                OnIsStateLevelChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsStateLevel;
+        partial void OnIsStateLevelChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsStateLevelChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsCityLevel
+        {
+            get
+            {
+                return _IsCityLevel;
+            }
+            set
+            {
+                OnIsCityLevelChanging(value);
+                ReportPropertyChanging("IsCityLevel");
+                _IsCityLevel = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsCityLevel");
+                OnIsCityLevelChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsCityLevel;
+        partial void OnIsCityLevelChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsCityLevelChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CityId
+        {
+            get
+            {
+                return _CityId;
+            }
+            set
+            {
+                OnCityIdChanging(value);
+                ReportPropertyChanging("CityId");
+                _CityId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CityId");
+                OnCityIdChanged();
+            }
+        }
+        private global::System.Int32 _CityId;
+        partial void OnCityIdChanging(global::System.Int32 value);
+        partial void OnCityIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 StateId
+        {
+            get
+            {
+                return _StateId;
+            }
+            set
+            {
+                OnStateIdChanging(value);
+                ReportPropertyChanging("StateId");
+                _StateId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StateId");
+                OnStateIdChanged();
+            }
+        }
+        private global::System.Int32 _StateId;
+        partial void OnStateIdChanging(global::System.Int32 value);
+        partial void OnStateIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 CountryId
+        {
+            get
+            {
+                return _CountryId;
+            }
+            set
+            {
+                OnCountryIdChanging(value);
+                ReportPropertyChanging("CountryId");
+                _CountryId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CountryId");
+                OnCountryIdChanged();
+            }
+        }
+        private global::System.Int16 _CountryId;
+        partial void OnCountryIdChanging(global::System.Int16 value);
+        partial void OnCountryIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String AreaId
+        {
+            get
+            {
+                return _AreaId;
+            }
+            set
+            {
+                OnAreaIdChanging(value);
+                ReportPropertyChanging("AreaId");
+                _AreaId = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("AreaId");
+                OnAreaIdChanged();
+            }
+        }
+        private global::System.String _AreaId;
+        partial void OnAreaIdChanging(global::System.String value);
+        partial void OnAreaIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime CreatedOn
+        {
+            get
+            {
+                return _CreatedOn;
+            }
+            set
+            {
+                OnCreatedOnChanging(value);
+                ReportPropertyChanging("CreatedOn");
+                _CreatedOn = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreatedOn");
+                OnCreatedOnChanged();
+            }
+        }
+        private global::System.DateTime _CreatedOn;
+        partial void OnCreatedOnChanging(global::System.DateTime value);
+        partial void OnCreatedOnChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime UpdatedOn
+        {
+            get
+            {
+                return _UpdatedOn;
+            }
+            set
+            {
+                OnUpdatedOnChanging(value);
+                ReportPropertyChanging("UpdatedOn");
+                _UpdatedOn = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UpdatedOn");
+                OnUpdatedOnChanged();
+            }
+        }
+        private global::System.DateTime _UpdatedOn;
+        partial void OnUpdatedOnChanging(global::System.DateTime value);
+        partial void OnUpdatedOnChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 CreatedBy
+        {
+            get
+            {
+                return _CreatedBy;
+            }
+            set
+            {
+                OnCreatedByChanging(value);
+                ReportPropertyChanging("CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreatedBy");
+                OnCreatedByChanged();
+            }
+        }
+        private global::System.Int64 _CreatedBy;
+        partial void OnCreatedByChanging(global::System.Int64 value);
+        partial void OnCreatedByChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 UpdatedBy
+        {
+            get
+            {
+                return _UpdatedBy;
+            }
+            set
+            {
+                OnUpdatedByChanging(value);
+                ReportPropertyChanging("UpdatedBy");
+                _UpdatedBy = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UpdatedBy");
+                OnUpdatedByChanged();
+            }
+        }
+        private global::System.Int64 _UpdatedBy;
+        partial void OnUpdatedByChanging(global::System.Int64 value);
+        partial void OnUpdatedByChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsDeleted
+        {
+            get
+            {
+                return _IsDeleted;
+            }
+            set
+            {
+                OnIsDeletedChanging(value);
+                ReportPropertyChanging("IsDeleted");
+                _IsDeleted = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsDeleted");
+                OnIsDeletedChanged();
+            }
+        }
+        private global::System.Boolean _IsDeleted;
+        partial void OnIsDeletedChanging(global::System.Boolean value);
+        partial void OnIsDeletedChanged();
+
+        #endregion
+
+        #region Navigation Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -6457,16 +7141,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingPaymentMode_PaymentMode", "PaymentMode")]
-        public PaymentMode PaymentMode
+        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_Area", "Area")]
+        public Area Area
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMode>("TMCModel.FK_ListingPaymentMode_PaymentMode", "PaymentMode").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMCModel.FK_ListingServiceLocation_Area", "Area").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMode>("TMCModel.FK_ListingPaymentMode_PaymentMode", "PaymentMode").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMCModel.FK_ListingServiceLocation_Area", "Area").Value = value;
             }
         }
         /// <summary>
@@ -6474,17 +7158,169 @@ namespace EntityDataModel.EntityModels
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<PaymentMode> PaymentModeReference
+        public EntityReference<Area> AreaReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMode>("TMCModel.FK_ListingPaymentMode_PaymentMode", "PaymentMode");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMCModel.FK_ListingServiceLocation_Area", "Area");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PaymentMode>("TMCModel.FK_ListingPaymentMode_PaymentMode", "PaymentMode", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Area>("TMCModel.FK_ListingServiceLocation_Area", "Area", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_City", "City")]
+        public City City
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_ListingServiceLocation_City", "City").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_ListingServiceLocation_City", "City").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<City> CityReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_ListingServiceLocation_City", "City");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("TMCModel.FK_ListingServiceLocation_City", "City", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_Country", "Country")]
+        public Country Country
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMCModel.FK_ListingServiceLocation_Country", "Country").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMCModel.FK_ListingServiceLocation_Country", "Country").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Country> CountryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMCModel.FK_ListingServiceLocation_Country", "Country");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Country>("TMCModel.FK_ListingServiceLocation_Country", "Country", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_State", "State")]
+        public State State
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMCModel.FK_ListingServiceLocation_State", "State").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMCModel.FK_ListingServiceLocation_State", "State").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<State> StateReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMCModel.FK_ListingServiceLocation_State", "State");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<State>("TMCModel.FK_ListingServiceLocation_State", "State", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_Listing1", "Listing")]
+        public Listing Listing1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingServiceLocation_Listing1", "Listing").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingServiceLocation_Listing1", "Listing").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Listing> Listing1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingServiceLocation_Listing1", "Listing");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Listing>("TMCModel.FK_ListingServiceLocation_Listing1", "Listing", value);
                 }
             }
         }
@@ -8253,6 +9089,28 @@ namespace EntityDataModel.EntityModels
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_State", "ListingServiceLocation")]
+        public EntityCollection<ListingServiceLocation> ListingServiceLocation
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_State", "ListingServiceLocation");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_State", "ListingServiceLocation", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -8279,7 +9137,7 @@ namespace EntityDataModel.EntityModels
         /// <param name="createdBy">Initial value of the CreatedBy property.</param>
         /// <param name="updatedBy">Initial value of the UpdatedBy property.</param>
         /// <param name="isActive">Initial value of the IsActive property.</param>
-        public static User CreateUser(global::System.Int64 userId, global::System.String userName, global::System.Int16 userTypeId, global::System.DateTime createdOn, global::System.DateTime updatedOn, global::System.Int64 createdBy, global::System.Int64 updatedBy, global::System.Boolean isActive)
+        public static User CreateUser(global::System.Int64 userId, global::System.String userName, global::System.String userTypeId, global::System.DateTime createdOn, global::System.DateTime updatedOn, global::System.Int64 createdBy, global::System.Int64 updatedBy, global::System.Boolean isActive)
         {
             User user = new User();
             user.UserId = userId;
@@ -8473,7 +9331,7 @@ namespace EntityDataModel.EntityModels
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int16 UserTypeId
+        public global::System.String UserTypeId
         {
             get
             {
@@ -8483,13 +9341,13 @@ namespace EntityDataModel.EntityModels
             {
                 OnUserTypeIdChanging(value);
                 ReportPropertyChanging("UserTypeId");
-                _UserTypeId = StructuralObject.SetValidValue(value);
+                _UserTypeId = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("UserTypeId");
                 OnUserTypeIdChanged();
             }
         }
-        private global::System.Int16 _UserTypeId;
-        partial void OnUserTypeIdChanging(global::System.Int16 value);
+        private global::System.String _UserTypeId;
+        partial void OnUserTypeIdChanging(global::System.String value);
         partial void OnUserTypeIdChanged();
     
         /// <summary>
@@ -8668,34 +9526,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_User_UserType", "UserType")]
-        public UserType UserType
+        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_Listing_User1", "Listing")]
+        public EntityCollection<Listing> Listing1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserType>("TMCModel.FK_User_UserType", "UserType").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserType>("TMCModel.FK_User_UserType", "UserType").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<UserType> UserTypeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserType>("TMCModel.FK_User_UserType", "UserType");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Listing>("TMCModel.FK_Listing_User1", "Listing");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<UserType>("TMCModel.FK_User_UserType", "UserType", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Listing>("TMCModel.FK_Listing_User1", "Listing", value);
                 }
             }
         }
@@ -8805,662 +9647,6 @@ namespace EntityDataModel.EntityModels
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-
-        #endregion
-
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_User_UserType", "User")]
-        public EntityCollection<User> User
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<User>("TMCModel.FK_User_UserType", "User");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("TMCModel.FK_User_UserType", "User", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="Vendor")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class Vendor : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new Vendor object.
-        /// </summary>
-        /// <param name="vendorId">Initial value of the VendorId property.</param>
-        /// <param name="userId">Initial value of the UserId property.</param>
-        public static Vendor CreateVendor(global::System.Int64 vendorId, global::System.Int64 userId)
-        {
-            Vendor vendor = new Vendor();
-            vendor.VendorId = vendorId;
-            vendor.UserId = userId;
-            return vendor;
-        }
-
-        #endregion
-
-        #region Simple Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int64 VendorId
-        {
-            get
-            {
-                return _VendorId;
-            }
-            set
-            {
-                if (_VendorId != value)
-                {
-                    OnVendorIdChanging(value);
-                    ReportPropertyChanging("VendorId");
-                    _VendorId = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("VendorId");
-                    OnVendorIdChanged();
-                }
-            }
-        }
-        private global::System.Int64 _VendorId;
-        partial void OnVendorIdChanging(global::System.Int64 value);
-        partial void OnVendorIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int64 UserId
-        {
-            get
-            {
-                return _UserId;
-            }
-            set
-            {
-                OnUserIdChanging(value);
-                ReportPropertyChanging("UserId");
-                _UserId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("UserId");
-                OnUserIdChanged();
-            }
-        }
-        private global::System.Int64 _UserId;
-        partial void OnUserIdChanging(global::System.Int64 value);
-        partial void OnUserIdChanged();
-
-        #endregion
-
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_Listing_Vendor", "Listing")]
-        public EntityCollection<Listing> Listing
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Listing>("TMCModel.FK_Listing_Vendor", "Listing");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Listing>("TMCModel.FK_Listing_Vendor", "Listing", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_VendorServiceLocation_Vendor", "VendorServiceLocation")]
-        public EntityCollection<VendorServiceLocation> VendorServiceLocation
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<VendorServiceLocation>("TMCModel.FK_VendorServiceLocation_Vendor", "VendorServiceLocation");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<VendorServiceLocation>("TMCModel.FK_VendorServiceLocation_Vendor", "VendorServiceLocation", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="VendorServiceLocation")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class VendorServiceLocation : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new VendorServiceLocation object.
-        /// </summary>
-        /// <param name="vendorServiceLocationId">Initial value of the VendorServiceLocationId property.</param>
-        /// <param name="vendorId">Initial value of the VendorId property.</param>
-        /// <param name="createdOn">Initial value of the CreatedOn property.</param>
-        /// <param name="updatedOn">Initial value of the UpdatedOn property.</param>
-        /// <param name="createdBy">Initial value of the CreatedBy property.</param>
-        /// <param name="updatedBy">Initial value of the UpdatedBy property.</param>
-        /// <param name="isActive">Initial value of the IsActive property.</param>
-        /// <param name="isDeleted">Initial value of the IsDeleted property.</param>
-        public static VendorServiceLocation CreateVendorServiceLocation(global::System.Int64 vendorServiceLocationId, global::System.Int64 vendorId, global::System.DateTime createdOn, global::System.DateTime updatedOn, global::System.Int64 createdBy, global::System.Int64 updatedBy, global::System.Boolean isActive, global::System.Boolean isDeleted)
-        {
-            VendorServiceLocation vendorServiceLocation = new VendorServiceLocation();
-            vendorServiceLocation.VendorServiceLocationId = vendorServiceLocationId;
-            vendorServiceLocation.VendorId = vendorId;
-            vendorServiceLocation.CreatedOn = createdOn;
-            vendorServiceLocation.UpdatedOn = updatedOn;
-            vendorServiceLocation.CreatedBy = createdBy;
-            vendorServiceLocation.UpdatedBy = updatedBy;
-            vendorServiceLocation.IsActive = isActive;
-            vendorServiceLocation.IsDeleted = isDeleted;
-            return vendorServiceLocation;
-        }
-
-        #endregion
-
-        #region Simple Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int64 VendorServiceLocationId
-        {
-            get
-            {
-                return _VendorServiceLocationId;
-            }
-            set
-            {
-                if (_VendorServiceLocationId != value)
-                {
-                    OnVendorServiceLocationIdChanging(value);
-                    ReportPropertyChanging("VendorServiceLocationId");
-                    _VendorServiceLocationId = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("VendorServiceLocationId");
-                    OnVendorServiceLocationIdChanged();
-                }
-            }
-        }
-        private global::System.Int64 _VendorServiceLocationId;
-        partial void OnVendorServiceLocationIdChanging(global::System.Int64 value);
-        partial void OnVendorServiceLocationIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int64 VendorId
-        {
-            get
-            {
-                return _VendorId;
-            }
-            set
-            {
-                OnVendorIdChanging(value);
-                ReportPropertyChanging("VendorId");
-                _VendorId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("VendorId");
-                OnVendorIdChanged();
-            }
-        }
-        private global::System.Int64 _VendorId;
-        partial void OnVendorIdChanging(global::System.Int64 value);
-        partial void OnVendorIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> IsGlobalLevel
-        {
-            get
-            {
-                return _IsGlobalLevel;
-            }
-            set
-            {
-                OnIsGlobalLevelChanging(value);
-                ReportPropertyChanging("IsGlobalLevel");
-                _IsGlobalLevel = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsGlobalLevel");
-                OnIsGlobalLevelChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _IsGlobalLevel;
-        partial void OnIsGlobalLevelChanging(Nullable<global::System.Boolean> value);
-        partial void OnIsGlobalLevelChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> IsCountryLevel
-        {
-            get
-            {
-                return _IsCountryLevel;
-            }
-            set
-            {
-                OnIsCountryLevelChanging(value);
-                ReportPropertyChanging("IsCountryLevel");
-                _IsCountryLevel = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsCountryLevel");
-                OnIsCountryLevelChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _IsCountryLevel;
-        partial void OnIsCountryLevelChanging(Nullable<global::System.Boolean> value);
-        partial void OnIsCountryLevelChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> IsStateLevel
-        {
-            get
-            {
-                return _IsStateLevel;
-            }
-            set
-            {
-                OnIsStateLevelChanging(value);
-                ReportPropertyChanging("IsStateLevel");
-                _IsStateLevel = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsStateLevel");
-                OnIsStateLevelChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _IsStateLevel;
-        partial void OnIsStateLevelChanging(Nullable<global::System.Boolean> value);
-        partial void OnIsStateLevelChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> IsCityLevel
-        {
-            get
-            {
-                return _IsCityLevel;
-            }
-            set
-            {
-                OnIsCityLevelChanging(value);
-                ReportPropertyChanging("IsCityLevel");
-                _IsCityLevel = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsCityLevel");
-                OnIsCityLevelChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _IsCityLevel;
-        partial void OnIsCityLevelChanging(Nullable<global::System.Boolean> value);
-        partial void OnIsCityLevelChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> CityId
-        {
-            get
-            {
-                return _CityId;
-            }
-            set
-            {
-                OnCityIdChanging(value);
-                ReportPropertyChanging("CityId");
-                _CityId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CityId");
-                OnCityIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _CityId;
-        partial void OnCityIdChanging(Nullable<global::System.Int32> value);
-        partial void OnCityIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String AreaId
-        {
-            get
-            {
-                return _AreaId;
-            }
-            set
-            {
-                OnAreaIdChanging(value);
-                ReportPropertyChanging("AreaId");
-                _AreaId = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("AreaId");
-                OnAreaIdChanged();
-            }
-        }
-        private global::System.String _AreaId;
-        partial void OnAreaIdChanging(global::System.String value);
-        partial void OnAreaIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime CreatedOn
-        {
-            get
-            {
-                return _CreatedOn;
-            }
-            set
-            {
-                OnCreatedOnChanging(value);
-                ReportPropertyChanging("CreatedOn");
-                _CreatedOn = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CreatedOn");
-                OnCreatedOnChanged();
-            }
-        }
-        private global::System.DateTime _CreatedOn;
-        partial void OnCreatedOnChanging(global::System.DateTime value);
-        partial void OnCreatedOnChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime UpdatedOn
-        {
-            get
-            {
-                return _UpdatedOn;
-            }
-            set
-            {
-                OnUpdatedOnChanging(value);
-                ReportPropertyChanging("UpdatedOn");
-                _UpdatedOn = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("UpdatedOn");
-                OnUpdatedOnChanged();
-            }
-        }
-        private global::System.DateTime _UpdatedOn;
-        partial void OnUpdatedOnChanging(global::System.DateTime value);
-        partial void OnUpdatedOnChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int64 CreatedBy
-        {
-            get
-            {
-                return _CreatedBy;
-            }
-            set
-            {
-                OnCreatedByChanging(value);
-                ReportPropertyChanging("CreatedBy");
-                _CreatedBy = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CreatedBy");
-                OnCreatedByChanged();
-            }
-        }
-        private global::System.Int64 _CreatedBy;
-        partial void OnCreatedByChanging(global::System.Int64 value);
-        partial void OnCreatedByChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int64 UpdatedBy
-        {
-            get
-            {
-                return _UpdatedBy;
-            }
-            set
-            {
-                OnUpdatedByChanging(value);
-                ReportPropertyChanging("UpdatedBy");
-                _UpdatedBy = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("UpdatedBy");
-                OnUpdatedByChanged();
-            }
-        }
-        private global::System.Int64 _UpdatedBy;
-        partial void OnUpdatedByChanging(global::System.Int64 value);
-        partial void OnUpdatedByChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Boolean IsActive
-        {
-            get
-            {
-                return _IsActive;
-            }
-            set
-            {
-                OnIsActiveChanging(value);
-                ReportPropertyChanging("IsActive");
-                _IsActive = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsActive");
-                OnIsActiveChanged();
-            }
-        }
-        private global::System.Boolean _IsActive;
-        partial void OnIsActiveChanging(global::System.Boolean value);
-        partial void OnIsActiveChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Boolean IsDeleted
-        {
-            get
-            {
-                return _IsDeleted;
-            }
-            set
-            {
-                OnIsDeletedChanging(value);
-                ReportPropertyChanging("IsDeleted");
-                _IsDeleted = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsDeleted");
-                OnIsDeletedChanged();
-            }
-        }
-        private global::System.Boolean _IsDeleted;
-        partial void OnIsDeletedChanging(global::System.Boolean value);
-        partial void OnIsDeletedChanged();
-
-        #endregion
-
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_VendorServiceLocation_Area", "Area")]
-        public Area Area
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMCModel.FK_VendorServiceLocation_Area", "Area").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMCModel.FK_VendorServiceLocation_Area", "Area").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Area> AreaReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMCModel.FK_VendorServiceLocation_Area", "Area");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Area>("TMCModel.FK_VendorServiceLocation_Area", "Area", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_VendorServiceLocation_City", "City")]
-        public City City
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_VendorServiceLocation_City", "City").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_VendorServiceLocation_City", "City").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<City> CityReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_VendorServiceLocation_City", "City");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("TMCModel.FK_VendorServiceLocation_City", "City", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_VendorServiceLocation_Vendor", "Vendor")]
-        public Vendor Vendor
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Vendor>("TMCModel.FK_VendorServiceLocation_Vendor", "Vendor").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Vendor>("TMCModel.FK_VendorServiceLocation_Vendor", "Vendor").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Vendor> VendorReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Vendor>("TMCModel.FK_VendorServiceLocation_Vendor", "Vendor");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Vendor>("TMCModel.FK_VendorServiceLocation_Vendor", "Vendor", value);
-                }
-            }
-        }
 
         #endregion
 

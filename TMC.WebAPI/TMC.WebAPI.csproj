@@ -532,6 +532,7 @@
     <Content Include="Views\Vendor\AddEditListing.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\AddEditRequirement.cshtml" />
+    <Content Include="Views\Vendor\_EditListing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

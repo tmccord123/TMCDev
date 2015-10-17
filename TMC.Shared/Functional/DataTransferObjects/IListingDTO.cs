@@ -5,7 +5,7 @@ namespace TMC.Shared
     public interface IListingDTO : IDTO
     {
         long ListingId { get; set; }
-        int VendorId { get; set; }
+        int UserId { get; set; }
         string BusinessName { get; set; }
         string ContactPerson { get; set; }
         string ContactEmailId { get; set; }

@@ -11,7 +11,7 @@ namespace TMC.Web.ViewModels
             ListingContacts = new ListingContactsViewModel();
         }
         public long ListingId { get; set; }
-        public int VendorId { get; set; }
+        public int UserId { get; set; }
         public string BusinessName { get; set; }
         public short? YearStarted { get; set; }
         public string ContactPerson { get; set; }

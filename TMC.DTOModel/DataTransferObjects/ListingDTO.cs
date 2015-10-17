@@ -19,9 +19,9 @@ namespace TMC.DTOModel
         [EntityPropertyMapping(MappingDirectionType.Both, "ListingId")]
         public long ListingId { get; set; }
 
-        [ViewModelPropertyMapping(MappingDirectionType.Both, "VendorId")]
-        [EntityPropertyMapping(MappingDirectionType.Both, "VendorId")]
-        public int VendorId { get; set; }
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "UserId")]
+        [EntityPropertyMapping(MappingDirectionType.Both, "UserId")]
+        public int UserId { get; set; }
 
         [ViewModelPropertyMapping(MappingDirectionType.Both, "BusinessName")]
         [EntityPropertyMapping(MappingDirectionType.Both, "BusinessName")]

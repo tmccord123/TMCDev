@@ -62,7 +62,7 @@ namespace TMC.Controllers
             var client = TMCHttpClient.GetClient();
             if (id > 0)
             {
-                HttpResponseMessage egsResponse = await client.GetAsync("api/listing/"+id);
+                HttpResponseMessage egsResponse = await client.GetAsync("api/listing/" + id);
                 if (egsResponse.IsSuccessStatusCode)
                 {
                     string egsContent = await egsResponse.Content.ReadAsStringAsync();
@@ -76,7 +76,7 @@ namespace TMC.Controllers
             }
             else
             {
-                
+
                 HttpResponseMessage egsResponse = await client.GetAsync("api/listing/1");
 
                 if (egsResponse.IsSuccessStatusCode)
@@ -104,31 +104,33 @@ namespace TMC.Controllers
         {
             ActionResult result = null;
             var client = TMCHttpClient.GetClient();
-            listingViewModel.VendorId = 1;
+            listingViewModel.UserId = 1;
             JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
             string serializedItemToCreate = JsonConvert.SerializeObject(listingViewModel, settings);
 
             var response = await client.PostAsync("api/listing", new StringContent(serializedItemToCreate,
-              System.Text.Encoding.Unicode, "application/json"));
-
+            System.Text.Encoding.Unicode, "application/json"));
+            string content = response.Content.ReadAsStringAsync().Result;
+            var contentResult = JsonConvert.DeserializeObject<ListingViewModel>(content);
+             
             if (response.IsSuccessStatusCode)
             {
-                string content =   response.Content.ReadAsStringAsync().Result;
-                var lstExpenseGroupStatusses = JsonConvert.DeserializeObject<ListingViewModel>(content);
-                listingViewModel = lstExpenseGroupStatusses;
-                listingViewModel.Website = "Test result";
-               // return View("AddEditListing", listingViewModel);
-                result = new JsonResult()
-                {
-                    Data = listingViewModel,
-                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
-                };
+                listingViewModel = contentResult;
+                listingViewModel.Website = "Test result changed";
+                // return View("AddEditListing", listingViewModel);
+                //result = new JsonResult()
+                //{
+                //    Data = listingViewModel,
+                //    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                //};
+                result = PartialView("_EditListing", listingViewModel);
             }
             else
             {
-                 result = Content("An error occurred");
+                //result = Content("An error occurred");
+                result = PartialView("_EditListing", listingViewModel);
             }
-           
+
             return result;
         }
     }

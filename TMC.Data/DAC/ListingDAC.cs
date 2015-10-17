@@ -99,8 +99,8 @@ namespace TMC.Data
                 using (var tmcContext = new TMCContext())
                 {
                     var listingEntities = (from listing in tmcContext.Listing
-                                           join vendor in tmcContext.Vendor on listing.VendorId equals vendor.VendorId
-                                           where vendor.UserId == userId
+
+                                           where listing.UserId == userId
                                            select listing).ToList();
                     IListingDTO listingDto = null;
                     foreach (var listingEntity in listingEntities)
@@ -219,6 +219,8 @@ namespace TMC.Data
                             listing.UpdatedBy = 11;
                             listing.IsActive = true;
                             listing.IsDeleted = false;
+                            listing.Address = "Default Address";
+                            listing.PinCode = 12345;
                             TMCDbContext.Listing.AddObject(listing);
                             if (TMCDbContext.SaveChanges() > 0)
                             {
@@ -256,8 +258,10 @@ namespace TMC.Data
                                              select listing).Single();
                         if (listingEntity != null)
                         {
-                            listingEntity.UpdatedOn = DateTime.Now;
+                           
                             EntityConverter.FillEntityFromDTO(listingDto, listingEntity);
+                            listingEntity.UpdatedOn = DateTime.Now;
+                            listingEntity.CreatedOn = DateTime.Now;
                         }
                         if (TMCDbContext.SaveChanges() > 0)
                         {
