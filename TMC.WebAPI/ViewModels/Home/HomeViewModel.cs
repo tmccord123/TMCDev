@@ -15,6 +15,12 @@ namespace TMC.Web.ViewModels
         /// </summary>
         public List<CityViewModel> Cities { get; set; }
 
+        public CitySaytViewModel CitySaytHome { get; set; }
+
+        public PlaceSaytViewModel PlaceSaytHome { get; set; }
+
+        public CategorySaytViewModel CategorySaytHome { get; set; }
+
         /// <summary>
         /// Gets or sets the Top Categories.
         /// </summary>

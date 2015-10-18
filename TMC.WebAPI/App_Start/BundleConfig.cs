@@ -27,7 +27,10 @@ namespace TMC.WebAPI
             bundles.Add(new ScriptBundle("~/bundles/site").Include(
                      "~/Scripts/jquery.flexslider.js",
                      "~/Scripts/jquery-ui.js",
-                     "~/Scripts/tmc.common.js"));
+                     "~/Scripts/tmc.common.js",
+                     "~/Scripts/tmc.common.city.sayt.js",
+                     "~/Scripts/tmc.common.place.sayt.js",
+                     "~/Scripts/tmc.common.category.sayt.js"));
 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

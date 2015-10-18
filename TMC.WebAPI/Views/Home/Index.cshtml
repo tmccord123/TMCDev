@@ -12,6 +12,11 @@
 
         $(function () {
             homeIndex = new HomeIndex();
+            homeIndex.cityNameControlId = '#' +  '@Model.CitySaytHome.SelectedCityNameFieldId';
+            homeIndex.cityIdControlId  = '#' + '@Model.CitySaytHome.SelectedCityIdFieldId';
+            homeIndex.placeIdControlId = '#' + '@Model.PlaceSaytHome.SelectedPlaceIdFieldId';
+            homeIndex.categoryIdControlId = '#' + '@Model.CategorySaytHome.SelectedCategoryIdFieldId';
+            homeIndex.categoryNameControlId = '#' + '@Model.CategorySaytHome.SelectedCategoryNameFieldId';
             homeIndex.initialize();
         });
 
@@ -34,23 +39,21 @@
       }
 </style>
 
-<input type="hidden" id="hdnCityId" />
-<input type="hidden" id="hdnPlaceId" />
-<input type="hidden" id="hdnCityDetails" />
 <input type="hidden" id="hdnCategoryId" />
-<input type="hidden" id="hdnCityName" />
 <input type="hidden" id="hdnCategoryName" />
+<input type="hidden" id="hdnPlaceId" />
 <div class="row">
     <div class="searchPopup col-sm-12">
 
         <div class="col-sm-3 topFields" id="cities">
-            <input type="text" id="ddlCities" class="form-control" placeholder="e.g. Delhi, Gurgaon"/>
+            
+            @Html.Partial("_CitySayt", Model.CitySaytHome)
         </div>
         <div class="col-sm-4 topFields display-none" id="divPlaces">
-            <input type="text" id="ddlPlaces" class="form-control" placeholder="e.g. Palam Vihar"/>
+           @Html.Partial("_PlaceSayt", Model.PlaceSaytHome)
         </div>
         <div class="col-sm-4 topFields">
-            <input type="text" id="ddlCategories" class="form-control" placeholder="e.g. Tution, Hotels"/>
+            @Html.Partial("_CategorySayt", Model.CategorySaytHome)
         </div>
         <div class="col-sm-1 topFields">
             <button id="btnSearchMain" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>

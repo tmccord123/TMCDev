@@ -45,6 +45,21 @@ namespace TMC.WebAPI.Controllers
                 //    //model.Cities = cities;
                 model.TopCategories = categories;
                 model.ControllerName = "HomeController";
+                model.CitySaytHome = new CitySaytViewModel();
+                model.CitySaytHome.ControlId = "ddlCitiesHome";
+                model.CitySaytHome.HtmlFieldPrefix = "CitySaytHome";               
+                model.CitySaytHome.SelectCallBack = "";
+
+                model.PlaceSaytHome = new PlaceSaytViewModel();
+                model.PlaceSaytHome.ControlId = "ddlPlacesHome";
+                model.PlaceSaytHome.HtmlFieldPrefix = "PlaceSaytHome";
+                model.PlaceSaytHome.SelectCallBack = "";
+                model.PlaceSaytHome.SelectedCityDetailsId = model.CitySaytHome.SelectedCityDetailsFieldId;
+
+                model.CategorySaytHome = new CategorySaytViewModel();
+                model.CategorySaytHome.ControlId = "ddlCategoriesHome";
+                model.CategorySaytHome.HtmlFieldPrefix = "CategorySaytHome";
+                model.CategorySaytHome.SelectCallBack = ""; 
             }
             else
             {

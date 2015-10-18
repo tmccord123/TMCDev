@@ -1,0 +1,29 @@
+﻿@model TMC.Web.ViewModels.CategorySaytViewModel
+@{   
+    Html.ViewData.TemplateInfo.HtmlFieldPrefix = Model.HtmlFieldPrefix;
+}
+
+
+<input type="text" id='@Model.ControlId' class="form-control" placeholder='@Model.PlaceHolder' />
+
+    <script type="text/javascript">
+
+        var tmcCategorySaytInitialize@(Model.ControlId) = new function () {
+            this.categorySaytObj = new CategorySayt();
+
+    };
+        tmcCategorySaytInitialize@(Model.ControlId).categorySaytObj.controlId = '#' + '@Model.ControlId';
+        tmcCategorySaytInitialize@(Model.ControlId).categorySaytObj.htmlFieldPrefix = '@Model.HtmlFieldPrefix';
+
+        tmcCategorySaytInitialize@(Model.ControlId).categorySaytObj.selectedCategoryId = '#' + '@Model.SelectedCategoryIdFieldId';
+        tmcCategorySaytInitialize@(Model.ControlId).categorySaytObj.selectedCategoryName = '#' + '@Model.SelectedCategoryNameFieldId';
+        tmcCategorySaytInitialize@(Model.ControlId).categorySaytObj.initialize();
+    </script>
+
+
+
+@Html.ValidationMessageFor(model => model.SelectedCategoryId, Model.RequiredMessage)
+@Html.TextBoxFor(model => model.SelectedCategoryId, new { style = Model.IsRequired ? "visibility:hidden;" : "display:none;" })
+@Html.HiddenFor(model => model.SelectedCategoryName)
+@Html.HiddenFor(model => model.IsRequired)
+@Html.HiddenFor(model => model.DefaultSelectedValue)

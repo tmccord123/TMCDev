@@ -221,6 +221,9 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\BlogViewModel.cs" />
     <Compile Include="ViewModels\Common\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\Common\CategorySaytViewModel.cs" />
+    <Compile Include="ViewModels\Common\PlaceSaytViewModel.cs" />
+    <Compile Include="ViewModels\Common\CitySaytViewModel.cs" />
     <Compile Include="ViewModels\Common\CityViewModel.cs" />
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
     <Compile Include="ViewModels\LocalBoard\LocalBoardViewModel.cs" />
@@ -468,6 +471,8 @@
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\tmc.common.category.sayt.js" />
+    <Content Include="Scripts\tmc.common.place.sayt.js" />
     <Content Include="Scripts\tmc.common.dataService.js" />
     <Content Include="Scripts\tmc.common.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -481,6 +486,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\tmc.common.city.sayt.js" />
     <Content Include="Scripts\tmc.home.index.js" />
     <Content Include="Scripts\tmc.localBoard.index.js" />
     <Content Include="Scripts\_references.js" />
@@ -533,6 +539,9 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\AddEditRequirement.cshtml" />
     <Content Include="Views\Vendor\_EditListing.cshtml" />
+    <Content Include="Views\Shared\_CitySayt.cshtml" />
+    <Content Include="Views\Shared\_PlaceSayt.cshtml" />
+    <Content Include="Views\Shared\_CategorySayt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

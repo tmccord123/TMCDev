@@ -1,0 +1,31 @@
+﻿@model TMC.Web.ViewModels.PlaceSaytViewModel
+@{   
+    Html.ViewData.TemplateInfo.HtmlFieldPrefix = Model.HtmlFieldPrefix;
+}
+
+
+<input type="text" id='@Model.ControlId' class="form-control" placeholder='@Model.PlaceHolder' />
+
+    <script type="text/javascript">
+
+    var tmcPlaceSaytInitialize@(Model.ControlId) = new function () {
+        this.placeSaytObj = new PlaceSayt();
+
+    };
+        tmcPlaceSaytInitialize@(Model.ControlId).placeSaytObj.controlId = '#' + '@Model.ControlId';
+        tmcPlaceSaytInitialize@(Model.ControlId).placeSaytObj.htmlFieldPrefix = '@Model.HtmlFieldPrefix';
+
+        tmcPlaceSaytInitialize@(Model.ControlId).placeSaytObj.selectedPlaceId = '#' + '@Model.HtmlFieldPrefix' + "_SelectedPlaceId";
+        tmcPlaceSaytInitialize@(Model.ControlId).placeSaytObj.selectedCityName = '#' + '@Model.HtmlFieldPrefix' + "_SelectedPlaceName";
+        tmcPlaceSaytInitialize@(Model.ControlId).placeSaytObj.selectedCityDetailsId = '#' + '@Model.SelectedCityDetailsId';
+        tmcPlaceSaytInitialize@(Model.ControlId).placeSaytObj.initialize();
+    </script>
+
+
+
+@Html.ValidationMessageFor(model => model.SelectedPlaceId, Model.RequiredMessage)
+@Html.TextBoxFor(model => model.SelectedPlaceId, new { style = Model.IsRequired ? "visibility:hidden;" : "display:none;" })
+@Html.HiddenFor(model => model.SelectedPlaceName)
+@Html.HiddenFor(model => model.SelectedCityDetailsId)
+@Html.HiddenFor(model => model.IsRequired)
+@Html.HiddenFor(model => model.DefaultSelectedValue)
