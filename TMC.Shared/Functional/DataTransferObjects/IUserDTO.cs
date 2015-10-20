@@ -8,6 +8,34 @@ namespace TMC.Shared
     /// </summary>
     public interface IUserDTO : IDTO
     {
+        int UserId { get; set; }
+        string UserName { get; set; }
+
+        string AddressLine1 { get; set; }
+        string AddressLine2 { get; set; }
+        int CityId { get; set; }
+        int AreaId { get; set; }
+        int PinCode { get; set; }
+        Int16 UserTypeId { get; set; }
+
+        string FirstName { get; set; }
+        string LastName { get; set; }
+        string Email { get; set; }
+
+        DateTime CreatedOn { get; set; }
+        string CreatedBy { get; set; }
+        DateTime UpdatedOn { get; set; }
+        string UpdatedBy { get; set; }
+        string IsActive { get; set; }
+        string IsDeleted { get; set; }
+    }
+
+    /// <summary>
+    /// Defines a contract for User DTO,
+    /// Author		: TMC
+    /// </summary>
+    public interface IUserDTOBkp : IDTO
+    {
         /// <summary>
         /// Gets or sets the User Id.
         /// </summary>
@@ -26,12 +54,12 @@ namespace TMC.Shared
         int AreaId { get; set; }
         int PinCode { get; set; }
         int CityId { get; set; }
-        
-       
-         
+
+
+
         // Account Details Section
 
-     /// <summary>
+        /// <summary>
         /// Gets or sets the User Name.
         /// </summary>
         string UserName { get; set; }

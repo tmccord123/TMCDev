@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(TMC.WebAPI.Startup))]
-namespace TMC.WebAPI
+[assembly: OwinStartupAttribute(typeof(TMC.Web.Startup))]
+namespace TMC.Web
 {
     public partial class Startup
     {

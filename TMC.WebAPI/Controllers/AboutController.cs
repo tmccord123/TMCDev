@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace TMC.Controllers
+namespace TMC.Web.Controllers
 {
     public class AboutController : Controller
     {

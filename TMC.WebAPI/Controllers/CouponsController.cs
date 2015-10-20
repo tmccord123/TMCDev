@@ -9,7 +9,7 @@ using TMC.Shared.Factories;
 using TMC.Web.ViewModels;
 
 
-namespace TMC.Controllers
+namespace TMC.Web.Controllers
 {
     
     

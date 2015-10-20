@@ -27,7 +27,11 @@
         }
 
 
-
+        public OperationResult<long> CreateUser(IUserDTO userDto)
+        {
+            var userBDC = (IUserBDC)BDCFactory.Instance.Create(BDCType.User);
+            return userBDC.CreateUser(userDto);
+        }
  
     }
 }

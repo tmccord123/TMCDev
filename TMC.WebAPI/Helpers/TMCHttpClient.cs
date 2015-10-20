@@ -7,7 +7,7 @@ using System.Web;
 using TMC.Shared;
 using GlobalConstants = TMC.Web.Shared.GlobalConstants;
 
-namespace TMC.WebAPI
+namespace TMC.Web
 {
     public static class TMCHttpClient
     {

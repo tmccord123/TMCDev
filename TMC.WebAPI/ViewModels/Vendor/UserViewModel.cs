@@ -8,9 +8,49 @@ using TMC.Web.Shared;
 
 namespace TMC.Web.ViewModels
 {
+
     public class UserViewModel : ViewModelBase
     {
         public UserViewModel()
+        {
+            Listings = new List<ListingViewModel>();
+            Requirements = new List<RequirementViewModel>();
+        }
+        public int UserId { get; set; }
+        public string UserName { get; set; }
+      
+        public string AddressLine1 { get; set; }
+        public string AddressLine2 { get; set; }
+        public int CityId { get; set; }
+        public int AreaId { get; set; }
+        public int PinCode { get; set; }
+        public Int16 UserTypeId { get; set; }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; } 
+     
+
+         
+        public DateTime UpdatedOn { get; set; }
+        public int UpdatedBy { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public int CreatedBy { get; set; }
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
+        public List<ListingViewModel> Listings { get; set; }
+        public List<RequirementViewModel> Requirements { get; set; }
+    }
+
+
+    public class UserViewModelBkp : ViewModelBase
+    {
+        public UserViewModelBkp()
         {
             Listings = new List<ListingViewModel>();
             Requirements = new List<RequirementViewModel>();

@@ -1,5 +1,5 @@
 ﻿
-namespace TMC.WebAPI.Controllers.Api
+namespace TMC.Web.Controllers.Api
 {
     using System.Collections.Generic;
     using System.Linq;

@@ -46,7 +46,7 @@ namespace TMC.Shared
         {
             StringBuilder message = new StringBuilder();
             var exception = ex;
-            while (exception != null)
+            if (exception != null)//todo made while to if 
             {
                 message.AppendLine(exception.Message);
                 message.AppendLine(exception.StackTrace);

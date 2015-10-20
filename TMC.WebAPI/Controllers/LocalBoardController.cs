@@ -9,14 +9,14 @@ using TMC.Shared.Factories;
 using TMC.Web.ViewModels;
 
 
-namespace TMC.Controllers
+namespace TMC.Web.Controllers
 {
     using System.Net.Http;
     using System.Threading.Tasks;
 
     using Newtonsoft.Json;
 
-    using TMC.WebAPI;
+    using TMC.Web;
 
     public class LocalBoardController : Controller
     {

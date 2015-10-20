@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TMC.WebAPI.Models
+namespace TMC.Web.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

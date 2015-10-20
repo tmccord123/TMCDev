@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace TMC.WebAPI
+namespace TMC.Web
 {
     public class BundleConfig
     {

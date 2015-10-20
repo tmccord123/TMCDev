@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
-using TMC.Controllers;
+using TMC.Web.Controllers;
 using TMC.Shared;
 using TMC.Shared.Factories;
 using TMC.Web.ViewModels;
 
-namespace TMC.WebAPI.Controllers.Api
+namespace TMC.Web.Controllers.Api
 {
     using System.Collections.Generic;
     using TMC.Web.Shared;

@@ -3,8 +3,7 @@ using System.Runtime.Serialization;
 using TMC.Shared;
 
 namespace TMC.DTOModel
-{
-    using System.Collections.Generic;
+{ 
 
     /// <summary>
     /// Contract for Action DTO.
@@ -14,6 +13,89 @@ namespace TMC.DTOModel
     [Serializable]
     [ViewModelMapping("TMC.Web.ViewModels.UserViewModel", MappingType.TotalExplicit)]
     public class UserDTO : DTOBase, IUserDTO
+    {
+
+        [DataMember]
+        [EntityPropertyMapping(MappingDirectionType.Both, "UserId")]
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "UserId")]
+        public int UserId { get; set; }
+
+        [DataMember]
+        [EntityPropertyMapping(MappingDirectionType.Both, "UserName")]
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "UserName")]
+        public string UserName { get; set; }
+
+        [DataMember]
+        [EntityPropertyMapping(MappingDirectionType.Both, "AddressLine1")]
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "AddressLine1")]
+        public string AddressLine1 { get; set; }
+
+        [DataMember]
+        [EntityPropertyMapping(MappingDirectionType.Both, "AddressLine2")]
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "AddressLine2")]
+        public string AddressLine2 { get; set; }
+
+        [DataMember]
+        [EntityPropertyMapping(MappingDirectionType.Both, "UserId")]
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "UserId")]
+        public int CityId { get; set; }
+
+        [DataMember]
+        [EntityPropertyMapping(MappingDirectionType.Both, "AreaId")]
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "AreaId")]
+        public int AreaId { get; set; }
+
+        [DataMember]
+        [EntityPropertyMapping(MappingDirectionType.Both, "PinCode")]
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "PinCode")]
+        public int PinCode { get; set; }
+
+        [DataMember]
+        [EntityPropertyMapping(MappingDirectionType.Both, "UserTypeId")]
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "UserTypeId")]
+        public Int16 UserTypeId { get; set; }
+
+        [DataMember]
+        public string FirstName { get; set; }
+
+        [DataMember]
+        public string LastName { get; set; }
+
+        [DataMember]
+        public string Email { get; set; }
+
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "CreatedOn")]
+        [EntityPropertyMapping(MappingDirectionType.Both, "CreatedOn")]
+        public DateTime CreatedOn { get; set; }
+
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "CreatedBy")]
+        [EntityPropertyMapping(MappingDirectionType.Both, "CreatedBy")]
+        public string CreatedBy { get; set; }
+
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "UpdatedOn")]
+        [EntityPropertyMapping(MappingDirectionType.Both, "UpdatedOn")]
+        public DateTime UpdatedOn { get; set; }
+
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "UpdatedBy")]
+        [EntityPropertyMapping(MappingDirectionType.Both, "UpdatedBy")]
+        public string UpdatedBy { get; set; }
+
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "IsActive")]
+        public string IsActive { get; set; }
+
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "IsDeleted")]
+        public string IsDeleted { get; set; }
+    }
+
+
+    /// <summary>
+    /// Contract for Action DTO.
+    /// </summary>
+    [DataContract(Name = "UserDTO", Namespace = "TMC.DTOModel")]
+    [EntityMapping("TMC.Entities.EntityModels.UserDTO", MappingType.TotalExplicit)]
+    [Serializable]
+    [ViewModelMapping("TMC.Web.ViewModels.UserViewModel", MappingType.TotalExplicit)]
+    public class UserDTOBkp : DTOBase, IUserDTOBkp
     {
 
         public string FirstName { get; set; }
@@ -27,7 +109,7 @@ namespace TMC.DTOModel
         public int AreaId { get; set; }
         public int PinCode { get; set; }
         public int CityId { get; set; }
-        
+
         [DataMember]
         [EntityPropertyMapping(MappingDirectionType.Both, "jcc_user_id")]
         [ViewModelPropertyMapping(MappingDirectionType.Both, "UserId")]

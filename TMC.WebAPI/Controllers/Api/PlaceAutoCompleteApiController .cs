@@ -11,7 +11,7 @@ using TMC.Shared;
 using TMC.Web.ViewModels;
 using TMC.Web.Shared;
 
-namespace TMC.WebAPI.Controllers.Api
+namespace TMC.Web.Controllers.Api
 {
     // call like this http://localhost:59974/api/PlaceAutoCompleteApi?searchParams=28.459497,77.026634,20000,palam
     [RoutePrefix("api/placeAutoComplete")]

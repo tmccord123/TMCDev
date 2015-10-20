@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
@@ -9,10 +10,13 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
-using TMC.WebAPI.Models; 
+using Newtonsoft.Json;
+using TMC.Web;
+using TMC.Web.Models;
+using TMC.Web.ViewModels;
 
 
-namespace TMC.WebAPI.Controllers
+namespace TMC.Web.Controllers
 {
     /// <summary>
     /// This Extension is added for showing the logged in user's Name instead of user id 
@@ -109,6 +113,16 @@ namespace TMC.WebAPI.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                   //inserting to User table todo handle all the fields of the user data like address and others in another form when user updates its profile
+                    var client = TMCHttpClient.GetClient();
+                    UserViewModel userViewModel = new UserViewModel();
+                    userViewModel.UserId = 0; 
+                    JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
+                    string serializedItemToCreate = JsonConvert.SerializeObject(userViewModel, settings);
+
+                    var response = await client.PostAsync("api/listing", new StringContent(serializedItemToCreate,
+                    System.Text.Encoding.Unicode, "application/json"));
+                    
                     await SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }

@@ -5,7 +5,7 @@ using TMC.Shared;
 using TMC.Web.ViewModels;
 
 
-namespace TMC.Controllers
+namespace TMC.Web.Controllers
 {
     using TMC.Shared.Factories;
 

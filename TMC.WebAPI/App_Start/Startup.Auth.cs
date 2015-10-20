@@ -3,7 +3,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 
-namespace TMC.WebAPI
+namespace TMC.Web
 {
     public partial class Startup
     {

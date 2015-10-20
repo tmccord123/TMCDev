@@ -41,13 +41,14 @@ namespace TMC.Shared
         {
             get
             {
-                return LoggedInUser != null
-                           ? (
-                                 LoggedInUser.Individual != null
-                                     ? LoggedInUser.Individual.FirstName + " " + LoggedInUser.Individual.LastName
-                                     : LoggedInUser.UserName
-                             )
-                           : null;
+                return "";
+                //return LoggedInUser != null
+                //           ? (
+                //                 LoggedInUser.Individual != null
+                //                     ? LoggedInUser.Individual.FirstName + " " + LoggedInUser.Individual.LastName
+                //                     : LoggedInUser.UserName
+                //             )
+                //           : null;
             }
         }
 
@@ -72,14 +73,14 @@ namespace TMC.Shared
             get
             {
                 return LoggedInUser != null
-                           ? LoggedInUser.MinimumRank
+                           ? 1//LoggedInUser.MinimumRank todo
                            : 0;
             }
         }
 
         public static bool CheckEmployeeListAffiliateAuthorization(int clientId, int affiliationId)
         {
-           /* bool retVal = false;
+           /* bool retVal = false; todo
 
             var trainingFacade = (IEmployeeTrainingFacade)FacadeFactory.Instance.Create(FacadeType.EmployeeTraining);
             var employeePermission = trainingFacade.HasEmployeeListAccessForAffiliate(clientId, affiliationId);

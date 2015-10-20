@@ -1,15 +1,15 @@
-﻿
-namespace TMC.WebAPI.Controllers
+﻿using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Web.Mvc;
+
+using Newtonsoft.Json;
+
+using TMC.Web.ViewModels;
+using TMC.Web;
+namespace TMC.Web.Controllers
 {
-    using System.Collections.Generic;
-    using System.Net.Http;
-    using System.Threading.Tasks;
-    using System.Web.Mvc;
-
-    using Newtonsoft.Json;
-
-    using TMC.Web.ViewModels;
-    using TMC.WebAPI;
+  
 
     /// <summary>
     /// The home controller.

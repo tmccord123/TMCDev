@@ -13,6 +13,8 @@
     {
  
        IUserDTO GetUserById(int userId);
-        
+        long CreateUser(IUserDTO userDto);
+        long UpdateUser(IUserDTO userDto);
+
     }
 }

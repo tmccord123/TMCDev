@@ -58,6 +58,39 @@ namespace TMC.Business
             return operationResult;
             //return PersistSvr<Order>.GetAll().ToList();
         }
+
+
+        public OperationResult<long> CreateUser(IUserDTO userDto)
+        {
+            OperationResult<long> operationResult = null;
+            try
+            {
+                var userDAC = (IUserDAC)DACFactory.Instance.Create(DACType.User);
+
+                var resultUserDto = userDto.UserId > 0
+                  ? userDAC.CreateUser(userDto)
+                  : userDAC.UpdateUser(userDto);
+                operationResult = resultUserDto != null
+                                                      ? OperationResult<long>.CreateSuccessResult(resultUserDto)
+                                                      : OperationResult<long>.CreateFailureResult(
+                                                       ResourceUtility.GetCaptionFor(
+                                              ResourceConstants.Vendor.ErrorMessages.FailedToFetchListing));//todo messages
+
+            }
+            catch (DACException dacEx)
+            {
+                operationResult = OperationResult<long>.CreateErrorResult(dacEx.Message, dacEx.StackTrace);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                operationResult = OperationResult<long>.CreateErrorResult(ex.Message, ex.StackTrace);
+            }
+            return operationResult;
+        }
+
+
+
         #endregion
     
  

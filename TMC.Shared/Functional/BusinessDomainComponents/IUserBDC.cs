@@ -7,5 +7,7 @@ namespace TMC.Shared
     public interface IUserBDC : IBusinessDomainComponent
     {
         OperationResult<IUserDTO> GetUserById(int userId);
+
+        OperationResult<long> CreateUser(IUserDTO userDto);
     }
 }
