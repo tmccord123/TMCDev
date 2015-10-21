@@ -1,2 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="TMC.Service.CustomerService" 
-    CodeBehind="CustomerService.svc.cs" %>
