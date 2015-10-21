@@ -14,7 +14,7 @@ namespace TMC.Shared
         string AddressLine1 { get; set; }
         string AddressLine2 { get; set; }
         int CityId { get; set; }
-        int AreaId { get; set; }
+        string AreaId { get; set; }
         int PinCode { get; set; }
         Int16 UserTypeId { get; set; }
 

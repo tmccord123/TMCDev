@@ -43,7 +43,7 @@ namespace TMC.DTOModel
         [DataMember]
         [EntityPropertyMapping(MappingDirectionType.Both, "AreaId")]
         [ViewModelPropertyMapping(MappingDirectionType.Both, "AreaId")]
-        public int AreaId { get; set; }
+        public string AreaId { get; set; }
 
         [DataMember]
         [EntityPropertyMapping(MappingDirectionType.Both, "PinCode")]

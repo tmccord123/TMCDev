@@ -44,6 +44,7 @@ namespace TMC.Web.Controllers.Api
                     userDto.CreatedBy = 1;
                     userDto.UpdatedBy = 1;
                     userDto.IsActive = true;
+                    userDto.AreaId = "sdfjskldf-sdfsdf-sdf-123";//todo
                     var userFacade = (IUserFacade)FacadeFactory.Instance.Create(FacadeType.User);
                     var userResult = userFacade.CreateUser(userDto); 
                     if (userResult.IsValid())

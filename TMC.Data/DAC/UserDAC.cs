@@ -82,6 +82,7 @@ namespace TMC.Data
                             user.UpdatedBy = 11;
                             user.IsActive = true;
                             user.IsDeleted = false;
+                            user.UserTypeId = 1;
                             user.AddressLine1 = "Default AddressLine1";
                             user.PinCode = 12345;
                             TMCDbContext.User.AddObject(user);

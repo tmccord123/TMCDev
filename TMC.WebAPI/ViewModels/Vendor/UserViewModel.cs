@@ -22,7 +22,7 @@ namespace TMC.Web.ViewModels
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public int CityId { get; set; }
-        public int AreaId { get; set; }
+        public string AreaId { get; set; }
         public int PinCode { get; set; }
         public Int16 UserTypeId { get; set; }
 
