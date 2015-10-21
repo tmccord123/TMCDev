@@ -3,7 +3,7 @@
 @using TMC.Web.Shared
 @model ListingViewModel
 @using (Ajax.BeginPostForm(
-                                Url.SmartAction(Model.ActionName, Model.ControllerName), null,
+                                Url.SmartAction(Model.ActionName, Model.ControllerName, null), Model,
                                 Model.FormBeginRequestCallBack,
                                 Model.FormSuccessCallBack,
                                 Model.FormFailureCallBack,
@@ -15,7 +15,7 @@
                                 }))
 {
     @Html.ValidationSummary()
-    @Html.HiddenFor(m => m.ListingId)
+    @Html.HiddenFor(model => Model.ListingId)
     <div class="form-group">
         @Html.LabelFor(m => m.BusinessName, new { @class = "col-md-2 control-label" })
         <div class="col-md-6">

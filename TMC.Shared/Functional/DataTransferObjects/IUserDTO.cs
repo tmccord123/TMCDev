@@ -23,11 +23,11 @@ namespace TMC.Shared
         string Email { get; set; }
 
         DateTime CreatedOn { get; set; }
-        string CreatedBy { get; set; }
+        long CreatedBy { get; set; }
         DateTime UpdatedOn { get; set; }
-        string UpdatedBy { get; set; }
-        string IsActive { get; set; }
-        string IsDeleted { get; set; }
+        long UpdatedBy { get; set; }
+        bool IsActive { get; set; }
+        bool IsDeleted { get; set; }
     }
 
     /// <summary>

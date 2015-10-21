@@ -116,12 +116,12 @@ namespace TMC.Web.Controllers
                    //inserting to User table todo handle all the fields of the user data like address and others in another form when user updates its profile
                     var client = TMCHttpClient.GetClient();
                     UserViewModel userViewModel = new UserViewModel();
-                    userViewModel.UserId = 0; 
+                    userViewModel.UserId = 0;
+                    userViewModel.UserName = user.MobileNo;
                     JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
                     string serializedItemToCreate = JsonConvert.SerializeObject(userViewModel, settings);
 
-                    var response = await client.PostAsync("api/listing", new StringContent(serializedItemToCreate,
-                    System.Text.Encoding.Unicode, "application/json"));
+                    var response = await client.PostAsync("api/account", new StringContent(serializedItemToCreate,System.Text.Encoding.Unicode, "application/json"));
                     
                     await SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");

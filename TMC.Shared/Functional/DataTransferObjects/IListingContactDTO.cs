@@ -7,6 +7,6 @@ namespace TMC.Shared
     public interface IListingContactDTO : IDTO
     {
         string ContactNumber { get; set; }
-        int ListingContactTypeId { get; set; } 
+        int ListingContactTypeId { get; set; }
     }
 }

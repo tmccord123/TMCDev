@@ -68,8 +68,8 @@ namespace TMC.Business
                 var userDAC = (IUserDAC)DACFactory.Instance.Create(DACType.User);
 
                 var resultUserDto = userDto.UserId > 0
-                  ? userDAC.CreateUser(userDto)
-                  : userDAC.UpdateUser(userDto);
+                  ? userDAC.UpdateUser(userDto)
+                  : userDAC.CreateUser(userDto);
                 operationResult = resultUserDto != null
                                                       ? OperationResult<long>.CreateSuccessResult(resultUserDto)
                                                       : OperationResult<long>.CreateFailureResult(

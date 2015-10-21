@@ -70,7 +70,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="EntityModels\TMCModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>TMCModel.Designer.cs</LastGenOutput>
@@ -94,6 +96,7 @@
       <Name>TMC.Shared</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)OutputBin\$(TargetFileName)"</PostBuildEvent>

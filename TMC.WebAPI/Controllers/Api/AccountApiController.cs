@@ -37,7 +37,13 @@ namespace TMC.Web.Controllers.Api
                 try
                 {
                     var userDto = (IUserDTO)DTOFactory.Instance.Create(DTOType.User);
+                     
                     DTOConverter.FillDTOFromViewModel(userDto, userViewModel);
+                    userDto.CreatedOn = DateTime.Now;
+                    userDto.UpdatedOn = DateTime.Now;
+                    userDto.CreatedBy = 1;
+                    userDto.UpdatedBy = 1;
+                    userDto.IsActive = true;
                     var userFacade = (IUserFacade)FacadeFactory.Instance.Create(FacadeType.User);
                     var userResult = userFacade.CreateUser(userDto); 
                     if (userResult.IsValid())

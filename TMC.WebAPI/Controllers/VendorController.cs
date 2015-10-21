@@ -115,7 +115,7 @@ namespace TMC.Web.Controllers
              
             if (response.IsSuccessStatusCode)
             {
-                listingViewModel = contentResult;
+                //listingViewModel = contentResult;
                 listingViewModel.Website = "Test result changed";
                 // return View("AddEditListing", listingViewModel);
                 //result = new JsonResult()
@@ -128,6 +128,7 @@ namespace TMC.Web.Controllers
             else
             {
                 //result = Content("An error occurred");
+                listingViewModel.Website = "Test result changed";
                 result = PartialView("_EditListing", listingViewModel);
             }
 

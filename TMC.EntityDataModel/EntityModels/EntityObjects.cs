@@ -19,41 +19,42 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.AspNetUser), "AspNetUserClaims", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.AspNetUserClaim), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUsers", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.AspNetUser), "AspNetUserLogins", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.AspNetUserLogin), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "AspNetUserRoles", "AspNetRoles", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.AspNetRole), "AspNetUsers", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.AspNetUser))]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_Requirement_AdditionalInfo", "AdditionalInfo", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EntityDataModel.EntityModels.AdditionalInfo), "Requirement", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Requirement), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_Area_City", "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.City), "Area", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Area), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingLocation_Area", "Area", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Area), "ListingLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingLocation), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_RequirementLocation_Area", "Area", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Area), "RequirementLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementLocation), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_CategoryRelation_ChildCategory", "Category", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Category), "CategoryRelation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.CategoryRelation), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_CategoryRelation_ParentCategory", "Category", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Category), "CategoryRelation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.CategoryRelation), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_RequirementCategory_Category", "Category", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Category), "RequirementCategory", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementCategory), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_City_State", "State", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.State), "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.City), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingLocation_City", "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.City), "ListingLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingLocation), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_RequirementLocation_City", "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.City), "RequirementLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementLocation), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingContact_ContactType", "ContactType", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.ContactType), "ListingContact", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingContact), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_State_Country", "Country", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Country), "State", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.State), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_File_FileExtension", "FileExtension", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.FileExtension), "File", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.File), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_File_FileType", "FileType", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.FileType), "File", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.File), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingMedia_File", "File", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.File), "ListingMedia", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingMedia), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingPaymentMode_PaymentMode", "PaymentMode", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.PaymentMode), "ListingPaymentMode", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingPaymentMode), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_RequirementCategory_Requirement", "Requirement", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Requirement), "RequirementCategory", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementCategory), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_RequirementLocation_Requirement", "Requirement", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Requirement), "RequirementLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementLocation), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingCategory_Category", "Category", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Category), "ListingCategory", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingCategory), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingServiceLocation_Area", "Area", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EntityDataModel.EntityModels.Area), "ListingServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingServiceLocation), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingServiceLocation_City", "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.City), "ListingServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingServiceLocation), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingServiceLocation_Country", "Country", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Country), "ListingServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingServiceLocation), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingServiceLocation_State", "State", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.State), "ListingServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingServiceLocation), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_Requirement_User", "User", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.User), "Requirement", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Requirement), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_Listing_City", "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.City), "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Listing), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_Listing_User1", "User", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.User), "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Listing), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingCategory_Listing", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingCategory", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingCategory), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingContact_Listing", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingContact", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingContact), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingLocation_Listing", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingLocation), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingMedia_Listing", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingMedia", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingMedia), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingPaymentMode_Listing", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingPaymentMode", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingPaymentMode), true)]
-[assembly: EdmRelationshipAttribute("TMCModel", "FK_ListingServiceLocation_Listing1", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingServiceLocation), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_Requirement_AdditionalInfo", "AdditionalInfo", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EntityDataModel.EntityModels.AdditionalInfo), "Requirement", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Requirement), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_Area_City", "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.City), "Area", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Area), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingLocation_Area", "Area", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Area), "ListingLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingLocation), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingServiceLocation_Area", "Area", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EntityDataModel.EntityModels.Area), "ListingServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingServiceLocation), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_RequirementLocation_Area", "Area", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Area), "RequirementLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementLocation), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.AspNetUsers), "AspNetUserClaims", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.AspNetUserClaims), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUsers", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.AspNetUsers), "AspNetUserLogins", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.AspNetUserLogins), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_CategoryRelation_ChildCategory", "Category", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Category), "CategoryRelation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.CategoryRelation), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_CategoryRelation_ParentCategory", "Category", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Category), "CategoryRelation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.CategoryRelation), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingCategory_Category", "Category", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Category), "ListingCategory", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingCategory), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_RequirementCategory_Category", "Category", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Category), "RequirementCategory", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementCategory), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_City_State", "State", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.State), "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.City), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_Listing_City", "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.City), "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Listing), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingLocation_City", "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.City), "ListingLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingLocation), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingServiceLocation_City", "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.City), "ListingServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingServiceLocation), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_RequirementLocation_City", "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.City), "RequirementLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementLocation), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingContact_ContactType", "ContactType", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.ContactType), "ListingContact", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingContact), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingServiceLocation_Country", "Country", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Country), "ListingServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingServiceLocation), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_State_Country", "Country", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Country), "State", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.State), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_File_FileExtension", "FileExtension", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.FileExtension), "File", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.File), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_File_FileType", "FileType", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.FileType), "File", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.File), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingMedia_File", "File", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.File), "ListingMedia", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingMedia), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_Listing_User", "User", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.User), "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Listing), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingCategory_Listing", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingCategory", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingCategory), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingContact_Listing", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingContact", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingContact), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingLocation_Listing", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingLocation), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingMedia_Listing", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingMedia", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingMedia), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingPaymentMode_Listing", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingPaymentMode", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingPaymentMode), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingServiceLocation_Listing", "Listing", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Listing), "ListingServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingServiceLocation), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingPaymentMode_PaymentMode", "PaymentMode", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.PaymentMode), "ListingPaymentMode", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingPaymentMode), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingServiceLocation_State", "State", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.State), "ListingServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingServiceLocation), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_Requirement_User", "User", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.User), "Requirement", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Requirement), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_RequirementCategory_Requirement", "Requirement", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Requirement), "RequirementCategory", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementCategory), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_RequirementLocation_Requirement", "Requirement", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Requirement), "RequirementLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementLocation), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_User_UserType", "UserType", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.UserType), "User", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.User), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "AspNetUserRoles", "AspNetRoles", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.AspNetRoles), "AspNetUsers", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.AspNetUsers))]
 
 #endregion
 
@@ -108,118 +109,6 @@ namespace EntityDataModel.EntityModels
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<C__MigrationHistory> C__MigrationHistory
-        {
-            get
-            {
-                if ((_C__MigrationHistory == null))
-                {
-                    _C__MigrationHistory = base.CreateObjectSet<C__MigrationHistory>("C__MigrationHistory");
-                }
-                return _C__MigrationHistory;
-            }
-        }
-        private ObjectSet<C__MigrationHistory> _C__MigrationHistory;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<AspNetRole> AspNetRoles
-        {
-            get
-            {
-                if ((_AspNetRoles == null))
-                {
-                    _AspNetRoles = base.CreateObjectSet<AspNetRole>("AspNetRoles");
-                }
-                return _AspNetRoles;
-            }
-        }
-        private ObjectSet<AspNetRole> _AspNetRoles;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<AspNetUserClaim> AspNetUserClaims
-        {
-            get
-            {
-                if ((_AspNetUserClaims == null))
-                {
-                    _AspNetUserClaims = base.CreateObjectSet<AspNetUserClaim>("AspNetUserClaims");
-                }
-                return _AspNetUserClaims;
-            }
-        }
-        private ObjectSet<AspNetUserClaim> _AspNetUserClaims;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<AspNetUserLogin> AspNetUserLogins
-        {
-            get
-            {
-                if ((_AspNetUserLogins == null))
-                {
-                    _AspNetUserLogins = base.CreateObjectSet<AspNetUserLogin>("AspNetUserLogins");
-                }
-                return _AspNetUserLogins;
-            }
-        }
-        private ObjectSet<AspNetUserLogin> _AspNetUserLogins;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<AspNetUser> AspNetUsers
-        {
-            get
-            {
-                if ((_AspNetUsers == null))
-                {
-                    _AspNetUsers = base.CreateObjectSet<AspNetUser>("AspNetUsers");
-                }
-                return _AspNetUsers;
-            }
-        }
-        private ObjectSet<AspNetUser> _AspNetUsers;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Blog> Blogs
-        {
-            get
-            {
-                if ((_Blogs == null))
-                {
-                    _Blogs = base.CreateObjectSet<Blog>("Blogs");
-                }
-                return _Blogs;
-            }
-        }
-        private ObjectSet<Blog> _Blogs;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Products> Products
-        {
-            get
-            {
-                if ((_Products == null))
-                {
-                    _Products = base.CreateObjectSet<Products>("Products");
-                }
-                return _Products;
-            }
-        }
-        private ObjectSet<Products> _Products;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<AdditionalInfo> AdditionalInfo
         {
             get
@@ -248,6 +137,70 @@ namespace EntityDataModel.EntityModels
             }
         }
         private ObjectSet<Area> _Area;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<AspNetRoles> AspNetRoles
+        {
+            get
+            {
+                if ((_AspNetRoles == null))
+                {
+                    _AspNetRoles = base.CreateObjectSet<AspNetRoles>("AspNetRoles");
+                }
+                return _AspNetRoles;
+            }
+        }
+        private ObjectSet<AspNetRoles> _AspNetRoles;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<AspNetUserClaims> AspNetUserClaims
+        {
+            get
+            {
+                if ((_AspNetUserClaims == null))
+                {
+                    _AspNetUserClaims = base.CreateObjectSet<AspNetUserClaims>("AspNetUserClaims");
+                }
+                return _AspNetUserClaims;
+            }
+        }
+        private ObjectSet<AspNetUserClaims> _AspNetUserClaims;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<AspNetUserLogins> AspNetUserLogins
+        {
+            get
+            {
+                if ((_AspNetUserLogins == null))
+                {
+                    _AspNetUserLogins = base.CreateObjectSet<AspNetUserLogins>("AspNetUserLogins");
+                }
+                return _AspNetUserLogins;
+            }
+        }
+        private ObjectSet<AspNetUserLogins> _AspNetUserLogins;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<AspNetUsers> AspNetUsers
+        {
+            get
+            {
+                if ((_AspNetUsers == null))
+                {
+                    _AspNetUsers = base.CreateObjectSet<AspNetUsers>("AspNetUsers");
+                }
+                return _AspNetUsers;
+            }
+        }
+        private ObjectSet<AspNetUsers> _AspNetUsers;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -380,6 +333,38 @@ namespace EntityDataModel.EntityModels
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<Listing> Listing
+        {
+            get
+            {
+                if ((_Listing == null))
+                {
+                    _Listing = base.CreateObjectSet<Listing>("Listing");
+                }
+                return _Listing;
+            }
+        }
+        private ObjectSet<Listing> _Listing;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ListingCategory> ListingCategory
+        {
+            get
+            {
+                if ((_ListingCategory == null))
+                {
+                    _ListingCategory = base.CreateObjectSet<ListingCategory>("ListingCategory");
+                }
+                return _ListingCategory;
+            }
+        }
+        private ObjectSet<ListingCategory> _ListingCategory;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<ListingContact> ListingContact
         {
             get
@@ -444,6 +429,22 @@ namespace EntityDataModel.EntityModels
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<ListingServiceLocation> ListingServiceLocation
+        {
+            get
+            {
+                if ((_ListingServiceLocation == null))
+                {
+                    _ListingServiceLocation = base.CreateObjectSet<ListingServiceLocation>("ListingServiceLocation");
+                }
+                return _ListingServiceLocation;
+            }
+        }
+        private ObjectSet<ListingServiceLocation> _ListingServiceLocation;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<PaymentMode> PaymentMode
         {
             get
@@ -456,6 +457,22 @@ namespace EntityDataModel.EntityModels
             }
         }
         private ObjectSet<PaymentMode> _PaymentMode;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Products> Products
+        {
+            get
+            {
+                if ((_Products == null))
+                {
+                    _Products = base.CreateObjectSet<Products>("Products");
+                }
+                return _Products;
+            }
+        }
+        private ObjectSet<Products> _Products;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -524,38 +541,6 @@ namespace EntityDataModel.EntityModels
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<ListingCategory> ListingCategory
-        {
-            get
-            {
-                if ((_ListingCategory == null))
-                {
-                    _ListingCategory = base.CreateObjectSet<ListingCategory>("ListingCategory");
-                }
-                return _ListingCategory;
-            }
-        }
-        private ObjectSet<ListingCategory> _ListingCategory;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<ListingServiceLocation> ListingServiceLocation
-        {
-            get
-            {
-                if ((_ListingServiceLocation == null))
-                {
-                    _ListingServiceLocation = base.CreateObjectSet<ListingServiceLocation>("ListingServiceLocation");
-                }
-                return _ListingServiceLocation;
-            }
-        }
-        private ObjectSet<ListingServiceLocation> _ListingServiceLocation;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<User> User
         {
             get
@@ -588,78 +573,22 @@ namespace EntityDataModel.EntityModels
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Listing> Listing
+        public ObjectSet<Blogs> Blogs
         {
             get
             {
-                if ((_Listing == null))
+                if ((_Blogs == null))
                 {
-                    _Listing = base.CreateObjectSet<Listing>("Listing");
+                    _Blogs = base.CreateObjectSet<Blogs>("Blogs");
                 }
-                return _Listing;
+                return _Blogs;
             }
         }
-        private ObjectSet<Listing> _Listing;
+        private ObjectSet<Blogs> _Blogs;
 
         #endregion
 
         #region AddTo Methods
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the C__MigrationHistory EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToC__MigrationHistory(C__MigrationHistory c__MigrationHistory)
-        {
-            base.AddObject("C__MigrationHistory", c__MigrationHistory);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the AspNetRoles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToAspNetRoles(AspNetRole aspNetRole)
-        {
-            base.AddObject("AspNetRoles", aspNetRole);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the AspNetUserClaims EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToAspNetUserClaims(AspNetUserClaim aspNetUserClaim)
-        {
-            base.AddObject("AspNetUserClaims", aspNetUserClaim);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the AspNetUserLogins EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToAspNetUserLogins(AspNetUserLogin aspNetUserLogin)
-        {
-            base.AddObject("AspNetUserLogins", aspNetUserLogin);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the AspNetUsers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToAspNetUsers(AspNetUser aspNetUser)
-        {
-            base.AddObject("AspNetUsers", aspNetUser);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Blogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToBlogs(Blog blog)
-        {
-            base.AddObject("Blogs", blog);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Products EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToProducts(Products products)
-        {
-            base.AddObject("Products", products);
-        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the AdditionalInfo EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -675,6 +604,38 @@ namespace EntityDataModel.EntityModels
         public void AddToArea(Area area)
         {
             base.AddObject("Area", area);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the AspNetRoles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToAspNetRoles(AspNetRoles aspNetRoles)
+        {
+            base.AddObject("AspNetRoles", aspNetRoles);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the AspNetUserClaims EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToAspNetUserClaims(AspNetUserClaims aspNetUserClaims)
+        {
+            base.AddObject("AspNetUserClaims", aspNetUserClaims);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the AspNetUserLogins EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToAspNetUserLogins(AspNetUserLogins aspNetUserLogins)
+        {
+            base.AddObject("AspNetUserLogins", aspNetUserLogins);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the AspNetUsers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToAspNetUsers(AspNetUsers aspNetUsers)
+        {
+            base.AddObject("AspNetUsers", aspNetUsers);
         }
     
         /// <summary>
@@ -742,6 +703,22 @@ namespace EntityDataModel.EntityModels
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the Listing EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToListing(Listing listing)
+        {
+            base.AddObject("Listing", listing);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ListingCategory EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToListingCategory(ListingCategory listingCategory)
+        {
+            base.AddObject("ListingCategory", listingCategory);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the ListingContact EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToListingContact(ListingContact listingContact)
@@ -774,11 +751,27 @@ namespace EntityDataModel.EntityModels
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the ListingServiceLocation EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToListingServiceLocation(ListingServiceLocation listingServiceLocation)
+        {
+            base.AddObject("ListingServiceLocation", listingServiceLocation);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the PaymentMode EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToPaymentMode(PaymentMode paymentMode)
         {
             base.AddObject("PaymentMode", paymentMode);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Products EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToProducts(Products products)
+        {
+            base.AddObject("Products", products);
         }
     
         /// <summary>
@@ -814,22 +807,6 @@ namespace EntityDataModel.EntityModels
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the ListingCategory EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToListingCategory(ListingCategory listingCategory)
-        {
-            base.AddObject("ListingCategory", listingCategory);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the ListingServiceLocation EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToListingServiceLocation(ListingServiceLocation listingServiceLocation)
-        {
-            base.AddObject("ListingServiceLocation", listingServiceLocation);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the User EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToUser(User user)
@@ -846,11 +823,11 @@ namespace EntityDataModel.EntityModels
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Listing EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Blogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToListing(Listing listing)
+        public void AddToBlogs(Blogs blogs)
         {
-            base.AddObject("Listing", listing);
+            base.AddObject("Blogs", blogs);
         }
 
         #endregion
@@ -864,7 +841,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="AdditionalInfo")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="AdditionalInfo")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class AdditionalInfo : EntityObject
@@ -973,18 +950,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_Requirement_AdditionalInfo", "Requirement")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Requirement_AdditionalInfo", "Requirement")]
         public EntityCollection<Requirement> Requirement
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Requirement>("TMCModel.FK_Requirement_AdditionalInfo", "Requirement");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Requirement>("TMC.Entities.EntityModels.FK_Requirement_AdditionalInfo", "Requirement");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Requirement>("TMCModel.FK_Requirement_AdditionalInfo", "Requirement", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Requirement>("TMC.Entities.EntityModels.FK_Requirement_AdditionalInfo", "Requirement", value);
                 }
             }
         }
@@ -996,7 +973,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="Area")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="Area")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Area : EntityObject
@@ -1157,16 +1134,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_Area_City", "City")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Area_City", "City")]
         public City City
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_Area_City", "City").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_Area_City", "City").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_Area_City", "City").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_Area_City", "City").Value = value;
             }
         }
         /// <summary>
@@ -1178,13 +1155,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_Area_City", "City");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_Area_City", "City");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("TMCModel.FK_Area_City", "City", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("TMC.Entities.EntityModels.FK_Area_City", "City", value);
                 }
             }
         }
@@ -1195,18 +1172,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingLocation_Area", "ListingLocation")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingLocation_Area", "ListingLocation")]
         public EntityCollection<ListingLocation> ListingLocation
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingLocation>("TMCModel.FK_ListingLocation_Area", "ListingLocation");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingLocation>("TMC.Entities.EntityModels.FK_ListingLocation_Area", "ListingLocation");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingLocation>("TMCModel.FK_ListingLocation_Area", "ListingLocation", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingLocation>("TMC.Entities.EntityModels.FK_ListingLocation_Area", "ListingLocation", value);
                 }
             }
         }
@@ -1217,40 +1194,40 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_RequirementLocation_Area", "RequirementLocation")]
-        public EntityCollection<RequirementLocation> RequirementLocation
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RequirementLocation>("TMCModel.FK_RequirementLocation_Area", "RequirementLocation");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RequirementLocation>("TMCModel.FK_RequirementLocation_Area", "RequirementLocation", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_Area", "ListingServiceLocation")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingServiceLocation_Area", "ListingServiceLocation")]
         public EntityCollection<ListingServiceLocation> ListingServiceLocation
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_Area", "ListingServiceLocation");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingServiceLocation>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Area", "ListingServiceLocation");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_Area", "ListingServiceLocation", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingServiceLocation>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Area", "ListingServiceLocation", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_RequirementLocation_Area", "RequirementLocation")]
+        public EntityCollection<RequirementLocation> RequirementLocation
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RequirementLocation>("TMC.Entities.EntityModels.FK_RequirementLocation_Area", "RequirementLocation");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RequirementLocation>("TMC.Entities.EntityModels.FK_RequirementLocation_Area", "RequirementLocation", value);
                 }
             }
         }
@@ -1262,24 +1239,24 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="AspNetRole")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="AspNetRoles")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class AspNetRole : EntityObject
+    public partial class AspNetRoles : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new AspNetRole object.
+        /// Create a new AspNetRoles object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        public static AspNetRole CreateAspNetRole(global::System.String id, global::System.String name)
+        public static AspNetRoles CreateAspNetRoles(global::System.String id, global::System.String name)
         {
-            AspNetRole aspNetRole = new AspNetRole();
-            aspNetRole.Id = id;
-            aspNetRole.Name = name;
-            return aspNetRole;
+            AspNetRoles aspNetRoles = new AspNetRoles();
+            aspNetRoles.Id = id;
+            aspNetRoles.Name = name;
+            return aspNetRoles;
         }
 
         #endregion
@@ -1347,18 +1324,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "AspNetUserRoles", "AspNetUsers")]
-        public EntityCollection<AspNetUser> AspNetUsers
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "AspNetUserRoles", "AspNetUsers")]
+        public EntityCollection<AspNetUsers> AspNetUsers
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<AspNetUser>("TMCModel.AspNetUserRoles", "AspNetUsers");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<AspNetUsers>("TMC.Entities.EntityModels.AspNetUserRoles", "AspNetUsers");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<AspNetUser>("TMCModel.AspNetUserRoles", "AspNetUsers", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<AspNetUsers>("TMC.Entities.EntityModels.AspNetUserRoles", "AspNetUsers", value);
                 }
             }
         }
@@ -1370,24 +1347,352 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="AspNetUser")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="AspNetUserClaims")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class AspNetUser : EntityObject
+    public partial class AspNetUserClaims : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new AspNetUser object.
+        /// Create a new AspNetUserClaims object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="user_Id">Initial value of the User_Id property.</param>
+        public static AspNetUserClaims CreateAspNetUserClaims(global::System.Int32 id, global::System.String user_Id)
+        {
+            AspNetUserClaims aspNetUserClaims = new AspNetUserClaims();
+            aspNetUserClaims.Id = id;
+            aspNetUserClaims.User_Id = user_Id;
+            return aspNetUserClaims;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ClaimType
+        {
+            get
+            {
+                return _ClaimType;
+            }
+            set
+            {
+                OnClaimTypeChanging(value);
+                ReportPropertyChanging("ClaimType");
+                _ClaimType = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ClaimType");
+                OnClaimTypeChanged();
+            }
+        }
+        private global::System.String _ClaimType;
+        partial void OnClaimTypeChanging(global::System.String value);
+        partial void OnClaimTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ClaimValue
+        {
+            get
+            {
+                return _ClaimValue;
+            }
+            set
+            {
+                OnClaimValueChanging(value);
+                ReportPropertyChanging("ClaimValue");
+                _ClaimValue = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ClaimValue");
+                OnClaimValueChanged();
+            }
+        }
+        private global::System.String _ClaimValue;
+        partial void OnClaimValueChanging(global::System.String value);
+        partial void OnClaimValueChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String User_Id
+        {
+            get
+            {
+                return _User_Id;
+            }
+            set
+            {
+                OnUser_IdChanging(value);
+                ReportPropertyChanging("User_Id");
+                _User_Id = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("User_Id");
+                OnUser_IdChanged();
+            }
+        }
+        private global::System.String _User_Id;
+        partial void OnUser_IdChanging(global::System.String value);
+        partial void OnUser_IdChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers")]
+        public AspNetUsers AspNetUsers
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUsers>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUsers>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<AspNetUsers> AspNetUsersReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUsers>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AspNetUsers>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="AspNetUserLogins")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class AspNetUserLogins : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new AspNetUserLogins object.
+        /// </summary>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="loginProvider">Initial value of the LoginProvider property.</param>
+        /// <param name="providerKey">Initial value of the ProviderKey property.</param>
+        public static AspNetUserLogins CreateAspNetUserLogins(global::System.String userId, global::System.String loginProvider, global::System.String providerKey)
+        {
+            AspNetUserLogins aspNetUserLogins = new AspNetUserLogins();
+            aspNetUserLogins.UserId = userId;
+            aspNetUserLogins.LoginProvider = loginProvider;
+            aspNetUserLogins.ProviderKey = providerKey;
+            return aspNetUserLogins;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                if (_UserId != value)
+                {
+                    OnUserIdChanging(value);
+                    ReportPropertyChanging("UserId");
+                    _UserId = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("UserId");
+                    OnUserIdChanged();
+                }
+            }
+        }
+        private global::System.String _UserId;
+        partial void OnUserIdChanging(global::System.String value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String LoginProvider
+        {
+            get
+            {
+                return _LoginProvider;
+            }
+            set
+            {
+                if (_LoginProvider != value)
+                {
+                    OnLoginProviderChanging(value);
+                    ReportPropertyChanging("LoginProvider");
+                    _LoginProvider = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("LoginProvider");
+                    OnLoginProviderChanged();
+                }
+            }
+        }
+        private global::System.String _LoginProvider;
+        partial void OnLoginProviderChanging(global::System.String value);
+        partial void OnLoginProviderChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ProviderKey
+        {
+            get
+            {
+                return _ProviderKey;
+            }
+            set
+            {
+                if (_ProviderKey != value)
+                {
+                    OnProviderKeyChanging(value);
+                    ReportPropertyChanging("ProviderKey");
+                    _ProviderKey = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("ProviderKey");
+                    OnProviderKeyChanged();
+                }
+            }
+        }
+        private global::System.String _ProviderKey;
+        partial void OnProviderKeyChanging(global::System.String value);
+        partial void OnProviderKeyChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUsers")]
+        public AspNetUsers AspNetUsers
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUsers>("TMC.Entities.EntityModels.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUsers").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUsers>("TMC.Entities.EntityModels.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUsers").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<AspNetUsers> AspNetUsersReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUsers>("TMC.Entities.EntityModels.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUsers");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AspNetUsers>("TMC.Entities.EntityModels.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUsers", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="AspNetUsers")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class AspNetUsers : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new AspNetUsers object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="discriminator">Initial value of the Discriminator property.</param>
-        public static AspNetUser CreateAspNetUser(global::System.String id, global::System.String discriminator)
+        public static AspNetUsers CreateAspNetUsers(global::System.String id, global::System.String discriminator)
         {
-            AspNetUser aspNetUser = new AspNetUser();
-            aspNetUser.Id = id;
-            aspNetUser.Discriminator = discriminator;
-            return aspNetUser;
+            AspNetUsers aspNetUsers = new AspNetUsers();
+            aspNetUsers.Id = id;
+            aspNetUsers.Discriminator = discriminator;
+            return aspNetUsers;
         }
 
         #endregion
@@ -1623,18 +1928,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUserClaims")]
-        public EntityCollection<AspNetUserClaim> AspNetUserClaims
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUserClaims")]
+        public EntityCollection<AspNetUserClaims> AspNetUserClaims
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<AspNetUserClaim>("TMCModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUserClaims");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<AspNetUserClaims>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUserClaims");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<AspNetUserClaim>("TMCModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUserClaims", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<AspNetUserClaims>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUserClaims", value);
                 }
             }
         }
@@ -1645,18 +1950,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUserLogins")]
-        public EntityCollection<AspNetUserLogin> AspNetUserLogins
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUserLogins")]
+        public EntityCollection<AspNetUserLogins> AspNetUserLogins
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<AspNetUserLogin>("TMCModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUserLogins");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<AspNetUserLogins>("TMC.Entities.EntityModels.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUserLogins");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<AspNetUserLogin>("TMCModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUserLogins", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<AspNetUserLogins>("TMC.Entities.EntityModels.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUserLogins", value);
                 }
             }
         }
@@ -1667,18 +1972,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "AspNetUserRoles", "AspNetRoles")]
-        public EntityCollection<AspNetRole> AspNetRoles
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "AspNetUserRoles", "AspNetRoles")]
+        public EntityCollection<AspNetRoles> AspNetRoles
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<AspNetRole>("TMCModel.AspNetUserRoles", "AspNetRoles");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<AspNetRoles>("TMC.Entities.EntityModels.AspNetUserRoles", "AspNetRoles");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<AspNetRole>("TMCModel.AspNetUserRoles", "AspNetRoles", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<AspNetRoles>("TMC.Entities.EntityModels.AspNetUserRoles", "AspNetRoles", value);
                 }
             }
         }
@@ -1690,356 +1995,28 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="AspNetUserClaim")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="Blogs")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class AspNetUserClaim : EntityObject
+    public partial class Blogs : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new AspNetUserClaim object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="user_Id">Initial value of the User_Id property.</param>
-        public static AspNetUserClaim CreateAspNetUserClaim(global::System.Int32 id, global::System.String user_Id)
-        {
-            AspNetUserClaim aspNetUserClaim = new AspNetUserClaim();
-            aspNetUserClaim.Id = id;
-            aspNetUserClaim.User_Id = user_Id;
-            return aspNetUserClaim;
-        }
-
-        #endregion
-
-        #region Simple Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String ClaimType
-        {
-            get
-            {
-                return _ClaimType;
-            }
-            set
-            {
-                OnClaimTypeChanging(value);
-                ReportPropertyChanging("ClaimType");
-                _ClaimType = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("ClaimType");
-                OnClaimTypeChanged();
-            }
-        }
-        private global::System.String _ClaimType;
-        partial void OnClaimTypeChanging(global::System.String value);
-        partial void OnClaimTypeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String ClaimValue
-        {
-            get
-            {
-                return _ClaimValue;
-            }
-            set
-            {
-                OnClaimValueChanging(value);
-                ReportPropertyChanging("ClaimValue");
-                _ClaimValue = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("ClaimValue");
-                OnClaimValueChanged();
-            }
-        }
-        private global::System.String _ClaimValue;
-        partial void OnClaimValueChanging(global::System.String value);
-        partial void OnClaimValueChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String User_Id
-        {
-            get
-            {
-                return _User_Id;
-            }
-            set
-            {
-                OnUser_IdChanging(value);
-                ReportPropertyChanging("User_Id");
-                _User_Id = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("User_Id");
-                OnUser_IdChanged();
-            }
-        }
-        private global::System.String _User_Id;
-        partial void OnUser_IdChanging(global::System.String value);
-        partial void OnUser_IdChanged();
-
-        #endregion
-
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers")]
-        public AspNetUser AspNetUser
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUser>("TMCModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUser>("TMCModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<AspNetUser> AspNetUserReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUser>("TMCModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AspNetUser>("TMCModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="AspNetUserLogin")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class AspNetUserLogin : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new AspNetUserLogin object.
-        /// </summary>
-        /// <param name="userId">Initial value of the UserId property.</param>
-        /// <param name="loginProvider">Initial value of the LoginProvider property.</param>
-        /// <param name="providerKey">Initial value of the ProviderKey property.</param>
-        public static AspNetUserLogin CreateAspNetUserLogin(global::System.String userId, global::System.String loginProvider, global::System.String providerKey)
-        {
-            AspNetUserLogin aspNetUserLogin = new AspNetUserLogin();
-            aspNetUserLogin.UserId = userId;
-            aspNetUserLogin.LoginProvider = loginProvider;
-            aspNetUserLogin.ProviderKey = providerKey;
-            return aspNetUserLogin;
-        }
-
-        #endregion
-
-        #region Simple Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String UserId
-        {
-            get
-            {
-                return _UserId;
-            }
-            set
-            {
-                if (_UserId != value)
-                {
-                    OnUserIdChanging(value);
-                    ReportPropertyChanging("UserId");
-                    _UserId = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("UserId");
-                    OnUserIdChanged();
-                }
-            }
-        }
-        private global::System.String _UserId;
-        partial void OnUserIdChanging(global::System.String value);
-        partial void OnUserIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String LoginProvider
-        {
-            get
-            {
-                return _LoginProvider;
-            }
-            set
-            {
-                if (_LoginProvider != value)
-                {
-                    OnLoginProviderChanging(value);
-                    ReportPropertyChanging("LoginProvider");
-                    _LoginProvider = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("LoginProvider");
-                    OnLoginProviderChanged();
-                }
-            }
-        }
-        private global::System.String _LoginProvider;
-        partial void OnLoginProviderChanging(global::System.String value);
-        partial void OnLoginProviderChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String ProviderKey
-        {
-            get
-            {
-                return _ProviderKey;
-            }
-            set
-            {
-                if (_ProviderKey != value)
-                {
-                    OnProviderKeyChanging(value);
-                    ReportPropertyChanging("ProviderKey");
-                    _ProviderKey = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("ProviderKey");
-                    OnProviderKeyChanged();
-                }
-            }
-        }
-        private global::System.String _ProviderKey;
-        partial void OnProviderKeyChanging(global::System.String value);
-        partial void OnProviderKeyChanged();
-
-        #endregion
-
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUsers")]
-        public AspNetUser AspNetUser
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUser>("TMCModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUsers").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUser>("TMCModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUsers").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<AspNetUser> AspNetUserReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUser>("TMCModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUsers");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AspNetUser>("TMCModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUsers", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="Blog")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class Blog : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new Blog object.
+        /// Create a new Blogs object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="createdDate">Initial value of the CreatedDate property.</param>
         /// <param name="modifiedDate">Initial value of the modifiedDate property.</param>
         /// <param name="expiryDate">Initial value of the ExpiryDate property.</param>
-        public static Blog CreateBlog(global::System.String id, global::System.DateTime createdDate, global::System.DateTime modifiedDate, global::System.DateTime expiryDate)
+        public static Blogs CreateBlogs(global::System.String id, global::System.DateTime createdDate, global::System.DateTime modifiedDate, global::System.DateTime expiryDate)
         {
-            Blog blog = new Blog();
-            blog.Id = id;
-            blog.CreatedDate = createdDate;
-            blog.modifiedDate = modifiedDate;
-            blog.ExpiryDate = expiryDate;
-            return blog;
+            Blogs blogs = new Blogs();
+            blogs.Id = id;
+            blogs.CreatedDate = createdDate;
+            blogs.modifiedDate = modifiedDate;
+            blogs.ExpiryDate = expiryDate;
+            return blogs;
         }
 
         #endregion
@@ -2329,144 +2306,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="C__MigrationHistory")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class C__MigrationHistory : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new C__MigrationHistory object.
-        /// </summary>
-        /// <param name="migrationId">Initial value of the MigrationId property.</param>
-        /// <param name="contextKey">Initial value of the ContextKey property.</param>
-        /// <param name="model">Initial value of the Model property.</param>
-        /// <param name="productVersion">Initial value of the ProductVersion property.</param>
-        public static C__MigrationHistory CreateC__MigrationHistory(global::System.String migrationId, global::System.String contextKey, global::System.Byte[] model, global::System.String productVersion)
-        {
-            C__MigrationHistory c__MigrationHistory = new C__MigrationHistory();
-            c__MigrationHistory.MigrationId = migrationId;
-            c__MigrationHistory.ContextKey = contextKey;
-            c__MigrationHistory.Model = model;
-            c__MigrationHistory.ProductVersion = productVersion;
-            return c__MigrationHistory;
-        }
-
-        #endregion
-
-        #region Simple Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String MigrationId
-        {
-            get
-            {
-                return _MigrationId;
-            }
-            set
-            {
-                if (_MigrationId != value)
-                {
-                    OnMigrationIdChanging(value);
-                    ReportPropertyChanging("MigrationId");
-                    _MigrationId = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("MigrationId");
-                    OnMigrationIdChanged();
-                }
-            }
-        }
-        private global::System.String _MigrationId;
-        partial void OnMigrationIdChanging(global::System.String value);
-        partial void OnMigrationIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String ContextKey
-        {
-            get
-            {
-                return _ContextKey;
-            }
-            set
-            {
-                if (_ContextKey != value)
-                {
-                    OnContextKeyChanging(value);
-                    ReportPropertyChanging("ContextKey");
-                    _ContextKey = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("ContextKey");
-                    OnContextKeyChanged();
-                }
-            }
-        }
-        private global::System.String _ContextKey;
-        partial void OnContextKeyChanging(global::System.String value);
-        partial void OnContextKeyChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Byte[] Model
-        {
-            get
-            {
-                return StructuralObject.GetValidValue(_Model);
-            }
-            set
-            {
-                OnModelChanging(value);
-                ReportPropertyChanging("Model");
-                _Model = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Model");
-                OnModelChanged();
-            }
-        }
-        private global::System.Byte[] _Model;
-        partial void OnModelChanging(global::System.Byte[] value);
-        partial void OnModelChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String ProductVersion
-        {
-            get
-            {
-                return _ProductVersion;
-            }
-            set
-            {
-                OnProductVersionChanging(value);
-                ReportPropertyChanging("ProductVersion");
-                _ProductVersion = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("ProductVersion");
-                OnProductVersionChanged();
-            }
-        }
-        private global::System.String _ProductVersion;
-        partial void OnProductVersionChanging(global::System.String value);
-        partial void OnProductVersionChanged();
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="Category")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="Category")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Category : EntityObject
@@ -2623,18 +2463,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_CategoryRelation_ChildCategory", "CategoryRelation")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_CategoryRelation_ChildCategory", "CategoryRelation")]
         public EntityCollection<CategoryRelation> CategoryRelation
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CategoryRelation>("TMCModel.FK_CategoryRelation_ChildCategory", "CategoryRelation");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CategoryRelation>("TMC.Entities.EntityModels.FK_CategoryRelation_ChildCategory", "CategoryRelation");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CategoryRelation>("TMCModel.FK_CategoryRelation_ChildCategory", "CategoryRelation", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CategoryRelation>("TMC.Entities.EntityModels.FK_CategoryRelation_ChildCategory", "CategoryRelation", value);
                 }
             }
         }
@@ -2645,18 +2485,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_CategoryRelation_ParentCategory", "CategoryRelation")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_CategoryRelation_ParentCategory", "CategoryRelation")]
         public EntityCollection<CategoryRelation> CategoryRelation1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CategoryRelation>("TMCModel.FK_CategoryRelation_ParentCategory", "CategoryRelation");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CategoryRelation>("TMC.Entities.EntityModels.FK_CategoryRelation_ParentCategory", "CategoryRelation");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CategoryRelation>("TMCModel.FK_CategoryRelation_ParentCategory", "CategoryRelation", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CategoryRelation>("TMC.Entities.EntityModels.FK_CategoryRelation_ParentCategory", "CategoryRelation", value);
                 }
             }
         }
@@ -2667,40 +2507,40 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_RequirementCategory_Category", "RequirementCategory")]
-        public EntityCollection<RequirementCategory> RequirementCategory
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RequirementCategory>("TMCModel.FK_RequirementCategory_Category", "RequirementCategory");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RequirementCategory>("TMCModel.FK_RequirementCategory_Category", "RequirementCategory", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingCategory_Category", "ListingCategory")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingCategory_Category", "ListingCategory")]
         public EntityCollection<ListingCategory> ListingCategory
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingCategory>("TMCModel.FK_ListingCategory_Category", "ListingCategory");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingCategory>("TMC.Entities.EntityModels.FK_ListingCategory_Category", "ListingCategory");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingCategory>("TMCModel.FK_ListingCategory_Category", "ListingCategory", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingCategory>("TMC.Entities.EntityModels.FK_ListingCategory_Category", "ListingCategory", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_RequirementCategory_Category", "RequirementCategory")]
+        public EntityCollection<RequirementCategory> RequirementCategory
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RequirementCategory>("TMC.Entities.EntityModels.FK_RequirementCategory_Category", "RequirementCategory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RequirementCategory>("TMC.Entities.EntityModels.FK_RequirementCategory_Category", "RequirementCategory", value);
                 }
             }
         }
@@ -2712,7 +2552,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="CategoryRelation")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="CategoryRelation")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class CategoryRelation : EntityObject
@@ -2823,16 +2663,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_CategoryRelation_ChildCategory", "Category")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_CategoryRelation_ChildCategory", "Category")]
         public Category Category
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMCModel.FK_CategoryRelation_ChildCategory", "Category").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMC.Entities.EntityModels.FK_CategoryRelation_ChildCategory", "Category").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMCModel.FK_CategoryRelation_ChildCategory", "Category").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMC.Entities.EntityModels.FK_CategoryRelation_ChildCategory", "Category").Value = value;
             }
         }
         /// <summary>
@@ -2844,13 +2684,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMCModel.FK_CategoryRelation_ChildCategory", "Category");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMC.Entities.EntityModels.FK_CategoryRelation_ChildCategory", "Category");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Category>("TMCModel.FK_CategoryRelation_ChildCategory", "Category", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Category>("TMC.Entities.EntityModels.FK_CategoryRelation_ChildCategory", "Category", value);
                 }
             }
         }
@@ -2861,16 +2701,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_CategoryRelation_ParentCategory", "Category")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_CategoryRelation_ParentCategory", "Category")]
         public Category Category1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMCModel.FK_CategoryRelation_ParentCategory", "Category").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMC.Entities.EntityModels.FK_CategoryRelation_ParentCategory", "Category").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMCModel.FK_CategoryRelation_ParentCategory", "Category").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMC.Entities.EntityModels.FK_CategoryRelation_ParentCategory", "Category").Value = value;
             }
         }
         /// <summary>
@@ -2882,13 +2722,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMCModel.FK_CategoryRelation_ParentCategory", "Category");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMC.Entities.EntityModels.FK_CategoryRelation_ParentCategory", "Category");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Category>("TMCModel.FK_CategoryRelation_ParentCategory", "Category", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Category>("TMC.Entities.EntityModels.FK_CategoryRelation_ParentCategory", "Category", value);
                 }
             }
         }
@@ -2900,7 +2740,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="City")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="City")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class City : EntityObject
@@ -3109,18 +2949,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_Area_City", "Area")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Area_City", "Area")]
         public EntityCollection<Area> Area
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Area>("TMCModel.FK_Area_City", "Area");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Area>("TMC.Entities.EntityModels.FK_Area_City", "Area");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Area>("TMCModel.FK_Area_City", "Area", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Area>("TMC.Entities.EntityModels.FK_Area_City", "Area", value);
                 }
             }
         }
@@ -3131,16 +2971,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_City_State", "State")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_City_State", "State")]
         public State State
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMCModel.FK_City_State", "State").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMC.Entities.EntityModels.FK_City_State", "State").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMCModel.FK_City_State", "State").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMC.Entities.EntityModels.FK_City_State", "State").Value = value;
             }
         }
         /// <summary>
@@ -3152,13 +2992,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMCModel.FK_City_State", "State");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMC.Entities.EntityModels.FK_City_State", "State");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<State>("TMCModel.FK_City_State", "State", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<State>("TMC.Entities.EntityModels.FK_City_State", "State", value);
                 }
             }
         }
@@ -3169,84 +3009,84 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingLocation_City", "ListingLocation")]
-        public EntityCollection<ListingLocation> ListingLocation
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingLocation>("TMCModel.FK_ListingLocation_City", "ListingLocation");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingLocation>("TMCModel.FK_ListingLocation_City", "ListingLocation", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_RequirementLocation_City", "RequirementLocation")]
-        public EntityCollection<RequirementLocation> RequirementLocation
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RequirementLocation>("TMCModel.FK_RequirementLocation_City", "RequirementLocation");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RequirementLocation>("TMCModel.FK_RequirementLocation_City", "RequirementLocation", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_City", "ListingServiceLocation")]
-        public EntityCollection<ListingServiceLocation> ListingServiceLocation
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_City", "ListingServiceLocation");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_City", "ListingServiceLocation", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_Listing_City", "Listing")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Listing_City", "Listing")]
         public EntityCollection<Listing> Listing
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Listing>("TMCModel.FK_Listing_City", "Listing");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Listing>("TMC.Entities.EntityModels.FK_Listing_City", "Listing");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Listing>("TMCModel.FK_Listing_City", "Listing", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Listing>("TMC.Entities.EntityModels.FK_Listing_City", "Listing", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingLocation_City", "ListingLocation")]
+        public EntityCollection<ListingLocation> ListingLocation
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingLocation>("TMC.Entities.EntityModels.FK_ListingLocation_City", "ListingLocation");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingLocation>("TMC.Entities.EntityModels.FK_ListingLocation_City", "ListingLocation", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingServiceLocation_City", "ListingServiceLocation")]
+        public EntityCollection<ListingServiceLocation> ListingServiceLocation
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingServiceLocation>("TMC.Entities.EntityModels.FK_ListingServiceLocation_City", "ListingServiceLocation");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingServiceLocation>("TMC.Entities.EntityModels.FK_ListingServiceLocation_City", "ListingServiceLocation", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_RequirementLocation_City", "RequirementLocation")]
+        public EntityCollection<RequirementLocation> RequirementLocation
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RequirementLocation>("TMC.Entities.EntityModels.FK_RequirementLocation_City", "RequirementLocation");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RequirementLocation>("TMC.Entities.EntityModels.FK_RequirementLocation_City", "RequirementLocation", value);
                 }
             }
         }
@@ -3258,7 +3098,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="ContactType")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="ContactType")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ContactType : EntityObject
@@ -3343,18 +3183,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingContact_ContactType", "ListingContact")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingContact_ContactType", "ListingContact")]
         public EntityCollection<ListingContact> ListingContact
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingContact>("TMCModel.FK_ListingContact_ContactType", "ListingContact");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingContact>("TMC.Entities.EntityModels.FK_ListingContact_ContactType", "ListingContact");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingContact>("TMCModel.FK_ListingContact_ContactType", "ListingContact", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingContact>("TMC.Entities.EntityModels.FK_ListingContact_ContactType", "ListingContact", value);
                 }
             }
         }
@@ -3366,7 +3206,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="Country")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="Country")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Country : EntityObject
@@ -3523,18 +3363,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_State_Country", "State")]
-        public EntityCollection<State> State
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingServiceLocation_Country", "ListingServiceLocation")]
+        public EntityCollection<ListingServiceLocation> ListingServiceLocation
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<State>("TMCModel.FK_State_Country", "State");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingServiceLocation>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Country", "ListingServiceLocation");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<State>("TMCModel.FK_State_Country", "State", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingServiceLocation>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Country", "ListingServiceLocation", value);
                 }
             }
         }
@@ -3545,18 +3385,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_Country", "ListingServiceLocation")]
-        public EntityCollection<ListingServiceLocation> ListingServiceLocation
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_State_Country", "State")]
+        public EntityCollection<State> State
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_Country", "ListingServiceLocation");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<State>("TMC.Entities.EntityModels.FK_State_Country", "State");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_Country", "ListingServiceLocation", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<State>("TMC.Entities.EntityModels.FK_State_Country", "State", value);
                 }
             }
         }
@@ -3568,7 +3408,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="File")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="File")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class File : EntityObject
@@ -3963,16 +3803,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_File_FileExtension", "FileExtension")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_File_FileExtension", "FileExtension")]
         public FileExtension FileExtension
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FileExtension>("TMCModel.FK_File_FileExtension", "FileExtension").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FileExtension>("TMC.Entities.EntityModels.FK_File_FileExtension", "FileExtension").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FileExtension>("TMCModel.FK_File_FileExtension", "FileExtension").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FileExtension>("TMC.Entities.EntityModels.FK_File_FileExtension", "FileExtension").Value = value;
             }
         }
         /// <summary>
@@ -3984,13 +3824,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FileExtension>("TMCModel.FK_File_FileExtension", "FileExtension");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FileExtension>("TMC.Entities.EntityModels.FK_File_FileExtension", "FileExtension");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FileExtension>("TMCModel.FK_File_FileExtension", "FileExtension", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FileExtension>("TMC.Entities.EntityModels.FK_File_FileExtension", "FileExtension", value);
                 }
             }
         }
@@ -4001,16 +3841,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_File_FileType", "FileType")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_File_FileType", "FileType")]
         public FileType FileType
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FileType>("TMCModel.FK_File_FileType", "FileType").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FileType>("TMC.Entities.EntityModels.FK_File_FileType", "FileType").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FileType>("TMCModel.FK_File_FileType", "FileType").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FileType>("TMC.Entities.EntityModels.FK_File_FileType", "FileType").Value = value;
             }
         }
         /// <summary>
@@ -4022,13 +3862,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FileType>("TMCModel.FK_File_FileType", "FileType");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FileType>("TMC.Entities.EntityModels.FK_File_FileType", "FileType");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FileType>("TMCModel.FK_File_FileType", "FileType", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FileType>("TMC.Entities.EntityModels.FK_File_FileType", "FileType", value);
                 }
             }
         }
@@ -4039,18 +3879,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingMedia_File", "ListingMedia")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingMedia_File", "ListingMedia")]
         public EntityCollection<ListingMedia> ListingMedia
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingMedia>("TMCModel.FK_ListingMedia_File", "ListingMedia");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingMedia>("TMC.Entities.EntityModels.FK_ListingMedia_File", "ListingMedia");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingMedia>("TMCModel.FK_ListingMedia_File", "ListingMedia", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingMedia>("TMC.Entities.EntityModels.FK_ListingMedia_File", "ListingMedia", value);
                 }
             }
         }
@@ -4062,7 +3902,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="FileExtension")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="FileExtension")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class FileExtension : EntityObject
@@ -4225,18 +4065,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_File_FileExtension", "File")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_File_FileExtension", "File")]
         public EntityCollection<File> File
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<File>("TMCModel.FK_File_FileExtension", "File");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<File>("TMC.Entities.EntityModels.FK_File_FileExtension", "File");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<File>("TMCModel.FK_File_FileExtension", "File", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<File>("TMC.Entities.EntityModels.FK_File_FileExtension", "File", value);
                 }
             }
         }
@@ -4248,7 +4088,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="FileType")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="FileType")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class FileType : EntityObject
@@ -4333,18 +4173,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_File_FileType", "File")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_File_FileType", "File")]
         public EntityCollection<File> File
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<File>("TMCModel.FK_File_FileType", "File");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<File>("TMC.Entities.EntityModels.FK_File_FileType", "File");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<File>("TMCModel.FK_File_FileType", "File", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<File>("TMC.Entities.EntityModels.FK_File_FileType", "File", value);
                 }
             }
         }
@@ -4356,7 +4196,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="Listing")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="Listing")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Listing : EntityObject
@@ -4921,16 +4761,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_Listing_City", "City")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Listing_City", "City")]
         public City City
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_Listing_City", "City").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_Listing_City", "City").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_Listing_City", "City").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_Listing_City", "City").Value = value;
             }
         }
         /// <summary>
@@ -4942,13 +4782,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_Listing_City", "City");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_Listing_City", "City");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("TMCModel.FK_Listing_City", "City", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("TMC.Entities.EntityModels.FK_Listing_City", "City", value);
                 }
             }
         }
@@ -4959,16 +4799,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_Listing_User1", "User")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Listing_User", "User")]
         public User User
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("TMCModel.FK_Listing_User1", "User").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("TMC.Entities.EntityModels.FK_Listing_User", "User").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("TMCModel.FK_Listing_User1", "User").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("TMC.Entities.EntityModels.FK_Listing_User", "User").Value = value;
             }
         }
         /// <summary>
@@ -4980,13 +4820,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("TMCModel.FK_Listing_User1", "User");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("TMC.Entities.EntityModels.FK_Listing_User", "User");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("TMCModel.FK_Listing_User1", "User", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("TMC.Entities.EntityModels.FK_Listing_User", "User", value);
                 }
             }
         }
@@ -4997,18 +4837,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingCategory_Listing", "ListingCategory")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingCategory_Listing", "ListingCategory")]
         public EntityCollection<ListingCategory> ListingCategory
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingCategory>("TMCModel.FK_ListingCategory_Listing", "ListingCategory");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingCategory>("TMC.Entities.EntityModels.FK_ListingCategory_Listing", "ListingCategory");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingCategory>("TMCModel.FK_ListingCategory_Listing", "ListingCategory", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingCategory>("TMC.Entities.EntityModels.FK_ListingCategory_Listing", "ListingCategory", value);
                 }
             }
         }
@@ -5019,18 +4859,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingContact_Listing", "ListingContact")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingContact_Listing", "ListingContact")]
         public EntityCollection<ListingContact> ListingContact
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingContact>("TMCModel.FK_ListingContact_Listing", "ListingContact");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingContact>("TMC.Entities.EntityModels.FK_ListingContact_Listing", "ListingContact");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingContact>("TMCModel.FK_ListingContact_Listing", "ListingContact", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingContact>("TMC.Entities.EntityModels.FK_ListingContact_Listing", "ListingContact", value);
                 }
             }
         }
@@ -5041,18 +4881,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingLocation_Listing", "ListingLocation")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingLocation_Listing", "ListingLocation")]
         public EntityCollection<ListingLocation> ListingLocation
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingLocation>("TMCModel.FK_ListingLocation_Listing", "ListingLocation");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingLocation>("TMC.Entities.EntityModels.FK_ListingLocation_Listing", "ListingLocation");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingLocation>("TMCModel.FK_ListingLocation_Listing", "ListingLocation", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingLocation>("TMC.Entities.EntityModels.FK_ListingLocation_Listing", "ListingLocation", value);
                 }
             }
         }
@@ -5063,18 +4903,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingMedia_Listing", "ListingMedia")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingMedia_Listing", "ListingMedia")]
         public EntityCollection<ListingMedia> ListingMedia
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingMedia>("TMCModel.FK_ListingMedia_Listing", "ListingMedia");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingMedia>("TMC.Entities.EntityModels.FK_ListingMedia_Listing", "ListingMedia");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingMedia>("TMCModel.FK_ListingMedia_Listing", "ListingMedia", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingMedia>("TMC.Entities.EntityModels.FK_ListingMedia_Listing", "ListingMedia", value);
                 }
             }
         }
@@ -5085,18 +4925,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingPaymentMode_Listing", "ListingPaymentMode")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingPaymentMode_Listing", "ListingPaymentMode")]
         public EntityCollection<ListingPaymentMode> ListingPaymentMode
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingPaymentMode>("TMCModel.FK_ListingPaymentMode_Listing", "ListingPaymentMode");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingPaymentMode>("TMC.Entities.EntityModels.FK_ListingPaymentMode_Listing", "ListingPaymentMode");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingPaymentMode>("TMCModel.FK_ListingPaymentMode_Listing", "ListingPaymentMode", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingPaymentMode>("TMC.Entities.EntityModels.FK_ListingPaymentMode_Listing", "ListingPaymentMode", value);
                 }
             }
         }
@@ -5107,18 +4947,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_Listing1", "ListingServiceLocation")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingServiceLocation_Listing", "ListingServiceLocation")]
         public EntityCollection<ListingServiceLocation> ListingServiceLocation
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_Listing1", "ListingServiceLocation");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingServiceLocation>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Listing", "ListingServiceLocation");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_Listing1", "ListingServiceLocation", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingServiceLocation>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Listing", "ListingServiceLocation", value);
                 }
             }
         }
@@ -5130,7 +4970,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="ListingCategory")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="ListingCategory")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ListingCategory : EntityObject
@@ -5241,16 +5081,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingCategory_Category", "Category")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingCategory_Category", "Category")]
         public Category Category
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMCModel.FK_ListingCategory_Category", "Category").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMC.Entities.EntityModels.FK_ListingCategory_Category", "Category").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMCModel.FK_ListingCategory_Category", "Category").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMC.Entities.EntityModels.FK_ListingCategory_Category", "Category").Value = value;
             }
         }
         /// <summary>
@@ -5262,13 +5102,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMCModel.FK_ListingCategory_Category", "Category");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMC.Entities.EntityModels.FK_ListingCategory_Category", "Category");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Category>("TMCModel.FK_ListingCategory_Category", "Category", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Category>("TMC.Entities.EntityModels.FK_ListingCategory_Category", "Category", value);
                 }
             }
         }
@@ -5279,16 +5119,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingCategory_Listing", "Listing")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingCategory_Listing", "Listing")]
         public Listing Listing
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingCategory_Listing", "Listing").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingCategory_Listing", "Listing").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingCategory_Listing", "Listing").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingCategory_Listing", "Listing").Value = value;
             }
         }
         /// <summary>
@@ -5300,13 +5140,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingCategory_Listing", "Listing");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingCategory_Listing", "Listing");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Listing>("TMCModel.FK_ListingCategory_Listing", "Listing", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingCategory_Listing", "Listing", value);
                 }
             }
         }
@@ -5318,7 +5158,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="ListingContact")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="ListingContact")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ListingContact : EntityObject
@@ -5611,16 +5451,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingContact_ContactType", "ContactType")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingContact_ContactType", "ContactType")]
         public ContactType ContactType
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ContactType>("TMCModel.FK_ListingContact_ContactType", "ContactType").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ContactType>("TMC.Entities.EntityModels.FK_ListingContact_ContactType", "ContactType").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ContactType>("TMCModel.FK_ListingContact_ContactType", "ContactType").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ContactType>("TMC.Entities.EntityModels.FK_ListingContact_ContactType", "ContactType").Value = value;
             }
         }
         /// <summary>
@@ -5632,13 +5472,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ContactType>("TMCModel.FK_ListingContact_ContactType", "ContactType");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ContactType>("TMC.Entities.EntityModels.FK_ListingContact_ContactType", "ContactType");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ContactType>("TMCModel.FK_ListingContact_ContactType", "ContactType", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ContactType>("TMC.Entities.EntityModels.FK_ListingContact_ContactType", "ContactType", value);
                 }
             }
         }
@@ -5649,16 +5489,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingContact_Listing", "Listing")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingContact_Listing", "Listing")]
         public Listing Listing
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingContact_Listing", "Listing").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingContact_Listing", "Listing").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingContact_Listing", "Listing").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingContact_Listing", "Listing").Value = value;
             }
         }
         /// <summary>
@@ -5670,13 +5510,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingContact_Listing", "Listing");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingContact_Listing", "Listing");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Listing>("TMCModel.FK_ListingContact_Listing", "Listing", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingContact_Listing", "Listing", value);
                 }
             }
         }
@@ -5688,7 +5528,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="ListingLocation")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="ListingLocation")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ListingLocation : EntityObject
@@ -6055,16 +5895,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingLocation_Area", "Area")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingLocation_Area", "Area")]
         public Area Area
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMCModel.FK_ListingLocation_Area", "Area").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMC.Entities.EntityModels.FK_ListingLocation_Area", "Area").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMCModel.FK_ListingLocation_Area", "Area").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMC.Entities.EntityModels.FK_ListingLocation_Area", "Area").Value = value;
             }
         }
         /// <summary>
@@ -6076,13 +5916,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMCModel.FK_ListingLocation_Area", "Area");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMC.Entities.EntityModels.FK_ListingLocation_Area", "Area");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Area>("TMCModel.FK_ListingLocation_Area", "Area", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Area>("TMC.Entities.EntityModels.FK_ListingLocation_Area", "Area", value);
                 }
             }
         }
@@ -6093,16 +5933,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingLocation_City", "City")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingLocation_City", "City")]
         public City City
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_ListingLocation_City", "City").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_ListingLocation_City", "City").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_ListingLocation_City", "City").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_ListingLocation_City", "City").Value = value;
             }
         }
         /// <summary>
@@ -6114,13 +5954,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_ListingLocation_City", "City");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_ListingLocation_City", "City");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("TMCModel.FK_ListingLocation_City", "City", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("TMC.Entities.EntityModels.FK_ListingLocation_City", "City", value);
                 }
             }
         }
@@ -6131,16 +5971,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingLocation_Listing", "Listing")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingLocation_Listing", "Listing")]
         public Listing Listing
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingLocation_Listing", "Listing").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingLocation_Listing", "Listing").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingLocation_Listing", "Listing").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingLocation_Listing", "Listing").Value = value;
             }
         }
         /// <summary>
@@ -6152,13 +5992,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingLocation_Listing", "Listing");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingLocation_Listing", "Listing");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Listing>("TMCModel.FK_ListingLocation_Listing", "Listing", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingLocation_Listing", "Listing", value);
                 }
             }
         }
@@ -6170,7 +6010,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="ListingMedia")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="ListingMedia")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ListingMedia : EntityObject
@@ -6437,16 +6277,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingMedia_File", "File")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingMedia_File", "File")]
         public File File
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<File>("TMCModel.FK_ListingMedia_File", "File").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<File>("TMC.Entities.EntityModels.FK_ListingMedia_File", "File").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<File>("TMCModel.FK_ListingMedia_File", "File").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<File>("TMC.Entities.EntityModels.FK_ListingMedia_File", "File").Value = value;
             }
         }
         /// <summary>
@@ -6458,13 +6298,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<File>("TMCModel.FK_ListingMedia_File", "File");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<File>("TMC.Entities.EntityModels.FK_ListingMedia_File", "File");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<File>("TMCModel.FK_ListingMedia_File", "File", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<File>("TMC.Entities.EntityModels.FK_ListingMedia_File", "File", value);
                 }
             }
         }
@@ -6475,16 +6315,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingMedia_Listing", "Listing")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingMedia_Listing", "Listing")]
         public Listing Listing
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingMedia_Listing", "Listing").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingMedia_Listing", "Listing").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingMedia_Listing", "Listing").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingMedia_Listing", "Listing").Value = value;
             }
         }
         /// <summary>
@@ -6496,13 +6336,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingMedia_Listing", "Listing");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingMedia_Listing", "Listing");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Listing>("TMCModel.FK_ListingMedia_Listing", "Listing", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingMedia_Listing", "Listing", value);
                 }
             }
         }
@@ -6514,7 +6354,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="ListingPaymentMode")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="ListingPaymentMode")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ListingPaymentMode : EntityObject
@@ -6625,54 +6465,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingPaymentMode_PaymentMode", "PaymentMode")]
-        public PaymentMode PaymentMode
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMode>("TMCModel.FK_ListingPaymentMode_PaymentMode", "PaymentMode").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMode>("TMCModel.FK_ListingPaymentMode_PaymentMode", "PaymentMode").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<PaymentMode> PaymentModeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMode>("TMCModel.FK_ListingPaymentMode_PaymentMode", "PaymentMode");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PaymentMode>("TMCModel.FK_ListingPaymentMode_PaymentMode", "PaymentMode", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingPaymentMode_Listing", "Listing")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingPaymentMode_Listing", "Listing")]
         public Listing Listing
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingPaymentMode_Listing", "Listing").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingPaymentMode_Listing", "Listing").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingPaymentMode_Listing", "Listing").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingPaymentMode_Listing", "Listing").Value = value;
             }
         }
         /// <summary>
@@ -6684,13 +6486,51 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingPaymentMode_Listing", "Listing");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingPaymentMode_Listing", "Listing");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Listing>("TMCModel.FK_ListingPaymentMode_Listing", "Listing", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingPaymentMode_Listing", "Listing", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingPaymentMode_PaymentMode", "PaymentMode")]
+        public PaymentMode PaymentMode
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMode>("TMC.Entities.EntityModels.FK_ListingPaymentMode_PaymentMode", "PaymentMode").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMode>("TMC.Entities.EntityModels.FK_ListingPaymentMode_PaymentMode", "PaymentMode").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<PaymentMode> PaymentModeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMode>("TMC.Entities.EntityModels.FK_ListingPaymentMode_PaymentMode", "PaymentMode");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PaymentMode>("TMC.Entities.EntityModels.FK_ListingPaymentMode_PaymentMode", "PaymentMode", value);
                 }
             }
         }
@@ -6702,7 +6542,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="ListingServiceLocation")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="ListingServiceLocation")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ListingServiceLocation : EntityObject
@@ -7141,16 +6981,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_Area", "Area")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingServiceLocation_Area", "Area")]
         public Area Area
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMCModel.FK_ListingServiceLocation_Area", "Area").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Area", "Area").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMCModel.FK_ListingServiceLocation_Area", "Area").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Area", "Area").Value = value;
             }
         }
         /// <summary>
@@ -7162,13 +7002,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMCModel.FK_ListingServiceLocation_Area", "Area");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Area", "Area");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Area>("TMCModel.FK_ListingServiceLocation_Area", "Area", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Area>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Area", "Area", value);
                 }
             }
         }
@@ -7179,16 +7019,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_City", "City")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingServiceLocation_City", "City")]
         public City City
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_ListingServiceLocation_City", "City").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_ListingServiceLocation_City", "City").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_ListingServiceLocation_City", "City").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_ListingServiceLocation_City", "City").Value = value;
             }
         }
         /// <summary>
@@ -7200,13 +7040,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_ListingServiceLocation_City", "City");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_ListingServiceLocation_City", "City");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("TMCModel.FK_ListingServiceLocation_City", "City", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("TMC.Entities.EntityModels.FK_ListingServiceLocation_City", "City", value);
                 }
             }
         }
@@ -7217,16 +7057,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_Country", "Country")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingServiceLocation_Country", "Country")]
         public Country Country
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMCModel.FK_ListingServiceLocation_Country", "Country").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Country", "Country").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMCModel.FK_ListingServiceLocation_Country", "Country").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Country", "Country").Value = value;
             }
         }
         /// <summary>
@@ -7238,13 +7078,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMCModel.FK_ListingServiceLocation_Country", "Country");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Country", "Country");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Country>("TMCModel.FK_ListingServiceLocation_Country", "Country", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Country>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Country", "Country", value);
                 }
             }
         }
@@ -7255,16 +7095,54 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_State", "State")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingServiceLocation_Listing", "Listing")]
+        public Listing Listing
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Listing", "Listing").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Listing", "Listing").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Listing> ListingReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Listing", "Listing");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Listing>("TMC.Entities.EntityModels.FK_ListingServiceLocation_Listing", "Listing", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingServiceLocation_State", "State")]
         public State State
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMCModel.FK_ListingServiceLocation_State", "State").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMC.Entities.EntityModels.FK_ListingServiceLocation_State", "State").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMCModel.FK_ListingServiceLocation_State", "State").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMC.Entities.EntityModels.FK_ListingServiceLocation_State", "State").Value = value;
             }
         }
         /// <summary>
@@ -7276,51 +7154,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMCModel.FK_ListingServiceLocation_State", "State");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMC.Entities.EntityModels.FK_ListingServiceLocation_State", "State");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<State>("TMCModel.FK_ListingServiceLocation_State", "State", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_Listing1", "Listing")]
-        public Listing Listing1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingServiceLocation_Listing1", "Listing").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingServiceLocation_Listing1", "Listing").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Listing> Listing1Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Listing>("TMCModel.FK_ListingServiceLocation_Listing1", "Listing");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Listing>("TMCModel.FK_ListingServiceLocation_Listing1", "Listing", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<State>("TMC.Entities.EntityModels.FK_ListingServiceLocation_State", "State", value);
                 }
             }
         }
@@ -7332,7 +7172,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="PaymentMode")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="PaymentMode")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class PaymentMode : EntityObject
@@ -7417,18 +7257,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingPaymentMode_PaymentMode", "ListingPaymentMode")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingPaymentMode_PaymentMode", "ListingPaymentMode")]
         public EntityCollection<ListingPaymentMode> ListingPaymentMode
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingPaymentMode>("TMCModel.FK_ListingPaymentMode_PaymentMode", "ListingPaymentMode");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingPaymentMode>("TMC.Entities.EntityModels.FK_ListingPaymentMode_PaymentMode", "ListingPaymentMode");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingPaymentMode>("TMCModel.FK_ListingPaymentMode_PaymentMode", "ListingPaymentMode", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingPaymentMode>("TMC.Entities.EntityModels.FK_ListingPaymentMode_PaymentMode", "ListingPaymentMode", value);
                 }
             }
         }
@@ -7440,7 +7280,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="Products")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="Products")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Products : EntityObject
@@ -7771,7 +7611,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="Requirement")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="Requirement")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Requirement : EntityObject
@@ -8184,16 +8024,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_Requirement_AdditionalInfo", "AdditionalInfo")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Requirement_AdditionalInfo", "AdditionalInfo")]
         public AdditionalInfo AdditionalInfo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdditionalInfo>("TMCModel.FK_Requirement_AdditionalInfo", "AdditionalInfo").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdditionalInfo>("TMC.Entities.EntityModels.FK_Requirement_AdditionalInfo", "AdditionalInfo").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdditionalInfo>("TMCModel.FK_Requirement_AdditionalInfo", "AdditionalInfo").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdditionalInfo>("TMC.Entities.EntityModels.FK_Requirement_AdditionalInfo", "AdditionalInfo").Value = value;
             }
         }
         /// <summary>
@@ -8205,13 +8045,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdditionalInfo>("TMCModel.FK_Requirement_AdditionalInfo", "AdditionalInfo");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdditionalInfo>("TMC.Entities.EntityModels.FK_Requirement_AdditionalInfo", "AdditionalInfo");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AdditionalInfo>("TMCModel.FK_Requirement_AdditionalInfo", "AdditionalInfo", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AdditionalInfo>("TMC.Entities.EntityModels.FK_Requirement_AdditionalInfo", "AdditionalInfo", value);
                 }
             }
         }
@@ -8222,60 +8062,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_RequirementCategory_Requirement", "RequirementCategory")]
-        public EntityCollection<RequirementCategory> RequirementCategory
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RequirementCategory>("TMCModel.FK_RequirementCategory_Requirement", "RequirementCategory");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RequirementCategory>("TMCModel.FK_RequirementCategory_Requirement", "RequirementCategory", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_RequirementLocation_Requirement", "RequirementLocation")]
-        public EntityCollection<RequirementLocation> RequirementLocation
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RequirementLocation>("TMCModel.FK_RequirementLocation_Requirement", "RequirementLocation");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RequirementLocation>("TMCModel.FK_RequirementLocation_Requirement", "RequirementLocation", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_Requirement_User", "User")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Requirement_User", "User")]
         public User User
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("TMCModel.FK_Requirement_User", "User").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("TMC.Entities.EntityModels.FK_Requirement_User", "User").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("TMCModel.FK_Requirement_User", "User").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("TMC.Entities.EntityModels.FK_Requirement_User", "User").Value = value;
             }
         }
         /// <summary>
@@ -8287,13 +8083,57 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("TMCModel.FK_Requirement_User", "User");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("TMC.Entities.EntityModels.FK_Requirement_User", "User");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("TMCModel.FK_Requirement_User", "User", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("TMC.Entities.EntityModels.FK_Requirement_User", "User", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_RequirementCategory_Requirement", "RequirementCategory")]
+        public EntityCollection<RequirementCategory> RequirementCategory
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RequirementCategory>("TMC.Entities.EntityModels.FK_RequirementCategory_Requirement", "RequirementCategory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RequirementCategory>("TMC.Entities.EntityModels.FK_RequirementCategory_Requirement", "RequirementCategory", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_RequirementLocation_Requirement", "RequirementLocation")]
+        public EntityCollection<RequirementLocation> RequirementLocation
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RequirementLocation>("TMC.Entities.EntityModels.FK_RequirementLocation_Requirement", "RequirementLocation");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RequirementLocation>("TMC.Entities.EntityModels.FK_RequirementLocation_Requirement", "RequirementLocation", value);
                 }
             }
         }
@@ -8305,7 +8145,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="RequirementCategory")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="RequirementCategory")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class RequirementCategory : EntityObject
@@ -8416,16 +8256,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_RequirementCategory_Category", "Category")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_RequirementCategory_Category", "Category")]
         public Category Category
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMCModel.FK_RequirementCategory_Category", "Category").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMC.Entities.EntityModels.FK_RequirementCategory_Category", "Category").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMCModel.FK_RequirementCategory_Category", "Category").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMC.Entities.EntityModels.FK_RequirementCategory_Category", "Category").Value = value;
             }
         }
         /// <summary>
@@ -8437,13 +8277,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMCModel.FK_RequirementCategory_Category", "Category");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("TMC.Entities.EntityModels.FK_RequirementCategory_Category", "Category");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Category>("TMCModel.FK_RequirementCategory_Category", "Category", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Category>("TMC.Entities.EntityModels.FK_RequirementCategory_Category", "Category", value);
                 }
             }
         }
@@ -8454,16 +8294,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_RequirementCategory_Requirement", "Requirement")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_RequirementCategory_Requirement", "Requirement")]
         public Requirement Requirement
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Requirement>("TMCModel.FK_RequirementCategory_Requirement", "Requirement").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Requirement>("TMC.Entities.EntityModels.FK_RequirementCategory_Requirement", "Requirement").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Requirement>("TMCModel.FK_RequirementCategory_Requirement", "Requirement").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Requirement>("TMC.Entities.EntityModels.FK_RequirementCategory_Requirement", "Requirement").Value = value;
             }
         }
         /// <summary>
@@ -8475,13 +8315,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Requirement>("TMCModel.FK_RequirementCategory_Requirement", "Requirement");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Requirement>("TMC.Entities.EntityModels.FK_RequirementCategory_Requirement", "Requirement");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Requirement>("TMCModel.FK_RequirementCategory_Requirement", "Requirement", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Requirement>("TMC.Entities.EntityModels.FK_RequirementCategory_Requirement", "Requirement", value);
                 }
             }
         }
@@ -8493,7 +8333,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="RequirementLocation")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="RequirementLocation")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class RequirementLocation : EntityObject
@@ -8786,16 +8626,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_RequirementLocation_Area", "Area")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_RequirementLocation_Area", "Area")]
         public Area Area
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMCModel.FK_RequirementLocation_Area", "Area").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMC.Entities.EntityModels.FK_RequirementLocation_Area", "Area").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMCModel.FK_RequirementLocation_Area", "Area").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMC.Entities.EntityModels.FK_RequirementLocation_Area", "Area").Value = value;
             }
         }
         /// <summary>
@@ -8807,13 +8647,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMCModel.FK_RequirementLocation_Area", "Area");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Area>("TMC.Entities.EntityModels.FK_RequirementLocation_Area", "Area");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Area>("TMCModel.FK_RequirementLocation_Area", "Area", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Area>("TMC.Entities.EntityModels.FK_RequirementLocation_Area", "Area", value);
                 }
             }
         }
@@ -8824,16 +8664,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_RequirementLocation_City", "City")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_RequirementLocation_City", "City")]
         public City City
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_RequirementLocation_City", "City").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_RequirementLocation_City", "City").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_RequirementLocation_City", "City").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_RequirementLocation_City", "City").Value = value;
             }
         }
         /// <summary>
@@ -8845,13 +8685,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMCModel.FK_RequirementLocation_City", "City");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_RequirementLocation_City", "City");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("TMCModel.FK_RequirementLocation_City", "City", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("TMC.Entities.EntityModels.FK_RequirementLocation_City", "City", value);
                 }
             }
         }
@@ -8862,16 +8702,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_RequirementLocation_Requirement", "Requirement")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_RequirementLocation_Requirement", "Requirement")]
         public Requirement Requirement
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Requirement>("TMCModel.FK_RequirementLocation_Requirement", "Requirement").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Requirement>("TMC.Entities.EntityModels.FK_RequirementLocation_Requirement", "Requirement").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Requirement>("TMCModel.FK_RequirementLocation_Requirement", "Requirement").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Requirement>("TMC.Entities.EntityModels.FK_RequirementLocation_Requirement", "Requirement").Value = value;
             }
         }
         /// <summary>
@@ -8883,13 +8723,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Requirement>("TMCModel.FK_RequirementLocation_Requirement", "Requirement");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Requirement>("TMC.Entities.EntityModels.FK_RequirementLocation_Requirement", "Requirement");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Requirement>("TMCModel.FK_RequirementLocation_Requirement", "Requirement", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Requirement>("TMC.Entities.EntityModels.FK_RequirementLocation_Requirement", "Requirement", value);
                 }
             }
         }
@@ -8901,7 +8741,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="State")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="State")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class State : EntityObject
@@ -9036,18 +8876,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_City_State", "City")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_City_State", "City")]
         public EntityCollection<City> City
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<City>("TMCModel.FK_City_State", "City");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<City>("TMC.Entities.EntityModels.FK_City_State", "City");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<City>("TMCModel.FK_City_State", "City", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<City>("TMC.Entities.EntityModels.FK_City_State", "City", value);
                 }
             }
         }
@@ -9058,16 +8898,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_State_Country", "Country")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_State_Country", "Country")]
         public Country Country
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMCModel.FK_State_Country", "Country").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMC.Entities.EntityModels.FK_State_Country", "Country").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMCModel.FK_State_Country", "Country").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMC.Entities.EntityModels.FK_State_Country", "Country").Value = value;
             }
         }
         /// <summary>
@@ -9079,13 +8919,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMCModel.FK_State_Country", "Country");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMC.Entities.EntityModels.FK_State_Country", "Country");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Country>("TMCModel.FK_State_Country", "Country", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Country>("TMC.Entities.EntityModels.FK_State_Country", "Country", value);
                 }
             }
         }
@@ -9096,18 +8936,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_ListingServiceLocation_State", "ListingServiceLocation")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_ListingServiceLocation_State", "ListingServiceLocation")]
         public EntityCollection<ListingServiceLocation> ListingServiceLocation
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_State", "ListingServiceLocation");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingServiceLocation>("TMC.Entities.EntityModels.FK_ListingServiceLocation_State", "ListingServiceLocation");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingServiceLocation>("TMCModel.FK_ListingServiceLocation_State", "ListingServiceLocation", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingServiceLocation>("TMC.Entities.EntityModels.FK_ListingServiceLocation_State", "ListingServiceLocation", value);
                 }
             }
         }
@@ -9119,7 +8959,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="User")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="User")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class User : EntityObject
@@ -9137,7 +8977,7 @@ namespace EntityDataModel.EntityModels
         /// <param name="createdBy">Initial value of the CreatedBy property.</param>
         /// <param name="updatedBy">Initial value of the UpdatedBy property.</param>
         /// <param name="isActive">Initial value of the IsActive property.</param>
-        public static User CreateUser(global::System.Int64 userId, global::System.String userName, global::System.String userTypeId, global::System.DateTime createdOn, global::System.DateTime updatedOn, global::System.Int64 createdBy, global::System.Int64 updatedBy, global::System.Boolean isActive)
+        public static User CreateUser(global::System.Int64 userId, global::System.String userName, global::System.Int16 userTypeId, global::System.DateTime createdOn, global::System.DateTime updatedOn, global::System.Int64 createdBy, global::System.Int64 updatedBy, global::System.Boolean isActive)
         {
             User user = new User();
             user.UserId = userId;
@@ -9331,7 +9171,7 @@ namespace EntityDataModel.EntityModels
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String UserTypeId
+        public global::System.Int16 UserTypeId
         {
             get
             {
@@ -9341,13 +9181,13 @@ namespace EntityDataModel.EntityModels
             {
                 OnUserTypeIdChanging(value);
                 ReportPropertyChanging("UserTypeId");
-                _UserTypeId = StructuralObject.SetValidValue(value, false);
+                _UserTypeId = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UserTypeId");
                 OnUserTypeIdChanged();
             }
         }
-        private global::System.String _UserTypeId;
-        partial void OnUserTypeIdChanging(global::System.String value);
+        private global::System.Int16 _UserTypeId;
+        partial void OnUserTypeIdChanging(global::System.Int16 value);
         partial void OnUserTypeIdChanged();
     
         /// <summary>
@@ -9504,18 +9344,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_Requirement_User", "Requirement")]
-        public EntityCollection<Requirement> Requirement
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Listing_User", "Listing")]
+        public EntityCollection<Listing> Listing
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Requirement>("TMCModel.FK_Requirement_User", "Requirement");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Listing>("TMC.Entities.EntityModels.FK_Listing_User", "Listing");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Requirement>("TMCModel.FK_Requirement_User", "Requirement", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Listing>("TMC.Entities.EntityModels.FK_Listing_User", "Listing", value);
                 }
             }
         }
@@ -9526,18 +9366,56 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMCModel", "FK_Listing_User1", "Listing")]
-        public EntityCollection<Listing> Listing1
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Requirement_User", "Requirement")]
+        public EntityCollection<Requirement> Requirement
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Listing>("TMCModel.FK_Listing_User1", "Listing");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Requirement>("TMC.Entities.EntityModels.FK_Requirement_User", "Requirement");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Listing>("TMCModel.FK_Listing_User1", "Listing", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Requirement>("TMC.Entities.EntityModels.FK_Requirement_User", "Requirement", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_User_UserType", "UserType")]
+        public UserType UserType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserType>("TMC.Entities.EntityModels.FK_User_UserType", "UserType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserType>("TMC.Entities.EntityModels.FK_User_UserType", "UserType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<UserType> UserTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserType>("TMC.Entities.EntityModels.FK_User_UserType", "UserType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<UserType>("TMC.Entities.EntityModels.FK_User_UserType", "UserType", value);
                 }
             }
         }
@@ -9549,7 +9427,7 @@ namespace EntityDataModel.EntityModels
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="TMCModel", Name="UserType")]
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="UserType")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class UserType : EntityObject
@@ -9647,6 +9525,32 @@ namespace EntityDataModel.EntityModels
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_User_UserType", "User")]
+        public EntityCollection<User> User
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<User>("TMC.Entities.EntityModels.FK_User_UserType", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("TMC.Entities.EntityModels.FK_User_UserType", "User", value);
+                }
+            }
+        }
 
         #endregion
 

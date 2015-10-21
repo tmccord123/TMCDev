@@ -125,6 +125,7 @@ namespace TMC.Data
                             user.IsDeleted = false;
                             user.AddressLine1 = "Default AddressLine1";
                             user.PinCode = 12345;
+                            user.UserTypeId = 1;
                             TMCDbContext.User.AddObject(user);
                             if (TMCDbContext.SaveChanges() > 0)
                             {

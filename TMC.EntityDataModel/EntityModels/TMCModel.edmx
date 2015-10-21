@@ -4,17 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TMCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
-          </Key>
-          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
-          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
-          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
-        </EntityType>
+      <Schema Namespace="TMC.Entities.EntityModels.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AdditionalInfo">
           <Key>
             <PropertyRef Name="AdditionalInfoId" />
@@ -372,6 +362,20 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="ShortName" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'TMC.dbo.tempCategory' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tempCategory">
+          <Property Name="Id" Type="int" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="200" />
+          <Property Name="CategoryShortName" Type="varchar" MaxLength="200" />
+          <Property Name="CategoryPopularity" Type="smallint" />
+          <Property Name="SubCategoryName" Type="varchar" MaxLength="200" />
+          <Property Name="SubCategoryShortName" Type="varchar" MaxLength="200" />
+          <Property Name="SubCategoryPopularity" Type="smallint" />
+          <Property Name="TagName" Type="varchar" MaxLength="200" />
+          <Property Name="TagShortName" Type="varchar" MaxLength="200" />
+          <Property Name="TagPopularity" Type="smallint" />
+        </EntityType>-->
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="UserId" />
@@ -383,7 +387,7 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="CityId" Type="int" />
           <Property Name="AreaId" Type="nvarchar" MaxLength="255" />
           <Property Name="PinCode" Type="int" />
-          <Property Name="UserTypeId" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="UserTypeId" Type="smallint" Nullable="false" />
           <Property Name="CreatedOn" Type="datetime" Nullable="false" />
           <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="bigint" Nullable="false" />
@@ -839,8 +843,19 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TMCModelStoreContainer">
-          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+        <Association Name="FK_User_UserType">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TMCEntitiesEntityModelsStoreContainer">
           <EntitySet Name="AdditionalInfo" EntityType="Self.AdditionalInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
@@ -1030,22 +1045,40 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
             <End Role="Country" EntitySet="Country" />
             <End Role="State" EntitySet="State" />
           </AssociationSet>
+          <AssociationSet Name="FK_User_UserType" Association="Self.FK_User_UserType">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="TMCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="C__MigrationHistory">
+      <Schema Namespace="TMC.Entities.EntityModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdditionalInfo">
           <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
+            <PropertyRef Name="AdditionalInfoId" />
           </Key>
-          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdditionalInfoId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Requirement" Relationship="Self.FK_Requirement_AdditionalInfo" FromRole="AdditionalInfo" ToRole="Requirement" />
         </EntityType>
-        <EntityType Name="AspNetRole">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="AreaId" />
+          </Key>
+          <Property Name="AreaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="PlaceId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pin" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Area_City" FromRole="Area" ToRole="City" />
+          <NavigationProperty Name="ListingLocation" Relationship="Self.FK_ListingLocation_Area" FromRole="Area" ToRole="ListingLocation" />
+          <NavigationProperty Name="ListingServiceLocation" Relationship="Self.FK_ListingServiceLocation_Area" FromRole="Area" ToRole="ListingServiceLocation" />
+          <NavigationProperty Name="RequirementLocation" Relationship="Self.FK_RequirementLocation_Area" FromRole="Area" ToRole="RequirementLocation" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -1053,7 +1086,7 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
         </EntityType>
-        <EntityType Name="AspNetUserClaim">
+        <EntityType Name="AspNetUserClaims">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -1061,9 +1094,9 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="User_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
         </EntityType>
-        <EntityType Name="AspNetUserLogin">
+        <EntityType Name="AspNetUserLogins">
           <Key>
             <PropertyRef Name="UserId" />
             <PropertyRef Name="LoginProvider" />
@@ -1072,9 +1105,9 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
         </EntityType>
-        <EntityType Name="AspNetUser">
+        <EntityType Name="AspNetUsers">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -1086,289 +1119,24 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Discriminator" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
-          <Property Name="MobileNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Blog">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="CreatedDate" />
-            <PropertyRef Name="modifiedDate" />
-            <PropertyRef Name="ExpiryDate" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ProductId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="WebURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Success" Type="Int32" />
-          <Property Name="Failure" Type="Int32" />
-          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="modifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ExpiryDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsActive" Type="Boolean" />
-        </EntityType>
-        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserClaims">
-              <PropertyRef Name="User_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserLogins">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="AspNetUserRoles">
-          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
-        </Association>
-        <EntityContainer Name="TMCContext" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
-          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
-          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
-          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
-          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
-          <EntitySet Name="Blogs" EntityType="Self.Blog" />
-          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-          </AssociationSet>
-          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
-            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-          </AssociationSet>
-          <EntitySet Name="Products" EntityType="TMCModel.Products" />
-          <EntitySet Name="AdditionalInfo" EntityType="TMCModel.AdditionalInfo" />
-          <EntitySet Name="Area" EntityType="TMCModel.Area" />
-          <EntitySet Name="Category" EntityType="TMCModel.Category" />
-          <EntitySet Name="CategoryRelation" EntityType="TMCModel.CategoryRelation" />
-          <EntitySet Name="City" EntityType="TMCModel.City" />
-          <EntitySet Name="ContactType" EntityType="TMCModel.ContactType" />
-          <EntitySet Name="Country" EntityType="TMCModel.Country" />
-          <EntitySet Name="File" EntityType="TMCModel.File" />
-          <EntitySet Name="FileExtension" EntityType="TMCModel.FileExtension" />
-          <EntitySet Name="FileType" EntityType="TMCModel.FileType" />
-          <EntitySet Name="ListingContact" EntityType="TMCModel.ListingContact" />
-          <EntitySet Name="ListingLocation" EntityType="TMCModel.ListingLocation" />
-          <EntitySet Name="ListingMedia" EntityType="TMCModel.ListingMedia" />
-          <EntitySet Name="ListingPaymentMode" EntityType="TMCModel.ListingPaymentMode" />
-          <EntitySet Name="PaymentMode" EntityType="TMCModel.PaymentMode" />
-          <EntitySet Name="Requirement" EntityType="TMCModel.Requirement" />
-          <EntitySet Name="RequirementCategory" EntityType="TMCModel.RequirementCategory" />
-          <EntitySet Name="RequirementLocation" EntityType="TMCModel.RequirementLocation" />
-          <EntitySet Name="State" EntityType="TMCModel.State" />
-          <AssociationSet Name="FK_Requirement_AdditionalInfo" Association="TMCModel.FK_Requirement_AdditionalInfo">
-            <End Role="AdditionalInfo" EntitySet="AdditionalInfo" />
-            <End Role="Requirement" EntitySet="Requirement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Area_City" Association="TMCModel.FK_Area_City">
-            <End Role="City" EntitySet="City" />
-            <End Role="Area" EntitySet="Area" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ListingLocation_Area" Association="TMCModel.FK_ListingLocation_Area">
-            <End Role="Area" EntitySet="Area" />
-            <End Role="ListingLocation" EntitySet="ListingLocation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RequirementLocation_Area" Association="TMCModel.FK_RequirementLocation_Area">
-            <End Role="Area" EntitySet="Area" />
-            <End Role="RequirementLocation" EntitySet="RequirementLocation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CategoryRelation_ChildCategory" Association="TMCModel.FK_CategoryRelation_ChildCategory">
-            <End Role="Category" EntitySet="Category" />
-            <End Role="CategoryRelation" EntitySet="CategoryRelation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CategoryRelation_ParentCategory" Association="TMCModel.FK_CategoryRelation_ParentCategory">
-            <End Role="Category" EntitySet="Category" />
-            <End Role="CategoryRelation" EntitySet="CategoryRelation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RequirementCategory_Category" Association="TMCModel.FK_RequirementCategory_Category">
-            <End Role="Category" EntitySet="Category" />
-            <End Role="RequirementCategory" EntitySet="RequirementCategory" />
-          </AssociationSet>
-          <AssociationSet Name="FK_City_State" Association="TMCModel.FK_City_State">
-            <End Role="State" EntitySet="State" />
-            <End Role="City" EntitySet="City" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ListingLocation_City" Association="TMCModel.FK_ListingLocation_City">
-            <End Role="City" EntitySet="City" />
-            <End Role="ListingLocation" EntitySet="ListingLocation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RequirementLocation_City" Association="TMCModel.FK_RequirementLocation_City">
-            <End Role="City" EntitySet="City" />
-            <End Role="RequirementLocation" EntitySet="RequirementLocation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ListingContact_ContactType" Association="TMCModel.FK_ListingContact_ContactType">
-            <End Role="ContactType" EntitySet="ContactType" />
-            <End Role="ListingContact" EntitySet="ListingContact" />
-          </AssociationSet>
-          <AssociationSet Name="FK_State_Country" Association="TMCModel.FK_State_Country">
-            <End Role="Country" EntitySet="Country" />
-            <End Role="State" EntitySet="State" />
-          </AssociationSet>
-          <AssociationSet Name="FK_File_FileExtension" Association="TMCModel.FK_File_FileExtension">
-            <End Role="FileExtension" EntitySet="FileExtension" />
-            <End Role="File" EntitySet="File" />
-          </AssociationSet>
-          <AssociationSet Name="FK_File_FileType" Association="TMCModel.FK_File_FileType">
-            <End Role="FileType" EntitySet="FileType" />
-            <End Role="File" EntitySet="File" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ListingMedia_File" Association="TMCModel.FK_ListingMedia_File">
-            <End Role="File" EntitySet="File" />
-            <End Role="ListingMedia" EntitySet="ListingMedia" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ListingPaymentMode_PaymentMode" Association="TMCModel.FK_ListingPaymentMode_PaymentMode">
-            <End Role="PaymentMode" EntitySet="PaymentMode" />
-            <End Role="ListingPaymentMode" EntitySet="ListingPaymentMode" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RequirementCategory_Requirement" Association="TMCModel.FK_RequirementCategory_Requirement">
-            <End Role="Requirement" EntitySet="Requirement" />
-            <End Role="RequirementCategory" EntitySet="RequirementCategory" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RequirementLocation_Requirement" Association="TMCModel.FK_RequirementLocation_Requirement">
-            <End Role="Requirement" EntitySet="Requirement" />
-            <End Role="RequirementLocation" EntitySet="RequirementLocation" />
-          </AssociationSet>
-          <EntitySet Name="ListingCategory" EntityType="TMCModel.ListingCategory" />
-          <AssociationSet Name="FK_ListingCategory_Category" Association="TMCModel.FK_ListingCategory_Category">
-            <End Role="Category" EntitySet="Category" />
-            <End Role="ListingCategory" EntitySet="ListingCategory" />
-          </AssociationSet>
-          <EntitySet Name="ListingServiceLocation" EntityType="TMCModel.ListingServiceLocation" />
-          <AssociationSet Name="FK_ListingServiceLocation_Area" Association="TMCModel.FK_ListingServiceLocation_Area">
-            <End Role="Area" EntitySet="Area" />
-            <End Role="ListingServiceLocation" EntitySet="ListingServiceLocation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ListingServiceLocation_City" Association="TMCModel.FK_ListingServiceLocation_City">
-            <End Role="City" EntitySet="City" />
-            <End Role="ListingServiceLocation" EntitySet="ListingServiceLocation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ListingServiceLocation_Country" Association="TMCModel.FK_ListingServiceLocation_Country">
-            <End Role="Country" EntitySet="Country" />
-            <End Role="ListingServiceLocation" EntitySet="ListingServiceLocation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ListingServiceLocation_State" Association="TMCModel.FK_ListingServiceLocation_State">
-            <End Role="State" EntitySet="State" />
-            <End Role="ListingServiceLocation" EntitySet="ListingServiceLocation" />
-          </AssociationSet>
-          <EntitySet Name="User" EntityType="TMCModel.User" />
-          <EntitySet Name="UserType" EntityType="TMCModel.UserType" />
-          <AssociationSet Name="FK_Requirement_User" Association="TMCModel.FK_Requirement_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Requirement" EntitySet="Requirement" />
-          </AssociationSet>
-          <EntitySet Name="Listing" EntityType="TMCModel.Listing" />
-          <AssociationSet Name="FK_Listing_City" Association="TMCModel.FK_Listing_City">
-            <End Role="City" EntitySet="City" />
-            <End Role="Listing" EntitySet="Listing" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Listing_User1" Association="TMCModel.FK_Listing_User1">
-            <End Role="User" EntitySet="User" />
-            <End Role="Listing" EntitySet="Listing" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ListingCategory_Listing" Association="TMCModel.FK_ListingCategory_Listing">
-            <End Role="Listing" EntitySet="Listing" />
-            <End Role="ListingCategory" EntitySet="ListingCategory" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ListingContact_Listing" Association="TMCModel.FK_ListingContact_Listing">
-            <End Role="Listing" EntitySet="Listing" />
-            <End Role="ListingContact" EntitySet="ListingContact" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ListingLocation_Listing" Association="TMCModel.FK_ListingLocation_Listing">
-            <End Role="Listing" EntitySet="Listing" />
-            <End Role="ListingLocation" EntitySet="ListingLocation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ListingMedia_Listing" Association="TMCModel.FK_ListingMedia_Listing">
-            <End Role="Listing" EntitySet="Listing" />
-            <End Role="ListingMedia" EntitySet="ListingMedia" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ListingPaymentMode_Listing" Association="TMCModel.FK_ListingPaymentMode_Listing">
-            <End Role="Listing" EntitySet="Listing" />
-            <End Role="ListingPaymentMode" EntitySet="ListingPaymentMode" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ListingServiceLocation_Listing1" Association="TMCModel.FK_ListingServiceLocation_Listing1">
-            <End Role="Listing" EntitySet="Listing" />
-            <End Role="ListingServiceLocation" EntitySet="ListingServiceLocation" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="Products">
-          <Key>
-            <PropertyRef Name="ProductId" />
-            <PropertyRef Name="SeoTitle" />
-          </Key>
-          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="SeoTitle" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
-          <Property Name="ImageURL" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="SiteURL" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ContentText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ExpiryDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsActive" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="AdditionalInfo">
-          <Key>
-            <PropertyRef Name="AdditionalInfoId" />
-          </Key>
-          <Property Name="AdditionalInfoId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Requirement" Relationship="TMCModel.FK_Requirement_AdditionalInfo" FromRole="AdditionalInfo" ToRole="Requirement" />
-        </EntityType>
-        <EntityType Name="Area">
-          <Key>
-            <PropertyRef Name="AreaId" />
-          </Key>
-          <Property Name="AreaId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CityId" Type="Int32" Nullable="false" />
-          <Property Name="PlaceId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Pin" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="City" Relationship="TMCModel.FK_Area_City" FromRole="Area" ToRole="City" />
-          <NavigationProperty Name="ListingLocation" Relationship="TMCModel.FK_ListingLocation_Area" FromRole="Area" ToRole="ListingLocation" />
-          <NavigationProperty Name="RequirementLocation" Relationship="TMCModel.FK_RequirementLocation_Area" FromRole="Area" ToRole="RequirementLocation" />
-          <NavigationProperty Name="ListingServiceLocation" Relationship="TMCModel.FK_ListingServiceLocation_Area" FromRole="Area" ToRole="ListingServiceLocation" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="CategoryId" />
           </Key>
           <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
           <Property Name="Popularity" Type="Int32" />
-          <NavigationProperty Name="CategoryRelation" Relationship="TMCModel.FK_CategoryRelation_ChildCategory" FromRole="Category" ToRole="CategoryRelation" />
-          <NavigationProperty Name="CategoryRelation1" Relationship="TMCModel.FK_CategoryRelation_ParentCategory" FromRole="Category" ToRole="CategoryRelation" />
-          <NavigationProperty Name="RequirementCategory" Relationship="TMCModel.FK_RequirementCategory_Category" FromRole="Category" ToRole="RequirementCategory" />
-          <NavigationProperty Name="ListingCategory" Relationship="TMCModel.FK_ListingCategory_Category" FromRole="Category" ToRole="ListingCategory" />
+          <NavigationProperty Name="CategoryRelation" Relationship="Self.FK_CategoryRelation_ChildCategory" FromRole="Category" ToRole="CategoryRelation" />
+          <NavigationProperty Name="CategoryRelation1" Relationship="Self.FK_CategoryRelation_ParentCategory" FromRole="Category" ToRole="CategoryRelation" />
+          <NavigationProperty Name="ListingCategory" Relationship="Self.FK_ListingCategory_Category" FromRole="Category" ToRole="ListingCategory" />
+          <NavigationProperty Name="RequirementCategory" Relationship="Self.FK_RequirementCategory_Category" FromRole="Category" ToRole="RequirementCategory" />
         </EntityType>
         <EntityType Name="CategoryRelation">
           <Key>
@@ -1377,46 +1145,46 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="CategoryRelationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ParentCategoryId" Type="Int32" Nullable="false" />
           <Property Name="ChildCategoryId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Category" Relationship="TMCModel.FK_CategoryRelation_ChildCategory" FromRole="CategoryRelation" ToRole="Category" />
-          <NavigationProperty Name="Category1" Relationship="TMCModel.FK_CategoryRelation_ParentCategory" FromRole="CategoryRelation" ToRole="Category" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_CategoryRelation_ChildCategory" FromRole="CategoryRelation" ToRole="Category" />
+          <NavigationProperty Name="Category1" Relationship="Self.FK_CategoryRelation_ParentCategory" FromRole="CategoryRelation" ToRole="Category" />
         </EntityType>
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="CityId" />
           </Key>
           <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StateId" Type="Int32" Nullable="false" />
           <Property Name="Lat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Long" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IsPopular" Type="Boolean" Nullable="false" />
           <Property Name="PopulationClass" Type="Int16" />
-          <NavigationProperty Name="Area" Relationship="TMCModel.FK_Area_City" FromRole="City" ToRole="Area" />
-          <NavigationProperty Name="State" Relationship="TMCModel.FK_City_State" FromRole="City" ToRole="State" />
-          <NavigationProperty Name="ListingLocation" Relationship="TMCModel.FK_ListingLocation_City" FromRole="City" ToRole="ListingLocation" />
-          <NavigationProperty Name="RequirementLocation" Relationship="TMCModel.FK_RequirementLocation_City" FromRole="City" ToRole="RequirementLocation" />
-          <NavigationProperty Name="ListingServiceLocation" Relationship="TMCModel.FK_ListingServiceLocation_City" FromRole="City" ToRole="ListingServiceLocation" />
-          <NavigationProperty Name="Listing" Relationship="TMCModel.FK_Listing_City" FromRole="City" ToRole="Listing" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_Area_City" FromRole="City" ToRole="Area" />
+          <NavigationProperty Name="State" Relationship="Self.FK_City_State" FromRole="City" ToRole="State" />
+          <NavigationProperty Name="Listing" Relationship="Self.FK_Listing_City" FromRole="City" ToRole="Listing" />
+          <NavigationProperty Name="ListingLocation" Relationship="Self.FK_ListingLocation_City" FromRole="City" ToRole="ListingLocation" />
+          <NavigationProperty Name="ListingServiceLocation" Relationship="Self.FK_ListingServiceLocation_City" FromRole="City" ToRole="ListingServiceLocation" />
+          <NavigationProperty Name="RequirementLocation" Relationship="Self.FK_RequirementLocation_City" FromRole="City" ToRole="RequirementLocation" />
         </EntityType>
         <EntityType Name="ContactType">
           <Key>
             <PropertyRef Name="ContactTypeId" />
           </Key>
           <Property Name="ContactTypeId" Type="Int16" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ListingContact" Relationship="TMCModel.FK_ListingContact_ContactType" FromRole="ContactType" ToRole="ListingContact" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ListingContact" Relationship="Self.FK_ListingContact_ContactType" FromRole="ContactType" ToRole="ListingContact" />
         </EntityType>
         <EntityType Name="Country">
           <Key>
             <PropertyRef Name="CountryId" />
           </Key>
           <Property Name="CountryId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ISD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="State" Relationship="TMCModel.FK_State_Country" FromRole="Country" ToRole="State" />
-          <NavigationProperty Name="ListingServiceLocation" Relationship="TMCModel.FK_ListingServiceLocation_Country" FromRole="Country" ToRole="ListingServiceLocation" />
+          <NavigationProperty Name="ListingServiceLocation" Relationship="Self.FK_ListingServiceLocation_Country" FromRole="Country" ToRole="ListingServiceLocation" />
+          <NavigationProperty Name="State" Relationship="Self.FK_State_Country" FromRole="Country" ToRole="State" />
         </EntityType>
         <EntityType Name="File">
           <Key>
@@ -1425,39 +1193,83 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="FileId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FileExtensionId" Type="Int16" Nullable="false" />
           <Property Name="FileTypeId" Type="Int16" Nullable="false" />
-          <Property Name="FileTitle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FileTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="OriginalFileName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ServerFileName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ServerPath" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="OriginalFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ServerFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ServerPath" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="Int64" Nullable="false" />
           <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="FileExtension" Relationship="TMCModel.FK_File_FileExtension" FromRole="File" ToRole="FileExtension" />
-          <NavigationProperty Name="FileType" Relationship="TMCModel.FK_File_FileType" FromRole="File" ToRole="FileType" />
-          <NavigationProperty Name="ListingMedia" Relationship="TMCModel.FK_ListingMedia_File" FromRole="File" ToRole="ListingMedia" />
+          <NavigationProperty Name="FileExtension" Relationship="Self.FK_File_FileExtension" FromRole="File" ToRole="FileExtension" />
+          <NavigationProperty Name="FileType" Relationship="Self.FK_File_FileType" FromRole="File" ToRole="FileType" />
+          <NavigationProperty Name="ListingMedia" Relationship="Self.FK_ListingMedia_File" FromRole="File" ToRole="ListingMedia" />
         </EntityType>
         <EntityType Name="FileExtension">
           <Key>
             <PropertyRef Name="FileExtensionId" />
           </Key>
           <Property Name="FileExtensionId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DisplayName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FileContentType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FileContentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="File" Relationship="TMCModel.FK_File_FileExtension" FromRole="FileExtension" ToRole="File" />
+          <NavigationProperty Name="File" Relationship="Self.FK_File_FileExtension" FromRole="FileExtension" ToRole="File" />
         </EntityType>
         <EntityType Name="FileType">
           <Key>
             <PropertyRef Name="FileTypeId" />
           </Key>
           <Property Name="FileTypeId" Type="Int16" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="File" Relationship="TMCModel.FK_File_FileType" FromRole="FileType" ToRole="File" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="File" Relationship="Self.FK_File_FileType" FromRole="FileType" ToRole="File" />
+        </EntityType>
+        <EntityType Name="Listing">
+          <Key>
+            <PropertyRef Name="ListingId" />
+          </Key>
+          <Property Name="ListingId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+          <Property Name="BusinessName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="YearStarted" Type="Int16" />
+          <Property Name="ContactPerson" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ContactEmailId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessDays" Type="Int16" Nullable="false" />
+          <Property Name="BusinessHours" Type="Int16" Nullable="false" />
+          <Property Name="BusinessDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Landmark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PinCode" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+          <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Listing_City" FromRole="Listing" ToRole="City" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Listing_User" FromRole="Listing" ToRole="User" />
+          <NavigationProperty Name="ListingCategory" Relationship="Self.FK_ListingCategory_Listing" FromRole="Listing" ToRole="ListingCategory" />
+          <NavigationProperty Name="ListingContact" Relationship="Self.FK_ListingContact_Listing" FromRole="Listing" ToRole="ListingContact" />
+          <NavigationProperty Name="ListingLocation" Relationship="Self.FK_ListingLocation_Listing" FromRole="Listing" ToRole="ListingLocation" />
+          <NavigationProperty Name="ListingMedia" Relationship="Self.FK_ListingMedia_Listing" FromRole="Listing" ToRole="ListingMedia" />
+          <NavigationProperty Name="ListingPaymentMode" Relationship="Self.FK_ListingPaymentMode_Listing" FromRole="Listing" ToRole="ListingPaymentMode" />
+          <NavigationProperty Name="ListingServiceLocation" Relationship="Self.FK_ListingServiceLocation_Listing" FromRole="Listing" ToRole="ListingServiceLocation" />
+        </EntityType>
+        <EntityType Name="ListingCategory">
+          <Key>
+            <PropertyRef Name="ListingCategoryId" />
+          </Key>
+          <Property Name="ListingCategoryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ListingId" Type="Int64" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_ListingCategory_Category" FromRole="ListingCategory" ToRole="Category" />
+          <NavigationProperty Name="Listing" Relationship="Self.FK_ListingCategory_Listing" FromRole="ListingCategory" ToRole="Listing" />
         </EntityType>
         <EntityType Name="ListingContact">
           <Key>
@@ -1465,7 +1277,7 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           </Key>
           <Property Name="ListingContactId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ListingId" Type="Int64" Nullable="false" />
-          <Property Name="ContactNo" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ContactNo" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="ContactTypeId" Type="Int16" Nullable="false" />
           <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
@@ -1473,8 +1285,8 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="ContactType" Relationship="TMCModel.FK_ListingContact_ContactType" FromRole="ListingContact" ToRole="ContactType" />
-          <NavigationProperty Name="Listing" Relationship="TMCModel.FK_ListingContact_Listing" FromRole="ListingContact" ToRole="Listing" />
+          <NavigationProperty Name="ContactType" Relationship="Self.FK_ListingContact_ContactType" FromRole="ListingContact" ToRole="ContactType" />
+          <NavigationProperty Name="Listing" Relationship="Self.FK_ListingContact_Listing" FromRole="ListingContact" ToRole="Listing" />
         </EntityType>
         <EntityType Name="ListingLocation">
           <Key>
@@ -1483,7 +1295,7 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="ListingLocationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ListingId" Type="Int64" Nullable="false" />
           <Property Name="CityId" Type="Int32" Nullable="false" />
-          <Property Name="AreaId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AreaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Landmark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="PinCode" Type="Int32" Nullable="false" />
@@ -1493,9 +1305,9 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Area" Relationship="TMCModel.FK_ListingLocation_Area" FromRole="ListingLocation" ToRole="Area" />
-          <NavigationProperty Name="City" Relationship="TMCModel.FK_ListingLocation_City" FromRole="ListingLocation" ToRole="City" />
-          <NavigationProperty Name="Listing" Relationship="TMCModel.FK_ListingLocation_Listing" FromRole="ListingLocation" ToRole="Listing" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_ListingLocation_Area" FromRole="ListingLocation" ToRole="Area" />
+          <NavigationProperty Name="City" Relationship="Self.FK_ListingLocation_City" FromRole="ListingLocation" ToRole="City" />
+          <NavigationProperty Name="Listing" Relationship="Self.FK_ListingLocation_Listing" FromRole="ListingLocation" ToRole="Listing" />
         </EntityType>
         <EntityType Name="ListingMedia">
           <Key>
@@ -1510,8 +1322,8 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="File" Relationship="TMCModel.FK_ListingMedia_File" FromRole="ListingMedia" ToRole="File" />
-          <NavigationProperty Name="Listing" Relationship="TMCModel.FK_ListingMedia_Listing" FromRole="ListingMedia" ToRole="Listing" />
+          <NavigationProperty Name="File" Relationship="Self.FK_ListingMedia_File" FromRole="ListingMedia" ToRole="File" />
+          <NavigationProperty Name="Listing" Relationship="Self.FK_ListingMedia_Listing" FromRole="ListingMedia" ToRole="Listing" />
         </EntityType>
         <EntityType Name="ListingPaymentMode">
           <Key>
@@ -1520,319 +1332,9 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="ListingPaymentModeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ListingId" Type="Int64" Nullable="false" />
           <Property Name="PaymentModeId" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="PaymentMode" Relationship="TMCModel.FK_ListingPaymentMode_PaymentMode" FromRole="ListingPaymentMode" ToRole="PaymentMode" />
-          <NavigationProperty Name="Listing" Relationship="TMCModel.FK_ListingPaymentMode_Listing" FromRole="ListingPaymentMode" ToRole="Listing" />
+          <NavigationProperty Name="Listing" Relationship="Self.FK_ListingPaymentMode_Listing" FromRole="ListingPaymentMode" ToRole="Listing" />
+          <NavigationProperty Name="PaymentMode" Relationship="Self.FK_ListingPaymentMode_PaymentMode" FromRole="ListingPaymentMode" ToRole="PaymentMode" />
         </EntityType>
-        <EntityType Name="PaymentMode">
-          <Key>
-            <PropertyRef Name="PaymentModeId" />
-          </Key>
-          <Property Name="PaymentModeId" Type="Int16" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ListingPaymentMode" Relationship="TMCModel.FK_ListingPaymentMode_PaymentMode" FromRole="PaymentMode" ToRole="ListingPaymentMode" />
-        </EntityType>
-        <EntityType Name="Requirement">
-          <Key>
-            <PropertyRef Name="RequirementId" />
-          </Key>
-          <Property Name="RequirementId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="Int64" Nullable="false" />
-          <Property Name="Title" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="LikeCount" Type="Int32" />
-          <Property Name="DislikeCount" Type="Int32" />
-          <Property Name="AbuseCount" Type="Int32" />
-          <Property Name="LevelId" Type="Int16" />
-          <Property Name="AdditionalInfoId" Type="Int16" />
-          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="Int64" Nullable="false" />
-          <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="AdditionalInfo" Relationship="TMCModel.FK_Requirement_AdditionalInfo" FromRole="Requirement" ToRole="AdditionalInfo" />
-          <NavigationProperty Name="RequirementCategory" Relationship="TMCModel.FK_RequirementCategory_Requirement" FromRole="Requirement" ToRole="RequirementCategory" />
-          <NavigationProperty Name="RequirementLocation" Relationship="TMCModel.FK_RequirementLocation_Requirement" FromRole="Requirement" ToRole="RequirementLocation" />
-          <NavigationProperty Name="User" Relationship="TMCModel.FK_Requirement_User" FromRole="Requirement" ToRole="User" />
-        </EntityType>
-        <EntityType Name="RequirementCategory">
-          <Key>
-            <PropertyRef Name="RequirementCategoryId" />
-          </Key>
-          <Property Name="RequirementCategoryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RequirementId" Type="Int64" Nullable="false" />
-          <Property Name="CategoryId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Category" Relationship="TMCModel.FK_RequirementCategory_Category" FromRole="RequirementCategory" ToRole="Category" />
-          <NavigationProperty Name="Requirement" Relationship="TMCModel.FK_RequirementCategory_Requirement" FromRole="RequirementCategory" ToRole="Requirement" />
-        </EntityType>
-        <EntityType Name="RequirementLocation">
-          <Key>
-            <PropertyRef Name="RequirementLocationId" />
-          </Key>
-          <Property Name="RequirementLocationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RequirementId" Type="Int64" Nullable="false" />
-          <Property Name="CityId" Type="Int32" Nullable="false" />
-          <Property Name="AreaId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Area" Relationship="TMCModel.FK_RequirementLocation_Area" FromRole="RequirementLocation" ToRole="Area" />
-          <NavigationProperty Name="City" Relationship="TMCModel.FK_RequirementLocation_City" FromRole="RequirementLocation" ToRole="City" />
-          <NavigationProperty Name="Requirement" Relationship="TMCModel.FK_RequirementLocation_Requirement" FromRole="RequirementLocation" ToRole="Requirement" />
-        </EntityType>
-        <EntityType Name="State">
-          <Key>
-            <PropertyRef Name="StateId" />
-          </Key>
-          <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CountryId" Type="Int16" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="City" Relationship="TMCModel.FK_City_State" FromRole="State" ToRole="City" />
-          <NavigationProperty Name="Country" Relationship="TMCModel.FK_State_Country" FromRole="State" ToRole="Country" />
-          <NavigationProperty Name="ListingServiceLocation" Relationship="TMCModel.FK_ListingServiceLocation_State" FromRole="State" ToRole="ListingServiceLocation" />
-        </EntityType>
-        <Association Name="FK_Requirement_AdditionalInfo">
-          <End Type="TMCModel.AdditionalInfo" Role="AdditionalInfo" Multiplicity="0..1" />
-          <End Type="TMCModel.Requirement" Role="Requirement" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AdditionalInfo">
-              <PropertyRef Name="AdditionalInfoId" />
-            </Principal>
-            <Dependent Role="Requirement">
-              <PropertyRef Name="AdditionalInfoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Area_City">
-          <End Type="TMCModel.City" Role="City" Multiplicity="1" />
-          <End Type="TMCModel.Area" Role="Area" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="City">
-              <PropertyRef Name="CityId" />
-            </Principal>
-            <Dependent Role="Area">
-              <PropertyRef Name="CityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ListingLocation_Area">
-          <End Type="TMCModel.Area" Role="Area" Multiplicity="1" />
-          <End Type="TMCModel.ListingLocation" Role="ListingLocation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Area">
-              <PropertyRef Name="AreaId" />
-            </Principal>
-            <Dependent Role="ListingLocation">
-              <PropertyRef Name="AreaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RequirementLocation_Area">
-          <End Type="TMCModel.Area" Role="Area" Multiplicity="1" />
-          <End Type="TMCModel.RequirementLocation" Role="RequirementLocation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Area">
-              <PropertyRef Name="AreaId" />
-            </Principal>
-            <Dependent Role="RequirementLocation">
-              <PropertyRef Name="AreaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CategoryRelation_ChildCategory">
-          <End Type="TMCModel.Category" Role="Category" Multiplicity="1" />
-          <End Type="TMCModel.CategoryRelation" Role="CategoryRelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryId" />
-            </Principal>
-            <Dependent Role="CategoryRelation">
-              <PropertyRef Name="ChildCategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CategoryRelation_ParentCategory">
-          <End Type="TMCModel.Category" Role="Category" Multiplicity="1" />
-          <End Type="TMCModel.CategoryRelation" Role="CategoryRelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryId" />
-            </Principal>
-            <Dependent Role="CategoryRelation">
-              <PropertyRef Name="ParentCategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RequirementCategory_Category">
-          <End Type="TMCModel.Category" Role="Category" Multiplicity="1" />
-          <End Type="TMCModel.RequirementCategory" Role="RequirementCategory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryId" />
-            </Principal>
-            <Dependent Role="RequirementCategory">
-              <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_City_State">
-          <End Type="TMCModel.State" Role="State" Multiplicity="1" />
-          <End Type="TMCModel.City" Role="City" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="State">
-              <PropertyRef Name="StateId" />
-            </Principal>
-            <Dependent Role="City">
-              <PropertyRef Name="StateId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ListingLocation_City">
-          <End Type="TMCModel.City" Role="City" Multiplicity="1" />
-          <End Type="TMCModel.ListingLocation" Role="ListingLocation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="City">
-              <PropertyRef Name="CityId" />
-            </Principal>
-            <Dependent Role="ListingLocation">
-              <PropertyRef Name="CityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RequirementLocation_City">
-          <End Type="TMCModel.City" Role="City" Multiplicity="1" />
-          <End Type="TMCModel.RequirementLocation" Role="RequirementLocation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="City">
-              <PropertyRef Name="CityId" />
-            </Principal>
-            <Dependent Role="RequirementLocation">
-              <PropertyRef Name="CityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ListingContact_ContactType">
-          <End Type="TMCModel.ContactType" Role="ContactType" Multiplicity="1" />
-          <End Type="TMCModel.ListingContact" Role="ListingContact" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ContactType">
-              <PropertyRef Name="ContactTypeId" />
-            </Principal>
-            <Dependent Role="ListingContact">
-              <PropertyRef Name="ContactTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_State_Country">
-          <End Type="TMCModel.Country" Role="Country" Multiplicity="1" />
-          <End Type="TMCModel.State" Role="State" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Country">
-              <PropertyRef Name="CountryId" />
-            </Principal>
-            <Dependent Role="State">
-              <PropertyRef Name="CountryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_File_FileExtension">
-          <End Type="TMCModel.FileExtension" Role="FileExtension" Multiplicity="1" />
-          <End Type="TMCModel.File" Role="File" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FileExtension">
-              <PropertyRef Name="FileExtensionId" />
-            </Principal>
-            <Dependent Role="File">
-              <PropertyRef Name="FileExtensionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_File_FileType">
-          <End Type="TMCModel.FileType" Role="FileType" Multiplicity="1" />
-          <End Type="TMCModel.File" Role="File" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FileType">
-              <PropertyRef Name="FileTypeId" />
-            </Principal>
-            <Dependent Role="File">
-              <PropertyRef Name="FileTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ListingMedia_File">
-          <End Type="TMCModel.File" Role="File" Multiplicity="1" />
-          <End Type="TMCModel.ListingMedia" Role="ListingMedia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="File">
-              <PropertyRef Name="FileId" />
-            </Principal>
-            <Dependent Role="ListingMedia">
-              <PropertyRef Name="FileId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ListingPaymentMode_PaymentMode">
-          <End Type="TMCModel.PaymentMode" Role="PaymentMode" Multiplicity="1" />
-          <End Type="TMCModel.ListingPaymentMode" Role="ListingPaymentMode" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentMode">
-              <PropertyRef Name="PaymentModeId" />
-            </Principal>
-            <Dependent Role="ListingPaymentMode">
-              <PropertyRef Name="PaymentModeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RequirementCategory_Requirement">
-          <End Type="TMCModel.Requirement" Role="Requirement" Multiplicity="1" />
-          <End Type="TMCModel.RequirementCategory" Role="RequirementCategory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Requirement">
-              <PropertyRef Name="RequirementId" />
-            </Principal>
-            <Dependent Role="RequirementCategory">
-              <PropertyRef Name="RequirementId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RequirementLocation_Requirement">
-          <End Type="TMCModel.Requirement" Role="Requirement" Multiplicity="1" />
-          <End Type="TMCModel.RequirementLocation" Role="RequirementLocation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Requirement">
-              <PropertyRef Name="RequirementId" />
-            </Principal>
-            <Dependent Role="RequirementLocation">
-              <PropertyRef Name="RequirementId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="ListingCategory">
-          <Key>
-            <PropertyRef Name="ListingCategoryId" />
-          </Key>
-          <Property Name="ListingCategoryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ListingId" Type="Int64" Nullable="false" />
-          <Property Name="CategoryId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Category" Relationship="TMCModel.FK_ListingCategory_Category" FromRole="ListingCategory" ToRole="Category" />
-          <NavigationProperty Name="Listing" Relationship="TMCModel.FK_ListingCategory_Listing" FromRole="ListingCategory" ToRole="Listing" />
-        </EntityType>
-        <Association Name="FK_ListingCategory_Category">
-          <End Type="TMCModel.Category" Role="Category" Multiplicity="1" />
-          <End Type="TMCModel.ListingCategory" Role="ListingCategory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryId" />
-            </Principal>
-            <Dependent Role="ListingCategory">
-              <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="ListingServiceLocation">
           <Key>
             <PropertyRef Name="ListingServiceLocationId" />
@@ -1853,15 +1355,191 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Area" Relationship="TMCModel.FK_ListingServiceLocation_Area" FromRole="ListingServiceLocation" ToRole="Area" />
-          <NavigationProperty Name="City" Relationship="TMCModel.FK_ListingServiceLocation_City" FromRole="ListingServiceLocation" ToRole="City" />
-          <NavigationProperty Name="Country" Relationship="TMCModel.FK_ListingServiceLocation_Country" FromRole="ListingServiceLocation" ToRole="Country" />
-          <NavigationProperty Name="State" Relationship="TMCModel.FK_ListingServiceLocation_State" FromRole="ListingServiceLocation" ToRole="State" />
-          <NavigationProperty Name="Listing1" Relationship="TMCModel.FK_ListingServiceLocation_Listing1" FromRole="ListingServiceLocation" ToRole="Listing" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_ListingServiceLocation_Area" FromRole="ListingServiceLocation" ToRole="Area" />
+          <NavigationProperty Name="City" Relationship="Self.FK_ListingServiceLocation_City" FromRole="ListingServiceLocation" ToRole="City" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_ListingServiceLocation_Country" FromRole="ListingServiceLocation" ToRole="Country" />
+          <NavigationProperty Name="Listing" Relationship="Self.FK_ListingServiceLocation_Listing" FromRole="ListingServiceLocation" ToRole="Listing" />
+          <NavigationProperty Name="State" Relationship="Self.FK_ListingServiceLocation_State" FromRole="ListingServiceLocation" ToRole="State" />
         </EntityType>
+        <EntityType Name="PaymentMode">
+          <Key>
+            <PropertyRef Name="PaymentModeId" />
+          </Key>
+          <Property Name="PaymentModeId" Type="Int16" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ListingPaymentMode" Relationship="Self.FK_ListingPaymentMode_PaymentMode" FromRole="PaymentMode" ToRole="ListingPaymentMode" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductId" />
+            <PropertyRef Name="SeoTitle" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SeoTitle" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImageURL" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SiteURL" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContentText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpiryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Requirement">
+          <Key>
+            <PropertyRef Name="RequirementId" />
+          </Key>
+          <Property Name="RequirementId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LikeCount" Type="Int32" />
+          <Property Name="DislikeCount" Type="Int32" />
+          <Property Name="AbuseCount" Type="Int32" />
+          <Property Name="LevelId" Type="Int16" />
+          <Property Name="AdditionalInfoId" Type="Int16" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+          <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AdditionalInfo" Relationship="Self.FK_Requirement_AdditionalInfo" FromRole="Requirement" ToRole="AdditionalInfo" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Requirement_User" FromRole="Requirement" ToRole="User" />
+          <NavigationProperty Name="RequirementCategory" Relationship="Self.FK_RequirementCategory_Requirement" FromRole="Requirement" ToRole="RequirementCategory" />
+          <NavigationProperty Name="RequirementLocation" Relationship="Self.FK_RequirementLocation_Requirement" FromRole="Requirement" ToRole="RequirementLocation" />
+        </EntityType>
+        <EntityType Name="RequirementCategory">
+          <Key>
+            <PropertyRef Name="RequirementCategoryId" />
+          </Key>
+          <Property Name="RequirementCategoryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequirementId" Type="Int64" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_RequirementCategory_Category" FromRole="RequirementCategory" ToRole="Category" />
+          <NavigationProperty Name="Requirement" Relationship="Self.FK_RequirementCategory_Requirement" FromRole="RequirementCategory" ToRole="Requirement" />
+        </EntityType>
+        <EntityType Name="RequirementLocation">
+          <Key>
+            <PropertyRef Name="RequirementLocationId" />
+          </Key>
+          <Property Name="RequirementLocationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequirementId" Type="Int64" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="AreaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_RequirementLocation_Area" FromRole="RequirementLocation" ToRole="Area" />
+          <NavigationProperty Name="City" Relationship="Self.FK_RequirementLocation_City" FromRole="RequirementLocation" ToRole="City" />
+          <NavigationProperty Name="Requirement" Relationship="Self.FK_RequirementLocation_Requirement" FromRole="RequirementLocation" ToRole="Requirement" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryId" Type="Int16" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="City" Relationship="Self.FK_City_State" FromRole="State" ToRole="City" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_State_Country" FromRole="State" ToRole="Country" />
+          <NavigationProperty Name="ListingServiceLocation" Relationship="Self.FK_ListingServiceLocation_State" FromRole="State" ToRole="ListingServiceLocation" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddressLine1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CityId" Type="Int32" />
+          <Property Name="AreaId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PinCode" Type="Int32" />
+          <Property Name="UserTypeId" Type="Int16" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+          <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Listing" Relationship="Self.FK_Listing_User" FromRole="User" ToRole="Listing" />
+          <NavigationProperty Name="Requirement" Relationship="Self.FK_Requirement_User" FromRole="User" ToRole="Requirement" />
+          <NavigationProperty Name="UserType" Relationship="Self.FK_User_UserType" FromRole="User" ToRole="UserType" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="UserTypeId" />
+          </Key>
+          <Property Name="UserTypeId" Type="Int16" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_UserType" FromRole="UserType" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Blogs">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="modifiedDate" />
+            <PropertyRef Name="ExpiryDate" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WebURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Success" Type="Int32" />
+          <Property Name="Failure" Type="Int32" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpiryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_Requirement_AdditionalInfo">
+          <End Role="AdditionalInfo" Type="Self.AdditionalInfo" Multiplicity="0..1" />
+          <End Role="Requirement" Type="Self.Requirement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdditionalInfo">
+              <PropertyRef Name="AdditionalInfoId" />
+            </Principal>
+            <Dependent Role="Requirement">
+              <PropertyRef Name="AdditionalInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Area_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Area" Type="Self.Area" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Area">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListingLocation_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="1" />
+          <End Role="ListingLocation" Type="Self.ListingLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="AreaId" />
+            </Principal>
+            <Dependent Role="ListingLocation">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ListingServiceLocation_Area">
-          <End Type="TMCModel.Area" Role="Area" Multiplicity="0..1" />
-          <End Type="TMCModel.ListingServiceLocation" Role="ListingServiceLocation" Multiplicity="*" />
+          <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+          <End Role="ListingServiceLocation" Type="Self.ListingServiceLocation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Area">
               <PropertyRef Name="AreaId" />
@@ -1871,120 +1549,109 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ListingServiceLocation_City">
-          <End Type="TMCModel.City" Role="City" Multiplicity="1" />
-          <End Type="TMCModel.ListingServiceLocation" Role="ListingServiceLocation" Multiplicity="*" />
+        <Association Name="FK_RequirementLocation_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="1" />
+          <End Role="RequirementLocation" Type="Self.RequirementLocation" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="City">
-              <PropertyRef Name="CityId" />
+            <Principal Role="Area">
+              <PropertyRef Name="AreaId" />
             </Principal>
-            <Dependent Role="ListingServiceLocation">
-              <PropertyRef Name="CityId" />
+            <Dependent Role="RequirementLocation">
+              <PropertyRef Name="AreaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ListingServiceLocation_Country">
-          <End Type="TMCModel.Country" Role="Country" Multiplicity="1" />
-          <End Type="TMCModel.ListingServiceLocation" Role="ListingServiceLocation" Multiplicity="*" />
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Country">
-              <PropertyRef Name="CountryId" />
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ListingServiceLocation">
-              <PropertyRef Name="CountryId" />
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="User_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ListingServiceLocation_State">
-          <End Type="TMCModel.State" Role="State" Multiplicity="1" />
-          <End Type="TMCModel.ListingServiceLocation" Role="ListingServiceLocation" Multiplicity="*" />
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryRelation_ChildCategory">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="CategoryRelation" Type="Self.CategoryRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="CategoryRelation">
+              <PropertyRef Name="ChildCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryRelation_ParentCategory">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="CategoryRelation" Type="Self.CategoryRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="CategoryRelation">
+              <PropertyRef Name="ParentCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListingCategory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="ListingCategory" Type="Self.ListingCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="ListingCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequirementCategory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="RequirementCategory" Type="Self.RequirementCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="RequirementCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="State">
               <PropertyRef Name="StateId" />
             </Principal>
-            <Dependent Role="ListingServiceLocation">
+            <Dependent Role="City">
               <PropertyRef Name="StateId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="AddressLine1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="AddressLine2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="CityId" Type="Int32" />
-          <Property Name="AreaId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="PinCode" Type="Int32" />
-          <Property Name="UserTypeId" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="Int64" Nullable="false" />
-          <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Requirement" Relationship="TMCModel.FK_Requirement_User" FromRole="User" ToRole="Requirement" />
-          <NavigationProperty Name="Listing1" Relationship="TMCModel.FK_Listing_User1" FromRole="User" ToRole="Listing" />
-        </EntityType>
-        <EntityType Name="UserType">
-          <Key>
-            <PropertyRef Name="UserTypeId" />
-          </Key>
-          <Property Name="UserTypeId" Type="Int16" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <Association Name="FK_Requirement_User">
-          <End Type="TMCModel.User" Role="User" Multiplicity="1" />
-          <End Type="TMCModel.Requirement" Role="Requirement" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="Requirement">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Listing">
-          <Key>
-            <PropertyRef Name="ListingId" />
-          </Key>
-          <Property Name="ListingId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="Int64" Nullable="false" />
-          <Property Name="BusinessName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="YearStarted" Type="Int16" />
-          <Property Name="ContactPerson" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ContactEmailId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="BusinessDays" Type="Int16" Nullable="false" />
-          <Property Name="BusinessHours" Type="Int16" Nullable="false" />
-          <Property Name="BusinessDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="CityId" Type="Int32" Nullable="false" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Landmark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="PinCode" Type="Int32" Nullable="false" />
-          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="Int64" Nullable="false" />
-          <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="City" Relationship="TMCModel.FK_Listing_City" FromRole="Listing" ToRole="City" />
-          <NavigationProperty Name="User" Relationship="TMCModel.FK_Listing_User1" FromRole="Listing" ToRole="User" />
-          <NavigationProperty Name="ListingCategory" Relationship="TMCModel.FK_ListingCategory_Listing" FromRole="Listing" ToRole="ListingCategory" />
-          <NavigationProperty Name="ListingContact" Relationship="TMCModel.FK_ListingContact_Listing" FromRole="Listing" ToRole="ListingContact" />
-          <NavigationProperty Name="ListingLocation" Relationship="TMCModel.FK_ListingLocation_Listing" FromRole="Listing" ToRole="ListingLocation" />
-          <NavigationProperty Name="ListingMedia" Relationship="TMCModel.FK_ListingMedia_Listing" FromRole="Listing" ToRole="ListingMedia" />
-          <NavigationProperty Name="ListingPaymentMode" Relationship="TMCModel.FK_ListingPaymentMode_Listing" FromRole="Listing" ToRole="ListingPaymentMode" />
-          <NavigationProperty Name="ListingServiceLocation" Relationship="TMCModel.FK_ListingServiceLocation_Listing1" FromRole="Listing" ToRole="ListingServiceLocation" />
-        </EntityType>
         <Association Name="FK_Listing_City">
-          <End Type="TMCModel.City" Role="City" Multiplicity="1" />
-          <End Type="TMCModel.Listing" Role="Listing" Multiplicity="*" />
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Listing" Type="Self.Listing" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="City">
               <PropertyRef Name="CityId" />
@@ -1994,9 +1661,117 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Listing_User1">
-          <End Type="TMCModel.User" Role="User" Multiplicity="1" />
-          <End Type="TMCModel.Listing" Role="Listing" Multiplicity="*" />
+        <Association Name="FK_ListingLocation_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="ListingLocation" Type="Self.ListingLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="ListingLocation">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListingServiceLocation_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="ListingServiceLocation" Type="Self.ListingServiceLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="ListingServiceLocation">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequirementLocation_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="RequirementLocation" Type="Self.RequirementLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="RequirementLocation">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListingContact_ContactType">
+          <End Role="ContactType" Type="Self.ContactType" Multiplicity="1" />
+          <End Role="ListingContact" Type="Self.ListingContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactType">
+              <PropertyRef Name="ContactTypeId" />
+            </Principal>
+            <Dependent Role="ListingContact">
+              <PropertyRef Name="ContactTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListingServiceLocation_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="ListingServiceLocation" Type="Self.ListingServiceLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="ListingServiceLocation">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="State" Type="Self.State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_File_FileExtension">
+          <End Role="FileExtension" Type="Self.FileExtension" Multiplicity="1" />
+          <End Role="File" Type="Self.File" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileExtension">
+              <PropertyRef Name="FileExtensionId" />
+            </Principal>
+            <Dependent Role="File">
+              <PropertyRef Name="FileExtensionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_File_FileType">
+          <End Role="FileType" Type="Self.FileType" Multiplicity="1" />
+          <End Role="File" Type="Self.File" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileType">
+              <PropertyRef Name="FileTypeId" />
+            </Principal>
+            <Dependent Role="File">
+              <PropertyRef Name="FileTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListingMedia_File">
+          <End Role="File" Type="Self.File" Multiplicity="1" />
+          <End Role="ListingMedia" Type="Self.ListingMedia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="FileId" />
+            </Principal>
+            <Dependent Role="ListingMedia">
+              <PropertyRef Name="FileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Listing_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Listing" Type="Self.Listing" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="UserId" />
@@ -2007,8 +1782,8 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ListingCategory_Listing">
-          <End Type="TMCModel.Listing" Role="Listing" Multiplicity="1" />
-          <End Type="TMCModel.ListingCategory" Role="ListingCategory" Multiplicity="*" />
+          <End Role="Listing" Type="Self.Listing" Multiplicity="1" />
+          <End Role="ListingCategory" Type="Self.ListingCategory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Listing">
               <PropertyRef Name="ListingId" />
@@ -2019,8 +1794,8 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ListingContact_Listing">
-          <End Type="TMCModel.Listing" Role="Listing" Multiplicity="1" />
-          <End Type="TMCModel.ListingContact" Role="ListingContact" Multiplicity="*" />
+          <End Role="Listing" Type="Self.Listing" Multiplicity="1" />
+          <End Role="ListingContact" Type="Self.ListingContact" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Listing">
               <PropertyRef Name="ListingId" />
@@ -2031,8 +1806,8 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ListingLocation_Listing">
-          <End Type="TMCModel.Listing" Role="Listing" Multiplicity="1" />
-          <End Type="TMCModel.ListingLocation" Role="ListingLocation" Multiplicity="*" />
+          <End Role="Listing" Type="Self.Listing" Multiplicity="1" />
+          <End Role="ListingLocation" Type="Self.ListingLocation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Listing">
               <PropertyRef Name="ListingId" />
@@ -2043,8 +1818,8 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ListingMedia_Listing">
-          <End Type="TMCModel.Listing" Role="Listing" Multiplicity="1" />
-          <End Type="TMCModel.ListingMedia" Role="ListingMedia" Multiplicity="*" />
+          <End Role="Listing" Type="Self.Listing" Multiplicity="1" />
+          <End Role="ListingMedia" Type="Self.ListingMedia" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Listing">
               <PropertyRef Name="ListingId" />
@@ -2055,8 +1830,8 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ListingPaymentMode_Listing">
-          <End Type="TMCModel.Listing" Role="Listing" Multiplicity="1" />
-          <End Type="TMCModel.ListingPaymentMode" Role="ListingPaymentMode" Multiplicity="*" />
+          <End Role="Listing" Type="Self.Listing" Multiplicity="1" />
+          <End Role="ListingPaymentMode" Type="Self.ListingPaymentMode" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Listing">
               <PropertyRef Name="ListingId" />
@@ -2066,9 +1841,9 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ListingServiceLocation_Listing1">
-          <End Type="TMCModel.Listing" Role="Listing" Multiplicity="1" />
-          <End Type="TMCModel.ListingServiceLocation" Role="ListingServiceLocation" Multiplicity="*" />
+        <Association Name="FK_ListingServiceLocation_Listing">
+          <End Role="Listing" Type="Self.Listing" Multiplicity="1" />
+          <End Role="ListingServiceLocation" Type="Self.ListingServiceLocation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Listing">
               <PropertyRef Name="ListingId" />
@@ -2078,24 +1853,286 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ListingPaymentMode_PaymentMode">
+          <End Role="PaymentMode" Type="Self.PaymentMode" Multiplicity="1" />
+          <End Role="ListingPaymentMode" Type="Self.ListingPaymentMode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMode">
+              <PropertyRef Name="PaymentModeId" />
+            </Principal>
+            <Dependent Role="ListingPaymentMode">
+              <PropertyRef Name="PaymentModeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListingServiceLocation_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="ListingServiceLocation" Type="Self.ListingServiceLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="ListingServiceLocation">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Requirement_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Requirement" Type="Self.Requirement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Requirement">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequirementCategory_Requirement">
+          <End Role="Requirement" Type="Self.Requirement" Multiplicity="1" />
+          <End Role="RequirementCategory" Type="Self.RequirementCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Requirement">
+              <PropertyRef Name="RequirementId" />
+            </Principal>
+            <Dependent Role="RequirementCategory">
+              <PropertyRef Name="RequirementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequirementLocation_Requirement">
+          <End Role="Requirement" Type="Self.Requirement" Multiplicity="1" />
+          <End Role="RequirementLocation" Type="Self.RequirementLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Requirement">
+              <PropertyRef Name="RequirementId" />
+            </Principal>
+            <Dependent Role="RequirementLocation">
+              <PropertyRef Name="RequirementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserType">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="TMCContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdditionalInfo" EntityType="Self.AdditionalInfo" />
+          <EntitySet Name="Area" EntityType="Self.Area" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="Category" EntityType="Self.Category" />
+          <EntitySet Name="CategoryRelation" EntityType="Self.CategoryRelation" />
+          <EntitySet Name="City" EntityType="Self.City" />
+          <EntitySet Name="ContactType" EntityType="Self.ContactType" />
+          <EntitySet Name="Country" EntityType="Self.Country" />
+          <EntitySet Name="File" EntityType="Self.File" />
+          <EntitySet Name="FileExtension" EntityType="Self.FileExtension" />
+          <EntitySet Name="FileType" EntityType="Self.FileType" />
+          <EntitySet Name="Listing" EntityType="Self.Listing" />
+          <EntitySet Name="ListingCategory" EntityType="Self.ListingCategory" />
+          <EntitySet Name="ListingContact" EntityType="Self.ListingContact" />
+          <EntitySet Name="ListingLocation" EntityType="Self.ListingLocation" />
+          <EntitySet Name="ListingMedia" EntityType="Self.ListingMedia" />
+          <EntitySet Name="ListingPaymentMode" EntityType="Self.ListingPaymentMode" />
+          <EntitySet Name="ListingServiceLocation" EntityType="Self.ListingServiceLocation" />
+          <EntitySet Name="PaymentMode" EntityType="Self.PaymentMode" />
+          <EntitySet Name="Products" EntityType="Self.Products" />
+          <EntitySet Name="Requirement" EntityType="Self.Requirement" />
+          <EntitySet Name="RequirementCategory" EntityType="Self.RequirementCategory" />
+          <EntitySet Name="RequirementLocation" EntityType="Self.RequirementLocation" />
+          <EntitySet Name="State" EntityType="Self.State" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" />
+          <EntitySet Name="Blogs" EntityType="Self.Blogs" />
+          <AssociationSet Name="FK_Requirement_AdditionalInfo" Association="Self.FK_Requirement_AdditionalInfo">
+            <End Role="AdditionalInfo" EntitySet="AdditionalInfo" />
+            <End Role="Requirement" EntitySet="Requirement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Area_City" Association="Self.FK_Area_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Area" EntitySet="Area" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingLocation_Area" Association="Self.FK_ListingLocation_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="ListingLocation" EntitySet="ListingLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingServiceLocation_Area" Association="Self.FK_ListingServiceLocation_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="ListingServiceLocation" EntitySet="ListingServiceLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequirementLocation_Area" Association="Self.FK_RequirementLocation_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="RequirementLocation" EntitySet="RequirementLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryRelation_ChildCategory" Association="Self.FK_CategoryRelation_ChildCategory">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="CategoryRelation" EntitySet="CategoryRelation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryRelation_ParentCategory" Association="Self.FK_CategoryRelation_ParentCategory">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="CategoryRelation" EntitySet="CategoryRelation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingCategory_Category" Association="Self.FK_ListingCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="ListingCategory" EntitySet="ListingCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequirementCategory_Category" Association="Self.FK_RequirementCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="RequirementCategory" EntitySet="RequirementCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_State" Association="Self.FK_City_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Listing_City" Association="Self.FK_Listing_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Listing" EntitySet="Listing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingLocation_City" Association="Self.FK_ListingLocation_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="ListingLocation" EntitySet="ListingLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingServiceLocation_City" Association="Self.FK_ListingServiceLocation_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="ListingServiceLocation" EntitySet="ListingServiceLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequirementLocation_City" Association="Self.FK_RequirementLocation_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="RequirementLocation" EntitySet="RequirementLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingContact_ContactType" Association="Self.FK_ListingContact_ContactType">
+            <End Role="ContactType" EntitySet="ContactType" />
+            <End Role="ListingContact" EntitySet="ListingContact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingServiceLocation_Country" Association="Self.FK_ListingServiceLocation_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="ListingServiceLocation" EntitySet="ListingServiceLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_Country" Association="Self.FK_State_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="State" EntitySet="State" />
+          </AssociationSet>
+          <AssociationSet Name="FK_File_FileExtension" Association="Self.FK_File_FileExtension">
+            <End Role="FileExtension" EntitySet="FileExtension" />
+            <End Role="File" EntitySet="File" />
+          </AssociationSet>
+          <AssociationSet Name="FK_File_FileType" Association="Self.FK_File_FileType">
+            <End Role="FileType" EntitySet="FileType" />
+            <End Role="File" EntitySet="File" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingMedia_File" Association="Self.FK_ListingMedia_File">
+            <End Role="File" EntitySet="File" />
+            <End Role="ListingMedia" EntitySet="ListingMedia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Listing_User" Association="Self.FK_Listing_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Listing" EntitySet="Listing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingCategory_Listing" Association="Self.FK_ListingCategory_Listing">
+            <End Role="Listing" EntitySet="Listing" />
+            <End Role="ListingCategory" EntitySet="ListingCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingContact_Listing" Association="Self.FK_ListingContact_Listing">
+            <End Role="Listing" EntitySet="Listing" />
+            <End Role="ListingContact" EntitySet="ListingContact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingLocation_Listing" Association="Self.FK_ListingLocation_Listing">
+            <End Role="Listing" EntitySet="Listing" />
+            <End Role="ListingLocation" EntitySet="ListingLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingMedia_Listing" Association="Self.FK_ListingMedia_Listing">
+            <End Role="Listing" EntitySet="Listing" />
+            <End Role="ListingMedia" EntitySet="ListingMedia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingPaymentMode_Listing" Association="Self.FK_ListingPaymentMode_Listing">
+            <End Role="Listing" EntitySet="Listing" />
+            <End Role="ListingPaymentMode" EntitySet="ListingPaymentMode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingServiceLocation_Listing" Association="Self.FK_ListingServiceLocation_Listing">
+            <End Role="Listing" EntitySet="Listing" />
+            <End Role="ListingServiceLocation" EntitySet="ListingServiceLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingPaymentMode_PaymentMode" Association="Self.FK_ListingPaymentMode_PaymentMode">
+            <End Role="PaymentMode" EntitySet="PaymentMode" />
+            <End Role="ListingPaymentMode" EntitySet="ListingPaymentMode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingServiceLocation_State" Association="Self.FK_ListingServiceLocation_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="ListingServiceLocation" EntitySet="ListingServiceLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Requirement_User" Association="Self.FK_Requirement_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Requirement" EntitySet="Requirement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequirementCategory_Requirement" Association="Self.FK_RequirementCategory_Requirement">
+            <End Role="Requirement" EntitySet="Requirement" />
+            <End Role="RequirementCategory" EntitySet="RequirementCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequirementLocation_Requirement" Association="Self.FK_RequirementLocation_Requirement">
+            <End Role="Requirement" EntitySet="Requirement" />
+            <End Role="RequirementLocation" EntitySet="RequirementLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserType" Association="Self.FK_User_UserType">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TMCModelStoreContainer" CdmEntityContainer="TMCContext">
-          <EntitySetMapping Name="C__MigrationHistory">
-            <EntityTypeMapping TypeName="TMCModel.C__MigrationHistory">
-              <MappingFragment StoreEntitySet="__MigrationHistory">
-                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
-                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
-                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        <EntityContainerMapping StorageEntityContainer="TMCEntitiesEntityModelsStoreContainer" CdmEntityContainer="TMCContext">
+          <EntitySetMapping Name="AdditionalInfo">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.AdditionalInfo">
+              <MappingFragment StoreEntitySet="AdditionalInfo">
+                <ScalarProperty Name="AdditionalInfoId" ColumnName="AdditionalInfoId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Area">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Pin" ColumnName="Pin" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetRoles">
-            <EntityTypeMapping TypeName="TMCModel.AspNetRole">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.AspNetRoles">
               <MappingFragment StoreEntitySet="AspNetRoles">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -2103,7 +2140,7 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserClaims">
-            <EntityTypeMapping TypeName="TMCModel.AspNetUserClaim">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.AspNetUserClaims">
               <MappingFragment StoreEntitySet="AspNetUserClaims">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
@@ -2113,7 +2150,7 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserLogins">
-            <EntityTypeMapping TypeName="TMCModel.AspNetUserLogin">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.AspNetUserLogins">
               <MappingFragment StoreEntitySet="AspNetUserLogins">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
@@ -2122,9 +2159,8 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUsers">
-            <EntityTypeMapping TypeName="TMCModel.AspNetUser">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.AspNetUsers">
               <MappingFragment StoreEntitySet="AspNetUsers">
-                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
@@ -2133,11 +2169,331 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Popularity" ColumnName="Popularity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryRelation">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.CategoryRelation">
+              <MappingFragment StoreEntitySet="CategoryRelation">
+                <ScalarProperty Name="CategoryRelationId" ColumnName="CategoryRelationId" />
+                <ScalarProperty Name="ParentCategoryId" ColumnName="ParentCategoryId" />
+                <ScalarProperty Name="ChildCategoryId" ColumnName="ChildCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Long" ColumnName="Long" />
+                <ScalarProperty Name="IsPopular" ColumnName="IsPopular" />
+                <ScalarProperty Name="PopulationClass" ColumnName="PopulationClass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactType">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.ContactType">
+              <MappingFragment StoreEntitySet="ContactType">
+                <ScalarProperty Name="ContactTypeId" ColumnName="ContactTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="ISD" ColumnName="ISD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="File">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.File">
+              <MappingFragment StoreEntitySet="File">
+                <ScalarProperty Name="FileId" ColumnName="FileId" />
+                <ScalarProperty Name="FileExtensionId" ColumnName="FileExtensionId" />
+                <ScalarProperty Name="FileTypeId" ColumnName="FileTypeId" />
+                <ScalarProperty Name="FileTitle" ColumnName="FileTitle" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="OriginalFileName" ColumnName="OriginalFileName" />
+                <ScalarProperty Name="ServerFileName" ColumnName="ServerFileName" />
+                <ScalarProperty Name="ServerPath" ColumnName="ServerPath" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileExtension">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.FileExtension">
+              <MappingFragment StoreEntitySet="FileExtension">
+                <ScalarProperty Name="FileExtensionId" ColumnName="FileExtensionId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="FileContentType" ColumnName="FileContentType" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileType">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.FileType">
+              <MappingFragment StoreEntitySet="FileType">
+                <ScalarProperty Name="FileTypeId" ColumnName="FileTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Listing">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.Listing">
+              <MappingFragment StoreEntitySet="Listing">
+                <ScalarProperty Name="ListingId" ColumnName="ListingId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+                <ScalarProperty Name="YearStarted" ColumnName="YearStarted" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="ContactEmailId" ColumnName="ContactEmailId" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="BusinessDays" ColumnName="BusinessDays" />
+                <ScalarProperty Name="BusinessHours" ColumnName="BusinessHours" />
+                <ScalarProperty Name="BusinessDescription" ColumnName="BusinessDescription" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Landmark" ColumnName="Landmark" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListingCategory">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.ListingCategory">
+              <MappingFragment StoreEntitySet="ListingCategory">
+                <ScalarProperty Name="ListingCategoryId" ColumnName="ListingCategoryId" />
+                <ScalarProperty Name="ListingId" ColumnName="ListingId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListingContact">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.ListingContact">
+              <MappingFragment StoreEntitySet="ListingContact">
+                <ScalarProperty Name="ListingContactId" ColumnName="ListingContactId" />
+                <ScalarProperty Name="ListingId" ColumnName="ListingId" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="ContactTypeId" ColumnName="ContactTypeId" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListingLocation">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.ListingLocation">
+              <MappingFragment StoreEntitySet="ListingLocation">
+                <ScalarProperty Name="ListingLocationId" ColumnName="ListingLocationId" />
+                <ScalarProperty Name="ListingId" ColumnName="ListingId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Landmark" ColumnName="Landmark" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListingMedia">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.ListingMedia">
+              <MappingFragment StoreEntitySet="ListingMedia">
+                <ScalarProperty Name="ListingMediaId" ColumnName="ListingMediaId" />
+                <ScalarProperty Name="ListingId" ColumnName="ListingId" />
+                <ScalarProperty Name="FileId" ColumnName="FileId" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListingPaymentMode">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.ListingPaymentMode">
+              <MappingFragment StoreEntitySet="ListingPaymentMode">
+                <ScalarProperty Name="ListingPaymentModeId" ColumnName="ListingPaymentModeId" />
+                <ScalarProperty Name="ListingId" ColumnName="ListingId" />
+                <ScalarProperty Name="PaymentModeId" ColumnName="PaymentModeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListingServiceLocation">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.ListingServiceLocation">
+              <MappingFragment StoreEntitySet="ListingServiceLocation">
+                <ScalarProperty Name="ListingServiceLocationId" ColumnName="ListingServiceLocationId" />
+                <ScalarProperty Name="ListingId" ColumnName="ListingId" />
+                <ScalarProperty Name="IsGlobalLevel" ColumnName="IsGlobalLevel" />
+                <ScalarProperty Name="IsCountryLevel" ColumnName="IsCountryLevel" />
+                <ScalarProperty Name="IsStateLevel" ColumnName="IsStateLevel" />
+                <ScalarProperty Name="IsCityLevel" ColumnName="IsCityLevel" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentMode">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.PaymentMode">
+              <MappingFragment StoreEntitySet="PaymentMode">
+                <ScalarProperty Name="PaymentModeId" ColumnName="PaymentModeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SeoTitle" ColumnName="SeoTitle" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="SiteURL" ColumnName="SiteURL" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ContentText" ColumnName="ContentText" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requirement">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.Requirement">
+              <MappingFragment StoreEntitySet="Requirement">
+                <ScalarProperty Name="RequirementId" ColumnName="RequirementId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LikeCount" ColumnName="LikeCount" />
+                <ScalarProperty Name="DislikeCount" ColumnName="DislikeCount" />
+                <ScalarProperty Name="AbuseCount" ColumnName="AbuseCount" />
+                <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+                <ScalarProperty Name="AdditionalInfoId" ColumnName="AdditionalInfoId" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequirementCategory">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.RequirementCategory">
+              <MappingFragment StoreEntitySet="RequirementCategory">
+                <ScalarProperty Name="RequirementCategoryId" ColumnName="RequirementCategoryId" />
+                <ScalarProperty Name="RequirementId" ColumnName="RequirementId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequirementLocation">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.RequirementLocation">
+              <MappingFragment StoreEntitySet="RequirementLocation">
+                <ScalarProperty Name="RequirementLocationId" ColumnName="RequirementLocationId" />
+                <ScalarProperty Name="RequirementId" ColumnName="RequirementId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="State">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserType">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.UserType">
+              <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Blogs">
-            <EntityTypeMapping TypeName="TMCModel.Blog">
+            <EntityTypeMapping TypeName="TMC.Entities.EntityModels.Blogs">
               <MappingFragment StoreEntitySet="Blogs">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
@@ -2153,7 +2509,7 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles" TypeName="TMCModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="TMC.Entities.EntityModels.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetRoles">
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
@@ -2161,345 +2517,6 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="TMCModel.Products">
-              <MappingFragment StoreEntitySet="Products">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="ContentText" ColumnName="ContentText" />
-                <ScalarProperty Name="Content" ColumnName="Content" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="SiteURL" ColumnName="SiteURL" />
-                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
-                <ScalarProperty Name="SeoTitle" ColumnName="SeoTitle" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AdditionalInfo">
-            <EntityTypeMapping TypeName="TMCModel.AdditionalInfo">
-              <MappingFragment StoreEntitySet="AdditionalInfo">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="AdditionalInfoId" ColumnName="AdditionalInfoId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Area">
-            <EntityTypeMapping TypeName="TMCModel.Area">
-              <MappingFragment StoreEntitySet="Area">
-                <ScalarProperty Name="Pin" ColumnName="Pin" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Category">
-            <EntityTypeMapping TypeName="TMCModel.Category">
-              <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="Popularity" ColumnName="Popularity" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CategoryRelation">
-            <EntityTypeMapping TypeName="TMCModel.CategoryRelation">
-              <MappingFragment StoreEntitySet="CategoryRelation">
-                <ScalarProperty Name="ChildCategoryId" ColumnName="ChildCategoryId" />
-                <ScalarProperty Name="ParentCategoryId" ColumnName="ParentCategoryId" />
-                <ScalarProperty Name="CategoryRelationId" ColumnName="CategoryRelationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="City">
-            <EntityTypeMapping TypeName="TMCModel.City">
-              <MappingFragment StoreEntitySet="City">
-                <ScalarProperty Name="PopulationClass" ColumnName="PopulationClass" />
-                <ScalarProperty Name="IsPopular" ColumnName="IsPopular" />
-                <ScalarProperty Name="Long" ColumnName="Long" />
-                <ScalarProperty Name="Lat" ColumnName="Lat" />
-                <ScalarProperty Name="StateId" ColumnName="StateId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ContactType">
-            <EntityTypeMapping TypeName="TMCModel.ContactType">
-              <MappingFragment StoreEntitySet="ContactType">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ContactTypeId" ColumnName="ContactTypeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Country">
-            <EntityTypeMapping TypeName="TMCModel.Country">
-              <MappingFragment StoreEntitySet="Country">
-                <ScalarProperty Name="ISD" ColumnName="ISD" />
-                <ScalarProperty Name="Currency" ColumnName="Currency" />
-                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="File">
-            <EntityTypeMapping TypeName="TMCModel.File">
-              <MappingFragment StoreEntitySet="File">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="ServerPath" ColumnName="ServerPath" />
-                <ScalarProperty Name="ServerFileName" ColumnName="ServerFileName" />
-                <ScalarProperty Name="OriginalFileName" ColumnName="OriginalFileName" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="FileTitle" ColumnName="FileTitle" />
-                <ScalarProperty Name="FileTypeId" ColumnName="FileTypeId" />
-                <ScalarProperty Name="FileExtensionId" ColumnName="FileExtensionId" />
-                <ScalarProperty Name="FileId" ColumnName="FileId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FileExtension">
-            <EntityTypeMapping TypeName="TMCModel.FileExtension">
-              <MappingFragment StoreEntitySet="FileExtension">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="FileContentType" ColumnName="FileContentType" />
-                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="FileExtensionId" ColumnName="FileExtensionId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FileType">
-            <EntityTypeMapping TypeName="TMCModel.FileType">
-              <MappingFragment StoreEntitySet="FileType">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="FileTypeId" ColumnName="FileTypeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ListingContact">
-            <EntityTypeMapping TypeName="TMCModel.ListingContact">
-              <MappingFragment StoreEntitySet="ListingContact">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="ContactTypeId" ColumnName="ContactTypeId" />
-                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
-                <ScalarProperty Name="ListingId" ColumnName="ListingId" />
-                <ScalarProperty Name="ListingContactId" ColumnName="ListingContactId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ListingLocation">
-            <EntityTypeMapping TypeName="TMCModel.ListingLocation">
-              <MappingFragment StoreEntitySet="ListingLocation">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
-                <ScalarProperty Name="Landmark" ColumnName="Landmark" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-                <ScalarProperty Name="ListingId" ColumnName="ListingId" />
-                <ScalarProperty Name="ListingLocationId" ColumnName="ListingLocationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ListingMedia">
-            <EntityTypeMapping TypeName="TMCModel.ListingMedia">
-              <MappingFragment StoreEntitySet="ListingMedia">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="FileId" ColumnName="FileId" />
-                <ScalarProperty Name="ListingId" ColumnName="ListingId" />
-                <ScalarProperty Name="ListingMediaId" ColumnName="ListingMediaId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ListingPaymentMode">
-            <EntityTypeMapping TypeName="TMCModel.ListingPaymentMode">
-              <MappingFragment StoreEntitySet="ListingPaymentMode">
-                <ScalarProperty Name="PaymentModeId" ColumnName="PaymentModeId" />
-                <ScalarProperty Name="ListingId" ColumnName="ListingId" />
-                <ScalarProperty Name="ListingPaymentModeId" ColumnName="ListingPaymentModeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PaymentMode">
-            <EntityTypeMapping TypeName="TMCModel.PaymentMode">
-              <MappingFragment StoreEntitySet="PaymentMode">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="PaymentModeId" ColumnName="PaymentModeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Requirement">
-            <EntityTypeMapping TypeName="TMCModel.Requirement">
-              <MappingFragment StoreEntitySet="Requirement">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="AdditionalInfoId" ColumnName="AdditionalInfoId" />
-                <ScalarProperty Name="LevelId" ColumnName="LevelId" />
-                <ScalarProperty Name="AbuseCount" ColumnName="AbuseCount" />
-                <ScalarProperty Name="DislikeCount" ColumnName="DislikeCount" />
-                <ScalarProperty Name="LikeCount" ColumnName="LikeCount" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="RequirementId" ColumnName="RequirementId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RequirementCategory">
-            <EntityTypeMapping TypeName="TMCModel.RequirementCategory">
-              <MappingFragment StoreEntitySet="RequirementCategory">
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-                <ScalarProperty Name="RequirementId" ColumnName="RequirementId" />
-                <ScalarProperty Name="RequirementCategoryId" ColumnName="RequirementCategoryId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RequirementLocation">
-            <EntityTypeMapping TypeName="TMCModel.RequirementLocation">
-              <MappingFragment StoreEntitySet="RequirementLocation">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-                <ScalarProperty Name="RequirementId" ColumnName="RequirementId" />
-                <ScalarProperty Name="RequirementLocationId" ColumnName="RequirementLocationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="State">
-            <EntityTypeMapping TypeName="TMCModel.State">
-              <MappingFragment StoreEntitySet="State">
-                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
-                <ScalarProperty Name="StateId" ColumnName="StateId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ListingCategory">
-            <EntityTypeMapping TypeName="TMCModel.ListingCategory">
-              <MappingFragment StoreEntitySet="ListingCategory">
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-                <ScalarProperty Name="ListingId" ColumnName="ListingId" />
-                <ScalarProperty Name="ListingCategoryId" ColumnName="ListingCategoryId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ListingServiceLocation">
-            <EntityTypeMapping TypeName="TMCModel.ListingServiceLocation">
-              <MappingFragment StoreEntitySet="ListingServiceLocation">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
-                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
-                <ScalarProperty Name="StateId" ColumnName="StateId" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-                <ScalarProperty Name="IsCityLevel" ColumnName="IsCityLevel" />
-                <ScalarProperty Name="IsStateLevel" ColumnName="IsStateLevel" />
-                <ScalarProperty Name="IsCountryLevel" ColumnName="IsCountryLevel" />
-                <ScalarProperty Name="IsGlobalLevel" ColumnName="IsGlobalLevel" />
-                <ScalarProperty Name="ListingId" ColumnName="ListingId" />
-                <ScalarProperty Name="ListingServiceLocationId" ColumnName="ListingServiceLocationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="TMCModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
-                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
-                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
-                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UserType">
-            <EntityTypeMapping TypeName="TMCModel.UserType">
-              <MappingFragment StoreEntitySet="UserType">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Listing">
-            <EntityTypeMapping TypeName="TMCModel.Listing">
-              <MappingFragment StoreEntitySet="Listing">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
-                <ScalarProperty Name="Landmark" ColumnName="Landmark" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-                <ScalarProperty Name="BusinessDescription" ColumnName="BusinessDescription" />
-                <ScalarProperty Name="BusinessHours" ColumnName="BusinessHours" />
-                <ScalarProperty Name="BusinessDays" ColumnName="BusinessDays" />
-                <ScalarProperty Name="Website" ColumnName="Website" />
-                <ScalarProperty Name="Designation" ColumnName="Designation" />
-                <ScalarProperty Name="ContactEmailId" ColumnName="ContactEmailId" />
-                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
-                <ScalarProperty Name="YearStarted" ColumnName="YearStarted" />
-                <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ListingId" ColumnName="ListingId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2514,7 +2531,7 @@ warning 6002: The table/view 'TMC.dbo.Blogs' does not have a primary key defined
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

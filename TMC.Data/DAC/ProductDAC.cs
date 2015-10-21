@@ -42,7 +42,7 @@ namespace TMC.Data
             using (var tmcDBContext = new TMCContext())
             {
                 var productItem = (from product in tmcDBContext.Products
-                                where product.ProductId == 1 && product.IsActive == true
+                                  where product.ProductId == 1 && product.IsActive == true
                     select product).SingleOrDefault();
                 productItem.Content = productDto.Content;
                 productItem.ContentText = productDto.ContentText;

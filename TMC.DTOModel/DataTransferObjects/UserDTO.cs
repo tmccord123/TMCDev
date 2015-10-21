@@ -8,8 +8,8 @@ namespace TMC.DTOModel
     /// <summary>
     /// Contract for Action DTO.
     /// </summary>
-    [DataContract(Name = "UserDTO", Namespace = "TMC.DTOModel")]
-    [EntityMapping("TMC.Entities.EntityModels.UserDTO", MappingType.TotalExplicit)]
+    [DataContract(Name = "User", Namespace = "TMC.DTOModel")]
+    [EntityMapping("EntityDataModel.EntityModels.User", MappingType.TotalExplicit)]
     [Serializable]
     [ViewModelMapping("TMC.Web.ViewModels.UserViewModel", MappingType.TotalExplicit)]
     public class UserDTO : DTOBase, IUserDTO
@@ -36,8 +36,8 @@ namespace TMC.DTOModel
         public string AddressLine2 { get; set; }
 
         [DataMember]
-        [EntityPropertyMapping(MappingDirectionType.Both, "UserId")]
-        [ViewModelPropertyMapping(MappingDirectionType.Both, "UserId")]
+        [EntityPropertyMapping(MappingDirectionType.Both, "CityId")]
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "CityId")]
         public int CityId { get; set; }
 
         [DataMember]
@@ -64,27 +64,35 @@ namespace TMC.DTOModel
         [DataMember]
         public string Email { get; set; }
 
+         [DataMember]
         [ViewModelPropertyMapping(MappingDirectionType.Both, "CreatedOn")]
         [EntityPropertyMapping(MappingDirectionType.Both, "CreatedOn")]
         public DateTime CreatedOn { get; set; }
 
+         [DataMember]
         [ViewModelPropertyMapping(MappingDirectionType.Both, "CreatedBy")]
         [EntityPropertyMapping(MappingDirectionType.Both, "CreatedBy")]
-        public string CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
+        [DataMember]
         [ViewModelPropertyMapping(MappingDirectionType.Both, "UpdatedOn")]
         [EntityPropertyMapping(MappingDirectionType.Both, "UpdatedOn")]
         public DateTime UpdatedOn { get; set; }
 
+        [DataMember]
         [ViewModelPropertyMapping(MappingDirectionType.Both, "UpdatedBy")]
         [EntityPropertyMapping(MappingDirectionType.Both, "UpdatedBy")]
-        public string UpdatedBy { get; set; }
+        public long UpdatedBy { get; set; }
 
+        [DataMember]
         [ViewModelPropertyMapping(MappingDirectionType.Both, "IsActive")]
-        public string IsActive { get; set; }
+        [EntityPropertyMapping(MappingDirectionType.Both, "IsActive")]
+        public bool IsActive { get; set; }
 
+        [DataMember]
         [ViewModelPropertyMapping(MappingDirectionType.Both, "IsDeleted")]
-        public string IsDeleted { get; set; }
+        [EntityPropertyMapping(MappingDirectionType.Both, "IsDeleted")]
+        public bool IsDeleted { get; set; }
     }
 
 

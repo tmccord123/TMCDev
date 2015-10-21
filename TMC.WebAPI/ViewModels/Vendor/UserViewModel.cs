@@ -29,13 +29,9 @@ namespace TMC.Web.ViewModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; } 
-     
-
          
-        public DateTime UpdatedOn { get; set; }
-        public int UpdatedBy { get; set; }
-        public DateTime CreatedOn { get; set; }
-        public int CreatedBy { get; set; }
+ 
+
         public string FullName
         {
             get

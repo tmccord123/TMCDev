@@ -68,10 +68,10 @@ namespace TMC.Web.Shared
         /// <summary>
         /// Gets or sets detail of user by whom folder is last updated
         /// </summary>
-        public string UpdatedBy { get; set; }
-        public string CreatedBy { get; set; }
-        public string IsActive { get; set; }
-        public string IsDeleted { get; set; }
+        public long UpdatedBy { get; set; }
+        public long CreatedBy { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsDeleted { get; set; }
 
         public string SeoTitle { get; set; }
 
