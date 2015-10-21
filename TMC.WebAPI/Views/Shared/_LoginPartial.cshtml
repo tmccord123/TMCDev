@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNet.Identity
 @using TMC.Web.Controllers
- 
+
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -9,9 +9,9 @@
         <ul class="nav navbar-nav navbar-right">
             <li id="blog" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                     @User.FirstName()  
-                <b class="caret"></b>
-            </a>
+                    @User.FirstName()
+                    <b class="caret"></b>
+                </a>
                 <ul class="dropdown-menu">
                     <li id="bloghome2">
                         @Html.ActionLink("My Account", "Index", "User", routeValues: null, htmlAttributes: new { title = "Manage" })
@@ -23,19 +23,21 @@
                         <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
                     </li>
                 </ul>
-        </li>
-    </ul>
+            </li>
+        </ul>
     }
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "header-btn" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "border-btn" })</li>
+        <li>
+            @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new
             {
                 id = "loginLink",
-                @class = "header-btn"
-            
-            })</li>
-    </ul>
+                @class = "border-btn"
+
+            })
+    </li>
+</ul>
 }

@@ -32,7 +32,7 @@
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <div class="navbar-header">
+            <div class="navbar-header1">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -51,12 +51,12 @@
                 <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
                 
                 <div>
-                    <div class="glyphicon-floppy-disk floatL">
-                        @Html.ActionLink("Free Listing", "AddEditListing", "Vendor")
+                    <div class="glyphicon-floppy-disk floatL ">
+                        @Html.ActionLink("Free Listing", "AddEditListing", "Vendor", "", new { @class = "border-btn" })
                     </div>
 
                     <div class="glyphicon-floppy-disk floatL">
-                        @Html.ActionLink("Post a Requirement", "AddEditRequirement", "User")
+                        @Html.ActionLink("Post a Requirement", "AddEditRequirement", "User", "", new { @class = "border-btn" })
                     </div>
                 </div>
                 
