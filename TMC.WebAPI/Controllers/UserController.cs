@@ -20,7 +20,8 @@ namespace TMC.Web.Controllers
         public  async Task<ActionResult>  Index()
         {
             var client = TMCHttpClient.GetClient();
-            HttpResponseMessage egsResponse = await client.GetAsync("api/listing/GetListingsByUserId/123");
+            var userId = 3;
+            HttpResponseMessage egsResponse = await client.GetAsync("api/listing/GetListingsByUserId/" + userId);//todo
             List<ListingViewModel> listingViewModels = new List<ListingViewModel>();
             if (egsResponse.IsSuccessStatusCode)
             {

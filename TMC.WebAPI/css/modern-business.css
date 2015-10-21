@@ -239,3 +239,15 @@ footer {
     margin-top: 1px;
     margin-bottom: 5px;
 }
+
+.header-btn {
+    border: 1px solid #aaa;
+    padding: 2px 4px 3px 4px !important;
+    border-radius: 4px;
+    transition: all 200ms;
+    margin-top: 12px;
+    margin-left: 5px;
+    float: left; 
+    line-height: 18px;
+    vertical-align: middle;
+}

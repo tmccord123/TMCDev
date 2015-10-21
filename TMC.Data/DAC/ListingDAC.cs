@@ -221,6 +221,8 @@ namespace TMC.Data
                             listing.IsDeleted = false;
                             listing.Address = "Default Address";
                             listing.PinCode = 12345;
+                            listing.UserId = 3;
+                            listing.CityId = 111;
                             TMCDbContext.Listing.AddObject(listing);
                             if (TMCDbContext.SaveChanges() > 0)
                             {

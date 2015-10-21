@@ -53,8 +53,6 @@ namespace TMC.Web.Shared
         /// </summary>
         public string FormCancelCallBack { get; set; }
 
-
-
         /// <summary>
         /// Gets or sets date time when folder is being created
         /// </summary>
@@ -69,11 +67,13 @@ namespace TMC.Web.Shared
         /// Gets or sets detail of user by whom folder is last updated
         /// </summary>
         public long UpdatedBy { get; set; }
+
+        /// <summary>
+        /// Gets or sets detail of user by whom folder is created
+        /// </summary>
         public long CreatedBy { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
-
         public string SeoTitle { get; set; }
-
     }
 }
