@@ -45,6 +45,8 @@
     <Compile Include="DataTransferObjects\CategoryDTO.cs" />
     <Compile Include="DataTransferObjects\CityDTO.cs" />
     <Compile Include="DataTransferObjects\DTOBase.cs" />
+    <Compile Include="DataTransferObjects\ListingContactsDTO.cs" />
+    <Compile Include="DataTransferObjects\ListingContactDTO.cs" />
     <Compile Include="DataTransferObjects\ListingDTO.cs" />
     <Compile Include="DataTransferObjects\UserDTO.cs" />
     <Compile Include="DataTransferObjects\ProductDTO.cs" />

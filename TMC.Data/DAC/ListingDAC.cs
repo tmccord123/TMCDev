@@ -156,6 +156,39 @@ namespace TMC.Data
             return listingDto;
         }
 
+        public IListingDTO GetContactsByListingId(int listingId)
+        {
+            IListingDTO listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
+            IListingContactsDTO listingContactsDto = (IListingContactsDTO)DTOFactory.Instance.Create(DTOType.ListingContacts);
+            listingContactsDto.Contacts = new List<IListingContactDTO>();
+            try
+            {
+                using (var tmcContext = new TMCContext())
+                {
+                    var listingcontactEntities = (from listingContact in tmcContext.ListingContact
+                                         where listingContact.ListingId == listingId && listingContact.IsActive
+                                         select listingContact).ToList();
+                    if (listingcontactEntities.Any())
+                    {
+                        foreach (var listingContactEntity in listingcontactEntities)
+                        {
+                            IListingContactDTO listingContactDto = (IListingContactDTO)DTOFactory.Instance.Create(DTOType.ListingContact);
+                            EntityConverter.FillDTOFromEntity(listingContactEntity, listingContactDto);
+                            listingContactsDto.Contacts.Add(listingContactDto);
+                        }
+                        listingDto.ListingContacts = listingContactsDto;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                throw new DACException("Error while fetching the listing contacts.", ex);
+            }
+
+            return listingDto;
+        }
+
         /// <summary>
         /// The get categories.
         /// </summary>
@@ -165,7 +198,6 @@ namespace TMC.Data
         public IList<ICategoryDTO> ReadCategories()
         {
             IList<ICategoryDTO> categories = new List<ICategoryDTO>();
-
             try
             {
                 using (var tmcContext = new TMCContext())

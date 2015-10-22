@@ -543,6 +543,7 @@
     <Content Include="Views\Shared\_CitySayt.cshtml" />
     <Content Include="Views\Shared\_PlaceSayt.cshtml" />
     <Content Include="Views\Shared\_CategorySayt.cshtml" />
+    <Content Include="Views\Vendor\_EditListingContacts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

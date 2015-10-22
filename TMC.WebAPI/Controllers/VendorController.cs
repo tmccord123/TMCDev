@@ -52,9 +52,9 @@ namespace TMC.Web.Controllers
         public async Task<ActionResult> AddEditListing(int id = 0)
         {
             var listingViewModel = new ListingViewModel();
-            ListingContactItemViewModel listingContact = new ListingContactItemViewModel();
-            listingContact.ContactNumber = "9988765432";
-            listingContact.ListingContactTypeId = (int)ListingContactType.Landline;
+            ListingContactViewModel listingContact = new ListingContactViewModel();
+            listingContact.ContactNo = 9988765432;
+            listingContact.ContactTypeId = (int)ListingContactType.Landline;
             listingViewModel.ListingContacts.Contacts.Add(listingContact);
             listingViewModel.ActionName = "AddEditListing";
             listingViewModel.ControllerName = "Vendor";
@@ -69,13 +69,21 @@ namespace TMC.Web.Controllers
                     string content = await contentResponse.Content.ReadAsStringAsync();
                     var cotentResult = JsonConvert.DeserializeObject<ListingViewModel>(content);
                     listingViewModel = cotentResult;
-                   
                 }
                 else
                 {
                     return Content("An error occurred while fetching the data.");
                 }
-            } 
+            }
+            //find listing contacts
+            HttpResponseMessage contentContactsResponse = await client.GetAsync("api/listing/" + id+"/contacts");
+            if (contentContactsResponse.IsSuccessStatusCode)
+            {
+                string content = await contentContactsResponse.Content.ReadAsStringAsync();
+                var cotentResult = JsonConvert.DeserializeObject<ListingViewModel>(content);
+                listingViewModel.ListingContacts = cotentResult.ListingContacts;
+            }
+
             return View("AddEditListing", listingViewModel);
         }
 

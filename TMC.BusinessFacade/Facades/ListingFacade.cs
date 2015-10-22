@@ -26,6 +26,14 @@
             return vendorBDC.GetlistingById(listingId);
         }
 
+        public OperationResult<IListingDTO> GetContactsByListingId(int listingId)
+        {
+            var vendorBDC = (IListingBDC) BDCFactory.Instance.Create(BDCType.Listing);
+            return vendorBDC.GetContactsByListingId(listingId);
+        }
+
+
+
         public OperationResult<IListingDTO> CreateListing(IListingDTO  listingDto)
         {
             var listingBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);

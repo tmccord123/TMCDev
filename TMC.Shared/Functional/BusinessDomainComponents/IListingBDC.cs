@@ -35,5 +35,6 @@ namespace TMC.Shared
         OperationResult<IListingDTO> CreateListing(IListingDTO listingDto);
 
         OperationResult<IListingDTO> GetlistingById(int listingId);
+        OperationResult<IListingDTO> GetContactsByListingId(int listingId);
     }
 }

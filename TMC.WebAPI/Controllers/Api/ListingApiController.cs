@@ -30,6 +30,24 @@ namespace TMC.Web.Controllers.Api
             return Ok(listingViewModel);
         }
 
+        [Route("{id:int}/contacts")]
+        public IHttpActionResult GetListingContacts(int id)
+        {
+            var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+            var listingResult = listingFacade.GetContactsByListingId(id);
+            var listingViewModel = new ListingViewModel();
+            if (listingResult.IsValid())
+            {
+                foreach (var listingContact in listingResult.Data.ListingContacts.Contacts)
+                {
+                    var listingContactViewModel = new ListingContactViewModel();
+                    DTOConverter.FillViewModelFromDTO(listingContactViewModel, listingContact);
+                    listingViewModel.ListingContacts.Contacts.Add(listingContactViewModel);
+                }
+            }
+            return Ok(listingViewModel);
+        }
+
         [Route("")]
         [HttpPost]
         public IHttpActionResult Post([FromBody]ListingViewModel listingViewModel)

@@ -30,6 +30,7 @@ namespace TMC.Shared
         IList<IListingDTO> GetListingsByUserId(int userId);
 
         IListingDTO GetListingById(int listingId);
+        IListingDTO GetContactsByListingId(int listingId);
 
         IListingDTO CreateListing(IListingDTO listingDto);
         IListingDTO UpdateListing(IListingDTO listingDto);

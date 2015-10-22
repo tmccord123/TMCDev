@@ -48,6 +48,18 @@ namespace TMC.Shared
         /// </summary>
         [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.CategoryDTO")]
         Category = 6,
+
+        /// <summary>
+        /// The Listing ContsctsDTO
+        /// </summary>
+        [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ListingContactsDTO")]
+        ListingContacts = 7,
+
+        /// <summary>
+        /// The Listing ContsctDTO
+        /// </summary>
+        [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ListingContactDTO")]
+        ListingContact = 8
         
     }
 }

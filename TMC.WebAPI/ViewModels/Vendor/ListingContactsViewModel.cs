@@ -12,9 +12,9 @@ namespace TMC.Web.ViewModels
     {
         public ListingContactsViewModel()
         {
-            Contacts = new List<ListingContactItemViewModel>();
+            Contacts = new List<ListingContactViewModel>();
 
         }
-        public List<ListingContactItemViewModel> Contacts { get; set; }
+        public List<ListingContactViewModel> Contacts { get; set; }
     }
 }

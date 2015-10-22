@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using TMC.Shared;
-using TMC.Web.Shared;
+﻿using TMC.Web.Shared;
 
 namespace TMC.Web.ViewModels
 {
-    public class ListingContactItemViewModel : ViewModelBase
+    public class ListingContactViewModel : ViewModelBase
     {
-        public string ContactNumber { get; set; }
-        public int ListingContactTypeId { get; set; } 
+        public long ListingContactId { get; set; }
+        public decimal ContactNo { get; set; }
+        public short ContactTypeId { get; set; } 
     }
 }
