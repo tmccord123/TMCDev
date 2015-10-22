@@ -9,58 +9,68 @@
 {
     <script src="@Url.Content("~/Scripts/tmc.AddEditListing.js")" type="text/javascript"></script>
     @*@Scripts.Render("~/bundles/jqueryval")*@
-}
+    <script type="text/javascript">
+    $(function () {
+        addEditListing = new AddEditListing();
+        addEditListing.formId = '#' + '@Model.FormId';
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">
-                Vendor listing
-                <small>Edit your free listing here!</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li>
-                    @Html.ActionLink("Home", "Index", "Home")
-                </li>
-                <li class="active">About</li>
-            </ol>
+    });
+     </script>
+    
+    }
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Vendor listing
+                    <small>Edit your free listing here!</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li>
+                        @Html.ActionLink("Home", "Index", "Home")
+                    </li>
+                    <li class="active">About</li>
+                </ol>
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#generalInfo">General Information</a></li>
-                <li><a href="#contactDetails">Contact Details</a></li>
-                <li><a href="#menu2">Contact Info</a></li>
-                <li><a href="#menu3">Other Info</a></li>
-                <li><a href="#menu4">Upload Photos</a></li>
-            </ul>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#generalInfo">General Information</a></li>
+                    <li><a href="#contactDetails">Contact Details</a></li>
+                    <li><a href="#menu2">Contact Info</a></li>
+                    <li><a href="#menu3">Other Info</a></li>
+                    <li><a href="#menu4">Upload Photos</a></li>
+                </ul>
 
-            <div class="tab-content">
-                <div id="generalInfo" class="tab-pane fade in active">
-                    <div class="row">
-                        <div class="col-lg-12" id="">
-                            
-                            @Html.Partial("_EditListing", Model)
+                <div class="tab-content">
+                    <div id="generalInfo" class="tab-pane fade in active">
+                        <div class="row">
+                            <div class="col-lg-12" >
+                                <div id="EditListingDivId">
+                                    @Html.Partial("_EditListing", Model)
+                                </div>
 
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul class="pager">
+                                    <li class="next">
+                                        <a href="#" onclick="addEditListing.showNextPrevTab(1)">Next →</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-           
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <ul class="pager">
-                                <li class="next">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(1)">Next →</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div id="contactDetails" class="tab-pane fade">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            @using (Ajax.BeginPostForm(
+                    <div id="contactDetails" class="tab-pane fade">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                @using (Ajax.BeginPostForm(
                                 Url.SmartAction(Model.ListingContacts.ActionName, Model.ControllerName), null,
                                 Model.FormBeginRequestCallBack,
                                 Model.FormSuccessCallBack,
@@ -76,85 +86,85 @@
                                 foreach (ListingContactItemViewModel listingContactViewModel in @Model.ListingContacts.Contacts)
                                 {
                                     <div class="form-group">
-                                        @Html.LabelFor(x => listingContactViewModel.ListingContactTypeId, new { @class = "col-md-2 control-label" })
+                                            @Html.LabelFor(x => listingContactViewModel.ListingContactTypeId, new { @class = "col-md-2 control-label" })
 
 
-                                        @Html.LabelFor(x => listingContactViewModel.ContactNumber, new { @class = "col-md-2 control-label" })
-                                        <div class="col-md-6">
-                                            @Html.TextBoxFor(x => listingContactViewModel.ContactNumber, new { @class = "form-control" })
+                                            @Html.LabelFor(x => listingContactViewModel.ContactNumber, new { @class = "col-md-2 control-label" })
+                                            <div class="col-md-6">
+                                                @Html.TextBoxFor(x => listingContactViewModel.ContactNumber, new { @class = "form-control" })
+                                            </div>
                                         </div>
-                                    </div>
                                 }
 
                                 <div class="form-group">
-                                    <div class="col-md-offset-2 col-md-10">
-                                        <input type="submit" class="btn btn-default" value="Save" />
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" class="btn btn-default" value="Save" />
+                                        </div>
                                     </div>
-                                </div>
                             }
 
 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul class="pager">
+                                    <li class="previous">
+                                        <a href="#" onclick="addEditListing.showNextPrevTab(0)">← Prev</a>
+                                    </li>
+                                    <li class="next">
+                                        <a href="#" onclick="addEditListing.showNextPrevTab(2)">Next →</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <ul class="pager">
-                                <li class="previous">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(0)">← Prev</a>
-                                </li>
-                                <li class="next">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(2)">Next →</a>
-                                </li>
-                            </ul>
+                    <div id="menu2" class="tab-pane fade">
+                        <h3>Contact Information</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul class="pager">
+                                    <li class="previous">
+                                        <a href="#" onclick="addEditListing.showNextPrevTab(1)">← Prev</a>
+                                    </li>
+                                    <li class="next">
+                                        <a href="#" onclick="addEditListing.showNextPrevTab(3)">Next →</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div id="menu2" class="tab-pane fade">
-                    <h3>Contact Information</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <ul class="pager">
-                                <li class="previous">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(1)">← Prev</a>
-                                </li>
-                                <li class="next">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(3)">Next →</a>
-                                </li>
-                            </ul>
+                    <div id="menu3" class="tab-pane fade">
+                        <h3>Other Information</h3>
+                        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul class="pager">
+                                    <li class="previous">
+                                        <a href="#" onclick="addEditListing.showNextPrevTab(2)">← Prev</a>
+                                    </li>
+                                    <li class="next">
+                                        <a href="#" onclick="addEditListing.showNextPrevTab(4)">Next →</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div id="menu3" class="tab-pane fade">
-                    <h3>Other Information</h3>
-                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <ul class="pager">
-                                <li class="previous">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(2)">← Prev</a>
-                                </li>
-                                <li class="next">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(4)">Next →</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div id="menu4" class="tab-pane fade">
-                    <h3>Upload Photos</h3>
-                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <ul class="pager">
-                                <li class="previous">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(3)">← Prev</a>
-                                </li>
-                            </ul>
+                    <div id="menu4" class="tab-pane fade">
+                        <h3>Upload Photos</h3>
+                        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul class="pager">
+                                    <li class="previous">
+                                        <a href="#" onclick="addEditListing.showNextPrevTab(3)">← Prev</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>

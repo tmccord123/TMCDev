@@ -39,6 +39,7 @@ namespace TMC.Web.Controllers
             userViewModel.Email = "abcd@gmail.com";
             userViewModel.AddressLine1 = "Palam Vihar";
             userViewModel.Listings = listingViewModels;
+            
             return View(userViewModel);
         }
 

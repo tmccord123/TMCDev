@@ -387,7 +387,7 @@
     <Content Include="Scripts\tmc.AddEditListing.js" />
     <Content Include="Scripts\jsbacks\tmc.wiki.common.js" />
     <Content Include="Scripts\tmc.productEditor.js" />
-    <Content Include="Scripts\tmcDataService.js" />
+    <Content Include="Scripts\jsbacks\tmcDataService.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\0.302" />

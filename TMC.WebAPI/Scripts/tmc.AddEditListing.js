@@ -1,4 +1,7 @@
-﻿var addEditListing = new function () {
+﻿var addEditListing;
+function AddEditListing() {
+    var context = this;
+    
     $(document).ready(function () {
         $(".nav-tabs a").click(function () {
             $(this).tab('show');
@@ -28,5 +31,23 @@
     };
 
 
+
+
+    this.onAddEditListingSuccessCallBack = function (data, message) {
+        alert("Iamn dsfe");
+        debugger;
+        //tmcCommon.hideLoader();
+        //$.validator.unobtrusive.parse("#" + context.formId);
+        $("#hdnListingId").val(data);
+        //tmcDialog.showMessageBox({
+        //    header: context.messageBoxSuccessHeader,
+        //    message: message,
+        //    isHtml: false,
+        //    buttonText: context.messageBoxButtonOk,
+        //    callback: function () {
+        //        window.location.href = data;
+        //    }
+        //});
+    };
 }
 
