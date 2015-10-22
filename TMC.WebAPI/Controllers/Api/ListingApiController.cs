@@ -36,7 +36,7 @@ namespace TMC.Web.Controllers.Api
             var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
             var listingResult = listingFacade.GetContactsByListingId(id);
             var listingViewModel = new ListingViewModel();
-            if (listingResult.IsValid())
+            if (listingResult.IsValid() && listingResult.Data.ListingContacts != null)
             {
                 foreach (var listingContact in listingResult.Data.ListingContacts.Contacts)
                 {

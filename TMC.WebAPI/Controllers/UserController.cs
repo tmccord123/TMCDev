@@ -43,6 +43,7 @@ namespace TMC.Web.Controllers
             return View(userViewModel);
         }
 
+        [Authorize]
         public async Task<ActionResult> AddEditRequirement(int id = 0)
         {
             var requirementViewModel = new RequirementViewModel();
