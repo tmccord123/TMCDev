@@ -1,0 +1,40 @@
+﻿@using TMC.Web.ViewModels
+@model List<ListingViewModel>
+
+@foreach (var listingViewModel in Model)
+{
+    <div class="row trending-card">
+        <div class="col-sm-12 ">
+            <div class="col-sm-3">
+                <a href="/Coupons/paytm-coupons-cashback-offers">
+                    <img src="~/img/image_payTM.jpg">
+                </a>
+            </div>
+            <div class="col-sm-5">
+                <h3>
+                    <a href="/Coupons/paytm-coupons-cashback-offers">@listingViewModel.BusinessName</a>
+                </h3>
+                <p>
+                    Business Days:  @listingViewModel.BusinessDays
+                </p>
+                <p>
+                    Business Hours:  @listingViewModel.BusinessHours
+                </p>
+
+                <a href="/Coupons/paytm-coupons-cashback-offers">Vendor Details </a>
+            </div>
+            <div class="col-sm-4" style="padding-top: 10px">
+                <p>
+                    Contact Details:
+                </p><ul>
+                    <li>@listingViewModel.ContactPerson</li>
+                    <li>@listingViewModel.ContactEmailId</li>
+                    <li>@listingViewModel.Designation</li>
+                    <li>@listingViewModel.Website</li>
+                    <li>@listingViewModel.YearStarted</li>
+                </ul>
+                <p></p>
+            </div>
+        </div>
+    </div>
+}

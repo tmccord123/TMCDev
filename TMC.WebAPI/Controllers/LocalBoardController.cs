@@ -73,6 +73,25 @@ namespace TMC.Web.Controllers
             return View(model);
         }
 
+        public async Task<ActionResult> GetListingsData(int cityId, int categoryId, string placeId, int pageIndex, int pageSize)
+        {
+            var retVal = new List<ListingViewModel>();
+            var client = TMCHttpClient.GetClient();
+            var listingUrl = "api/listing" + "/" + cityId.ToString() + "/" + categoryId.ToString() + "/" + placeId;
+            HttpResponseMessage listingResponse = await client.GetAsync(listingUrl);
+            if (listingResponse.IsSuccessStatusCode)
+            {
+                string categoriesContent = await listingResponse.Content.ReadAsStringAsync();
+                retVal = JsonConvert.DeserializeObject<List<ListingViewModel>>(categoriesContent);
+
+            }
+            else
+            {
+                return Content("An error occurred.");
+            }
+            return PartialView("_ListingSearchResults", retVal);
+        }
+
         private IProductDTO getProductDTO(ProductItemViewModel productMaster, bool creatingProduct)
         {
             IProductDTO product = (IProductDTO)DTOFactory.Instance.Create(DTOType.Product);

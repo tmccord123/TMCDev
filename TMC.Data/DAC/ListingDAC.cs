@@ -57,11 +57,11 @@ namespace TMC.Data
                 using (var tmcContext = new TMCContext())
                 {
                     var listingEntities = (from listing in tmcContext.Listing
-                                           join loc in tmcContext.ListingLocation on listing.ListingId equals loc.ListingId
-                                           join area in tmcContext.Area on loc.AreaId equals area.AreaId
-                                           where loc.CityId == cityId
-                                           && area.CityId == cityId
-                                           && (placeId == null || area.PlaceId == placeId)
+                                           //join loc in tmcContext.ListingLocation on listing.ListingId equals loc.ListingId
+                                           //join area in tmcContext.Area on loc.AreaId equals area.AreaId
+                                           //where loc.CityId == cityId
+                                           //&& area.CityId == cityId
+                                           //&& (placeId == null || area.PlaceId == placeId)
                                            select listing).ToList();
                     IListingDTO listingDto = null;
                     foreach (var listingEntity in listingEntities)

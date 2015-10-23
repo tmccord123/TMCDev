@@ -15,9 +15,47 @@ function LocalBoardIndex() {
 
 
     this.initialize = function () {
-        //tmcCommon.attachEvent(document, 'click', '#btnSearchMain', function () {
-        //    window.location.href = '..//localboard/Index/' + $('#hdnCityName').val() + '/' + $('#hdnCategoryName').val() + '/' + $('#hdnCityId').val() + '/' + $('#hdnCategoryId').val();
-        //});
+        $(window).scroll(function () {
+            if ($(window).scrollTop() ==
+               $(document).height() - $(window).height()) {
+                context.GetData();
+            }
+        });
     };
 
+
+    this.GetData = function () {        
+        $.ajax({
+            type: 'GET',
+            url: '/LocalBoard/GetListingsData',
+            data: {
+                "pageindex": 1,
+                "pagesize": 1,
+                "cityId": 1,
+                "categoryId": 1,
+                "placeId":1
+            },
+            dataType: 'html',
+            success: function (data) {
+                if (data != null) {
+                    $("#listingContainer").append(data);
+                }
+            }
+            ,
+            beforeSend: function () {
+                $("#listingProgress").show();
+            },
+            complete: function () {
+                $("#listingProgress").hide();
+            },
+            error: function () {
+                alert("Error while retrieving data!");
+            }
+        });
+    }
+
+    this.loadListingDataSuccess = function()
+    {
+
+    }
 }
