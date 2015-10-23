@@ -9,6 +9,7 @@ namespace TMC.Web.ViewModels
         public ListingViewModel()
         {
             ListingContacts = new ListingContactsViewModel();
+            ListingCategory = new CategoryViewModel();
         }
         public long ListingId { get; set; }
         public int UserId { get; set; }
@@ -21,6 +22,7 @@ namespace TMC.Web.ViewModels
         public short BusinessDays { get; set; }
         public short BusinessHours { get; set; }
         public ListingContactsViewModel ListingContacts { get; set; }
+        public CategoryViewModel ListingCategory { get; set; }
 
         //public UserViewModel Owner { get; set; }
         //public UserViewModel ListingLocation { get; set; }

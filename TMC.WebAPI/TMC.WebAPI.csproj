@@ -231,6 +231,7 @@
     <Compile Include="ViewModels\ProductItemViewModel.cs" />
     <Compile Include="ViewModels\User\RequirementViewModel.cs" />
     <Compile Include="ViewModels\Vendor\BaseViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\CategoryViewModel.cs" />
     <Compile Include="ViewModels\Vendor\ListingContactItemViewModel.cs" />
     <Compile Include="ViewModels\Vendor\ListingContactsViewModel.cs" />
     <Compile Include="ViewModels\Vendor\UserViewModel.cs" />
@@ -239,6 +240,13 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\js\angular\tmcApp.js" />
+    <Content Include="Content\js\angular\controllers.js" />
+    <Content Include="Content\js\angular\directives.js" />
+    <Content Include="Content\js\angular\factories.js" />
+    <Content Include="Content\js\angular\Models.js" />
+    <Content Include="Content\js\lib\angular.js" />
+    <Content Include="Content\js\lib\angular.min.js" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
@@ -544,9 +552,13 @@
     <Content Include="Views\Shared\_PlaceSayt.cshtml" />
     <Content Include="Views\Shared\_CategorySayt.cshtml" />
     <Content Include="Views\Vendor\_EditListingContacts.cshtml" />
+    <Content Include="Views\Vendor\_EditListingCategories.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\css\" />
+    <Folder Include="Content\fonts\" />
+    <Folder Include="Content\img\" />
     <Folder Include="ViewModels\Account\" />
   </ItemGroup>
   <ItemGroup>

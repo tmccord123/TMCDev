@@ -24,6 +24,16 @@ namespace TMC.Web
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
+            
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                     "~/Content/js/lib/angular.js" ));
+
+            bundles.Add(new ScriptBundle("~/bundles/angularapp").Include(
+                        "~/Content/js/angular/tmcApp.js",
+                        "~/Content/js/angular/Models.js",
+                        "~/Content/js/angular/factories.js",
+                        "~/Content/js/angular/directives.js",
+                        "~/Content/js/angular/controllers.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/site").Include(
                      "~/Scripts/jquery.flexslider.js",

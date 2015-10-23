@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Local Cords - @ViewBag.Title</title>
 
-
         @Styles.Render("~/Content/css")
         @Styles.Render("~/bundles/css")
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/angular")
+        @Scripts.Render("~/bundles/angularapp")
         @Scripts.Render("~/bundles/modernizr")
         @Scripts.Render("~/bundles/bootstrap")
         @Scripts.Render("~/bundles/site")
@@ -28,7 +29,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body ng-app="tmcApp">
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -145,7 +146,7 @@
                     <div class="col-8 footer-section">
                         <a class="" href="http://www.localcord.com/"><img class="footer-logo " src="~/img/LC_logo_sm.jpg"></a><br>
                         <div class="col-22" style="padding-left: 0 ;padding-top : 25px">LocalCord, India’s first service platform website, which helps you connect to the service experts near your locality which we call your cord. Our service experts are connected to the cord near you and constantly monitoring any 
-                        requirements and needs nbeing posted on the local board!</div>
+                            requirements and needs nbeing posted on the local board!</div>
                     </div>
 
                     <div class="col-8 footer-section">
@@ -205,32 +206,32 @@
                 </div>
             </div>
         </div>
-    <!--   <div class="middle-footer">
-            <div class="container horizontal-line">
-                <div class="row">
-                    <div class="col-6 footer-section text-center">
-                        <img src="http://www.localcord.com/theme/Elegance/img/cdstats-ico1.png">
-                        <p class="text-center big-text">1680858</p> <br>
-                        <p class="text-center small-detail-text">Coupons used last month</p>
-                    </div>
-                    <div class="col-6 footer-section text-center">
-                        <img src="http://www.localcord.com/theme/Elegance/img/cdstats-ico2.png">
-                        <p class="text-center big-text">1876</p> <br>
-                        <p class="text-center small-detail-text">online stores</p>
-                    </div>
-                    <div class="col-6 footer-section text-center">
-                        <img src="http://www.localcord.com/theme/Elegance/img/cdstats-ico3.png">
-                        <p class="text-center big-text">4044</p> <br>
-                        <p class="text-center small-detail-text">Restaurant Outlets</p>
-                    </div>
-                    <div class="col-6 footer-section text-center">
-                        <img src="http://www.localcord.com/theme/Elegance/img/cdstats-ico4.png">
-                        <p class="text-center big-text">6663919</p> <br>
-                        <p class="text-center small-detail-text">Subscribers</p>
-                    </div>
-                </div>
-            </div>
-        </div>-->
+        <!--   <div class="middle-footer">
+                   <div class="container horizontal-line">
+                       <div class="row">
+                           <div class="col-6 footer-section text-center">
+                               <img src="http://www.localcord.com/theme/Elegance/img/cdstats-ico1.png">
+                               <p class="text-center big-text">1680858</p> <br>
+                               <p class="text-center small-detail-text">Coupons used last month</p>
+                           </div>
+                           <div class="col-6 footer-section text-center">
+                               <img src="http://www.localcord.com/theme/Elegance/img/cdstats-ico2.png">
+                               <p class="text-center big-text">1876</p> <br>
+                               <p class="text-center small-detail-text">online stores</p>
+                           </div>
+                           <div class="col-6 footer-section text-center">
+                               <img src="http://www.localcord.com/theme/Elegance/img/cdstats-ico3.png">
+                               <p class="text-center big-text">4044</p> <br>
+                               <p class="text-center small-detail-text">Restaurant Outlets</p>
+                           </div>
+                           <div class="col-6 footer-section text-center">
+                               <img src="http://www.localcord.com/theme/Elegance/img/cdstats-ico4.png">
+                               <p class="text-center big-text">6663919</p> <br>
+                               <p class="text-center small-detail-text">Subscribers</p>
+                           </div>
+                       </div>
+                   </div>
+               </div>-->
 
         <div class="bottom-footer">
             <div class="container horizontal-line">
@@ -253,7 +254,7 @@
             </div>
         </div>
 
-  @*  <div class="international-footer">
+        @*  <div class="international-footer">
         <div class="container ">
             <div class="row">
 
@@ -268,5 +269,7 @@
         </div>
     </div>*@
     </div>
+ 
+   
 </body>
 </html>
