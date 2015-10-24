@@ -14,12 +14,7 @@ namespace TMC.Web.Controllers
 {
     public class VendorController : Controller
     {
-        // POST: /User/Create
-        [HttpPost]
-        public JsonResult Create(ProductItemViewModel product)
-        {
-            return Json("Response from Create");
-        }
+        
         public ActionResult Index()
         {
 

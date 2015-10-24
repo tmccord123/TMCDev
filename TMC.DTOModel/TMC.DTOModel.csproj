@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataTransferObjects\BlogDTO.cs" />
     <Compile Include="DataTransferObjects\CategoryDTO.cs" />
     <Compile Include="DataTransferObjects\CityDTO.cs" />
     <Compile Include="DataTransferObjects\DTOBase.cs" />
@@ -49,7 +48,6 @@
     <Compile Include="DataTransferObjects\ContactDTO.cs" />
     <Compile Include="DataTransferObjects\ListingDTO.cs" />
     <Compile Include="DataTransferObjects\UserDTO.cs" />
-    <Compile Include="DataTransferObjects\ProductDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
