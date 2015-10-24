@@ -32,5 +32,9 @@ namespace TMC.Web.ViewModels
         /// Gets or sets the popularity.
         /// </summary>
         public int? Popularity { get; set; }
+
+
+        public long ListingId { get; set; }
+        public long ListingCategoryId { get; set; }
     }
 }

@@ -30,5 +30,9 @@ namespace TMC.Shared
         /// Gets or sets the popularity.
         /// </summary>
         int? Popularity { get; set; }
+
+
+        long ListingId { get; set; }
+        long ListingCategoryId { get; set; }
     }
 }

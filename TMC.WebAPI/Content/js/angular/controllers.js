@@ -12,7 +12,7 @@ tmcControllers.controller('ListingCtrl', ['$scope','$rootScope', 'listingService
     function getListingCategories() {
         listingService.getListingCategories()
             .success(function (cats) {
-                $scope.listingCategories = cats;
+                $scope.listingCategories = cats.categories;
                // console.log($scope.students);
             })
             .error(function (error) {

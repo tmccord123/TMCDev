@@ -172,7 +172,7 @@ namespace TMC.Data
                     {
                         foreach (var listingContactEntity in listingcontactEntities)
                         {
-                            IContactDTO listingContactDto = (IContactDTO)DTOFactory.Instance.Create(DTOType.ListingContact);
+                            IContactDTO listingContactDto = (IContactDTO)DTOFactory.Instance.Create(DTOType.Contact);
                             EntityConverter.FillDTOFromEntity(listingContactEntity, listingContactDto);
                             listingContactsDto.Contacts.Add(listingContactDto);
                         }
@@ -192,24 +192,33 @@ namespace TMC.Data
         public IListingDTO GetCategoriesByListingId(int listingId)
         {
             IListingDTO listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
-            IListingContactsDTO listingContactsDto = (IListingContactsDTO)DTOFactory.Instance.Create(DTOType.ListingContacts);
-            listingContactsDto.Contacts = new List<IContactDTO>();
+            IListingCategoriesDTO listingCategoriesDto = (IListingCategoriesDTO)DTOFactory.Instance.Create(DTOType.ListingCategories);
+            listingCategoriesDto.Categories = new List<ICategoryDTO>();
             try
             {
                 using (var tmcContext = new TMCContext())
                 {
-                    var listingcontactEntities = (from listingContact in tmcContext.ListingContact
-                                                  where listingContact.ListingId == listingId && listingContact.IsActive
-                                                  select listingContact).ToList();
-                    if (listingcontactEntities.Any())
+                    var listingcategoriesEntities = (from listingCategory in tmcContext.ListingCategory
+                                                   join category in tmcContext.Category on listingCategory.CategoryId equals category.CategoryId
+                                                  where listingCategory.ListingId == listingId  
+                                                  select new
+                                                  {
+                                                      category,
+                                                      ListingCategoryId = listingCategory.ListingCategoryId,
+                                                      ListingId = listingCategory.ListingId
+
+                                                  }).ToList();
+                    if (listingcategoriesEntities.Any())
                     {
-                        foreach (var listingContactEntity in listingcontactEntities)
+                        foreach (var listingCategoryEntity in listingcategoriesEntities)
                         {
-                            IContactDTO listingContactDto = (IContactDTO)DTOFactory.Instance.Create(DTOType.ListingContact);
-                            EntityConverter.FillDTOFromEntity(listingContactEntity, listingContactDto);
-                            listingContactsDto.Contacts.Add(listingContactDto);
+                            ICategoryDTO categoryDto = (ICategoryDTO)DTOFactory.Instance.Create(DTOType.Category);
+                            EntityConverter.FillDTOFromEntity(listingCategoryEntity.category, categoryDto);
+                            categoryDto.ListingId = listingCategoryEntity.ListingId;
+                            categoryDto.ListingCategoryId = listingCategoryEntity.ListingId;
+                            listingCategoriesDto.Categories.Add(categoryDto);
                         }
-                        listingDto.ListingContacts = listingContactsDto;
+                        listingDto.ListingCategories = listingCategoriesDto;
                     }
                 }
             }
@@ -238,7 +247,7 @@ namespace TMC.Data
                     {
                         foreach (var listingContactEntity in listingcontactEntities)
                         {
-                            IContactDTO listingContactDto = (IContactDTO)DTOFactory.Instance.Create(DTOType.ListingContact);
+                            IContactDTO listingContactDto = (IContactDTO)DTOFactory.Instance.Create(DTOType.Contact);
                             EntityConverter.FillDTOFromEntity(listingContactEntity, listingContactDto);
                             listingContactsDto.Contacts.Add(listingContactDto);
                         }
@@ -271,7 +280,7 @@ namespace TMC.Data
                     {
                         foreach (var listingContactEntity in listingcontactEntities)
                         {
-                            IContactDTO listingContactDto = (IContactDTO)DTOFactory.Instance.Create(DTOType.ListingContact);
+                            IContactDTO listingContactDto = (IContactDTO)DTOFactory.Instance.Create(DTOType.Contact);
                             EntityConverter.FillDTOFromEntity(listingContactEntity, listingContactDto);
                             listingContactsDto.Contacts.Add(listingContactDto);
                         }
@@ -304,7 +313,7 @@ namespace TMC.Data
                     {
                         foreach (var listingContactEntity in listingcontactEntities)
                         {
-                            IContactDTO listingContactDto = (IContactDTO)DTOFactory.Instance.Create(DTOType.ListingContact);
+                            IContactDTO listingContactDto = (IContactDTO)DTOFactory.Instance.Create(DTOType.Contact);
                             EntityConverter.FillDTOFromEntity(listingContactEntity, listingContactDto);
                             listingContactsDto.Contacts.Add(listingContactDto);
                         }

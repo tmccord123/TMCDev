@@ -10,7 +10,7 @@ namespace TMC.DTOModel
     /// Contract for Category DTO.
     /// </summary>
     [DataContract(Name = "CategoryDTO", Namespace = "TMC.DTOModel")]
-    [EntityMapping("TMC.Entities.EntityModels.Category", MappingType.TotalExplicit)]
+    [EntityMapping("EntityDataModel.EntityModels.Category", MappingType.TotalExplicit)]
     [Serializable]
     [ViewModelMapping("TMC.Web.ViewModels.CategoryViewModel", MappingType.TotalExplicit)]
     public class CategoryDTO : DTOBase, ICategoryDTO
@@ -55,5 +55,13 @@ namespace TMC.DTOModel
         [ViewModelPropertyMapping(MappingDirectionType.Both, "Popularity")]
         [EntityPropertyMapping(MappingDirectionType.Both, "Popularity")]
         public int? Popularity { get; set; }
+
+        [DataMember]
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "ListingId")]
+        public long ListingId { get; set; }
+
+        [DataMember]
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "ListingCategoryId")]
+        public long ListingCategoryId { get; set; }
     }
 }

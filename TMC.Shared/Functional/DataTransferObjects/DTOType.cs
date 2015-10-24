@@ -58,8 +58,35 @@ namespace TMC.Shared
         /// <summary>
         /// The Listing ContsctDTO
         /// </summary>
-        [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ListingContactDTO")]
-        ListingContact = 8
+        [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ContactDTO")]
+        Contact = 8,
+
+        /// <summary>
+        /// The Listing ContsctsDTO
+        /// </summary>
+        [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ListingCategoriesDTO")]
+        ListingCategories = 9,
+
+        [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ListingServiceAreasDTO")]
+        ListingServiceAreas = 10,
+
+        [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ServiceAreaDTO")]
+        ServiceArea = 11,
+
+        [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ListingPaymentModesDTO")]
+        ListingPaymentModes = 12,
+
+        [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.PaymentModeDTO")]
+        PaymentMode = 13,
+
+        [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ListingMediasDTO")]
+        ListingMedias = 14,
+
+        [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.MediaDTO")]
+        Media = 15,
+
+
+
         
     }
 }

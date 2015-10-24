@@ -29,7 +29,7 @@
                                 }))
         {
             @Html.ValidationSummary()
-            foreach (ListingContactViewModel listingContactViewModel in @Model.ListingContacts.Contacts)
+            foreach (ContactViewModel listingContactViewModel in @Model.ListingContacts.Contacts)
             {
                 <div class="form-group">
                     @Html.LabelFor(x => listingContactViewModel.ContactTypeId, new { @class = "col-md-2 control-label" })
