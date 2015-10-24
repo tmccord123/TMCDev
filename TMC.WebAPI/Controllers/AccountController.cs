@@ -163,14 +163,19 @@ namespace TMC.Web.Controllers
                 message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
                 : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
+                : message == ManageMessageId.ProfileChangedSuccess ? "Profile changed successfully."
                 : message == ManageMessageId.Error ? "An error has occurred."
                 : "";
             ViewBag.HasLocalPassword = HasPassword();
+            ApplicationUser appUserModel = UserManager.FindById(User.Identity.GetUserId());
+            ManageUserViewModel manageUserViewModel = new ManageUserViewModel();
+            manageUserViewModel.Email = appUserModel.Email;
+            manageUserViewModel.MobileNo = appUserModel.MobileNo;
             ViewBag.ReturnUrl = Url.Action("Manage");
-            return View();
+            return View(manageUserViewModel);
         }
 
-        //
+        
         // POST: /Account/Manage
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -178,6 +183,9 @@ namespace TMC.Web.Controllers
         {
             bool hasPassword = HasPassword();
             ViewBag.HasLocalPassword = hasPassword;
+            ModelState.Remove("Email");
+            ModelState.Remove("MobileNo");
+
             ViewBag.ReturnUrl = Url.Action("Manage");
             if (hasPassword)
             {
@@ -220,6 +228,40 @@ namespace TMC.Web.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+        
+        // POST: /Account/ManageProfile
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ManageProfile(ManageUserViewModel model)
+        {
+            ViewBag.ReturnUrl = Url.Action("Manage");
+            ModelState.Remove("OldPassword");
+            ModelState.Remove("NewPassword");
+            ModelState.Remove("ConfirmPassword");
+            if (ModelState.IsValid)
+            {
+                ApplicationUser appUserModel = UserManager.FindById(User.Identity.GetUserId());
+                appUserModel.Email = model.Email;
+                appUserModel.MobileNo = model.MobileNo;
+                appUserModel.UserName = model.MobileNo;
+                IdentityResult result = await UserManager.UpdateAsync(appUserModel);
+                   
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Manage", new { Message = ManageMessageId.ProfileChangedSuccess });
+                    
+                }
+                else
+                {
+                    AddErrors(result);
+                }
+            }
+            
+
+            // If we got this far, something failed, redisplay form
+            return View("Manage",model);
+        }
+
 
         //
         // POST: /Account/ExternalLogin
@@ -401,6 +443,7 @@ namespace TMC.Web.Controllers
         public enum ManageMessageId
         {
             ChangePasswordSuccess,
+            ProfileChangedSuccess,
             SetPasswordSuccess,
             RemoveLoginSuccess,
             Error

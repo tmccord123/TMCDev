@@ -22,8 +22,8 @@
     </div>
     <div class="row">
         <p class="text-success">@ViewBag.StatusMessage</p>
-        <div class="col-lg-12 col-md-12">
-            @if (ViewBag.HasLocalPassword)
+        <div class="col-lg-6 col-md-6">
+            @if (ViewBag.HasLocalPassword == null || ViewBag.HasLocalPassword)
             {
                 @Html.Partial("_ChangePasswordPartial")
             }
@@ -35,9 +35,15 @@
                 @Html.Action("RemoveAccountList")
                 @Html.Partial("_ExternalLoginsListPartial", new { Action = "LinkLogin", ReturnUrl = ViewBag.ReturnUrl })
             </section>
-            @section Scripts {
-                @Scripts.Render("~/bundles/jqueryval")
-            }
+           
+        </div>
+        <div class="col-lg-6 col-md-6">
+            @Html.Partial("_ChangeProfilePartial")
+            
+          
         </div>
     </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
 </div>
