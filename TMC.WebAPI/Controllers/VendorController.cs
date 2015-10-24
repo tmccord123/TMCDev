@@ -53,7 +53,7 @@ namespace TMC.Web.Controllers
         public async Task<ActionResult> AddEditListing(int id = 0)
         {
             var listingViewModel = new ListingViewModel();
-            ListingContactViewModel listingContact = new ListingContactViewModel();
+            ContactViewModel listingContact = new ContactViewModel();
             listingContact.ContactNo = 9988765432;
             listingContact.ContactTypeId = (int)ListingContactType.Landline;
             listingViewModel.ListingContacts.Contacts.Add(listingContact);

@@ -66,7 +66,14 @@
     <Compile Include="Functional\DataAccessComponents\IUserDAC.cs" />
     <Compile Include="Functional\DataAccessComponents\IProductDAC.cs" />
     <Compile Include="Functional\DataTransferObjects\ICategoryDTO.cs" />
-    <Compile Include="Functional\DataTransferObjects\IListingContactDTO.cs" />
+    <Compile Include="Functional\DataTransferObjects\IListingMediasDTO.cs" />
+    <Compile Include="Functional\DataTransferObjects\IListingPaymentModesDTO.cs" />
+    <Compile Include="Functional\DataTransferObjects\IListingServiceAreasDTO.cs" />
+    <Compile Include="Functional\DataTransferObjects\IMediaDTO.cs" />
+    <Compile Include="Functional\DataTransferObjects\IPaymentModeDTO.cs" />
+    <Compile Include="Functional\DataTransferObjects\IServiceAreaDTO.cs" />
+    <Compile Include="Functional\DataTransferObjects\IContactDTO.cs" />
+    <Compile Include="Functional\DataTransferObjects\IListingCategoriesDTO.cs" />
     <Compile Include="Functional\DataTransferObjects\IListingContactsDTO.cs" />
     <Compile Include="Functional\DataTransferObjects\ICityDTO.cs" />
     <Compile Include="Functional\DataTransferObjects\DTOType.cs" />

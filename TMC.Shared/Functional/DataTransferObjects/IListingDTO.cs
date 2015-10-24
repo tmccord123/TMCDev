@@ -16,6 +16,10 @@ namespace TMC.Shared
         short BusinessDays { get; set; }
         short BusinessHours { get; set; }
         IListingContactsDTO ListingContacts { get; set; }
+        IListingCategoriesDTO ListingCategories { get; set; }
+        IListingServiceAreasDTO ListingServiceAreas { get; set; }
+        IListingPaymentModesDTO ListingPaymentModes { get; set; }
+        IListingMediasDTO ListingMedias { get; set; }
 
         DateTime CreatedOn { get;set; }
         long CreatedBy { get;set; }

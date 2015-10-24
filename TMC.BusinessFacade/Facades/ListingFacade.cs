@@ -32,6 +32,29 @@
             return vendorBDC.GetContactsByListingId(listingId);
         }
 
+        public OperationResult<IListingDTO> GetCategoriesByListingId(int listingId)
+        {
+            var vendorBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
+            return vendorBDC.GetCategoriesByListingId(listingId);
+        }
+        
+        public OperationResult<IListingDTO> GetServiceAreasByListingId(int listingId)
+        {
+            var vendorBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
+            return vendorBDC.GetServiceAreasByListingId(listingId);
+        }
+
+        public OperationResult<IListingDTO> GetPaymentModesByListingId(int listingId)
+        {
+            var vendorBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
+            return vendorBDC.GetPaymentModesByListingId(listingId);
+        }
+
+        public OperationResult<IListingDTO> GetMediasByListingId(int listingId)
+        {
+            var vendorBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
+            return vendorBDC.GetMediasByListingId(listingId);
+        }
 
 
         public OperationResult<IListingDTO> CreateListing(IListingDTO  listingDto)

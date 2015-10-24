@@ -54,6 +54,10 @@ namespace TMC.DTOModel
         public short BusinessHours { get; set; }
          
         public IListingContactsDTO ListingContacts { get; set; }
+        public IListingCategoriesDTO ListingCategories { get; set; }
+        public IListingServiceAreasDTO ListingServiceAreas { get; set; }
+        public IListingPaymentModesDTO ListingPaymentModes { get; set; }
+        public IListingMediasDTO ListingMedias { get; set; }
 
         [ViewModelPropertyMapping(MappingDirectionType.Both, "CreatedOn")]
         [EntityPropertyMapping(MappingDirectionType.Both, "CreatedOn")]

@@ -221,7 +221,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\BlogViewModel.cs" />
-    <Compile Include="ViewModels\Common\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ListingMediasViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\MediaViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\PaymentModeViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ServiceAreaViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\CategoryViewModel.cs" />
     <Compile Include="ViewModels\Common\CategorySaytViewModel.cs" />
     <Compile Include="ViewModels\Common\PlaceSaytViewModel.cs" />
     <Compile Include="ViewModels\Common\CitySaytViewModel.cs" />
@@ -231,8 +235,10 @@
     <Compile Include="ViewModels\ProductItemViewModel.cs" />
     <Compile Include="ViewModels\User\RequirementViewModel.cs" />
     <Compile Include="ViewModels\Vendor\BaseViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\CategoryViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\ListingContactItemViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ListingPaymentModesViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ListingServiceAreasViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ListingCategoriesViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ContactViewModel.cs" />
     <Compile Include="ViewModels\Vendor\ListingContactsViewModel.cs" />
     <Compile Include="ViewModels\Vendor\UserViewModel.cs" />
     <Compile Include="ViewModels\Vendor\ListingViewModel.cs" />

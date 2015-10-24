@@ -10,8 +10,8 @@ namespace TMC.DTOModel
     [DataContract(Name = "ListingContact", Namespace = "TMC.DTOModel")]
     [EntityMapping("EntityDataModel.EntityModels.ListingContact", MappingType.TotalExplicit)]
     [Serializable]
-    [ViewModelMapping("TMC.Web.ViewModels.ListingContactViewModel", MappingType.TotalExplicit)]
-    public class ListingContactDTO : DTOBase, IListingContactDTO
+    [ViewModelMapping("TMC.Web.ViewModels.ContactViewModel", MappingType.TotalExplicit)]
+    public class ContactDTO : DTOBase, IContactDTO
     {
         [ViewModelPropertyMapping(MappingDirectionType.Both, "ListingContactId")]
         [EntityPropertyMapping(MappingDirectionType.Both, "ListingContactId")]

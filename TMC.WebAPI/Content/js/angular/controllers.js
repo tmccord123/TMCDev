@@ -1,11 +1,14 @@
 ﻿var tmcControllers = angular.module('tmcControllers', []);
 
-tmcControllers.controller('ListingCtrl', ['$scope', 'listingService', function ($scope, listingService) {
+tmcControllers.controller('ListingCtrl', ['$scope','$rootScope', 'listingService', function ($scope, $rootScope, listingService) {
     $scope.testValue = "This line is coming from the Listing angular controllerr ";
 
     $scope.listingCategories = {};
-
+    //$rootScope.currentTabIndex = 0;
+    //addEditListing.currentTabIndex = 0;
+    
     getListingCategories();
+     
     function getListingCategories() {
         listingService.getListingCategories()
             .success(function (cats) {

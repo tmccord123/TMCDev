@@ -9,7 +9,10 @@ namespace TMC.Web.ViewModels
         public ListingViewModel()
         {
             ListingContacts = new ListingContactsViewModel();
-            ListingCategory = new CategoryViewModel();
+            ListingCategories = new ListingCategoriesViewModel();
+            ListingServiceAreas = new ListingServiceAreasViewModel();
+            ListingPaymentModes = new ListingPaymentModesViewModel();
+            ListingMedias = new ListingMediasViewModel();
         }
         public long ListingId { get; set; }
         public int UserId { get; set; }
@@ -22,11 +25,9 @@ namespace TMC.Web.ViewModels
         public short BusinessDays { get; set; }
         public short BusinessHours { get; set; }
         public ListingContactsViewModel ListingContacts { get; set; }
-        public CategoryViewModel ListingCategory { get; set; }
-
-        //public UserViewModel Owner { get; set; }
-        //public UserViewModel ListingLocation { get; set; }
-        //public UserViewModel ListingMedia { get; set; }
-        //public UserViewModel ListingPaymentMode { get; set; }
+        public ListingCategoriesViewModel ListingCategories { get; set; }
+        public ListingServiceAreasViewModel ListingServiceAreas { get; set; }
+        public ListingPaymentModesViewModel ListingPaymentModes { get; set; }
+        public ListingMediasViewModel ListingMedias { get; set; } 
     }
 }

@@ -10,7 +10,7 @@ namespace TMC.DTOModel
     /// </summary>
     public class ListingContactsDTO : DTOBase, IListingContactsDTO
     {
-        public IList<IListingContactDTO> Contacts { get; set; }
+        public IList<IContactDTO> Contacts { get; set; }
          
     }
 }

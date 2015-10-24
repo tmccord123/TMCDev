@@ -30,6 +30,11 @@ namespace TMC.Web.Controllers.Api
             return Ok(listingViewModel);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route("{id:int}/contacts")]
         public IHttpActionResult GetListingContacts(int id)
         {
@@ -40,7 +45,7 @@ namespace TMC.Web.Controllers.Api
             {
                 foreach (var listingContact in listingResult.Data.ListingContacts.Contacts)
                 {
-                    var listingContactViewModel = new ListingContactViewModel();
+                    var listingContactViewModel = new ContactViewModel();
                     DTOConverter.FillViewModelFromDTO(listingContactViewModel, listingContact);
                     listingViewModel.ListingContacts.Contacts.Add(listingContactViewModel);
                 }
@@ -48,34 +53,96 @@ namespace TMC.Web.Controllers.Api
             return Ok(listingViewModel);
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route("{id:int}/categories")]
         public IHttpActionResult GetListingCategories(int id)
         {
-            /*var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
-            var listingResult = listingFacade.GetContactsByListingId(id);
+            var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+            var listingResult = listingFacade.GetCategoriesByListingId(id);
             var listingViewModel = new ListingViewModel();
-            if (listingResult.IsValid() && listingResult.Data.ListingContacts != null)
+            if (listingResult.IsValid() && listingResult.Data.ListingCategories != null)
             {
-                foreach (var listingContact in listingResult.Data.ListingContacts.Contacts)
+                foreach (var listingCategory in listingResult.Data.ListingCategories.Categories)
                 {
-                    var listingContactViewModel = new ListingContactViewModel();
-                    DTOConverter.FillViewModelFromDTO(listingContactViewModel, listingContact);
-                    listingViewModel.ListingContacts.Contacts.Add(listingContactViewModel);
+                    var listingCategoryViewModel = new CategoryViewModel();
+                    DTOConverter.FillViewModelFromDTO(listingCategoryViewModel, listingCategory);
+                    listingViewModel.ListingCategories.Categories.Add(listingCategoryViewModel);
                 }
-            }*/
-            List<CategoryViewModel> listingCategories = new List<CategoryViewModel>();
-            CategoryViewModel category = new CategoryViewModel();
-            category.Name = "category 1";
-            listingCategories.Add(category);
-            category = new CategoryViewModel();
-            category.Name = "category 2";
-            listingCategories.Add(category);
+            }
+            return Ok(listingViewModel.ListingCategories);
+        }
 
-            category = new CategoryViewModel();
-            category.Name = "category 3";
-            listingCategories.Add(category);
-            return Ok(listingCategories);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("{id:int}/serviceareas")]
+        public IHttpActionResult GetListingServiceAreas(int id)
+        {
+            var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+            var listingResult = listingFacade.GetServiceAreasByListingId(id);
+            var listingViewModel = new ListingViewModel();
+            if (listingResult.IsValid() && listingResult.Data.ListingServiceAreas != null)
+            {
+                foreach (var listingServiceArea in listingResult.Data.ListingServiceAreas.ServiceAreas)
+                {
+                    var listingServiceAreaViewModel = new ServiceAreaViewModel();
+                    DTOConverter.FillViewModelFromDTO(listingServiceAreaViewModel, listingServiceArea);
+                    listingViewModel.ListingServiceAreas.ServiceAreas.Add(listingServiceAreaViewModel);
+                }
+            } 
+            return Ok(listingViewModel.ListingServiceAreas);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("{id:int}/paymentmodes")]
+        public IHttpActionResult GetListingPaymentModes(int id)
+        {
+            var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+            var listingResult = listingFacade.GetPaymentModesByListingId(id);
+            var listingViewModel = new ListingViewModel();
+            if (listingResult.IsValid() && listingResult.Data.ListingPaymentModes != null)
+            {
+                foreach (var listingPaymentMode in listingResult.Data.ListingPaymentModes.PaymentModes)
+                {
+                    var listingPaymentModeViewModel = new PaymentModeViewModel();
+                    DTOConverter.FillViewModelFromDTO(listingPaymentModeViewModel, listingPaymentMode);
+                    listingViewModel.ListingPaymentModes.PaymentModes.Add(listingPaymentModeViewModel);
+                }
+            }
+            return Ok(listingViewModel.ListingPaymentModes);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("{id:int}/medias")]
+        public IHttpActionResult GetListingMedias(int id)
+        {
+            var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+            var listingResult = listingFacade.GetMediasByListingId(id);
+            var listingViewModel = new ListingViewModel();
+            if (listingResult.IsValid() && listingResult.Data.ListingMedias != null)
+            {
+                foreach (var listingMedia in listingResult.Data.ListingMedias.Medias)
+                {
+                    var listingMediaViewModel = new MediaViewModel();
+                    DTOConverter.FillViewModelFromDTO(listingMediaViewModel, listingMedia);
+                    listingViewModel.ListingMedias.Medias.Add(listingMediaViewModel);
+                }
+            }
+            return Ok(listingViewModel.ListingMedias);
         }
 
         [Route("")]

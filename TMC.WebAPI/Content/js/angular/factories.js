@@ -5,7 +5,7 @@
 tmcFactories.service('listingService', ['$http', function ($http) {
     var listingService = {};
     listingService.getListingCategories = function () {
-        return $http.get('..//api/listing/20/categories');
+        return $http.get('/api/listing/20/categories');
     };
     return listingService;
 

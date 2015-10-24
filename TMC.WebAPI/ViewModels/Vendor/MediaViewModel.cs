@@ -4,9 +4,9 @@ namespace TMC.Web.ViewModels
     using TMC.Web.Shared;
 
     /// <summary>
-    /// The Category view model.
+    /// The Media view model.
     /// </summary>
-    public class CategoryViewModel : ViewModelBase
+    public class MediaViewModel : ViewModelBase
     {
         /// <summary>
         /// Gets or sets the category id.

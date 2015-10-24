@@ -6,12 +6,12 @@ namespace TMC.Shared
     /// <summary>
     /// The CityDTO interface.
     /// </summary>
-    public interface IListingContactsDTO : IDTO
+    public interface IListingMediasDTO : IDTO
     {
         /// <summary>
         /// Gets or sets the city id.
         /// </summary>
-        IList<IContactDTO> Contacts { get; set; }
+        IList<IMediaDTO> Medias { get; set; }
 
          
     }

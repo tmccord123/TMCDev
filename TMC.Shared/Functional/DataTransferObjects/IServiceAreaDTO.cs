@@ -6,9 +6,9 @@ namespace TMC.Shared
     /// <summary>
     /// The CityDTO interface.//todo
     /// </summary>
-    public interface IListingContactDTO : IDTO
+    public interface IServiceAreaDTO : IDTO
     {
-        long ListingContactId { get; set; }
+        long ListingServiceAreaId { get; set; }
         decimal ContactNo { get; set; }
         short ContactTypeId { get; set; }
 

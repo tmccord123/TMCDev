@@ -36,5 +36,9 @@ namespace TMC.Shared
 
         OperationResult<IListingDTO> GetlistingById(int listingId);
         OperationResult<IListingDTO> GetContactsByListingId(int listingId);
+        OperationResult<IListingDTO> GetCategoriesByListingId(int listingId);
+        OperationResult<IListingDTO> GetServiceAreasByListingId(int listingId);
+        OperationResult<IListingDTO> GetPaymentModesByListingId(int listingId);
+        OperationResult<IListingDTO> GetMediasByListingId(int listingId);
     }
 }

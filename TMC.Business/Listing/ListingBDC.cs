@@ -125,6 +125,114 @@ namespace TMC.Business
             return operationResult;
         }
 
+        public OperationResult<IListingDTO> GetCategoriesByListingId(int listingId)
+        {
+            OperationResult<IListingDTO> operationResult = null;
+            try
+            {
+                var listingDAC = (IListingDAC)DACFactory.Instance.Create(DACType.Listing);
+                var listing = listingDAC.GetCategoriesByListingId(listingId);
+
+                operationResult = listing != null
+                                                      ? OperationResult<IListingDTO>.CreateSuccessResult(listing)
+                                                      : OperationResult<IListingDTO>.CreateFailureResult(
+                                                       ResourceUtility.GetCaptionFor(
+                                              ResourceConstants.Vendor.ErrorMessages.FailedToFetchListing));//todo
+
+            }
+            catch (DACException dacEx)
+            {
+                operationResult = OperationResult<IListingDTO>.CreateErrorResult(dacEx.Message, dacEx.StackTrace);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                operationResult = OperationResult<IListingDTO>.CreateErrorResult(ex.Message, ex.StackTrace);
+            }
+            return operationResult;
+        }
+
+        public OperationResult<IListingDTO> GetServiceAreasByListingId(int listingId)
+        {
+            OperationResult<IListingDTO> operationResult = null;
+            try
+            {
+                var listingDAC = (IListingDAC)DACFactory.Instance.Create(DACType.Listing);
+                var listing = listingDAC.GetServiceAreasByListingId(listingId);
+
+                operationResult = listing != null
+                                                      ? OperationResult<IListingDTO>.CreateSuccessResult(listing)
+                                                      : OperationResult<IListingDTO>.CreateFailureResult(
+                                                       ResourceUtility.GetCaptionFor(
+                                              ResourceConstants.Vendor.ErrorMessages.FailedToFetchListing));//todo
+
+            }
+            catch (DACException dacEx)
+            {
+                operationResult = OperationResult<IListingDTO>.CreateErrorResult(dacEx.Message, dacEx.StackTrace);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                operationResult = OperationResult<IListingDTO>.CreateErrorResult(ex.Message, ex.StackTrace);
+            }
+            return operationResult;
+        }
+
+        public OperationResult<IListingDTO> GetPaymentModesByListingId(int listingId)
+        {
+            OperationResult<IListingDTO> operationResult = null;
+            try
+            {
+                var listingDAC = (IListingDAC)DACFactory.Instance.Create(DACType.Listing);
+                var listing = listingDAC.GetPaymentModesByListingId(listingId);
+
+                operationResult = listing != null
+                                                      ? OperationResult<IListingDTO>.CreateSuccessResult(listing)
+                                                      : OperationResult<IListingDTO>.CreateFailureResult(
+                                                       ResourceUtility.GetCaptionFor(
+                                              ResourceConstants.Vendor.ErrorMessages.FailedToFetchListing));//todo
+
+            }
+            catch (DACException dacEx)
+            {
+                operationResult = OperationResult<IListingDTO>.CreateErrorResult(dacEx.Message, dacEx.StackTrace);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                operationResult = OperationResult<IListingDTO>.CreateErrorResult(ex.Message, ex.StackTrace);
+            }
+            return operationResult;
+        }
+
+        public OperationResult<IListingDTO> GetMediasByListingId(int listingId)
+        {
+            OperationResult<IListingDTO> operationResult = null;
+            try
+            {
+                var listingDAC = (IListingDAC)DACFactory.Instance.Create(DACType.Listing);
+                var listing = listingDAC.GetMediasByListingId(listingId);
+
+                operationResult = listing != null
+                                                      ? OperationResult<IListingDTO>.CreateSuccessResult(listing)
+                                                      : OperationResult<IListingDTO>.CreateFailureResult(
+                                                       ResourceUtility.GetCaptionFor(
+                                              ResourceConstants.Vendor.ErrorMessages.FailedToFetchListing));//todo
+
+            }
+            catch (DACException dacEx)
+            {
+                operationResult = OperationResult<IListingDTO>.CreateErrorResult(dacEx.Message, dacEx.StackTrace);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                operationResult = OperationResult<IListingDTO>.CreateErrorResult(ex.Message, ex.StackTrace);
+            }
+            return operationResult;
+        }
+
         public OperationResult<IList<IListingDTO>> GetListingsByUserId(int userId)
         {
             OperationResult<IList<IListingDTO>> operationResult = null;

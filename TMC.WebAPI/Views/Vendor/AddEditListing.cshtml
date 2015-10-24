@@ -37,7 +37,7 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12" ng-controller="ListingCtrl">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#generalInfo">General Information</a></li>
                 <li><a href="#contactDetails">Contact Details</a></li>
@@ -87,13 +87,13 @@
                     </div>
                 </div>
                 <div id="keyCategories" class="tab-pane fade">
-                    <div class="row"  >
+                    <div class="row">
                         <div class="col-lg-12">
-                        
+
                             @Html.Partial("_EditListingCategories", Model.ListingCategory)
                         </div>
                     </div>
-                    <div class="row" >
+                    <div class="row">
                         <div class="col-lg-12">
                             <ul class="pager">
                                 <li class="previous">

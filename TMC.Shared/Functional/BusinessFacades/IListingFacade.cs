@@ -29,5 +29,9 @@ namespace TMC.Shared
         OperationResult<IList<IListingDTO>> GetListingsByUserId(int useId);
 
         OperationResult<IListingDTO> CreateListing(IListingDTO listingDto);
+        OperationResult<IListingDTO> GetCategoriesByListingId(int listingId);
+        OperationResult<IListingDTO> GetServiceAreasByListingId(int listingId);
+        OperationResult<IListingDTO> GetPaymentModesByListingId(int listingId);
+        OperationResult<IListingDTO> GetMediasByListingId(int listingId);
     }
 }

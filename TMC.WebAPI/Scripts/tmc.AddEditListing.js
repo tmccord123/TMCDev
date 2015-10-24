@@ -20,13 +20,12 @@ function AddEditListing() {
         $('#myTabs li:eq(2) a').tab('show') // Select third tab (0-indexed)*/
         
 
-
       
         //makeRequest: function(hash){
          //   window.location.hash = hash;
        // };
 
-
+        context.currentTabIndex = 0;
         if (window.location.hash) {
             var hash = window.location.hash.substring(1);
             //alert("hash detected as " + hash);
@@ -60,7 +59,8 @@ function AddEditListing() {
     
     this.tablist = [ "generalInfo",  "contactDetails","keyCategories","serviceAreas","paymentModes","media"];
 
-    this.showNextPrevTab = function (tabIndex) { 
+    this.showNextPrevTab = function (tabIndex) {
+        context.currentTabIndex = tabIndex;
         $('.nav-tabs li:eq(' + tabIndex + ') a').tab('show'); // Select third tab (0-indexed)*/
     };
 
