@@ -41,7 +41,7 @@ namespace TMC.Web.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "Email/Mobile")]
         public string UserName { get; set; }
 
         [Required]

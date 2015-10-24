@@ -51,6 +51,7 @@ namespace TMC.Web.Controllers
             UserManager = userManager;
         }
 
+      
         public UserManager<ApplicationUser> UserManager { get; private set; }
 
         //
@@ -71,7 +72,8 @@ namespace TMC.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindAsync(model.UserName, model.Password);
+                //var user = await UserManager.FindAsync(model.UserName, model.Password);
+                var user = await UserManager.FindByNameOrEmailAsync(model.UserName, model.Password);
                 if (user != null)
                 {
                     await SignInAsync(user, model.RememberMe);
