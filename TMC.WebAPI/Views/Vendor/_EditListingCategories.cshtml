@@ -1,16 +1,22 @@
 ﻿@using TMC.Web.ViewModels
 @using TMC.Web.Shared
-@model CategoryViewModel
+@model ListingCategoriesViewModel
 
 <div >
-    <h3>Key Categories  </h3>
-    <p>{{testValue}}</p>
-<ul>
-        <li ng-repeat="category in listingCategories"><a href="#">{{category.name}}</a></li>
-    </ul>
-</div>
-
-@using (Ajax.BeginPostForm(
+    <h3>Category Keywords  </h3>
+  @*  <p>{{testValue}}</p>*@
+    
+    <div class="row">
+        <div class="col-md-3 col-sm-4 ">
+            <p>{{listingCategories.length}} key categories added </p>
+        </div>
+        <div class="col-md-3 col-sm-4 ">
+            <a href="#NewCategory" class="link glyphicon glyphicon-plus-sign" data-toggle="collapse">Add More</a> 
+        </div>
+    </div>
+    <div class="row">
+        <div id="NewCategory" class="collapse">
+            @using (Ajax.BeginPostForm(
                                 Url.SmartAction(Model.ActionName, Model.ControllerName, null), Model,
                                 Model.FormBeginRequestCallBack,
                                 Model.FormSuccessCallBack,
@@ -21,11 +27,11 @@
                                     @class = "form-horizontal",
                                     @id = Model.FormId
                                 }))
-{
-    @Html.ValidationSummary()
-    @Html.HiddenFor(model => Model.CategoryId, new { id = "hdnListingId" })
-    <div id="asdfsdf">
-        @using (Ajax.BeginPostForm(
+        {
+                @Html.ValidationSummary()
+                @*@Html.HiddenFor(model => Model.CategoryId, new { id = "hdnListingId" })*@
+                <div id="asdfsdf">
+                    @using (Ajax.BeginPostForm(
                                 Url.SmartAction(Model.ActionName, Model.ControllerName), null,
                                 Model.FormBeginRequestCallBack,
                                 Model.FormSuccessCallBack,
@@ -36,25 +42,56 @@
                                     @class = "form-horizontal",
                                     @id = Model.FormId
                                 }))
-        {
-            @Html.ValidationSummary()
+                {
+                        @Html.ValidationSummary()
 
-            <div class="form-group">
+                        <div class="form-group">
 
 
-                @Html.LabelFor(x => Model.Name, new { @class = "col-md-2 control-label" })
-                <div class="col-md-3">
-                    @Html.TextBoxFor(x => Model.Name, new { @class = "form-control" })
+                            @Html.Label("Select key Categories", new { @class = "col-md-2 control-label" })
+                            @*  <div class="col-md-3">
+                                    @Html.TextBoxFor(x => Model.NewCategory.Name, new { @class = "form-control" })
+                                </div>*@
+
+                            <div class="col-md-3 col-sm-4 ">
+                                @Html.Partial("_CategorySayt", Model.CategorySayt)
+                            </div>
+
+                            <div class="col-md-3 col-sm-4">
+                                <input type="submit" class="btn btn-default" value="Add" />
+                            </div>
+                        </div>
+
+
+                        @*<div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" class="btn btn-default" value="Add" />
+                                </div>
+                            </div>*@
+                }
                 </div>
-            </div>
 
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" class="btn btn-default" value="Add" />
-                </div>
-            </div>
         }
+        </div>
+    </div>
+    <hr class="no-margin"/>
+    <div class="chipbar">
+        <ul>
+            <!-- ngRepeat: filter in selectedFilters -->
+            <li ng-repeat="filter in selectedFilters">
+                <a>A&amp;K</a><i ng-click="filter.selected.selected = !filter.selected.selected;applyFilter(filter.collection, filter.selected);"
+                                  class="fa fa-times" role="button" tabindex="0"></i>
+            </li>
+            <li ng-show="(selectedFilters.length > 0)" ng-click="resetAllFilter()" class="clearall" role="button" tabindex="0" aria-hidden="false"><a>Clear All</a></li>
+        </ul>
+    </div>
+    <div class="chipbar">
+        <ul>
+            <li ng-repeat="category in listingCategories"><a>{{category.name}}</a>
+                <i class="fa fa-times" role="button" tabindex="0">(x)</i>
+            </li>
+        </ul>
+    </div>
     </div>
 
-}
+

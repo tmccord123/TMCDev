@@ -10,8 +10,10 @@ namespace TMC.Web.ViewModels
         {
             Categories = new List<CategoryViewModel>();
             NewCategory = new CategoryViewModel();
+            CategorySayt = new CategorySaytViewModel();
         }
         public List<CategoryViewModel> Categories { get; set; }
         public CategoryViewModel NewCategory { get; set; }
+        public CategorySaytViewModel CategorySayt { get; set; }
     }
 }

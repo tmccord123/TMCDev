@@ -91,5 +91,11 @@ function AddEditListing() {
         //    }
         //});
     };
+    
+    //Add Categories
+    this.onSelectedCategoryCallBack = function () {
+        alert("I am received");
+    };
+
 }
 

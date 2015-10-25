@@ -104,3 +104,35 @@ input[type="checkbox"].input-validation-error {
 .display-none {
     display: none;
 }
+
+.hr .no-margin {
+    margin: 0; 
+}
+
+.chipbar {
+    overflow: hidden;
+}
+
+ .chipbar ul li a {
+    color: #828282;
+    padding-right: 15px;
+    float: left!important;
+     background: #EEEEEE;   
+  display: block;
+     margin: 5px;
+      text-decoration: none;
+          cursor: pointer;
+  
+}
+  .chipbar ol, ul {
+        list-style: none;
+  }
+ .chipbar ul li i {
+    font-size: 10px;
+    color: #DF4037;
+    cursor: pointer;
+    float: right!important;
+    position: absolute;
+    padding-top: 3px;
+   
+}
