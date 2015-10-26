@@ -21,6 +21,13 @@ tmcControllers.controller('ListingCtrl', ['$scope','$rootScope', 'listingService
                 console.log($scope.status);
             });
     }
+
+    $scope.addCategory = function() {
+
+        var selectedCategoryId = $(addEditListing.categoryIdControlId).val();
+        var selectedCategoryName = $(addEditListing.categoryNameControlId).val();
+        $scope.listingCategories.push(  { categoryId: selectedCategoryId, name: selectedCategoryName });
+    };
 }]);
 
 /*

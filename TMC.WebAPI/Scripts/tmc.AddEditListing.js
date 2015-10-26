@@ -32,7 +32,21 @@ function AddEditListing() {
             context.showNextPrevTab(context.getTabIndex(hash));
         }
     });
-      //var self = this;
+
+    this.initialize = function () {
+
+   
+
+       /* tmcCommon.attachEvent(document, 'click', '#btnAddListingCategory', function () {
+            alert("I am received" + $(context.categoryIdControlId).val());
+
+            // var listingUrl = '..//localboard/Index/' + $(context.cityNameControlId).val() + '/' + $(context.categoryNameControlId).val() + '/' + $(context.cityIdControlId).val() + '/' + $(context.categoryIdControlId).val() + '/' + $(context.placeIdControlId).val();
+
+           // window.location.href = listingUrl;
+        });*/
+    };
+
+    //var self = this;
        $(window).bind("hashchange", function() {
             var hash = window.location.hash.substring(1);
            //alert("hash changed to " + hash);
@@ -94,7 +108,7 @@ function AddEditListing() {
     
     //Add Categories
     this.onSelectedCategoryCallBack = function () {
-        alert("I am received");
+        alert("I am received" + $(context.categoryIdControlId).val());
     };
 
 }

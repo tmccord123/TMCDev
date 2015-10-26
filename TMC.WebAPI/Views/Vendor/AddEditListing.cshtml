@@ -14,7 +14,9 @@
     $(function () {
         addEditListing = new AddEditListing();
         addEditListing.formId = '#' + '@Model.FormId';
-
+        addEditListing.categoryIdControlId = '#' + '@Model.ListingCategories.CategorySaytListing.SelectedCategoryIdFieldId';
+        addEditListing.categoryNameControlId = '#' + '@Model.ListingCategories.CategorySaytListing.SelectedCategoryNameFieldId';
+        addEditListing.initialize();
     });
     </script>
 
