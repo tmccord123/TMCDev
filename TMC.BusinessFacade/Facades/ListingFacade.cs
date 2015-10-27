@@ -63,6 +63,12 @@
             return listingBDC.CreateListing(listingDto);
         }
 
+        public OperationResult<long> CreateListingCategory(ICategoryDTO categoryDto)
+        {
+            var listingBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
+            return listingBDC.CreateListingCategory(categoryDto);
+        }
+
         public OperationResult<IList<IListingDTO>> GetlistingsByVendorId(int vendorId)
         {
 

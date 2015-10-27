@@ -259,5 +259,49 @@ namespace TMC.Web.Controllers.Api
             }
             return Ok(allListings);
         }
+
+        #region POST Methods
+        [Route("addCategory")]
+        [HttpPost]
+        public IHttpActionResult Post(CategoryViewModel categoryViewModel)
+        {
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var categoryDto = (ICategoryDTO)DTOFactory.Instance.Create(DTOType.Category);
+                    DTOConverter.FillDTOFromViewModel(categoryDto, categoryViewModel);
+                    var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+                    var listingResult = listingFacade.CreateListingCategory(categoryDto); 
+                    if (listingResult.IsValid())
+                    {
+                        ModelState.Remove("ListingId");
+                        categoryViewModel.ListingCategoryId = listingResult.Data;
+                        return Ok(categoryViewModel);
+                    }
+                    if (categoryViewModel == null)
+                    {
+                        return BadRequest();
+                    }
+
+                    return BadRequest(ModelState);
+
+                }
+                catch (Exception)
+                {
+                    return InternalServerError();
+                }
+            }
+            else
+            {
+                return BadRequest(ModelState);
+
+            }
+
+        }
+
+      
+        #endregion
     }
 }

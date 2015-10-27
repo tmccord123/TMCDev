@@ -322,6 +322,34 @@ namespace TMC.Business
             return operationResult;
         }
 
+
+        public OperationResult<long> CreateListingCategory(ICategoryDTO categoryDto)
+        {
+            OperationResult<long> operationResult = null;
+            try
+            {
+                var listingDAC = (IListingDAC)DACFactory.Instance.Create(DACType.Listing);
+
+                var resultListing =  listingDAC.CreateListingCategory(categoryDto);
+                operationResult = resultListing != null
+                                                      ? OperationResult<long>.CreateSuccessResult(resultListing)
+                                                      : OperationResult<long>.CreateFailureResult(
+                                                       ResourceUtility.GetCaptionFor(
+                                              ResourceConstants.Vendor.ErrorMessages.FailedToFetchListing));
+
+            }
+            catch (DACException dacEx)
+            {
+                operationResult = OperationResult<long>.CreateErrorResult(dacEx.Message, dacEx.StackTrace);//todo
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                operationResult = OperationResult<long>.CreateErrorResult(ex.Message, ex.StackTrace);//todo
+            }
+            return operationResult;
+        }
+
         #endregion
     }
 }

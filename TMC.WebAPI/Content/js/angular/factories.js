@@ -11,7 +11,27 @@ tmcFactories.service('listingService', ['$http', function ($http) {
 
 }]);
 
+tmcFactories.service('listingService', ['$http', function ($http) {
+    var listingService = {};
+    listingService.getListingCategories = function () {
+        return $http.get('/api/listing/addCategory');
+    };
+    return listingService;
+
+}]);
+
  
+tmcFactories.service("tmcHttpService", ['$http', function ($http) {
+    'use strict';
+    return {
+        get: function (url, data) {
+            return $http({ method: "GET", url: url, data: data });
+        },
+        post: function (url, data) {
+            return $http({ method: "POST", url: url, data: data });
+        }
+    };
+}]);
 
 
 

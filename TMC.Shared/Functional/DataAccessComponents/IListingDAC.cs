@@ -37,6 +37,7 @@ namespace TMC.Shared
         IListingDTO GetMediasByListingId(int listingId);
 
         IListingDTO CreateListing(IListingDTO listingDto);
+        long CreateListingCategory(ICategoryDTO categoryDto);
         IListingDTO UpdateListing(IListingDTO listingDto);
 
     }

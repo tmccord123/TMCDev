@@ -80,7 +80,7 @@ namespace TMC.Web.Controllers
             }
             }
             listingViewModel.ListingCategories.CategorySaytListing = new CategorySaytViewModel();
-            listingViewModel.ListingCategories.CategorySaytListing.ControlId = "ddlCategoriesHome";
+            listingViewModel.ListingCategories.CategorySaytListing.ControlId = "ddlAddCategories";
             listingViewModel.ListingCategories.CategorySaytListing.HtmlFieldPrefix = "CategorySaytHome";
             listingViewModel.ListingCategories.CategorySaytListing.SelectCallBack = "addEditListing.onSelectedCategoryCallBack"; 
 
