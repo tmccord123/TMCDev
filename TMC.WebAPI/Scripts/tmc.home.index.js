@@ -27,9 +27,25 @@ function HomeIndex() {
         });  
 
         tmcCommon.attachEvent(document, 'click', '#btnSearchMain', function () {
-            var listingUrl = '..//localboard/Index/' + $(context.cityNameControlId).val() + '/' + $(context.categoryNameControlId).val() + '/' + $(context.cityIdControlId).val() + '/' + $(context.categoryIdControlId).val() + '/' + $(context.placeIdControlId).val();
+            var cityId, categoryId, cityName, categoryName;
+            cityId = $(context.cityIdControlId).val();
+            cityName = $(context.cityNameControlId).val();
+            categoryId = $(context.categoryIdControlId).val();
+            categoryName = $(context.categoryNameControlId).val();
+
+            if (!$.isNumeric(cityId))
+            {
+                alert("Please select city.");
+            }
+            else if (!$.isNumeric(categoryId)) {
+                alert("Please select category.");
+            }
+            else if ($.isNumeric(cityId) && $.isNumeric(categoryId)) {
+                var listingUrl = '..//localboard/Index/' + cityName + '/' + categoryName + '/' + cityId + '/' + categoryId + '/' + $(context.placeIdControlId).val();
+                window.location.href = listingUrl;
+            }
            
-            window.location.href = listingUrl;
+            
         });
     };
 

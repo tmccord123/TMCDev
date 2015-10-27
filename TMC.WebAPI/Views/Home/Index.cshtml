@@ -42,101 +42,120 @@
 <input type="hidden" id="hdnCategoryId" />
 <input type="hidden" id="hdnCategoryName" />
 <input type="hidden" id="hdnPlaceId" />
-<div class="row">
-    <div class="searchPopup col-sm-12">
 
-        <div class="col-sm-3 topFields" id="cities">
-            
-            @Html.Partial("_CitySayt", Model.CitySaytHome)
-        </div>
-        <div class="col-sm-4 topFields display-none" id="divPlaces">
-           @Html.Partial("_PlaceSayt", Model.PlaceSaytHome)
-        </div>
-        <div class="col-sm-4 topFields">
-            @Html.Partial("_CategorySayt", Model.CategorySaytHome)
-        </div>
-        <div class="col-sm-1 topFields">
-            <button id="btnSearchMain" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-        </div>
-    </div>
-</div>
 
-<!-- New Slider Start-->
-<div class="row">
-<div class="flexslider col-sm-12" style="position: relative">
-   
-    <ul class="slides">
-        <li>
-            <img src="/img/banner.jpg" alt=""></li>
-        <li>
-            <img src="/img/banner1.jpg" alt=""></li>
-        <li>
-            <img src="/img/banner2.jpg" alt=""></li>
-    </ul>
-    
-</div>
-</div>
-<!-- New Slider END-->
+    <div class="row navbar-fixed-top stalk-search" id="divHomeSearchControl">
+    <div class="container homeSearchControl">
+        <div class="col-sm-12">
 
-<!-- Categories Section Start-->
+            <div class="col-sm-3 form-group" id="cities">
 
-<div class="section">
-
-    <div class="container">
-
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <h2>@ResourceUtility.GetCaptionFor(
-                                              ResourceConstants.Common.Labels.MoreCategories)</h2>
-                <hr>
+                @Html.Partial("_CitySayt", Model.CitySaytHome)
             </div>
-            @foreach (var category in Model.TopCategories)
-            {
-                <div class="col-sm-1">
-                    <a href="" class="home-category-list">
-                        <img class="img-responsive img-home-portfolio" src="/img/nav.png">
-                        @category.ShortName
-                    </a>
-                </div>
-            }
-        <!-- /.row -->
-</div>
+            <div class="col-sm-4 display-none" id="divPlaces">
+                @Html.Partial("_PlaceSayt", Model.PlaceSaytHome)
+            </div>
+            <div class="col-sm-4 form-group">
+                @Html.Partial("_CategorySayt", Model.CategorySaytHome)
+            </div>
+            <div class="col-sm-1 form-group">
+                <button id="btnSearchMain" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
     </div>
-    <!-- /.container -->
-
 </div>
+
+    @*<div class="row">
+            <div class="searchPopup col-sm-12">
+
+                <div class="col-sm-3 topFields" id="cities">
+
+                    @Html.Partial("_CitySayt", Model.CitySaytHome)
+                </div>
+                <div class="col-sm-4 topFields display-none" id="divPlaces">
+                   @Html.Partial("_PlaceSayt", Model.PlaceSaytHome)
+                </div>
+                <div class="col-sm-4 topFields">
+                    @Html.Partial("_CategorySayt", Model.CategorySaytHome)
+                </div>
+                <div class="col-sm-1 topFields">
+                    <button id="btnSearchMain" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+            </div>
+        </div>*@
+   
+    <!-- Categories Section Start-->
+    
+        <div class="container category-home-container">          
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        
+                        <hr>
+                    </div>
+                    <!-- New Slider Start-->
+
+                    <div class="col-sm-6 flexslider padding2">
+
+                        <ul class="slides">
+                            <li>
+                                <img src="/img/banner.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="/img/banner1.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="/img/banner2.jpg" alt="">
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <!-- New Slider END-->
+                    @foreach (var category in Model.TopCategories)
+                    {
+                        <div class="col-sm-2 padding2">
+                            <a href="" class="home-category-list">
+                                <img class="img-responsive" src="/img/restaurants.jpg" />
+                                <div class="home-category-text">
+                                    <span class="home-category-title">@category.ShortName </span>
+
+                                </div>
+                            </a>
+                        </div>
+                    }
+                    <!-- /.row -->
+                </div>
+            </div>
+    <!-- /.container -->
 
 <!-- Categories Section END-->
 @*<div class="section">
 
-    <div class="container">
+        <div class="container">
 
-        <div class="row">
-            <div class="col-lg-4 col-md-4">
-                <h3><i class="fa fa-check-circle"></i> Bootstrap 3 Built</h3>
-                <p>The 'Modern Business' website template by <a href="http://startbootstrap.com">Start Bootstrap</a> is built with <a href="http://getbootstrap.com">Bootstrap 3</a>. Make sure you're up to date with latest Bootstrap documentation!</p>
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <h3><i class="fa fa-check-circle"></i> Bootstrap 3 Built</h3>
+                    <p>The 'Modern Business' website template by <a href="http://startbootstrap.com">Start Bootstrap</a> is built with <a href="http://getbootstrap.com">Bootstrap 3</a>. Make sure you're up to date with latest Bootstrap documentation!</p>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h3><i class="fa fa-pencil"></i> Ready to Style &amp; Edit</h3>
+                    <p>You're ready to go with this pre-built page structure, now all you need to do is add your own custom stylings! You can see some free themes over at <a href="http://bootswatch.com">Bootswatch</a>, or come up with your own using <a href="http://getbootstrap.com/customize/">the Bootstrap customizer</a>!</p>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h3><i class="fa fa-folder-open"></i> Many Page Options</h3>
+                    <p>This template features many common pages that you might see on a business website. Pages include: about, contact, portfolio variations, blog, pricing, FAQ, 404, services, and general multi-purpose pages.</p>
+                </div>
             </div>
-            <div class="col-lg-4 col-md-4">
-                <h3><i class="fa fa-pencil"></i> Ready to Style &amp; Edit</h3>
-                <p>You're ready to go with this pre-built page structure, now all you need to do is add your own custom stylings! You can see some free themes over at <a href="http://bootswatch.com">Bootswatch</a>, or come up with your own using <a href="http://getbootstrap.com/customize/">the Bootstrap customizer</a>!</p>
-            </div>
-            <div class="col-lg-4 col-md-4">
-                <h3><i class="fa fa-folder-open"></i> Many Page Options</h3>
-                <p>This template features many common pages that you might see on a business website. Pages include: about, contact, portfolio variations, blog, pricing, FAQ, 404, services, and general multi-purpose pages.</p>
-            </div>
+            <!-- /.row -->
+
         </div>
-        <!-- /.row -->
+        <!-- /.container -->
 
-    </div>
-    <!-- /.container -->
-
-</div>*@
+    </div>*@
 <!-- /.section -->
-
 <div class="section-colored">
-
     <div class="container">
-
         <div class="row  text-center">
             <div class="col-sm-12">
                 <h2>How LocalCord Works</h2>
@@ -158,21 +177,14 @@
             </div>
         </div>
         <!-- /.row -->
-
     </div>
     <!-- /.container -->
-
 </div>
 <!-- /.section-colored -->
-
-
 <!-- /.section -->
 
 
-
-
 <div class="section">
-
     <div class="container">
         <div class="row  text-center">
             <div class="col-sm-12">
@@ -192,14 +204,11 @@
                     <li class="li-red margin-bottom-10"><span class="glyphicon glyphicon-earphone font-30"></span><span class="font-20 margin-left-10">  Search Prospective Customers in Your Location</span></li>
                     <li class="li-red margin-bottom-10"><span class="glyphicon glyphicon-ok font-30"></span><span class="font-20 margin-left-10">  Enrich your Profile & Reach out to more Customers</span></li>
                 </ul>
-             <a class="btn btn-lg btn-primary pull-right" href="">Be a Professional</a>
+                <a class="btn btn-lg btn-primary pull-right" href="">Be a Professional</a>
             </div>
         </div>
         <!-- /.row -->
-
     </div>
     <!-- /.container -->
-
 </div>
 <!-- /.section -->
-
