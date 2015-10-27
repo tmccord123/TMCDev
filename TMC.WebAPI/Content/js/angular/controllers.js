@@ -1,7 +1,7 @@
 ﻿/// <reference path='..\lib/angular.js' />
 var tmcControllers = angular.module('tmcControllers', []);
 
-tmcControllers.controller('ListingCtrl', ['$scope','$rootScope', 'listingService', function ($scope, $rootScope, listingService) {
+tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingService', 'tmcHttpService', function ($scope, $rootScope, listingService, tmcHttpService) {
     $scope.testValue = "This line is coming from the Listing angular controllerr ";
 
     $scope.listingCategories = {};
@@ -11,7 +11,17 @@ tmcControllers.controller('ListingCtrl', ['$scope','$rootScope', 'listingService
     getListingCategories();
      
     function getListingCategories() {
-        listingService.getListingCategories()
+        tmcHttpService.get('/api/listing/20/categories')
+         .success(function (cats) {
+             $scope.listingCategories = cats.categories;
+             // console.log($scope.students);
+         })
+        .error(function (error) {
+            $scope.status = 'Unable to load  data: ' + error.message;
+            console.log($scope.status);
+        });
+
+        /*listingService.getListingCategories()
             .success(function (cats) {
                 $scope.listingCategories = cats.categories;
                // console.log($scope.students);
@@ -19,8 +29,26 @@ tmcControllers.controller('ListingCtrl', ['$scope','$rootScope', 'listingService
             .error(function (error) {
                 $scope.status = 'Unable to load  data: ' + error.message;
                 console.log($scope.status);
-            });
+            });*/
     }
+
+    $scope.addCategory = function() {
+
+        var selectedCategoryId = $(addEditListing.categoryIdControlId).val();
+        var selectedCategoryName = $(addEditListing.categoryNameControlId).val();
+        var postData = { categoryId: selectedCategoryId, name: selectedCategoryName, listingId : 20 };//todo
+        tmcHttpService.post('/api/listing/addCategory', postData)
+         .success(function (data) {
+             $scope.listingCategories.push(data);
+             $("#ddlAddCategories").val('');
+         })
+        .error(function (error) {
+            $scope.status = 'Unable to add category: ' + error.message;
+            console.log($scope.status);
+        });
+
+     
+    };
 }]);
 
 /*

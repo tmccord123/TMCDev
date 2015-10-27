@@ -413,6 +413,38 @@ namespace TMC.Data
             }
             return listingDto;
         }
+        
+        public long CreateListingCategory(ICategoryDTO categoryDto)
+        {
+            long retVal = GlobalConstants.DefaultCreateId;
+            try
+            {
+                if (categoryDto != null)
+                {
+                    using (TransactionScope trans = new TransactionScope())
+                    {
+                        using (var TMCDbContext = new TMCContext())
+                        {
+                            var listingCategory = new ListingCategory(); 
+                            listingCategory.ListingId = categoryDto.ListingId;
+                            listingCategory.CategoryId = categoryDto.CategoryId; 
+                            TMCDbContext.ListingCategory.AddObject(listingCategory);
+                            if (TMCDbContext.SaveChanges() > 0)
+                            {
+                                retVal = listingCategory.ListingCategoryId;
+                            }
+                        }
+                        trans.Complete();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                throw new DACException("Error while creating the listing detail.", ex);
+            }
+            return retVal;
+        }
 
         /// <summary>
         /// 

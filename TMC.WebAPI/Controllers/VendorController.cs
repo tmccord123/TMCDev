@@ -79,10 +79,10 @@ namespace TMC.Web.Controllers
                 listingViewModel.ListingContacts = cotentResult.ListingContacts;
             }
             }
-            listingViewModel.ListingCategories.CategorySayt = new CategorySaytViewModel();
-            listingViewModel.ListingCategories.CategorySayt.ControlId = "ddlCategoriesHome";
-            listingViewModel.ListingCategories.CategorySayt.HtmlFieldPrefix = "CategorySaytHome";
-            listingViewModel.ListingCategories.CategorySayt.SelectCallBack = "addEditListing.onSelectedCategoryCallBack"; 
+            listingViewModel.ListingCategories.CategorySaytListing = new CategorySaytViewModel();
+            listingViewModel.ListingCategories.CategorySaytListing.ControlId = "ddlAddCategories";
+            listingViewModel.ListingCategories.CategorySaytListing.HtmlFieldPrefix = "CategorySaytHome";
+            listingViewModel.ListingCategories.CategorySaytListing.SelectCallBack = "addEditListing.onSelectedCategoryCallBack"; 
 
             return View("AddEditListing", listingViewModel);
         }
