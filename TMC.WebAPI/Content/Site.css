@@ -178,17 +178,21 @@ input[type="checkbox"].input-validation-error {
 
 .category-home-container {
     margin-bottom:50px;
-    margin-top:20px;
+    margin-top:60px;
 }
 
 .modal-body {
     padding-top: 5px;
 }
 
-#jccDialogMessageBoxBody {
+#tmcDialogMessageBoxBody {
     padding-top: 20px;
 }
 
-#jccDialogConfirmBoxBody {
+#tmcDialogConfirmBoxBody {
     padding-top: 20px;
+}
+
+.trending-deals-header {
+background-color:orange;
 }

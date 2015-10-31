@@ -405,6 +405,12 @@
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\ZeroClipboard.min.js" />
     <Content Include="img\nav.png" />
     <Content Include="img\pintrest_color_ico.png" />
+    <Content Include="img\placeholder1.jpg" />
+    <Content Include="img\placeholder1.png" />
+    <Content Include="img\placeholder2.jpg" />
+    <Content Include="img\placeholder2.png" />
+    <Content Include="img\placeholder3.jpg" />
+    <Content Include="img\placeholder3.png" />
     <Content Include="img\place_icon.png" />
     <Content Include="img\restaurants.jpg" />
     <Content Include="img\twitter_color_ico.png" />

@@ -86,31 +86,62 @@
    
     <!-- Categories Section Start-->
     
-        <div class="container category-home-container">          
-                <div class="row">
-                    <div class="col-sm-12 text-center">
-                        
-                        <hr>
-                    </div>
-                    <!-- New Slider Start-->
+        <div class="container category-home-container">
+            <div class="row  trending-deals-header">
+                <div class="col-sm-12">
+                    <h3 class="text-center">Trending Deals</h3>
+                </div>
+            </div>
+            <div class="row">
+                
+                <!-- New Slider Start-->
+                <div class="col-sm-12 flexslider padding2">
 
-                    <div class="col-sm-6 flexslider padding2">
+                    <ul class="slides">
+                        <li>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <img src="/img/banner.jpg" alt="" style="max-height:400px;">
+                                </div>
+                                @*<div class="col-sm-4">
+                            <img class="img-responsive" src="/img/placeholder1.jpg">
+                        </div>*@
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <img src="/img/banner1.jpg" alt="" style="max-height:400px;">
+                                </div>
+                                @*<div class="col-sm-4">
+                            <img class="img-responsive" src="/img/placeholder2.jpg">
+                        </div>*@
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <img src="/img/banner2.jpg" alt="" style="max-height:400px;">
+                                </div>
+                                @*<div class="col-sm-4">
+                            <img class="img-responsive" src="/img/placeholder3.jpg">
+                        </div>*@
+                            </div>
+                        </li>
+                    </ul>
 
-                        <ul class="slides">
-                            <li>
-                                <img src="/img/banner.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="/img/banner1.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="/img/banner2.jpg" alt="">
-                            </li>
-                        </ul>
+                </div>
 
-                    </div>
+                <!-- New Slider END-->
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="text-center category_heading">What Are You Looking For?</h3>
+                    <hr>
+                </div>
+            </div>
+                <div class="row">                  
 
-                    <!-- New Slider END-->
                     @foreach (var category in Model.TopCategories)
                     {
                         <div class="col-sm-2 padding2">

@@ -23,7 +23,11 @@ function HomeIndex() {
             controlNav: false,
             directionNav: false,
             prevText: '',
-            nextText: ''
+            nextText: '',
+            pauseOnHover:true,
+            after: function () {
+
+            }
         });  
 
         tmcCommon.attachEvent(document, 'click', '#btnSearchMain', function () {
