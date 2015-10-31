@@ -180,3 +180,15 @@ input[type="checkbox"].input-validation-error {
     margin-bottom:50px;
     margin-top:20px;
 }
+
+.modal-body {
+    padding-top: 5px;
+}
+
+#jccDialogMessageBoxBody {
+    padding-top: 20px;
+}
+
+#jccDialogConfirmBoxBody {
+    padding-top: 20px;
+}

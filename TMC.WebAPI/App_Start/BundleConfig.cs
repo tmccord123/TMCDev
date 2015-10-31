@@ -41,7 +41,8 @@ namespace TMC.Web
                      "~/Scripts/tmc.common.js",
                      "~/Scripts/tmc.common.city.sayt.js",
                      "~/Scripts/tmc.common.place.sayt.js",
-                     "~/Scripts/tmc.common.category.sayt.js"));
+                     "~/Scripts/tmc.common.category.sayt.js",
+                     "~/Scripts/tmc.common.dialog.js"));
 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

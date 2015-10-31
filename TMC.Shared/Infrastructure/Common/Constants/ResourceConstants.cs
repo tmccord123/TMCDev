@@ -32,6 +32,13 @@ namespace TMC.Shared
             public static class Labels
             {
                 public const string MoreCategories = "TMC_Common_Labels_MoreCategories";
+
+
+                public static class MessageBox
+                {
+                    public const string ButtonOk = "TMC_Common_Labels_MessageBox_ButtonOk";
+                    public const string ButtonCancel = "TMC_Common_Labels_MessageBox_ButtonCancel";                                   
+                }
                
             }
         }

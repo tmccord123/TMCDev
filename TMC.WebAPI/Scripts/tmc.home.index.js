@@ -35,10 +35,24 @@ function HomeIndex() {
 
             if (!$.isNumeric(cityId))
             {
-                alert("Please select city.");
+                tmcDialog.showMessageBox({
+                    header: "Warning",
+                    message: "Please select city.",
+                    buttonText: "Ok",
+                    callback: function () {
+                        
+                    }
+                });
             }
             else if (!$.isNumeric(categoryId)) {
-                alert("Please select category.");
+                tmcDialog.showMessageBox({
+                    header: "Warning",
+                    message: "Please select category.",
+                    buttonText: "Ok",
+                    callback: function () {
+
+                    }
+                });
             }
             else if ($.isNumeric(cityId) && $.isNumeric(categoryId)) {
                 var listingUrl = '..//localboard/Index/' + cityName + '/' + categoryName + '/' + cityId + '/' + categoryId + '/' + $(context.placeIdControlId).val();

@@ -410,6 +410,7 @@
     <Content Include="img\vendor_consumer.jpg" />
     <Content Include="img\whiteboard.jpg" />
     <Content Include="img\youtube_ico.png" />
+    <Content Include="Scripts\tmc.common.dialog.js" />
     <Content Include="Scripts\jsbacks\bootstrap.js" />
     <Content Include="Scripts\jsbacks\bootstrap.min.js" />
     <Content Include="Scripts\tmc.AddEditListing.js" />
@@ -573,6 +574,7 @@
     <Content Include="Views\Vendor\_EditListingCategories.cshtml" />
     <Content Include="Views\LocalBoard\_ListingSearchResults.cshtml" />
     <Content Include="Views\Account\_ChangeProfilePartial.cshtml" />
+    <Content Include="Views\Shared\_TmcDialog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
