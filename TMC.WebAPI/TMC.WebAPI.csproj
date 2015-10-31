@@ -405,6 +405,8 @@
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\ZeroClipboard.min.js" />
     <Content Include="img\nav.png" />
     <Content Include="img\pintrest_color_ico.png" />
+    <Content Include="img\place_icon.png" />
+    <Content Include="img\restaurants.jpg" />
     <Content Include="img\twitter_color_ico.png" />
     <Content Include="img\twitter_ico.png" />
     <Content Include="img\vendor_consumer.jpg" />
