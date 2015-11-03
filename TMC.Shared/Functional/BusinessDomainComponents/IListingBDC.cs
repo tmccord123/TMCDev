@@ -34,11 +34,12 @@ namespace TMC.Shared
 
         OperationResult<IListingDTO> CreateListing(IListingDTO listingDto);
         OperationResult<long> CreateListingCategory(ICategoryDTO categoryDto);
+        OperationResult<long> CreateListingServiceLocation(IServiceLocationDTO serviceLocationDto);
 
         OperationResult<IListingDTO> GetlistingById(int listingId);
         OperationResult<IListingDTO> GetContactsByListingId(int listingId);
         OperationResult<IListingDTO> GetCategoriesByListingId(int listingId);
-        OperationResult<IListingDTO> GetServiceAreasByListingId(int listingId);
+        OperationResult<IListingDTO> GetServiceLocationsByListingId(int listingId);
         OperationResult<IListingDTO> GetPaymentModesByListingId(int listingId);
         OperationResult<IListingDTO> GetMediasByListingId(int listingId);
     }

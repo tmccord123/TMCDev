@@ -152,13 +152,13 @@ namespace TMC.Business
             return operationResult;
         }
 
-        public OperationResult<IListingDTO> GetServiceAreasByListingId(int listingId)
+        public OperationResult<IListingDTO> GetServiceLocationsByListingId(int listingId)
         {
             OperationResult<IListingDTO> operationResult = null;
             try
             {
                 var listingDAC = (IListingDAC)DACFactory.Instance.Create(DACType.Listing);
-                var listing = listingDAC.GetServiceAreasByListingId(listingId);
+                var listing = listingDAC.GetServiceLocationsByListingId(listingId);
 
                 operationResult = listing != null
                                                       ? OperationResult<IListingDTO>.CreateSuccessResult(listing)
@@ -336,6 +336,33 @@ namespace TMC.Business
                                                       : OperationResult<long>.CreateFailureResult(
                                                        ResourceUtility.GetCaptionFor(
                                               ResourceConstants.Vendor.ErrorMessages.FailedToFetchListing));
+
+            }
+            catch (DACException dacEx)
+            {
+                operationResult = OperationResult<long>.CreateErrorResult(dacEx.Message, dacEx.StackTrace);//todo
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                operationResult = OperationResult<long>.CreateErrorResult(ex.Message, ex.StackTrace);//todo
+            }
+            return operationResult;
+        }
+
+        public OperationResult<long> CreateListingServiceLocation(IServiceLocationDTO serviceLocationDto)
+        {
+            OperationResult<long> operationResult = null;
+            try
+            {
+                var listingDAC = (IListingDAC)DACFactory.Instance.Create(DACType.Listing);
+
+                var resultListing = listingDAC.CreateListingServiceLocation(serviceLocationDto);
+                operationResult = resultListing != null
+                                                      ? OperationResult<long>.CreateSuccessResult(resultListing)
+                                                      : OperationResult<long>.CreateFailureResult(
+                                                       ResourceUtility.GetCaptionFor(
+                                              ResourceConstants.Vendor.ErrorMessages.FailedToFetchListing));//todo
 
             }
             catch (DACException dacEx)

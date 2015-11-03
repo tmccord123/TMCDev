@@ -239,7 +239,7 @@
     <Compile Include="ViewModels\Vendor\ListingMediasViewModel.cs" />
     <Compile Include="ViewModels\Vendor\MediaViewModel.cs" />
     <Compile Include="ViewModels\Vendor\PaymentModeViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\ServiceAreaViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ServiceLocationViewModel.cs" />
     <Compile Include="ViewModels\Vendor\CategoryViewModel.cs" />
     <Compile Include="ViewModels\Common\CategorySaytViewModel.cs" />
     <Compile Include="ViewModels\Common\PlaceSaytViewModel.cs" />
@@ -583,6 +583,7 @@
     <Content Include="Views\LocalBoard\_ListingSearchResults.cshtml" />
     <Content Include="Views\Account\_ChangeProfilePartial.cshtml" />
     <Content Include="Views\Shared\_TmcDialog.cshtml" />
+    <Content Include="Views\Vendor\_EditListingServiceLocations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -37,11 +37,11 @@
             var vendorBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
             return vendorBDC.GetCategoriesByListingId(listingId);
         }
-        
-        public OperationResult<IListingDTO> GetServiceAreasByListingId(int listingId)
+
+        public OperationResult<IListingDTO> GetServiceLocationsByListingId(int listingId)
         {
             var vendorBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
-            return vendorBDC.GetServiceAreasByListingId(listingId);
+            return vendorBDC.GetServiceLocationsByListingId(listingId);
         }
 
         public OperationResult<IListingDTO> GetPaymentModesByListingId(int listingId)
@@ -67,6 +67,13 @@
         {
             var listingBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
             return listingBDC.CreateListingCategory(categoryDto);
+        }
+
+
+        public OperationResult<long> CreateListingServiceLocation(IServiceLocationDTO serviceLocationDto)
+        {
+            var listingBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
+            return listingBDC.CreateListingServiceLocation(serviceLocationDto);
         }
 
         public OperationResult<IList<IListingDTO>> GetlistingsByVendorId(int vendorId)

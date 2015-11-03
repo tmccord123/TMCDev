@@ -4,14 +4,15 @@ using TMC.Web.Shared;
 
 namespace TMC.Web.ViewModels
 {
-    public class ListingServiceAreasViewModel : ViewModelBase
+    public class ListingServiceLocationsViewModel : ViewModelBase
     {
-        public ListingServiceAreasViewModel()
+        public ListingServiceLocationsViewModel()
         {
-            ServiceAreas = new List<ServiceAreaViewModel>();
-            NewServiceArea = new ServiceAreaViewModel();
+            ServiceLocations = new List<ServiceLocationViewModel>();
+            NewServiceLocation = new ServiceLocationViewModel();
         }
-        public List<ServiceAreaViewModel> ServiceAreas { get; set; }
-        public ServiceAreaViewModel NewServiceArea { get; set; }
+        public List<ServiceLocationViewModel> ServiceLocations { get; set; }
+        public ServiceLocationViewModel NewServiceLocation { get; set; }
+        public CitySaytViewModel CitySaytListing { get; set; }
     }
 }

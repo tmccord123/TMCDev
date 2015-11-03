@@ -11,14 +11,14 @@
             <p>{{listingCategories.length}} key categories added </p>
         </div>
         <div class="col-md-3 col-sm-4 ">
-            <a href="#NewCategory" class="link glyphicon glyphicon-plus-sign" data-toggle="collapse">Add More</a>
+            <a href="#NewCategory" class="link glyphicon glyphicon-plus-sign" data-toggle="collapse"  >Add More</a>
         </div>
     </div>
     <div class="row">
         <div id="NewCategory" class="collapse">
             <div class="form-group">
 
-                @Html.Label("Select key Categories", new { @class = "col-md-2 control-label" })
+                @Html.Label("Select key Categories", new { @class = "col-md-2 control-label" }) 
                 <div class="col-md-3 col-sm-4 ">
                     @Html.Partial("_CategorySayt", Model.CategorySaytListing)
                 </div>

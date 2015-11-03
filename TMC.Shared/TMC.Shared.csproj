@@ -65,7 +65,7 @@
     <Compile Include="Functional\DataTransferObjects\ICategoryDTO.cs" />
     <Compile Include="Functional\DataTransferObjects\IListingMediasDTO.cs" />
     <Compile Include="Functional\DataTransferObjects\IListingPaymentModesDTO.cs" />
-    <Compile Include="Functional\DataTransferObjects\IListingServiceAreasDTO.cs" />
+    <Compile Include="Functional\DataTransferObjects\IListingServiceLocationsDTO.cs" />
     <Compile Include="Functional\DataTransferObjects\IMediaDTO.cs" />
     <Compile Include="Functional\DataTransferObjects\IPaymentModeDTO.cs" />
     <Compile Include="Functional\DataTransferObjects\IServiceAreaDTO.cs" />

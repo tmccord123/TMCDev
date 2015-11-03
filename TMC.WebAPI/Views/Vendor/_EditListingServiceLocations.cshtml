@@ -1,0 +1,57 @@
+﻿@using TMC.Web.ViewModels
+@using TMC.Web.Shared
+@model ListingServiceLocationsViewModel
+
+<div controller="lis">
+    <h3>Service Areas  </h3>
+    @*  <p>{{testValue}}</p>*@
+
+    <div class="row">
+        <div class="col-md-3 col-sm-4 ">
+            <p>{{listingServiceLocations.length}} service area added </p>
+        </div>
+        <div class="col-md-3 col-sm-4 ">
+            <a href="#NewServiceArea" class="link glyphicon glyphicon-plus-sign" data-toggle="collapse" >Add More</a>
+        </div>
+    </div>
+    <div class="row">
+        <div id="NewServiceArea" class="collapse">
+            <div class="form-group">
+
+                @Html.Label("Select City", new { @class = "col-md-2 control-label" })
+                <div class="col-md-3 col-sm-4 ">
+                    @Html.Partial("_CitySayt", Model.CitySaytListing)
+                </div>
+
+                <div class="col-md-3 col-sm-4">
+                    <input type="button" id="btnAddListingCategory" ng-click="addListingServiceAreaCity()" class="btn btn-default" value="Add" />
+                </div>
+                <div class="col-md-3 col-sm-4">
+                    <input type="button" id="btnAddListingCategory" ng-click="addListingServiceAreaWholeCity()" class="btn btn-default" value="Add whole City" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <hr class="no-margin" />
+    <div class="chipbar">
+        <ul>
+            <!-- ngRepeat: filter in selectedFilters -->
+            <li ng-repeat="filter in selectedFilters">
+                <a>A&amp;K</a><i ng-click="filter.selected.selected = !filter.selected.selected;applyFilter(filter.collection, filter.selected);"
+                                 class="fa fa-times" role="button" tabindex="0"></i>
+            </li>
+            <li ng-show="(selectedFilters.length > 0)" ng-click="resetAllFilter()" class="clearall" role="button" tabindex="0" aria-hidden="false"><a>Clear All</a></li>
+        </ul>
+    </div>
+    <div class="chipbar">
+        <ul>
+            <li ng-repeat="serviceLocation in listingServiceLocations">
+                <a>{{serviceLocation.cityName}}</a>
+                <i class="fa fa-times" role="button" tabindex="0">(x)</i>
+            </li>
+        </ul>
+    </div>
+</div>
+
+

@@ -67,11 +67,11 @@ namespace TMC.Shared
         [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ListingCategoriesDTO")]
         ListingCategories = 9,
 
-        [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ListingServiceAreasDTO")]
-        ListingServiceAreas = 10,
+        [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ListingServiceLocationsDTO")]
+        ListingServiceLocations = 10,
 
-        [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ServiceAreaDTO")]
-        ServiceArea = 11,
+        [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ServiceLocationDTO")]
+        ServiceLocation = 11,
 
         [QualifiedTypeName("TMC.DTOModel.dll", "TMC.DTOModel.ListingPaymentModesDTO")]
         ListingPaymentModes = 12,

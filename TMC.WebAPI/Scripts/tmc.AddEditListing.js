@@ -108,7 +108,12 @@ function AddEditListing() {
     
     //Add Categories
     this.onSelectedCategoryCallBack = function () {
-        alert("I am received" + $(context.categoryIdControlId).val());
+        //alert("I am received" + $(context.categoryIdControlId).val());
+    };
+
+    //Add service areas to listing success call back
+    this.onSelectedAddCityCallBack = function () {
+        alert("I am received" + $(context.cityIdControlId).val());
     };
 
 }

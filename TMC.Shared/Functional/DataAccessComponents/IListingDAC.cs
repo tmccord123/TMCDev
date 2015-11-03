@@ -32,12 +32,13 @@ namespace TMC.Shared
         IListingDTO GetListingById(int listingId);
         IListingDTO GetContactsByListingId(int listingId);
         IListingDTO GetCategoriesByListingId(int listingId);
-        IListingDTO GetServiceAreasByListingId(int listingId);
+        IListingDTO GetServiceLocationsByListingId(int listingId);
         IListingDTO GetPaymentModesByListingId(int listingId);
         IListingDTO GetMediasByListingId(int listingId);
 
         IListingDTO CreateListing(IListingDTO listingDto);
         long CreateListingCategory(ICategoryDTO categoryDto);
+        long CreateListingServiceLocation(IServiceLocationDTO serviceLocationDto);
         IListingDTO UpdateListing(IListingDTO listingDto);
 
     }

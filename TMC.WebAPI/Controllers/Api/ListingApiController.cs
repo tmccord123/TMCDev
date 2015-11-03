@@ -81,22 +81,22 @@ namespace TMC.Web.Controllers.Api
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Route("{id:int}/serviceareas")]
+        [Route("{id:int}/serviceLocations")]
         public IHttpActionResult GetListingServiceAreas(int id)
         {
             var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
-            var listingResult = listingFacade.GetServiceAreasByListingId(id);
+            var listingResult = listingFacade.GetServiceLocationsByListingId(id);
             var listingViewModel = new ListingViewModel();
-            if (listingResult.IsValid() && listingResult.Data.ListingServiceAreas != null)
+            if (listingResult.IsValid() && listingResult.Data.ListingServiceLocations != null)
             {
-                foreach (var listingServiceArea in listingResult.Data.ListingServiceAreas.ServiceAreas)
+                foreach (var listingServiceArea in listingResult.Data.ListingServiceLocations.ServiceLocations)
                 {
-                    var listingServiceAreaViewModel = new ServiceAreaViewModel();
+                    var listingServiceAreaViewModel = new ServiceLocationViewModel();
                     DTOConverter.FillViewModelFromDTO(listingServiceAreaViewModel, listingServiceArea);
-                    listingViewModel.ListingServiceAreas.ServiceAreas.Add(listingServiceAreaViewModel);
+                    listingViewModel.ListingServiceLocations.ServiceLocations.Add(listingServiceAreaViewModel);
                 }
             } 
-            return Ok(listingViewModel.ListingServiceAreas);
+            return Ok(listingViewModel.ListingServiceLocations);
         }
 
         /// <summary>
@@ -301,6 +301,45 @@ namespace TMC.Web.Controllers.Api
 
         }
 
+        [Route("addServiceLocation")]
+        [HttpPost]
+        public IHttpActionResult Post(ServiceLocationViewModel serviceLocationViewModel)
+        {
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var serviceLocationDto = (IServiceLocationDTO)DTOFactory.Instance.Create(DTOType.ServiceLocation);
+                    DTOConverter.FillDTOFromViewModel(serviceLocationDto, serviceLocationViewModel);
+                    var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+                    var listingResult = listingFacade.CreateListingServiceLocation(serviceLocationDto);
+                    if (listingResult.IsValid())
+                    {
+                        ModelState.Remove("ListingId");
+                        serviceLocationViewModel.ListingServiceLocationId = listingResult.Data;
+                        return Ok(serviceLocationViewModel);
+                    }
+                    if (serviceLocationViewModel == null)
+                    {
+                        return BadRequest();
+                    }
+
+                    return BadRequest(ModelState);
+
+                }
+                catch (Exception)
+                {
+                    return InternalServerError();
+                }
+            }
+            else
+            {
+                return BadRequest(ModelState);
+
+            }
+
+        }
       
         #endregion
     }

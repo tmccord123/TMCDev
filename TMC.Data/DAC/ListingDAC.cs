@@ -231,34 +231,40 @@ namespace TMC.Data
             return listingDto;
         }
 
-        public IListingDTO GetServiceAreasByListingId(int listingId)
+        public IListingDTO GetServiceLocationsByListingId(int listingId)
         {
             IListingDTO listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
-            IListingContactsDTO listingContactsDto = (IListingContactsDTO)DTOFactory.Instance.Create(DTOType.ListingContacts);
-            listingContactsDto.Contacts = new List<IContactDTO>();
+            IListingServiceLocationsDTO listingServiceLocationsDto = (IListingServiceLocationsDTO)DTOFactory.Instance.Create(DTOType.ListingServiceLocations);
+            listingServiceLocationsDto.ServiceLocations = new List<IServiceLocationDTO>();
             try
             {
                 using (var tmcContext = new TMCContext())
                 {
-                    var listingcontactEntities = (from listingContact in tmcContext.ListingContact
-                                                  where listingContact.ListingId == listingId && listingContact.IsActive
-                                                  select listingContact).ToList();
-                    if (listingcontactEntities.Any())
+                    var listingServiceLocationEntities = (from listingServiceLocation in tmcContext.ListingServiceLocation
+                                                          join city in tmcContext.City on listingServiceLocation.CityId equals city.CityId
+                                                  where listingServiceLocation.ListingId == listingId && listingServiceLocation.IsActive
+                                                  select new
+                                                  {
+                                                      listingServiceLocation,
+                                                      CityName = city.Name,
+                                                  }).ToList();
+                    if (listingServiceLocationEntities.Any())
                     {
-                        foreach (var listingContactEntity in listingcontactEntities)
+                        foreach (var listingServiceLocationEntity in listingServiceLocationEntities)
                         {
-                            IContactDTO listingContactDto = (IContactDTO)DTOFactory.Instance.Create(DTOType.Contact);
-                            EntityConverter.FillDTOFromEntity(listingContactEntity, listingContactDto);
-                            listingContactsDto.Contacts.Add(listingContactDto);
+                            IServiceLocationDTO serviceLocationDto = (IServiceLocationDTO)DTOFactory.Instance.Create(DTOType.ServiceLocation);
+                            EntityConverter.FillDTOFromEntity(listingServiceLocationEntity.listingServiceLocation, serviceLocationDto);
+                            serviceLocationDto.CityName = listingServiceLocationEntity.CityName;
+                            listingServiceLocationsDto.ServiceLocations.Add(serviceLocationDto);
                         }
-                        listingDto.ListingContacts = listingContactsDto;
+                        listingDto.ListingServiceLocations = listingServiceLocationsDto;
                     }
                 }
             }
             catch (Exception ex)
             {
                 ExceptionManager.HandleException(ex);
-                throw new DACException("Error while fetching the listing contacts.", ex);
+                throw new DACException("Error while fetching the listing contacts.", ex);//todo
             }
 
             return listingDto;
@@ -274,6 +280,7 @@ namespace TMC.Data
                 using (var tmcContext = new TMCContext())
                 {
                     var listingcontactEntities = (from listingContact in tmcContext.ListingContact
+
                                                   where listingContact.ListingId == listingId && listingContact.IsActive
                                                   select listingContact).ToList();
                     if (listingcontactEntities.Any())
@@ -442,6 +449,49 @@ namespace TMC.Data
             {
                 ExceptionManager.HandleException(ex);
                 throw new DACException("Error while creating the listing detail.", ex);
+            }
+            return retVal;
+        }
+
+        public long CreateListingServiceLocation(IServiceLocationDTO serviceLocationDto)
+        {
+            long retVal = GlobalConstants.DefaultCreateId;
+            try
+            {
+                if (serviceLocationDto != null)
+                {
+                    using (TransactionScope trans = new TransactionScope())
+                    {
+                        using (var TMCDbContext = new TMCContext())
+                        {
+                            var listingServiceLocation = new ListingServiceLocation();
+                            listingServiceLocation.ListingId = serviceLocationDto.ListingId;
+                            listingServiceLocation.CityId = serviceLocationDto.CityId;
+                            TMCDbContext.ListingServiceLocation.AddObject(listingServiceLocation);
+
+                            //todo fill these calues
+                            listingServiceLocation.StateId = 1;
+                            listingServiceLocation.CountryId = 1;
+                            listingServiceLocation.IsCityLevel = true;
+                            listingServiceLocation.CreatedOn = DateTime.Now;
+                            listingServiceLocation.CreatedBy = 11;
+                            listingServiceLocation.UpdatedOn = DateTime.Now;
+                            listingServiceLocation.UpdatedBy = 11;
+                            listingServiceLocation.IsActive = true;
+                            listingServiceLocation.IsDeleted = false;
+                            if (TMCDbContext.SaveChanges() > 0)
+                            {
+                                retVal = listingServiceLocation.ListingServiceLocationId;
+                            }
+                        }
+                        trans.Complete();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                throw new DACException("Error while creating the listing detail.", ex);//todo
             }
             return retVal;
         }

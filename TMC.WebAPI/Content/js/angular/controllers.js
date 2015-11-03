@@ -4,14 +4,14 @@ var tmcControllers = angular.module('tmcControllers', []);
 tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingService', 'tmcHttpService', function ($scope, $rootScope, listingService, tmcHttpService) {
     $scope.testValue = "This line is coming from the Listing angular controllerr ";
 
+    /****************************************************************************
+    Listing Categories
+    *****************************************************************************/
     $scope.listingCategories = {};
-    //$rootScope.currentTabIndex = 0;
-    //addEditListing.currentTabIndex = 0;
-    
     getListingCategories();
-     
+
     function getListingCategories() {
-        tmcHttpService.get('/api/listing/20/categories')
+        tmcHttpService.get('/api/listing/20/categories')//todo
          .success(function (cats) {
              $scope.listingCategories = cats.categories;
              // console.log($scope.students);
@@ -32,22 +32,69 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
             });*/
     }
 
-    $scope.addCategory = function() {
+    $scope.addCategory = function () {
 
         var selectedCategoryId = $(addEditListing.categoryIdControlId).val();
         var selectedCategoryName = $(addEditListing.categoryNameControlId).val();
-        var postData = { categoryId: selectedCategoryId, name: selectedCategoryName, listingId : 20 };//todo
-        tmcHttpService.post('/api/listing/addCategory', postData)
+        if (selectedCategoryId !== "") {
+            var postData = { categoryId: selectedCategoryId, name: selectedCategoryName, listingId: 20 };//todo
+            tmcHttpService.post('/api/listing/addCategory', postData)
+             .success(function (data) {
+                 $scope.listingCategories.push(data);
+                 $(addEditListing.categoryIdControlId).val('');
+                 $(addEditListing.categoryNameControlId).val('');
+                 $("#ddlAddCategories").val('');
+             })
+            .error(function (error) {
+                $scope.status = 'Unable to add category: ' + error.message;
+                console.log($scope.status);
+            });
+        } else {
+            //todo swow message
+        }
+    };
+
+
+    /****************************************************************************
+    Listing Service Locations
+    *****************************************************************************/
+    $scope.listingServiceLocations = {};
+    getListingServiceLocations();
+
+    function getListingServiceLocations() {
+        tmcHttpService.get('/api/listing/20/serviceLocations')//todo
          .success(function (data) {
-             $scope.listingCategories.push(data);
-             $("#ddlAddCategories").val('');
+             $scope.listingServiceLocations = data.serviceLocations;
          })
         .error(function (error) {
-            $scope.status = 'Unable to add category: ' + error.message;
+            $scope.status = 'Unable to load  data: ' + error.message;
             console.log($scope.status);
         });
+    }
+    $scope.addListingServiceAreaWholeCity = function () {
 
-     
+        var selectedCityId = $(addEditListing.cityIdControlId).val();
+        var selectedCityName = $(addEditListing.cityNameControlId).val();
+        if (selectedCityId !== "") {
+            var postData = { cityId: selectedCityId, cityName: selectedCityName, listingId: 20 };//todo
+            tmcHttpService.post('/api/listing/addServiceLocation', postData)
+             .success(function (data) {
+
+                 $scope.listingServiceLocations.push(data);
+                 $(addEditListing.cityIdControlId).val('');
+                 $(addEditListing.cityNameControlId).val('');
+                 $("#ddlAddCities").val('');
+             })
+            .error(function (error) {
+                $scope.status = 'Unable to add city: ' + error.message;
+                console.log($scope.status);
+            });
+        } else {
+            //todo swow message
+        }
+
+
+
     };
 }]);
 

@@ -55,7 +55,7 @@ namespace TMC.DTOModel
          
         public IListingContactsDTO ListingContacts { get; set; }
         public IListingCategoriesDTO ListingCategories { get; set; }
-        public IListingServiceAreasDTO ListingServiceAreas { get; set; }
+        public IListingServiceLocationsDTO ListingServiceLocations { get; set; }
         public IListingPaymentModesDTO ListingPaymentModes { get; set; }
         public IListingMediasDTO ListingMedias { get; set; }
 

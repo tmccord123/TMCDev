@@ -17,7 +17,7 @@ namespace TMC.Shared
         short BusinessHours { get; set; }
         IListingContactsDTO ListingContacts { get; set; }
         IListingCategoriesDTO ListingCategories { get; set; }
-        IListingServiceAreasDTO ListingServiceAreas { get; set; }
+        IListingServiceLocationsDTO ListingServiceLocations { get; set; }
         IListingPaymentModesDTO ListingPaymentModes { get; set; }
         IListingMediasDTO ListingMedias { get; set; }
 

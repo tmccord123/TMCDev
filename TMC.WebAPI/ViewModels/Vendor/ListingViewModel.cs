@@ -10,7 +10,7 @@ namespace TMC.Web.ViewModels
         {
             ListingContacts = new ListingContactsViewModel();
             ListingCategories = new ListingCategoriesViewModel();
-            ListingServiceAreas = new ListingServiceAreasViewModel();
+            ListingServiceLocations = new ListingServiceLocationsViewModel();
             ListingPaymentModes = new ListingPaymentModesViewModel();
             ListingMedias = new ListingMediasViewModel();
         }
@@ -26,7 +26,7 @@ namespace TMC.Web.ViewModels
         public short BusinessHours { get; set; }
         public ListingContactsViewModel ListingContacts { get; set; }
         public ListingCategoriesViewModel ListingCategories { get; set; }
-        public ListingServiceAreasViewModel ListingServiceAreas { get; set; }
+        public ListingServiceLocationsViewModel ListingServiceLocations { get; set; }
         public ListingPaymentModesViewModel ListingPaymentModes { get; set; }
         public ListingMediasViewModel ListingMedias { get; set; } 
     }

@@ -16,6 +16,11 @@
         addEditListing.formId = '#' + '@Model.FormId';
         addEditListing.categoryIdControlId = '#' + '@Model.ListingCategories.CategorySaytListing.SelectedCategoryIdFieldId';
         addEditListing.categoryNameControlId = '#' + '@Model.ListingCategories.CategorySaytListing.SelectedCategoryNameFieldId';
+        
+        //listing Service Areas
+        addEditListing.cityIdControlId = '#' + '@Model.ListingServiceLocations.CitySaytListing.SelectedCityIdFieldId';
+        addEditListing.cityNameControlId = '#' + '@Model.ListingServiceLocations.CitySaytListing.SelectedCityNameFieldId';
+
         addEditListing.initialize();
     });
     </script>
@@ -109,8 +114,12 @@
                     </div>
                 </div>
                 <div id="serviceAreas" class="tab-pane fade">
-                    <h3>Areas of operation</h3>
-                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            @Html.Partial("_EditListingServiceLocations", Model.ListingServiceLocations)
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <ul class="pager">

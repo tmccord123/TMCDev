@@ -70,19 +70,33 @@ namespace TMC.Web.Controllers
                 {
                     return Content("An error occurred while fetching the data.");
                 }
-            //find listing contacts
-            HttpResponseMessage contentContactsResponse = await client.GetAsync("api/listing/" + id+"/contacts");
-            if (contentContactsResponse.IsSuccessStatusCode)
-            {
-                string content = await contentContactsResponse.Content.ReadAsStringAsync();
-                var cotentResult = JsonConvert.DeserializeObject<ListingViewModel>(content);
-                listingViewModel.ListingContacts = cotentResult.ListingContacts;
+                
+                //listing contacts
+                HttpResponseMessage contentContactsResponse = await client.GetAsync("api/listing/" + id+"/contacts");
+                if (contentContactsResponse.IsSuccessStatusCode)
+                {
+                    string content = await contentContactsResponse.Content.ReadAsStringAsync();
+                    var cotentResult = JsonConvert.DeserializeObject<ListingViewModel>(content);
+                    listingViewModel.ListingContacts = cotentResult.ListingContacts;
+                }
             }
-            }
+
+
+
+            //listing category 
             listingViewModel.ListingCategories.CategorySaytListing = new CategorySaytViewModel();
             listingViewModel.ListingCategories.CategorySaytListing.ControlId = "ddlAddCategories";
+            //todo get the url from here 
+            //listingViewModel.ListingCategories.CategorySaytListing.AjaxGetUrl = "";
             listingViewModel.ListingCategories.CategorySaytListing.HtmlFieldPrefix = "CategorySaytHome";
             listingViewModel.ListingCategories.CategorySaytListing.SelectCallBack = "addEditListing.onSelectedCategoryCallBack"; 
+
+            //listing Service Area
+            listingViewModel.ListingServiceLocations.CitySaytListing = new CitySaytViewModel();
+            listingViewModel.ListingServiceLocations.CitySaytListing.ControlId = "ddlAddCities"; 
+            listingViewModel.ListingServiceLocations.CitySaytListing.HtmlFieldPrefix = "CirySaytListingServiceArea";
+            listingViewModel.ListingServiceLocations.CitySaytListing.SelectCallBack = "addEditListing.onSelectedAddCityCallBack"; 
+
 
             return View("AddEditListing", listingViewModel);
         }
