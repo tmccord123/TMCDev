@@ -30,6 +30,11 @@ namespace TMC.Web
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            config.Routes.MapHttpRoute(
+                name: "Listing",
+                routeTemplate: "api/{controller}/{cityId}/{categoryId}/{placeId}",
+                defaults: new { cityId = "", categoryId = "", placeId = RouteParameter.Optional }
+            );
 
             // ... or ensure the json formatter accepts text/html
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));

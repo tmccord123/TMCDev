@@ -217,8 +217,8 @@ namespace TMC.Web.Controllers.Api
         //    }
         //}
 
-        [Route("{cityId:int}/{categoryId:int}/{placeId}")]
-        public IHttpActionResult GetListings(int cityId, int categoryId, string placeId)
+        [Route("{cityId:int}/{categoryId:int}/{placeId?}")]
+        public IHttpActionResult GetListings(int cityId, int categoryId, string placeId = null)
         {
             var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
             var listingResult = listingFacade.GetListings(cityId, placeId, categoryId);

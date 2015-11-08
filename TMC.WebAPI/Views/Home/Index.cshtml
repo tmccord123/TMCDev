@@ -46,16 +46,14 @@
 
     <div class="row navbar-fixed-top stalk-search" id="divHomeSearchControl">
     <div class="container homeSearchControl">
-        <div class="col-sm-12">
-
-            <div class="col-sm-3 form-group" id="cities">
-
+        <div class="col-sm-12">          
+            <div class="col-sm-4 form-group" id="cities">              
                 @Html.Partial("_CitySayt", Model.CitySaytHome)
             </div>
-            <div class="col-sm-4 display-none" id="divPlaces">
+            <div class="col-sm-3 display-none" id="divPlaces">
                 @Html.Partial("_PlaceSayt", Model.PlaceSaytHome)
             </div>
-            <div class="col-sm-4 form-group">
+            <div class="col-sm-3 form-group">
                 @Html.Partial("_CategorySayt", Model.CategorySaytHome)
             </div>
             <div class="col-sm-1 form-group">

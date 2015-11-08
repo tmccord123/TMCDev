@@ -22,7 +22,7 @@ namespace TMC.Web
             routes.MapRoute(
             "LocalBoard",                                              // Route name
             "{controller}/{action}/{cityName}/{categoryName}/{cityId}/{categoryId}/{placeId}",                           // URL with parameters
-            new { controller = "LocalBoard", action = "Index", cityName = "", categoryName = "", cityId = "", categoryId = "", placeId = "" }  // Parameter defaults
+            new { controller = "LocalBoard", action = "Index", cityName = "", categoryName = "", cityId = "", categoryId = "", placeId = UrlParameter.Optional }  // Parameter defaults
         );
         }
     }
