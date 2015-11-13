@@ -1,0 +1,53 @@
+﻿@using TMC.Web.ViewModels
+@using TMC.Web.Shared
+@model ListingPaymentModesViewModel
+
+<div ng-controller="FileUploadCtrl">
+    <h3>Payment Modes  </h3>
+    <div class="row">
+        <div id="paymentModes">
+            <div class="form-group">
+                @*   @Html.Label("Select Payment Modes", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-2" ng-repeat="paymentMode in paymentModes">
+                        <input type="checkbox" ng-checked="paymentMode.isSelected" ng-click="paymentModeChanged(paymentMode, checked)" />
+                        <label>{{paymentMode.name}}</label>
+                    </div>*@
+
+                <div class="col-md-12">
+                    <div  >
+                        <label for="fileToUpload">Select a File to Upload</label><br />
+                        <input type="file" ng-model-instant id="fileToUpload" multiple onchange="angular.element(this).scope().setFiles(this)" />
+                    </div>
+                    <div id="dropbox" class="dropbox" ng-class="dropClass"><span>{{dropText}}</span></div>
+                    <div ng-show="files.length">
+                        <div ng-repeat="file in files.slice(0)">
+                            <span>{{file.webkitRelativePath || file.name}}</span>
+                            (<span ng-switch="file.size > 1024*1024">
+                                <span ng-switch-when="true">{{file.size / 1024 / 1024 | number:2}} MB</span>
+                                <span ng-switch-default>{{file.size / 1024 | number:2}} kB</span>
+                            </span>)
+                        </div>
+                        <input type="button" ng-click="uploadFile()" value="Upload" />
+                        <div ng-show="progressVisible">
+                            <div class="percent">{{progress}}%</div>
+                            <div class="progress-bar">
+                                <div class="uploaded" ng-style="{'width': progress+'%'}"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    @*  <div class="col-lg-2 col-md-2 col-sm-4">
+                            <input type="button" id="btnAddListingCategory" ng-click="updatePaymentModes()" class="btn btn-default" value="Save Payment Modes" />
+                        </div>*@
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

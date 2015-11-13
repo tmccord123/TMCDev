@@ -210,8 +210,7 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
         } else {
             //todo swow message
         }
-    };
-
+    }; 
 }]);
 
 /*

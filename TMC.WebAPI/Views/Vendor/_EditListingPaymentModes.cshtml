@@ -1,0 +1,25 @@
+﻿@using TMC.Web.ViewModels
+@using TMC.Web.Shared
+@model ListingPaymentModesViewModel
+<div>
+    <h3>Payment Modes  </h3> 
+    <div class="row">
+        <div id="paymentModes">
+            <div class="form-group">
+                @Html.Label("Select Payment Modes", new { @class = "col-md-2 control-label" })
+                <div class="col-md-2" ng-repeat="paymentMode in paymentModes">
+                    <input type="checkbox" ng-checked="paymentMode.isSelected" ng-click="paymentModeChanged(paymentMode, checked)" />
+                    <label>{{paymentMode.name}}</label>
+                </div> 
+                <div class="col-lg-2 col-md-2 col-sm-4">
+                    <input type="button" id="btnAddListingCategory" ng-click="updatePaymentModes()" class="btn btn-default" value="Save Payment Modes" />
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
