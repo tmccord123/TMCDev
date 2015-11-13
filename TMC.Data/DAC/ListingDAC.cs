@@ -273,32 +273,31 @@ namespace TMC.Data
         public IListingDTO GetPaymentModesByListingId(int listingId)
         {
             IListingDTO listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
-            IListingContactsDTO listingContactsDto = (IListingContactsDTO)DTOFactory.Instance.Create(DTOType.ListingContacts);
-            listingContactsDto.Contacts = new List<IContactDTO>();
+            IListingPaymentModesDTO listingPaymentModesDto = (IListingPaymentModesDTO)DTOFactory.Instance.Create(DTOType.ListingPaymentModes);
+            listingPaymentModesDto.PaymentModes = new List<IPaymentModeDTO>();
             try
             {
                 using (var tmcContext = new TMCContext())
                 {
-                    var listingcontactEntities = (from listingContact in tmcContext.ListingContact
-
-                                                  where listingContact.ListingId == listingId && listingContact.IsActive
-                                                  select listingContact).ToList();
-                    if (listingcontactEntities.Any())
+                    var listingpaymentModeEntities = (from paymentMode in tmcContext.ListingPaymentMode
+                                                     where paymentMode.ListingId == listingId 
+                                                     select paymentMode).ToList();
+                    if (listingpaymentModeEntities.Any())
                     {
-                        foreach (var listingContactEntity in listingcontactEntities)
+                        foreach (var paymentModeEntity in listingpaymentModeEntities)
                         {
-                            IContactDTO listingContactDto = (IContactDTO)DTOFactory.Instance.Create(DTOType.Contact);
-                            EntityConverter.FillDTOFromEntity(listingContactEntity, listingContactDto);
-                            listingContactsDto.Contacts.Add(listingContactDto);
+                            IPaymentModeDTO paymentModeDto = (IPaymentModeDTO)DTOFactory.Instance.Create(DTOType.PaymentMode);
+                            EntityConverter.FillDTOFromEntity(paymentModeEntity, paymentModeDto);
+                            listingPaymentModesDto.PaymentModes.Add(paymentModeDto);
                         }
-                        listingDto.ListingContacts = listingContactsDto;
+                        listingDto.ListingPaymentModes = listingPaymentModesDto;
                     }
                 }
             }
             catch (Exception ex)
             {
                 ExceptionManager.HandleException(ex);
-                throw new DACException("Error while fetching the listing contacts.", ex);
+                throw new DACException("Error while fetching the listing payment modes.", ex);
             }
 
             return listingDto;
@@ -322,6 +321,7 @@ namespace TMC.Data
                         {
                             IContactDTO listingContactDto = (IContactDTO)DTOFactory.Instance.Create(DTOType.Contact);
                             EntityConverter.FillDTOFromEntity(listingContactEntity, listingContactDto);
+                           
                             listingContactsDto.Contacts.Add(listingContactDto);
                         }
                         listingDto.ListingContacts = listingContactsDto;
@@ -451,6 +451,43 @@ namespace TMC.Data
                 throw new DACException("Error while creating the listing detail.", ex);
             }
             return retVal;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="paymentModes"></param>
+        /// <returns></returns>
+        public IListingPaymentModesDTO AddUpdateListingPaymentModes(IListingPaymentModesDTO paymentModes)
+        {
+            int retVal = GlobalConstants.DefaultCreateId;
+            try
+            {
+                if (paymentModes != null)
+                {
+                    using (TransactionScope trans = new TransactionScope())
+                    {
+                        /*using (var TMCDbContext = new TMCContext())
+                        {
+                            var listingCategory = new ListingCategory();
+                            listingCategory.ListingId = categoryDto.ListingId;
+                            listingCategory.CategoryId = categoryDto.CategoryId;
+                            TMCDbContext.ListingCategory.AddObject(listingCategory);
+                            if (TMCDbContext.SaveChanges() > 0)
+                            {
+                                retVal = listingCategory.ListingCategoryId;
+                            }
+                        }*/
+                        trans.Complete();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                throw new DACException("Error while updating listing payment modes.", ex);
+            }
+            return paymentModes;
         }
 
         public long CreateListingServiceLocation(IServiceLocationDTO serviceLocationDto)

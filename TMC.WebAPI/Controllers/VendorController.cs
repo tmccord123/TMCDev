@@ -96,6 +96,9 @@ namespace TMC.Web.Controllers
             listingViewModel.ListingServiceLocations.CitySaytListing.ControlId = "ddlAddCities"; 
             listingViewModel.ListingServiceLocations.CitySaytListing.HtmlFieldPrefix = "CirySaytListingServiceArea";
             listingViewModel.ListingServiceLocations.CitySaytListing.SelectCallBack = "addEditListing.onSelectedAddCityCallBack"; 
+           //todo sometimes the city api call it was going to make is like this vendor/api/coty/{searchStr} so breaks , need to have a look
+            // listingViewModel.ListingServiceLocations.CitySaytListing.AjaxGetUrl 
+           //     = Url.RouteUrl("DefaultApi", new { httproute="", controller="city"  }); 
 
 
             return View("AddEditListing", listingViewModel);

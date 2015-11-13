@@ -68,7 +68,7 @@
                         <div class="col-lg-12">
                             <ul class="pager">
                                 <li class="next">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(1)">Next →</a>
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(1)">Next →</a>
                                 </li>
                             </ul>
                         </div>
@@ -84,10 +84,10 @@
                         <div class="col-lg-12">
                             <ul class="pager">
                                 <li class="previous">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(0)">← Prev</a>
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(0)">← Prev</a>
                                 </li>
                                 <li class="next">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(2)">Next →</a>
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(2)">Next →</a>
                                 </li>
                             </ul>
                         </div>
@@ -104,10 +104,10 @@
                         <div class="col-lg-12">
                             <ul class="pager">
                                 <li class="previous">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(1)">← Prev</a>
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(1)">← Prev</a>
                                 </li>
                                 <li class="next">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(3)">Next →</a>
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(3)">Next →</a>
                                 </li>
                             </ul>
                         </div>
@@ -124,26 +124,30 @@
                         <div class="col-lg-12">
                             <ul class="pager">
                                 <li class="previous">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(2)">← Prev</a>
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(2)">← Prev</a>
                                 </li>
                                 <li class="next">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(4)">Next →</a>
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(4)">Next →</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div id="paymentModes" class="tab-pane fade">
-                    <h3>Payment Modes</h3>
-                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            @Html.Partial("_EditListingPaymentModes", Model.ListingPaymentModes)
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <ul class="pager">
                                 <li class="previous">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(3)">← Prev</a>
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(3)">← Prev</a>
                                 </li>
                                 <li class="next">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(5)">Next →</a>
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(5)">Next →</a>
                                 </li>
                             </ul>
                         </div>
@@ -156,7 +160,7 @@
                         <div class="col-lg-12">
                             <ul class="pager">
                                 <li class="previous">
-                                    <a href="#" onclick="addEditListing.showNextPrevTab(4)">← Prev</a>
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(4)">← Prev</a>
                                 </li>
                             </ul>
                         </div>

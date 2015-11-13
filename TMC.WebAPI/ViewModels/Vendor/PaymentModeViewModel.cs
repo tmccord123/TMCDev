@@ -8,29 +8,10 @@ namespace TMC.Web.ViewModels
     /// </summary>
     public class PaymentModeViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Gets or sets the category id.
-        /// </summary>
-        public int CategoryId { get; set; }
+        public long ListingPaymentModeId { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        public string Name { get; set; }
+        public long ListingId { get; set; }
 
-        /// <summary>
-        /// Gets or sets the short name.
-        /// </summary>
-        public string ShortName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the description.
-        /// </summary>
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets the popularity.
-        /// </summary>
-        public int? Popularity { get; set; }
+        public short PaymentModeId { get; set; }
     }
 }

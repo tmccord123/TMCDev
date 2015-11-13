@@ -9,8 +9,8 @@ namespace TMC.Shared
     public interface IPaymentModeDTO : IDTO
     {
         long ListingPaymentModeId { get; set; }
-        decimal ContactNo { get; set; }
-        short ContactTypeId { get; set; }
+        long ListingId { get; set; }
+        short PaymentModeId { get; set; }
 
         DateTime CreatedOn { get; set; }
         long CreatedBy { get; set; }

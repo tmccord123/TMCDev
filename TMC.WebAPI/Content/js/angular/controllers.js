@@ -96,6 +96,121 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
 
 
     };
+    
+
+    /****************************************************************************
+    Listing Payment Modes
+    *****************************************************************************/
+    $scope.paymentModes = [{//todo to be kept in a Enum class and retrieve the same in cashed calls
+        "listingPaymentModeId": 0,
+        "paymentModeId": 1,
+        "name": "Cash",
+        "isSelected": false,
+        "isAdded": false,
+        "isRemoved": false,
+        "isChanged": false
+    }, {
+        "listingPaymentModeId": 0,
+        "paymentModeId": 2,
+        "name": "Credit Card",
+        "isSelected": false,
+        "isAdded": false,
+        "isRemoved": false,
+        "isChanged": false
+    }, {
+        "listingPaymentModeId": 0,
+        "paymentModeId": 3,
+        "name": "Debit Card",
+        "isSelected": false,
+        "isAdded": false,
+        "isRemoved": false,
+        "isChanged": false
+    }, {
+        "listingPaymentModeId": 0,
+        "paymentModeId": 4,
+        "name": "Cheque",
+        "isSelected": false,
+        "isAdded": false,
+        "isRemoved": false,
+        "isChanged": false
+    }];
+    
+    $scope.listingServiceLocations = {};
+    getListingPaymentModes();
+
+    function getListingPaymentModes() {
+        tmcHttpService.get('/api/listing/20/paymentmodes')//todo
+         .success(function (data) {
+           //  $scope.listingServiceLocations = data.serviceLocations;
+             updatePaymentModesResut(data.paymentModes);
+         })
+        .error(function (error) {
+            $scope.status = 'Unable to load  data: ' + error.message;
+            console.log($scope.status);
+        });
+    }
+
+    function resetPaymentModes() {
+        $scope.paymentModes.forEach(function (pmode) {
+                pmode.isSelected = false;
+                pmode.isAdded = false;
+                pmode.isRemoved = false;
+                pmode.isChanged = false;
+                pmode.listingPaymentModeId = 0;
+        });
+    }
+
+    function updatePaymentModesResut(paymentModesResult) {
+        resetPaymentModes();
+        paymentModesResult.forEach(function (paymentMode) {
+            $scope.paymentModes.forEach(function(pmode) {
+                if (pmode.paymentModeId === paymentMode.paymentModeId) {
+                    pmode.isSelected = true;
+                    pmode.listingPaymentModeId = paymentMode.listingPaymentModeId;
+                }
+            });
+        });
+    }
+
+    $scope.paymentModeChanged = function (paymentMode, checked) {
+        var idx = $scope.paymentModes.indexOf(paymentMode);
+        if (!checked) {
+            $scope.paymentModes[idx].isRemoved = true;
+           
+        }else {
+            $scope.paymentModes[idx].isAdded = true;
+        }
+        $scope.paymentModes[idx].isChanged = !($scope.paymentModes[idx].isChanged);
+    };
+    
+    $scope.updatePaymentModes = function () {
+        // todo update in single clicks later 
+        var postData = [];
+        $scope.paymentModes.forEach(function(paymentMode) {
+            if (paymentMode.isChanged) {
+                if (paymentMode.isAdded) {
+                    postData.push({ listingPaymentModeId: 0, paymentModeId: paymentMode.paymentModeId, listingId: 20 });//todo
+                }
+                if (paymentMode.isRemoved) {
+                    postData.push({ listingPaymentModeId: paymentMode.listingPaymentModeId, paymentModeId: paymentMode.paymentModeId, listingId: 20 });//todo
+                }
+            }
+        });
+        if (postData.length > 0) {
+            tmcHttpService.post('/api/listing/addUpdateListingPaymentModes', postData)
+             .success(function (data) {
+                 updatePaymentModesResut(data);
+                 alert("Payment modes saved successfully.");
+             })
+            .error(function (error) {
+                $scope.status = 'Unable to add category: ' + error.message;
+                console.log($scope.status);
+            });
+        } else {
+            //todo swow message
+        }
+    };
+
 }]);
 
 /*

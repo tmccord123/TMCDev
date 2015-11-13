@@ -21,6 +21,7 @@ namespace TMC.Web.ViewModels
         private string SelectedCityIdSuffix = "SelectedCityId";
 
         private string SelectedCityDetailsSuffix = "SelectedCityDetails";
+        public string AjaxGetUrl { get; set; }
         
 
         /// <summary>

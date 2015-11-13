@@ -100,7 +100,7 @@ namespace TMC.Web.Controllers.Api
         }
 
         /// <summary>
-        /// 
+        /// usage http://localhost:59974/api/listing/20/paymentmodes
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -339,6 +339,50 @@ namespace TMC.Web.Controllers.Api
 
             }
 
+        }
+        [Route("addUpdateListingPaymentModes")]
+        [HttpPost]
+        public IHttpActionResult Post(List<PaymentModeViewModel> paymentModesViewModel)
+        {
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    IListingPaymentModesDTO listingPaymentModesDto = (IListingPaymentModesDTO)DTOFactory.Instance.Create(DTOType.ListingPaymentModes);
+                    listingPaymentModesDto.PaymentModes = new List<IPaymentModeDTO>();
+     
+                    foreach (var paymentModeViewModel in paymentModesViewModel)
+                    {
+                        IPaymentModeDTO paymentModeDto = (IPaymentModeDTO)DTOFactory.Instance.Create(DTOType.PaymentMode);
+                        DTOConverter.FillDTOFromViewModel(paymentModeDto, paymentModeViewModel);
+                        listingPaymentModesDto.PaymentModes.Add(paymentModeDto);
+                    }
+                    var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+                    var listingResult = listingFacade.AddUpdateListingPaymentModes(listingPaymentModesDto);
+                    if (listingResult.IsValid())
+                    {
+                        paymentModesViewModel = new List<PaymentModeViewModel>();
+                        foreach (var listingPaymentMode in listingResult.Data.PaymentModes)
+                        {
+                            var listingPaymentModeViewModel = new PaymentModeViewModel();
+                            DTOConverter.FillViewModelFromDTO(listingPaymentModeViewModel, listingPaymentMode);
+                            paymentModesViewModel.Add(listingPaymentModeViewModel);
+                        }
+                        return Ok(paymentModesViewModel);
+                    }
+                    return BadRequest(ModelState);//todo check for errors case
+                }
+                catch (Exception)
+                {
+                    return InternalServerError();
+                }
+            }
+            else
+            {
+                return BadRequest(ModelState);
+
+            }
         }
       
         #endregion

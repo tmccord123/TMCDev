@@ -25,6 +25,12 @@ namespace TMC.Web.Controllers.Api
             string longitude = searchParams.Split(',')[1];
             string radius = searchParams.Split(',')[2];
             string name = searchParams.Split(',')[3];
+            //todo
+            if (radius == "0")
+            {
+                radius = "5000";
+            }
+
             using (var webClient  = new WebClient())
             {
               
@@ -32,6 +38,11 @@ namespace TMC.Web.Controllers.Api
                 //   cord api Key AIzaSyDyZlIZ3v25T8uJbaGjemnzUgKLTDMHaWY
                 string mapApiUri =
                     "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=[NAME]&types=[TYPES]&location=[LAT],[LONG]&radius=[RADIUS]&key=[APIKEY]";
+                string mapApiUri2 =
+                    "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=[LAT],[LONG]&radius=[RADIUS]&name=[NAME]&key=[APIKEY]";   
+                string mapApiUri1 =
+                    "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=[LAT],[LONG]&radius=[RADIUS]&types=[TYPES]&name=[NAME]&key=[APIKEY]";
+                //  "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=28.459497,77.026638&radius=5000&types=establishment&name=palam&key=AIzaSyDyZlIZ3v25T8uJbaGjemnzUgKLTDMHaWY"
                 mapApiUri = mapApiUri.Replace("[LAT]", lattitude);
                 mapApiUri = mapApiUri.Replace("[LONG]", longitude);
                 mapApiUri = mapApiUri.Replace("[RADIUS]", radius);

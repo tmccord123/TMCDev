@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTransferObjects\ListingPaymentModesDTO.cs" />
     <Compile Include="DataTransferObjects\ListingServiceLocationsDTO.cs" />
+    <Compile Include="DataTransferObjects\PaymentModeDTO.cs" />
     <Compile Include="DataTransferObjects\ServiceLocationDTO.cs" />
     <Compile Include="DataTransferObjects\CategoryDTO.cs" />
     <Compile Include="DataTransferObjects\CityDTO.cs" />

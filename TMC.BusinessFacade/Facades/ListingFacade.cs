@@ -69,6 +69,13 @@
             return listingBDC.CreateListingCategory(categoryDto);
         }
 
+        public OperationResult<IListingPaymentModesDTO> AddUpdateListingPaymentModes(IListingPaymentModesDTO paymentModes)
+        {
+            var listingBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
+            return listingBDC.AddUpdateListingPaymentModes(paymentModes);
+        }
+ 
+
 
         public OperationResult<long> CreateListingServiceLocation(IServiceLocationDTO serviceLocationDto)
         {

@@ -39,6 +39,8 @@ namespace TMC.Shared
         IListingDTO CreateListing(IListingDTO listingDto);
         long CreateListingCategory(ICategoryDTO categoryDto);
         long CreateListingServiceLocation(IServiceLocationDTO serviceLocationDto);
+        IListingPaymentModesDTO AddUpdateListingPaymentModes(IListingPaymentModesDTO categoryDto);
+
         IListingDTO UpdateListing(IListingDTO listingDto);
 
     }
