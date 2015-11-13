@@ -350,29 +350,29 @@ namespace TMC.Business
             return operationResult;
         }
 
-        public OperationResult<IListingPaymentModesDTO> AddUpdateListingPaymentModes(IListingPaymentModesDTO paymentModes)
+        public OperationResult<int> AddUpdateListingPaymentModes(IListingPaymentModesDTO paymentModes)
         {
-            OperationResult<IListingPaymentModesDTO> operationResult = null;
+            OperationResult<int> operationResult = null;
             try
             {
                 var listingDAC = (IListingDAC)DACFactory.Instance.Create(DACType.Listing);
 
                 var resultListing = listingDAC.AddUpdateListingPaymentModes(paymentModes);
                 operationResult = resultListing != null
-                                                      ? OperationResult<IListingPaymentModesDTO>.CreateSuccessResult(resultListing)
-                                                      : OperationResult<IListingPaymentModesDTO>.CreateFailureResult(
+                                                      ? OperationResult<int>.CreateSuccessResult(resultListing)
+                                                      : OperationResult<int>.CreateFailureResult(
                                                        ResourceUtility.GetCaptionFor(
                                               ResourceConstants.Vendor.ErrorMessages.FailedToFetchListing));
 
             }
             catch (DACException dacEx)
             {
-                operationResult = OperationResult<IListingPaymentModesDTO>.CreateErrorResult(dacEx.Message, dacEx.StackTrace);//todo
+                operationResult = OperationResult<int>.CreateErrorResult(dacEx.Message, dacEx.StackTrace);//todo
             }
             catch (Exception ex)
             {
                 ExceptionManager.HandleException(ex);
-                operationResult = OperationResult<IListingPaymentModesDTO>.CreateErrorResult(ex.Message, ex.StackTrace);//todo
+                operationResult = OperationResult<int>.CreateErrorResult(ex.Message, ex.StackTrace);//todo
             }
             return operationResult;
         }

@@ -6,7 +6,7 @@
     using TMC.Shared;
 
     /// <summary>
-    /// The user facade.
+    /// The user facade.l
     /// </summary>
     public class ListingFacade : FacadeBase, IListingFacade
     {
@@ -69,7 +69,7 @@
             return listingBDC.CreateListingCategory(categoryDto);
         }
 
-        public OperationResult<IListingPaymentModesDTO> AddUpdateListingPaymentModes(IListingPaymentModesDTO paymentModes)
+        public OperationResult<int> AddUpdateListingPaymentModes(IListingPaymentModesDTO paymentModes)
         {
             var listingBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
             return listingBDC.AddUpdateListingPaymentModes(paymentModes);

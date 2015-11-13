@@ -381,14 +381,7 @@ namespace TMC.Web.Controllers.Api
                     var listingResult = listingFacade.AddUpdateListingPaymentModes(listingPaymentModesDto);
                     if (listingResult.IsValid())
                     {
-                        paymentModesViewModel = new List<PaymentModeViewModel>();
-                        foreach (var listingPaymentMode in listingResult.Data.PaymentModes)
-                        {
-                            var listingPaymentModeViewModel = new PaymentModeViewModel();
-                            DTOConverter.FillViewModelFromDTO(listingPaymentModeViewModel, listingPaymentMode);
-                            paymentModesViewModel.Add(listingPaymentModeViewModel);
-                        }
-                        return Ok(paymentModesViewModel);
+                       return Ok(listingResult.Data);
                     }
                     return BadRequest(ModelState);//todo check for errors case
                 }

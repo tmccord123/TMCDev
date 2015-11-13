@@ -199,7 +199,8 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
         if (postData.length > 0) {
             tmcHttpService.post('/api/listing/addUpdateListingPaymentModes', postData)
              .success(function (data) {
-                 updatePaymentModesResut(data);
+                 getListingPaymentModes();
+                 //updatePaymentModesResut(data);
                  alert("Payment modes saved successfully.");
              })
             .error(function (error) {

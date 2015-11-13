@@ -458,26 +458,44 @@ namespace TMC.Data
         /// </summary>
         /// <param name="paymentModes"></param>
         /// <returns></returns>
-        public IListingPaymentModesDTO AddUpdateListingPaymentModes(IListingPaymentModesDTO paymentModes)
+        public int AddUpdateListingPaymentModes(IListingPaymentModesDTO paymentModes)
         {
-            int retVal = GlobalConstants.DefaultCreateId;
+            int retVal = 0;
             try
             {
                 if (paymentModes != null)
                 {
                     using (TransactionScope trans = new TransactionScope())
                     {
-                        /*using (var TMCDbContext = new TMCContext())
+                        using (var TMCDbContext = new TMCContext())
                         {
-                            var listingCategory = new ListingCategory();
-                            listingCategory.ListingId = categoryDto.ListingId;
-                            listingCategory.CategoryId = categoryDto.CategoryId;
-                            TMCDbContext.ListingCategory.AddObject(listingCategory);
+                            foreach (var paymentModeDto in paymentModes.PaymentModes)
+                            {
+                                long listingPaymentModeId = paymentModeDto.ListingPaymentModeId;
+                                if (paymentModeDto.ListingPaymentModeId > 0)
+                                {
+                                    var listingPaymentModeEntity =
+                                        TMCDbContext.ListingPaymentMode.SingleOrDefault(
+                                            pmode => pmode.ListingPaymentModeId == listingPaymentModeId);
+                                    if (listingPaymentModeEntity != null)
+                                    {
+                                        TMCDbContext.ListingPaymentMode.DeleteObject(listingPaymentModeEntity);
+                                    }
+                                    
+                                }
+                                else
+                                {
+                                    var listingPaymentMode = new ListingPaymentMode();
+                                    EntityConverter.FillEntityFromDTO(paymentModeDto, listingPaymentMode);
+                                    TMCDbContext.ListingPaymentMode.AddObject(listingPaymentMode);
+                                }
+                            }
+                            
                             if (TMCDbContext.SaveChanges() > 0)
                             {
-                                retVal = listingCategory.ListingCategoryId;
+                                retVal = 1;
                             }
-                        }*/
+                        }
                         trans.Complete();
                     }
                 }
@@ -487,7 +505,7 @@ namespace TMC.Data
                 ExceptionManager.HandleException(ex);
                 throw new DACException("Error while updating listing payment modes.", ex);
             }
-            return paymentModes;
+            return retVal;
         }
 
         public long CreateListingServiceLocation(IServiceLocationDTO serviceLocationDto)

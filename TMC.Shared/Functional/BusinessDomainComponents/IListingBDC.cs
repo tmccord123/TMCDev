@@ -34,7 +34,7 @@ namespace TMC.Shared
 
         OperationResult<IListingDTO> CreateListing(IListingDTO listingDto);
         OperationResult<long> CreateListingCategory(ICategoryDTO categoryDto);
-        OperationResult<IListingPaymentModesDTO> AddUpdateListingPaymentModes(IListingPaymentModesDTO paymentModes);
+        OperationResult<int> AddUpdateListingPaymentModes(IListingPaymentModesDTO paymentModes);
         OperationResult<long> CreateListingServiceLocation(IServiceLocationDTO serviceLocationDto);
 
         OperationResult<IListingDTO> GetlistingById(int listingId);
