@@ -16,8 +16,7 @@ function LocalBoardIndex() {
 
     this.initialize = function () {
         $(window).scroll(function () {
-            if ($(window).scrollTop() ==
-               $(document).height() - $(window).height()) {
+            if ($(window).scrollTop() == $(document).height() - $(window).height()) {
                 context.GetData();
             }
         });

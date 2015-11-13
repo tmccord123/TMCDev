@@ -1,5 +1,5 @@
 ﻿/// <reference path='..\lib/angular.js' />
-var tmcControllers = angular.module('tmcControllers', []);
+
 
 tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingService', 'tmcHttpService', function ($scope, $rootScope, listingService, tmcHttpService) {
     $scope.testValue = "This line is coming from the Listing angular controllerr ";

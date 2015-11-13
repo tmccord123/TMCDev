@@ -4,12 +4,13 @@
 }
 @section scripts{
     @Scripts.Render("~/Scripts/tmc.localBoard.index.js")
+    @Scripts.Render("~/Content/js/angular/listingResultController.js")
 
     <script type="text/javascript">
 
         $(function () {
             localBoardIndex = new LocalBoardIndex();
-            localBoardIndex.initialize();
+            //localBoardIndex.initialize();
         });
 
     </script>
@@ -114,8 +115,8 @@
                 </div>
             </div>
 
-            <div id="listingContainer">
-                @Html.Partial("_ListingSearchResults", Model.Listings)
+            <div id="listingContainer" ng-controller="ListingResultCtrl">
+                @Html.Partial("_ListingSearchResults")
             </div>
             <div id="listingProgress" style="display:none">
                 <h4>Loading...</h4>

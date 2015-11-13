@@ -234,6 +234,25 @@ namespace TMC.Web.Controllers.Api
             }
             return Ok(allListings);
         }
+        [Route("GetListingsResult")]
+        [HttpPost]
+        //[Route("{cityId:int}/{categoryId:int}/{placeId?}")]
+        public IHttpActionResult PostListings(ListingParametersViewModel listingParameters)
+        {
+            var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+            var listingResult = listingFacade.GetListings(listingParameters.CityId, listingParameters.PlaceId,listingParameters.CategoryId);
+            var allListings = new List<ListingViewModel>();
+            if (listingResult.IsValid())
+            {
+                foreach (var listing in listingResult.Data)
+                {
+                    var listingViewModel = new ListingViewModel();
+                    DTOConverter.FillViewModelFromDTO(listingViewModel, listing);
+                    allListings.Add(listingViewModel);
+                }
+            }
+            return Ok(allListings);
+        }
 
         /// <summary>
         /// This is the overridden api route,

@@ -1,8 +1,5 @@
 ﻿@using TMC.Web.ViewModels
-@model List<ListingViewModel>
-
-@foreach (var listingViewModel in Model)
-{
+<div ng-repeat="listingItem in listingResults">
     <div class="row trending-card">
         <div class="col-sm-12 ">
             <div class="col-sm-3">
@@ -12,13 +9,13 @@
             </div>
             <div class="col-sm-5">
                 <h3>
-                    <a href="/Coupons/paytm-coupons-cashback-offers">@listingViewModel.BusinessName</a>
+                    <a href="/Coupons/paytm-coupons-cashback-offers">{{listingItem.businessName}}</a>
                 </h3>
                 <p>
-                    Business Days:  @listingViewModel.BusinessDays
+                    Business Days:  {{listingItem.businessDays}}
                 </p>
                 <p>
-                    Business Hours:  @listingViewModel.BusinessHours
+                    Business Hours: {{listingItem.businessHours}}  
                 </p>
 
                 <a href="/Coupons/paytm-coupons-cashback-offers">Vendor Details </a>
@@ -27,14 +24,16 @@
                 <p>
                     Contact Details:
                 </p><ul>
-                    <li>@listingViewModel.ContactPerson</li>
-                    <li>@listingViewModel.ContactEmailId</li>
-                    <li>@listingViewModel.Designation</li>
-                    <li>@listingViewModel.Website</li>
-                    <li>@listingViewModel.YearStarted</li>
+                    <li>{{listingItem.contactPerson}}</li>
+                    <li>{{listingItem.contactEmailId}}</li>
+                    <li>{{listingItem.designation}}</li>
+                    <li>{{listingItem.website}}</li>
+                    <li>{{listingItem.yearStarted}}</li>
                 </ul>
                 <p></p>
             </div>
         </div>
     </div>
-}
+</div>
+   
+ 
