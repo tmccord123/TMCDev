@@ -9,7 +9,7 @@ namespace TMC.DTOModel
     /// <summary>
     /// Contract for Category DTO.
     /// </summary>
-    [DataContract(Name = "CategoryDTO", Namespace = "TMC.DTOModel")]
+    [DataContract(Name = "CategoryDTO", Namespace = "TMC.DTOModel3")]
     [EntityMapping("EntityDataModel.EntityModels.Category", MappingType.TotalExplicit)]
     [Serializable]
     [ViewModelMapping("TMC.Web.ViewModels.CategoryViewModel", MappingType.TotalExplicit)]
