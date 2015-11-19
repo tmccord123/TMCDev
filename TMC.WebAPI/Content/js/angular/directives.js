@@ -46,191 +46,49 @@ tmcApp.directive('studentInfo', function ($compile) {
         }
     }
 });
+ 
+//upload preview used in upload image
+tmcApp.directive('ngThumb', ['$window', function ($window) {
+    var helper = {
+        support: !!($window.FileReader && $window.CanvasRenderingContext2D),
+        isFile: function(item) {
+            return angular.isObject(item) && item instanceof $window.File;
+        },
+        isImage: function(file) {
+            var type =  '|' + file.type.slice(file.type.lastIndexOf('/') + 1) + '|';
+            return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+        }
+    };
 
-tmcApp.directive('cursor', function () {
     return {
         restrict: 'A',
-        link: function (scope, element, attrs) {
-            angular.element(element).attr('style', 'cursor: pointer').bind('click', function () {
-            });
-        }
-    }
-});
-tmcApp.directive('routeMap', function () {
-    return {
-        link: function (scope, element, attrs) {
-            element.bind('click', function () {
-                var route = '#/' + attrs.routeMap;
-                scope.$apply(function () {
-                    scope.setRoute(route);
-                });
-            });
-        }
-    }
-});
-tmcApp.directive('updateRoute', function () {
-    return {
-        link: function (scope, element, attrs) {
-            element.bind('click', function () {
-                scope.$apply(function () {
-                    scope.setSchool(attrs.updateRoute, attrs.title);
-                });
-            });
-        }
-    }
-});
-tmcApp.directive('accordionBody', function () {
-    return {
-        link: function (scope, element, attrs) {
-            $(element).click(function (event) {
-                scope.getRoundMeeringDays(attrs.accordionBody);
-                event.preventDefault();
-            });
-        }
-    }
-});
+        template: '<canvas/>',
+        link: function(scope, element, attributes) {
+            if (!helper.support) return;
 
-tmcApp.directive('elementId', function () {
-    return {
-        link: function (scope, element, attrs) {
-            $(element).attr('id', attrs.elementId);
-        }
-    }
-})
+            var params = scope.$eval(attributes.ngThumb);
 
-tmcApp.directive('staffFlag', function () {
-    return {
-        scope: {
-            lastName: '='
-        },
-        transclude: true,
-        template: '<div>{{lastName}}<i class="pull-right fa fa-question></i></div>'
-    };
-});
+            if (!helper.isFile(params.file)) return;
+            if (!helper.isImage(params.file)) return;
 
-tmcApp.directive('setValue', function () {
-    return {
-        scope: {
-            setValue: '&'
-        },
-        link: function (scope, element, attrs) {
-            var e = angular.element(element);
-            e.on('click', function (event) {
-                //e.parent().addClass('active');
-                scope.setValue();
-                event.preventDefault();
-            });
+            var canvas = element.find('canvas');
+            var reader = new FileReader();
+
+            reader.onload = onLoadFile;
+            reader.readAsDataURL(params.file);
+
+            function onLoadFile(event) {
+                var img = new Image();
+                img.onload = onLoadImage;
+                img.src = event.target.result;
+            }
+
+            function onLoadImage() {
+                var width = params.width || this.width / this.height * params.height;
+                var height = params.height || this.height / this.width * params.width;
+                canvas.attr({ width: width, height: height });
+                canvas[0].getContext('2d').drawImage(this, 0, 0, width, height);
+            }
         }
     };
-});
-
-tmcApp.directive('offLink', function () {
-    return {
-        link: function (scope, element, attrs) {
-            angular.element(element).on('click', function (event) {
-                event.preventDefault();
-            });
-        }
-    }
-});
-
-tmcApp.directive('tooltip', function () {
-    return {
-        restrict: 'E',
-        scope: {
-            person: '=',
-            title: '&',
-        },
-        replace: true,
-        template: '<i class="pull-right fa" style="font-weight: bold;font-family:verdana;cursor:pointer;" data-html="true" data-placement="top" data-original-title="{{title}}">{{text}}</i>',
-        link: function (scope, element, attrs) {
-            var e = angular.element(element);
-            var staff = scope.person;
-
-            if (staff.typeId != 1 && staff.typeId != 999) {
-                if (staff.typeId == 2) {
-                    scope.title = 'Algebra teacher!';
-                    scope.text = "A";
-                }
-                else if (staff.typeId == 3) {
-                    scope.title = 'Intervention teacher!';
-                    scope.text = "I";
-                }
-                e.show();
-            } else e.hide();
-            e.tooltip();
-        }
-    };
-});
-
-tmcApp.directive('tooltipindividualstudentpage', function () {
-    return {
-        restrict: 'E',
-        scope: {
-            person1: '=',
-            title: '&'
-        },
-        replace: true,
-        template: '<i class="pull-right fa" style="font-weight: bold;font-family:verdana;cursor:pointer;" data-html="true" data-placement="top" data-original-title="{{title}}">{{text}}</i>',
-        link: function (scope, element, attrs) {
-            var e = angular.element(element);
-            var staff = scope.person1;
-            if (staff !== undefined && staff.staffTypeId != 1 && staff.staffTypeId != 999) {
-                if (staff.staffTypeId == 2) {
-                    scope.title = 'Algebra teacher!';
-                    scope.text = "A";
-                }
-                else if (staff.staffTypeId == 3) {
-                    scope.title = 'Intervention teacher!';
-                    scope.text = "I";
-                }
-                e.show();
-            } else e.hide();
-            e.tooltip();
-        }
-    };
-});
-
-/**
- * Directive used for showing alert innformation
- */
-tmcApp.directive('alertBox', function () {
-    return {
-        restrict: 'E',
-        replace: true,
-        scope: {
-            alertMsg: '@ ',
-            okClick: '&'
-        },
-        link: function (scope, element, attr) {
-        },
-        template: "<div class='alert_box overlay' style='z-index: 1010;'>  \
-                    <div class='x_closed float_right msg_h' ng-click='okClick()'>X</div> \
-                    <span class='msg_h'>Alert Message</span> \
-                    <hr class='alert'> \
-                    <span class='msg_text'>{{alertMsg}} </span><br><br> \
-                    <a class='btn_modal' href='javascript:void(0);' ng-click='okClick()'>OK</a>\
-                   </div>"
-    };
-});
-
-/**
- * Directive used for showing loader
- */
-tmcApp.directive('loader', function () {
-
-    return {
-        restrict: 'AE',
-        replace: true,
-        scope: {
-            msg: '@ '
-        },
-        template: "<div style='z-index:99999 !important;' class='modal fade' id='pageLoaderModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'> \
-                    <div class='modal-body'> \
-                        <div class='loader-out'>\
-                            <img src='/Content/img/preloader.gif'>\
-                        </div>\
-                    </div>\
-                  </div>"
-    };
-});
+}]);

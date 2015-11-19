@@ -261,8 +261,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\js\angular\fileUploadController.js" />
     <Content Include="Content\js\angular\listingResultController.js" />
+    <Content Include="Content\js\lib\angular-file-upload.js" />
+    <Content Include="Content\js\lib\angular-file-upload.min.js" />
     <Content Include="Content\js\angular\tmcApp.js" />
     <Content Include="Content\js\angular\controllers.js" />
     <Content Include="Content\js\angular\directives.js" />
@@ -508,6 +509,7 @@
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\x%281%29" />
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\x%282%29" />
     <Content Include="css\flexslider.less" />
+    <Content Include="Content\js\angular\config.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
@@ -597,6 +599,8 @@
     <Folder Include="Content\css\" />
     <Folder Include="Content\fonts\" />
     <Folder Include="Content\img\" />
+    <Folder Include="Content\js\angular\directives\" />
+    <Folder Include="Content\js\angular\services\" />
     <Folder Include="ViewModels\Account\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,4 @@
-﻿var tmcFactories = angular.module('tmcFactories', []);
-
-
-
+﻿
 tmcFactories.service('listingService', ['$http', function ($http) {
     var listingService = {};
     listingService.getListingCategories = function () {
