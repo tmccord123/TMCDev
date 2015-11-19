@@ -213,6 +213,7 @@
     <Compile Include="Controllers\Api\AccountApiController.cs" />
     <Compile Include="Controllers\Api\PlaceAutoCompleteApiController .cs" />
     <Compile Include="Controllers\Api\ListingApiController.cs" />
+    <Compile Include="Controllers\Api\UploadApiController.cs" />
     <Compile Include="Controllers\Api\VendorApiController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -261,6 +262,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\ListingMedia\sample.jpg" />
     <Content Include="Content\js\angular\listingResultController.js" />
     <Content Include="Content\js\lib\angular-file-upload.js" />
     <Content Include="Content\js\lib\angular-file-upload.min.js" />
@@ -598,10 +600,10 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\css\" />
     <Folder Include="Content\fonts\" />
-    <Folder Include="Content\img\" />
     <Folder Include="Content\js\angular\directives\" />
     <Folder Include="Content\js\angular\services\" />
     <Folder Include="ViewModels\Account\" />
+    <Folder Include="Views\UploadApi\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

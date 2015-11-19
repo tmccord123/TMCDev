@@ -216,7 +216,7 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
     Listing Media Upload
     ****************************************************************************/
     var uploader = $scope.uploader = new FileUploader({
-        url: 'upload.php'
+        url: '../api/UploadApi'
     });
 
     // FILTERS
