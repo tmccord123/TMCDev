@@ -21,7 +21,10 @@ namespace TMC.Shared
         /// <summary>
         /// Gets or sets file id
         /// </summary>
-        int FileId { get; set; }
+        long FileId { get; set; }
+        long ListingId { get; set; }
+        short FileExtensionId { get; set; }
+        short FileTypeId { get; set; }
 
         /// <summary>
         /// Gets or sets file title
@@ -32,26 +35,18 @@ namespace TMC.Shared
         /// Gets or sets file description
         /// </summary>
         string Description { get; set; }
+        string OriginalFileName { get; set; }
+        string ServerFileName { get; set; }
+        string ServerPath { get; set; }
 
-        /// <summary>
-        /// Gets or sets file type id
-        /// </summary>
-        int? FileSourceFileTypeId { get; set; }
+         
 
         /// <summary>
         /// Gets or sets file type detail
         /// </summary>
         IFileTypeDTO FileType { get; set; }
 
-        /// <summary>
-        /// Gets or sets folder id
-        /// </summary>
-        int? FolderId { get; set; }
-
-        /// <summary>
-        /// Gets or sets folder detail
-        /// </summary>
-        IFolderDTO Folder { get; set; }
+       
 
         /// <summary>
         /// Gets or sets whether file is active or not
@@ -71,26 +66,12 @@ namespace TMC.Shared
         /// <summary>
         /// Gets or sets detail of user by whom file is last updated
         /// </summary>
-        string UpdatedBy { get; set; }
+        long UpdatedBy { get; set; }
 
         /// <summary>
         /// Gets or sets detail of user by whom file is created
         /// </summary>
-        string CreatedBy { get; set; }
-
-        /// <summary>
-        /// Gets or sets the file version DTO.
-        /// </summary>
-        IFileVersionDTO FileVersionDTO { get; set; }
-
-        /// <summary>
-        /// Gets or sets the posted file.
-        /// </summary>
-        HttpPostedFileBase PostedFile { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether is actual file updated.
-        /// </summary>
-        bool IsActualFileUpdated { get; set; }
+        long CreatedBy { get; set; }
+ 
     }
 }

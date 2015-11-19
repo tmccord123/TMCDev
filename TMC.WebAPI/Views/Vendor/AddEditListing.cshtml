@@ -27,31 +27,7 @@
     </script>
 
 }
-<style>
-    .my-drop-zone {
-        border: dotted 3px lightgray;
-    }
-
-    .nv-file-over {
-        border: dotted 3px red;
-    }
-    /* Default class applied to drop zones on over */
-    .another-file-over-class {
-        border: dotted 3px green;
-    } 
-    
-
-    canvas {
-        background-color: #f3f3f3;
-        -webkit-box-shadow: 3px 3px 3px 0 #e3e3e3;
-        -moz-box-shadow: 3px 3px 3px 0 #e3e3e3;
-        box-shadow: 3px 3px 3px 0 #e3e3e3;
-        border: 1px solid #c3c3c3;
-        height: 100px;
-        margin: 6px 0 0 6px;
-    }
-</style>
-
+ 
 
 
 <div class="container">
@@ -71,7 +47,7 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-12" ng-controller="ListingCtrl">
+        <div class="col-lg-12" ng-controller="ListingCtrl" >
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#generalInfo">General Information</a></li>
                 <li><a href="#contactDetails">Contact Details</a></li>
@@ -83,6 +59,15 @@
 
             <div class="tab-content">
                 <div id="generalInfo" class="tab-pane fade in active">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="pager">
+                                <li class="next">
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(1)">Next →</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div id="EditListingDivId">
@@ -104,6 +89,18 @@
                 <div id="contactDetails" class="tab-pane fade">
                     <div class="row">
                         <div class="col-lg-12">
+                            <ul class="pager">
+                                <li class="previous">
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(0)">← Prev</a>
+                                </li>
+                                <li class="next">
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(2)">Next →</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
                             @Html.Partial("_EditListingContacts", Model)
                         </div>
                     </div>
@@ -121,6 +118,18 @@
                     </div>
                 </div>
                 <div id="keyCategories" class="tab-pane fade">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="pager">
+                                <li class="previous">
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(1)">← Prev</a>
+                                </li>
+                                <li class="next">
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(3)">Next →</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-lg-12">
 
@@ -143,6 +152,18 @@
                 <div id="serviceAreas" class="tab-pane fade">
                     <div class="row">
                         <div class="col-lg-12">
+                            <ul class="pager">
+                                <li class="previous">
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(2)">← Prev</a>
+                                </li>
+                                <li class="next">
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(4)">Next →</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
 
                             @Html.Partial("_EditListingServiceLocations", Model.ListingServiceLocations)
                         </div>
@@ -163,6 +184,18 @@
                 <div id="paymentModes" class="tab-pane fade">
                     <div class="row">
                         <div class="col-lg-12">
+                            <ul class="pager">
+                                <li class="previous">
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(3)">← Prev</a>
+                                </li>
+                                <li class="next">
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(5)">Next →</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
 
                             @Html.Partial("_EditListingPaymentModes", Model.ListingPaymentModes)
                         </div>
@@ -181,6 +214,15 @@
                     </div>
                 </div>
                 <div id="media" class="tab-pane fade">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="pager">
+                                <li class="previous">
+                                    <a href="javascript: void(0)" onclick="addEditListing.showNextPrevTab(4)">← Prev</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-lg-12">
 

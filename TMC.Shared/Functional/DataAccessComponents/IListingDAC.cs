@@ -42,6 +42,7 @@ namespace TMC.Shared
         int AddUpdateListingPaymentModes(IListingPaymentModesDTO categoryDto);
 
         IListingDTO UpdateListing(IListingDTO listingDto);
+        IMediaDTO CreateListingMedia(IFileDTO fileDto);
 
     }
 }

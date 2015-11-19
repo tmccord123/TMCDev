@@ -57,7 +57,13 @@
         }
 
 
-        public OperationResult<IListingDTO> CreateListing(IListingDTO  listingDto)
+        public OperationResult<IMediaDTO> CreateListingMedia(IFileDTO  fileDto)
+        {
+            var listingBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
+            return listingBDC.CreateListingMedia(fileDto);
+        }
+
+        public OperationResult<IListingDTO> CreateListing(IListingDTO listingDto)
         {
             var listingBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
             return listingBDC.CreateListing(listingDto);

@@ -6,6 +6,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using TMC.Shared;
+using TMC.Shared.Factories;
+using TMC.Web.ViewModels;
 
 namespace TMC.Web.Controllers.Api
 {
@@ -48,14 +51,34 @@ namespace TMC.Web.Controllers.Api
             var httpRequest = HttpContext.Current.Request;
             if (httpRequest.Files.Count > 0)
             {
-                var docfiles = new List<string>();
+                var docfiles = new List<MediaViewModel>();
                 foreach (string file in httpRequest.Files)
                 {
                     var postedFile = httpRequest.Files[file];
-                    var filePath = HttpContext.Current.Server.MapPath("~/Content/img/ListingMedia/" + Guid.NewGuid()+"_" +postedFile.FileName);
-                    postedFile.SaveAs(filePath);
-
-                    docfiles.Add(filePath);
+                    var serverFileName = Guid.NewGuid() + "_" + postedFile.FileName;
+                    var filePath = HttpContext.Current.Server.MapPath("~/Content/img/ListingMedia/" + serverFileName);
+                    var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+                    var fileDto = (IFileDTO)DTOFactory.Instance.Create(DTOType.File);
+                    fileDto.FileExtensionId = 3;
+                    fileDto.FileTypeId = 1;
+                    fileDto.ListingId = 20;//todo
+                    fileDto.Description = "";
+                    fileDto.FileTitle = "";
+                    fileDto.OriginalFileName = postedFile.FileName; 
+                    fileDto.ServerFileName =serverFileName;
+                    fileDto.ServerPath = "ListingMedia";//todo
+                    var listingResult = listingFacade.CreateListingMedia(fileDto);
+                    if (listingResult.IsValid())
+                    {
+                        MediaViewModel mediaViewModel = new MediaViewModel();
+                        mediaViewModel.FileName = listingResult.Data.FileName;
+                        mediaViewModel.ListingId = fileDto.ListingId;
+                        mediaViewModel.ListingMediaId = listingResult.Data.ListingMediaId;
+                        mediaViewModel.FileId = listingResult.Data.FileId;
+                        postedFile.SaveAs(filePath);
+                        docfiles.Add(mediaViewModel);
+                    }
+                    
                 }
                 result = Request.CreateResponse(HttpStatusCode.Created, docfiles);
             }

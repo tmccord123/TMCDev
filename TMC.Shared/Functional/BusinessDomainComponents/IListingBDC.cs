@@ -33,6 +33,7 @@ namespace TMC.Shared
         OperationResult<IList<IListingDTO>> GetListingsByUserId(int userId);
 
         OperationResult<IListingDTO> CreateListing(IListingDTO listingDto);
+        OperationResult<IMediaDTO> CreateListingMedia(IFileDTO fileDto);
         OperationResult<long> CreateListingCategory(ICategoryDTO categoryDto);
         OperationResult<int> AddUpdateListingPaymentModes(IListingPaymentModesDTO paymentModes);
         OperationResult<long> CreateListingServiceLocation(IServiceLocationDTO serviceLocationDto);

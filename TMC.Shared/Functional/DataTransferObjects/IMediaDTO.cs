@@ -9,8 +9,9 @@ namespace TMC.Shared
     public interface IMediaDTO : IDTO
     {
         long ListingMediaId { get; set; }
-        decimal ContactNo { get; set; }
-        short ContactTypeId { get; set; }
+        long ListingId { get; set; }
+        long FileId { get; set; }
+        string FileName { get; set; }
 
         DateTime CreatedOn { get; set; }
         long CreatedBy { get; set; }

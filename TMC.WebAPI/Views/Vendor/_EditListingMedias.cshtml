@@ -2,45 +2,32 @@
 @using TMC.Web.Shared
 @model ListingPaymentModesViewModel
 
-<div >
- 
-    <div class="row">
+<div>
+    <div class="row" nv-file-drop="" uploader="uploader">
         <div id="paymentModes">
             <div class="form-group">
-                @*   @Html.Label("Select Payment Modes", new { @class = "col-md-2 control-label" })
-                    <div class="col-md-2" ng-repeat="paymentMode in paymentModes">
-                        <input type="checkbox" ng-checked="paymentMode.isSelected" ng-click="paymentModeChanged(paymentMode, checked)" />
-                        <label>{{paymentMode.name}}</label>
-                    </div>*@
-
                 <div class="col-md-12">
                     <div class="container">
-
-                       
-
                         <div class="row">
-
                             <div class="col-md-5">
-
                                 <h3>Select files</h3>
-
                                 <div ng-show="uploader.isHTML5">
                                     <!-- 3. nv-file-over uploader="link" over-class="className" -->
                                     <div class="well my-drop-zone" nv-file-over="" uploader="uploader">
-                                       Drop images here
-                                    </div> 
+                                        Drop photos here
+                                    </div>
                                 </div>
-                               
+
                                 <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
                                 <input type="file" nv-file-select="" uploader="uploader" multiple /><br />
                                 <div style="width: 100%;height: 100%">
                                     <img class="img-thumbnail" src="~/Content/img/ListingMedia/sample.jpg" />
- 
+
                                 </div>
                             </div>
 
                             <div class="col-md-7" style="margin-bottom: 40px">
-                                <h2>Upload images</h2> 
+                                <h2>Upload Photos</h2>
                                 <p>File count: {{ uploader.queue.length }}</p>
 
                                 <table class="table">
@@ -80,8 +67,11 @@
                                                 <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
                                                     <span class="glyphicon glyphicon-upload"></span> Upload
                                                 </button>
-                                                 
-                                                <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                                <button type="button" class="btn btn-success btn-xs" ng-click="makeProfile(item)" ng-disabled="item.file.isProfile">
+                                                    <span class="glyphicon glyphicon-upload"></span> Make Profile
+                                                </button>
+
+                                                <button type="button" class="btn btn-danger btn-xs" ng-click="removeFile(item)">
                                                     <span class="glyphicon glyphicon-trash"></span> Remove
                                                 </button>
                                             </td>
@@ -99,21 +89,11 @@
                                     <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
                                         <span class="glyphicon glyphicon-upload"></span> Upload all
                                     </button>
-                                     
-                                    <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
-                                        <span class="glyphicon glyphicon-trash"></span> Remove all
-                                    </button>
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-
-
-
             </div>
         </div>
 

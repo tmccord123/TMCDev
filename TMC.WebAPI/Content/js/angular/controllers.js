@@ -96,7 +96,7 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
 
 
     };
-    
+
 
     /****************************************************************************
     Listing Payment Modes
@@ -134,14 +134,14 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
         "isRemoved": false,
         "isChanged": false
     }];
-    
+
     $scope.listingServiceLocations = {};
     getListingPaymentModes();
 
     function getListingPaymentModes() {
         tmcHttpService.get('/api/listing/20/paymentmodes')//todo
          .success(function (data) {
-           //  $scope.listingServiceLocations = data.serviceLocations;
+             //  $scope.listingServiceLocations = data.serviceLocations;
              updatePaymentModesResut(data.paymentModes);
          })
         .error(function (error) {
@@ -152,18 +152,18 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
 
     function resetPaymentModes() {
         $scope.paymentModes.forEach(function (pmode) {
-                pmode.isSelected = false;
-                pmode.isAdded = false;
-                pmode.isRemoved = false;
-                pmode.isChanged = false;
-                pmode.listingPaymentModeId = 0;
+            pmode.isSelected = false;
+            pmode.isAdded = false;
+            pmode.isRemoved = false;
+            pmode.isChanged = false;
+            pmode.listingPaymentModeId = 0;
         });
     }
 
     function updatePaymentModesResut(paymentModesResult) {
         resetPaymentModes();
         paymentModesResult.forEach(function (paymentMode) {
-            $scope.paymentModes.forEach(function(pmode) {
+            $scope.paymentModes.forEach(function (pmode) {
                 if (pmode.paymentModeId === paymentMode.paymentModeId) {
                     pmode.isSelected = true;
                     pmode.listingPaymentModeId = paymentMode.listingPaymentModeId;
@@ -176,17 +176,17 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
         var idx = $scope.paymentModes.indexOf(paymentMode);
         if (!checked) {
             $scope.paymentModes[idx].isRemoved = true;
-           
-        }else {
+
+        } else {
             $scope.paymentModes[idx].isAdded = true;
         }
         $scope.paymentModes[idx].isChanged = !($scope.paymentModes[idx].isChanged);
     };
-    
+
     $scope.updatePaymentModes = function () {
         // todo update in single clicks later 
         var postData = [];
-        $scope.paymentModes.forEach(function(paymentMode) {
+        $scope.paymentModes.forEach(function (paymentMode) {
             if (paymentMode.isChanged) {
                 if (paymentMode.isAdded) {
                     postData.push({ listingPaymentModeId: 0, paymentModeId: paymentMode.paymentModeId, listingId: 20 });//todo
@@ -211,7 +211,7 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
             //todo swow message
         }
     };
-    
+
     /****************************************************************************
     Listing Media Upload
     ****************************************************************************/
@@ -229,18 +229,79 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
         }
     });
 
-    // CALLBACKS
+    //Retrieve the previous uploaded files 
+    $scope.uploadedFiles = [
+        {
+            lastModifiedDate: new Date(),
+            size: 1e6,
+            type: 'image/jpeg',
+            name: 'test_file_name',
+            mediaId: 1,
+            isProfile : true
+        },
+        {
+            lastModifiedDate: new Date(),
+            size: 1e6,
+            type: 'image/jpeg',
+            name: 'test_file_name',
+            mediaId: 2,
+            isProfile: false
+        }
+    ];
 
+    for (var i = 0; i < $scope.uploadedFiles.length; i++) {
+        var fileItems = [];
+        fileItems[i] = new FileUploader.FileItem(uploader, $scope.uploadedFiles[i]);
+
+        fileItems[i].progress = 100;
+        fileItems[i].isUploaded = true;
+        fileItems[i].isSuccess = true;
+
+        uploader.queue.push(fileItems[i]);
+    }
+
+    // CALLBACKS
+    $scope.removeFile = function (item) {
+        if (item.file.mediaId == undefined) {
+            item.file.mediaId = item._file.mediaId;
+        }
+        
+       // alert("Going to delete media with id = " + item.file.mediaId);
+        item.remove();
+    };
+    $scope.makeProfile = function (item) {
+        if (item.file.isProfile == undefined) {
+            item.file.isProfile = item._file.isProfile;
+        }
+        item.file.isProfile = true;
+        // reset all others
+        for (var j = 0; j < uploader.queue.length; j++) {
+            if (uploader.queue[j].file.name != item.file.name) { 
+                uploader.queue[j].file.isProfile = false;
+            }
+        }
+        
+    };
     uploader.onWhenAddingFileFailed = function (item /*{File|FileLikeObject}*/, filter, options) {
         console.info('onWhenAddingFileFailed', item, filter, options);
     };
-    uploader.onAfterAddingFile = function (fileItem) {
-        console.info('onAfterAddingFile', fileItem);
+    uploader.onAfterAddingFile = function (item) {
+        console.info('onAfterAddingFile', item);
+        for (var j = 0; j < this.queue.length - 1; j++) {
+            if (this.queue[j].file.name == item.file.name) {
+                alert("File already uploaded.");
+                item.remove();
+            }
+        }
+        item.file.mediaId = 0;
+        item.isProfile = false;
     };
     uploader.onAfterAddingAll = function (addedFileItems) {
         console.info('onAfterAddingAll', addedFileItems);
     };
     uploader.onBeforeUploadItem = function (item) {
+        item.file.mediaId = 0;
+        
         console.info('onBeforeUploadItem', item);
     };
     uploader.onProgressItem = function (fileItem, progress) {
@@ -250,7 +311,12 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
         console.info('onProgressAll', progress);
     };
     uploader.onSuccessItem = function (fileItem, response, status, headers) {
-        console.info('onSuccessItem', fileItem, response, status, headers);
+        this.queue.forEach(function (item) {
+            if (item.file.name == response[0].fileName) {
+                item.file.mediaId = response[0].listingMediaId;
+            }
+        }); 
+        console.info('onSuccessItem', fileItem, response, status, headers); 
     };
     uploader.onErrorItem = function (fileItem, response, status, headers) {
         console.info('onErrorItem', fileItem, response, status, headers);
@@ -323,15 +389,5 @@ tmcControllers.controller('ProjectCtrl', function ($scope, $rootScope, tmcRepo) 
 
 });
 
-tmcControllers.controller('BreadCrumbCtrl', function ($scope, tmcRepo, starkRepository) {
-    $scope.school = function () {
-        return tmcRepo.getSchool();
-    };
-    $scope.cohort = function () {
-        return starkRepository.cohort;  
-    };
-    $scope.round = function () {
-        return starkRepository.round; 
-    };
-});
+ 
  */

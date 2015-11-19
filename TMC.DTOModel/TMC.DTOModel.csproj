@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTransferObjects\MediaDTO.cs" />
+    <Compile Include="DataTransferObjects\FileDTO.cs" />
     <Compile Include="DataTransferObjects\ListingPaymentModesDTO.cs" />
     <Compile Include="DataTransferObjects\ListingServiceLocationsDTO.cs" />
     <Compile Include="DataTransferObjects\PaymentModeDTO.cs" />

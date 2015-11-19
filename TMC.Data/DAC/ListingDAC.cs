@@ -420,6 +420,67 @@ namespace TMC.Data
             }
             return listingDto;
         }
+
+        public IMediaDTO CreateListingMedia(IFileDTO fileDto)
+        {
+            IMediaDTO mediaDto = (IMediaDTO)DTOFactory.Instance.Create(DTOType.Media);
+            try
+            {
+                if (fileDto != null)
+                {
+                    using (TransactionScope trans = new TransactionScope())
+                    {
+                        using (var TMCDbContext = new TMCContext())
+                        {
+                            var fileEntity = new File();
+                            //EntityConverter.FillEntityFromDTO(fileDto, fileEntity);
+                            fileEntity.CreatedOn = DateTime.Now;
+                            fileEntity.CreatedBy = 11;
+                            fileEntity.UpdatedOn = DateTime.Now;
+                            fileEntity.UpdatedBy = 11;
+                            fileEntity.IsActive = true;
+                            fileEntity.IsDeleted = false;
+                            fileEntity.FileTitle = fileDto.FileTitle;
+                            fileEntity.OriginalFileName = fileDto.OriginalFileName;
+                            fileEntity.ServerFileName = fileDto.ServerFileName;
+                            fileEntity.ServerPath = fileDto.ServerPath;
+                            fileEntity.FileExtensionId = fileDto.FileExtensionId;
+                            fileEntity.FileTypeId = fileDto.FileTypeId;
+                            TMCDbContext.File.AddObject(fileEntity);
+                            if (TMCDbContext.SaveChanges() > 0)
+                            {
+                                fileDto.FileId = fileEntity.FileId;
+                                var listingMediaEntity = new ListingMedia();
+                                //EntityConverter.FillEntityFromDTO(fileDto, fileEntity);//todo do later
+                                listingMediaEntity.CreatedOn = DateTime.Now;
+                                listingMediaEntity.CreatedBy = 11;
+                                listingMediaEntity.UpdatedOn = DateTime.Now;
+                                listingMediaEntity.UpdatedBy = 11;
+                                listingMediaEntity.IsActive = true;
+                                listingMediaEntity.IsDeleted = false;
+                                listingMediaEntity.ListingId = fileDto.ListingId;
+                                listingMediaEntity.FileId = fileDto.FileId; 
+                                TMCDbContext.ListingMedia.AddObject(listingMediaEntity);
+                                if (TMCDbContext.SaveChanges() > 0)
+                                {
+                                    mediaDto.ListingMediaId = listingMediaEntity.ListingMediaId;
+                                    mediaDto.FileId = listingMediaEntity.FileId;
+                                    mediaDto.FileName = fileDto.OriginalFileName;
+
+                                }
+                            }
+                        }
+                        trans.Complete();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                throw new DACException("Error while creating the listing detail.", ex);
+            }
+            return mediaDto;
+        }
         
         public long CreateListingCategory(ICategoryDTO categoryDto)
         {
