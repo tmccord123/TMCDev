@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
 using TMC.Shared;
 
 namespace TMC.DTOModel
 {
     /// <summary>
-    /// Contract for ListingContacts DTO.
+    /// Contract for ListingContacts DTO.//todo
     /// </summary>
-    public class ListingCategoriesDTO : DTOBase, IListingCategoriesDTO
+    public class ListingMediasDTO : DTOBase, IListingMediasDTO
     {
-        public IList<ICategoryDTO> Categories { get; set; }
-         
+        public IList<IMediaDTO> Medias { get; set; }
     }
 }

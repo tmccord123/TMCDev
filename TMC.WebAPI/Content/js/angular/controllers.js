@@ -1,7 +1,7 @@
 ﻿/// <reference path='..\lib/angular.js' />
 
 
-tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingService', 'tmcHttpService', 'FileUploader', function ($scope, $rootScope, listingService, tmcHttpService, FileUploader) {
+tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingService', 'tmcHttpService', 'FileUploader', '$http', function ($scope, $rootScope, listingService, tmcHttpService, FileUploader, $http) {
     $scope.testValue = "This line is coming from the Listing angular controllerr ";
 
     /****************************************************************************
@@ -215,6 +215,73 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
     /****************************************************************************
     Listing Media Upload
     ****************************************************************************/
+    //Get the medias uploaded
+    $scope.listingMedias = {};
+    getListingMedias();
+
+    function getListingMedias() {
+        tmcHttpService.get('/api/listing/20/medias')//todo
+         .success(function (data) { 
+             updateMediasResut(data.medias);
+         })
+        .error(function (error) {
+            $scope.status = 'Unable to load  data: ' + error.message;
+            console.log($scope.status);
+        });
+    }
+    
+    $scope.uploadedFiles = [];
+
+    function updateMediasResut(mediasResult) {
+        mediasResult.forEach(function(mediaItem) {
+            $scope.uploadedFiles.push(new Tmc.QueueItem(mediaItem));
+        });
+        for (var i = 0; i < $scope.uploadedFiles.length; i++) {
+            var fileItems = [];
+            fileItems[i] = new FileUploader.FileItem(uploader, $scope.uploadedFiles[i]);
+            fileItems[i].progress = 100;
+            fileItems[i].isUploaded = true;
+            fileItems[i].isSuccess = true;
+            //if(i==0)
+            uploader.queue.push(fileItems[i]);
+        }
+        var url1 = 'api/containers/comK/download/sample.jpg';
+        var url = '/bytes/sample.jpg/12';
+        var file;
+        $http.get(url, { responseType: "blob" }).then(function(data, status, headers, config) {
+            var mimetype = data.type;
+            file = new File([data], "sample.jpg", { type: 'image/jpeg', mediaId: 1, name: 'sample.jpg' });
+            var dummy = new FileUploader.FileItem(uploader, {});
+            // dummy._file = file;
+            dummy._file = file;
+            /*dummy._file.mediaId = 122;
+            dummy._file.name = 'sample.jpg';
+            dummy._file.type = 'image/jpeg';
+            dummy._file.isProfile = false;*/
+
+            dummy.progress = 100;
+            dummy.size = 10000;
+            dummy.isUploaded = true;
+            dummy.isSuccess = true;
+            uploader.queue.push(dummy);
+        }, function() {
+        });
+        /*var dummy = new FileUploader.FileItem(uploader, {});
+       // dummy._file = file;
+        dummy.file = file;
+        /*dummy._file.mediaId = 122;
+        dummy._file.name = 'sample.jpg';
+        dummy._file.type = 'image/jpeg';
+        dummy._file.isProfile = false;#1#
+
+        dummy.progress = 100;
+        dummy.size = 10000;
+        dummy.isUploaded = true;
+        dummy.isSuccess = true;
+        uploader.queue.push(dummy); */
+    }
+
+    //Uploader
     var uploader = $scope.uploader = new FileUploader({
         url: '../api/UploadApi'
     });
@@ -229,36 +296,9 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
         }
     });
 
-    //Retrieve the previous uploaded files 
-    $scope.uploadedFiles = [
-        {
-            lastModifiedDate: new Date(),
-            size: 1e6,
-            type: 'image/jpeg',
-            name: 'test_file_name',
-            mediaId: 1,
-            isProfile : true
-        },
-        {
-            lastModifiedDate: new Date(),
-            size: 1e6,
-            type: 'image/jpeg',
-            name: 'test_file_name',
-            mediaId: 2,
-            isProfile: false
-        }
-    ];
-
-    for (var i = 0; i < $scope.uploadedFiles.length; i++) {
-        var fileItems = [];
-        fileItems[i] = new FileUploader.FileItem(uploader, $scope.uploadedFiles[i]);
-
-        fileItems[i].progress = 100;
-        fileItems[i].isUploaded = true;
-        fileItems[i].isSuccess = true;
-
-        uploader.queue.push(fileItems[i]);
-    }
+  
+     
+    
 
     // CALLBACKS
     $scope.removeFile = function (item) {
@@ -288,10 +328,10 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
     uploader.onAfterAddingFile = function (item) {
         console.info('onAfterAddingFile', item);
         for (var j = 0; j < this.queue.length - 1; j++) {
-            if (this.queue[j].file.name == item.file.name) {
+            /*if (this.queue[j].file.name == item.file.name) { //todo
                 alert("File already uploaded.");
                 item.remove();
-            }
+            }*/
         }
         item.file.mediaId = 0;
         item.isProfile = false;

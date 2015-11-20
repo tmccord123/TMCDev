@@ -15,6 +15,8 @@ namespace TMC.Web.Controllers.Api
     [RoutePrefix("api/listing")]// this is the base http://localhost:59974/api/listing
     public class ListingApiController : ApiController
     {
+        #region GET Methods
+
         [Route("{id:int}")]  // call like this http://localhost:59974/api/listing/1
         //[Route("{id:int}/details")] // call like this http://localhost:59974/api/listing/1/details
         // Hey the name of the method not necessarily to be Get only you can give any name starting with "Get" as it is using the route attribute here
@@ -145,6 +147,53 @@ namespace TMC.Web.Controllers.Api
             return Ok(listingViewModel.ListingMedias);
         }
 
+        [Route("{cityId:int}/{categoryId:int}/{placeId?}")]
+        public IHttpActionResult GetListings(int cityId, int categoryId, string placeId = null)
+        {
+            var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+            var listingResult = listingFacade.GetListings(cityId, placeId, categoryId);
+            var allListings = new List<ListingViewModel>();
+            if (listingResult.IsValid())
+            {
+                foreach (var listing in listingResult.Data)
+                {
+                    var listingViewModel = new ListingViewModel();
+                    DTOConverter.FillViewModelFromDTO(listingViewModel, listing);
+                    allListings.Add(listingViewModel);
+                }
+            }
+            return Ok(allListings);
+        }
+        
+        /// <summary>
+        /// This is the overridden api route,
+        /// This is accesed like this /api/listing/GetListingsByUserId/2
+        /// This we can used when the same api rooute is used more than once like GetListingsByUserId/GetListingsByVendorId
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [Route("GetListingsByUserId/{userId:int}")]
+        public IHttpActionResult GetListingsByUserId(int userId)
+        {
+            var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+            var listingResult = listingFacade.GetListingsByUserId(userId);
+            var allListings = new List<ListingViewModel>();
+            if (listingResult.IsValid())
+            {
+                foreach (var listing in listingResult.Data)
+                {
+                    var listingViewModel = new ListingViewModel();
+                    DTOConverter.FillViewModelFromDTO(listingViewModel, listing);
+                    allListings.Add(listingViewModel);
+                }
+            }
+            return Ok(allListings);
+        }
+
+        #endregion
+
+        #region POST Methods
+
         [Route("")]
         [HttpPost]
         public IHttpActionResult Post([FromBody]ListingViewModel listingViewModel)
@@ -217,30 +266,13 @@ namespace TMC.Web.Controllers.Api
         //    }
         //}
 
-        [Route("{cityId:int}/{categoryId:int}/{placeId?}")]
-        public IHttpActionResult GetListings(int cityId, int categoryId, string placeId = null)
-        {
-            var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
-            var listingResult = listingFacade.GetListings(cityId, placeId, categoryId);
-            var allListings = new List<ListingViewModel>();
-            if (listingResult.IsValid())
-            {
-                foreach (var listing in listingResult.Data)
-                {
-                    var listingViewModel = new ListingViewModel();
-                    DTOConverter.FillViewModelFromDTO(listingViewModel, listing);
-                    allListings.Add(listingViewModel);
-                }
-            }
-            return Ok(allListings);
-        }
         [Route("GetListingsResult")]
         [HttpPost]
         //[Route("{cityId:int}/{categoryId:int}/{placeId?}")]
         public IHttpActionResult PostListings(ListingParametersViewModel listingParameters)
         {
             var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
-            var listingResult = listingFacade.GetListings(listingParameters.CityId, listingParameters.PlaceId,listingParameters.CategoryId);
+            var listingResult = listingFacade.GetListings(listingParameters.CityId, listingParameters.PlaceId, listingParameters.CategoryId);
             var allListings = new List<ListingViewModel>();
             if (listingResult.IsValid())
             {
@@ -254,32 +286,6 @@ namespace TMC.Web.Controllers.Api
             return Ok(allListings);
         }
 
-        /// <summary>
-        /// This is the overridden api route,
-        /// This is accesed like this /api/listing/GetListingsByUserId/2
-        /// This we can used when the same api rooute is used more than once like GetListingsByUserId/GetListingsByVendorId
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <returns></returns>
-        [Route("GetListingsByUserId/{userId:int}")]
-        public IHttpActionResult GetListingsByUserId(int userId)
-        {
-            var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
-            var listingResult = listingFacade.GetListingsByUserId(userId);
-            var allListings = new List<ListingViewModel>();
-            if (listingResult.IsValid())
-            {
-                foreach (var listing in listingResult.Data)
-                {
-                    var listingViewModel = new ListingViewModel();
-                    DTOConverter.FillViewModelFromDTO(listingViewModel, listing);
-                    allListings.Add(listingViewModel);
-                }
-            }
-            return Ok(allListings);
-        }
-
-        #region POST Methods
         [Route("addCategory")]
         [HttpPost]
         public IHttpActionResult Post(CategoryViewModel categoryViewModel)
@@ -359,6 +365,7 @@ namespace TMC.Web.Controllers.Api
             }
 
         }
+
         [Route("addUpdateListingPaymentModes")]
         [HttpPost]
         public IHttpActionResult Post(List<PaymentModeViewModel> paymentModesViewModel)
@@ -398,5 +405,10 @@ namespace TMC.Web.Controllers.Api
         }
       
         #endregion
+
+        #region DELETE Methods
+
+        #endregion
+
     }
 }

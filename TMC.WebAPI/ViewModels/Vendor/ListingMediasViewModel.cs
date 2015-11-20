@@ -8,10 +8,8 @@ namespace TMC.Web.ViewModels
     {
         public ListingMediasViewModel()
         {
-            Medias = new List<MediaViewModel>();
-            NewMedia = new MediaViewModel();
+            Medias = new List<MediaViewModel>(); 
         }
-        public List<MediaViewModel> Medias { get; set; }
-        public MediaViewModel NewMedia { get; set; }
+        public List<MediaViewModel> Medias { get; set; } 
     }
 }

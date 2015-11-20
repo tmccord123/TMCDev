@@ -8,8 +8,8 @@ namespace TMC.DTOModel
     /// Contract for Action DTO.
     /// </summary>
     [DataContract(Name = "Media", Namespace = "TMC.DTOModel")]
-    [EntityMapping("EntityDataModel.EntityModels.Media", MappingType.TotalExplicit)]
     [Serializable]
+    [EntityMapping("EntityDataModel.EntityModels.ListingMedia", MappingType.TotalExplicit)]
     [ViewModelMapping("TMC.Web.ViewModels.MediaViewModel", MappingType.TotalExplicit)]
     public class MediaDTO : DTOBase, IMediaDTO
     {
@@ -17,8 +17,15 @@ namespace TMC.DTOModel
         [EntityPropertyMapping(MappingDirectionType.Both, "ListingMediaId")]
         public long ListingMediaId { get; set; }
 
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "ListingId")]
+        [EntityPropertyMapping(MappingDirectionType.Both, "ListingId")]  
         public long ListingId { get; set; }
+
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "FileId")]
+        [EntityPropertyMapping(MappingDirectionType.Both, "FileId")]
         public long FileId { get; set; }
+
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "FileName")]
         public string FileName { get; set; }
         
 

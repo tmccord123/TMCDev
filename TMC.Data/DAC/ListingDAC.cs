@@ -306,32 +306,37 @@ namespace TMC.Data
         public IListingDTO GetMediasByListingId(int listingId)
         {
             IListingDTO listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
-            IListingContactsDTO listingContactsDto = (IListingContactsDTO)DTOFactory.Instance.Create(DTOType.ListingContacts);
-            listingContactsDto.Contacts = new List<IContactDTO>();
+            IListingMediasDTO listingMediasDto = (IListingMediasDTO)DTOFactory.Instance.Create(DTOType.ListingMedias);
+            listingMediasDto.Medias = new List<IMediaDTO>();
             try
             {
                 using (var tmcContext = new TMCContext())
                 {
-                    var listingcontactEntities = (from listingContact in tmcContext.ListingContact
-                                                  where listingContact.ListingId == listingId && listingContact.IsActive
-                                                  select listingContact).ToList();
-                    if (listingcontactEntities.Any())
+                    var listingMediaEntities = (from listingMedia in tmcContext.ListingMedia
+                                                join file in tmcContext.File on  listingMedia.ListingId equals file.FileId 
+                                                  where listingMedia.ListingId == listingId && listingMedia.IsActive
+                                                  select new
+                                                  {
+                                                      listingMedia,
+                                                      FileName = file.OriginalFileName
+                                                  }).ToList();
+                    if (listingMediaEntities.Any())
                     {
-                        foreach (var listingContactEntity in listingcontactEntities)
+                        foreach (var listingMediaEntity in listingMediaEntities)
                         {
-                            IContactDTO listingContactDto = (IContactDTO)DTOFactory.Instance.Create(DTOType.Contact);
-                            EntityConverter.FillDTOFromEntity(listingContactEntity, listingContactDto);
-                           
-                            listingContactsDto.Contacts.Add(listingContactDto);
+                            IMediaDTO listingMediaDto = (IMediaDTO)DTOFactory.Instance.Create(DTOType.Media);
+                            EntityConverter.FillDTOFromEntity(listingMediaEntity.listingMedia, listingMediaDto);
+                            listingMediaDto.FileName = listingMediaEntity.FileName;
+                            listingMediasDto.Medias.Add(listingMediaDto);
                         }
-                        listingDto.ListingContacts = listingContactsDto;
+                        listingDto.ListingMedias = listingMediasDto;
                     }
                 }
             }
             catch (Exception ex)
             {
                 ExceptionManager.HandleException(ex);
-                throw new DACException("Error while fetching the listing contacts.", ex);
+                throw new DACException("Error while fetching the listing medias.", ex);
             }
 
             return listingDto;
