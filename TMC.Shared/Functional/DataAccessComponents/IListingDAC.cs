@@ -28,7 +28,6 @@ namespace TMC.Shared
         /// </returns>
         IList<IListingDTO> ReadListings(int cityId, string placeId, int categoryId);
         IList<IListingDTO> GetListingsByUserId(int userId);
-
         IListingDTO GetListingById(int listingId);
         IListingDTO GetContactsByListingId(int listingId);
         IListingDTO GetCategoriesByListingId(int listingId);
@@ -36,14 +35,18 @@ namespace TMC.Shared
         IListingDTO GetPaymentModesByListingId(int listingId);
         IListingDTO GetMediasByListingId(int listingId);
 
+        //Create or Update
         IListingDTO CreateListing(IListingDTO listingDto);
         long CreateListingCategory(ICategoryDTO categoryDto);
         long CreateListingServiceLocation(IServiceLocationDTO serviceLocationDto);
         int AddUpdateListingPaymentModes(IListingPaymentModesDTO categoryDto);
-
         IListingDTO UpdateListing(IListingDTO listingDto);
         IMediaDTO CreateListingMedia(IFileDTO fileDto);
-        string DeleteListingMedia(long listingMediaid); 
+
+        //Delete
+        string DeleteListingMedia(long listingMediaid);
+        bool DeleteListingCategory(long listingCategoryId);
+        bool DeleteListingServiceLocation(long listingServiceLocationId); 
 
     }
 }

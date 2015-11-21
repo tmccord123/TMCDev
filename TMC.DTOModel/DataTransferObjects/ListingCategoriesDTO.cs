@@ -4,10 +4,11 @@ using TMC.Shared;
 namespace TMC.DTOModel
 {
     /// <summary>
-    /// Contract for ListingContacts DTO.//todo
+    /// Contract for ListingContacts DTO.
     /// </summary>
-    public class ListingMediasDTO : DTOBase, IListingMediasDTO
+    public class ListingCategoriesDTO : DTOBase, IListingCategoriesDTO
     {
-        public IList<IMediaDTO> Medias { get; set; }
+        public IList<ICategoryDTO> Categories { get; set; }
+
     }
 }

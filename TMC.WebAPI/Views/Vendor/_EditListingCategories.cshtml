@@ -104,7 +104,7 @@
         <ul>
             <li ng-repeat="category in listingCategories">
                 <a>{{category.name}}</a>
-                <i class="fa fa-times" role="button" tabindex="0">(x)</i>
+                <i class="fa fa-times" role="button" tabindex="0" ng-click="deleteListingCategory(category)">(x)</i>
             </li>
         </ul>
     </div>

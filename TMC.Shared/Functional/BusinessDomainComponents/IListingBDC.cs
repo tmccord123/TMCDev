@@ -44,6 +44,8 @@ namespace TMC.Shared
         OperationResult<IListingDTO> GetServiceLocationsByListingId(int listingId);
         OperationResult<IListingDTO> GetPaymentModesByListingId(int listingId);
         OperationResult<IListingDTO> GetMediasByListingId(int listingId);
-        OperationResult<string> DeleteListingMedia(long listingMediaid); 
+        OperationResult<string> DeleteListingMedia(long listingMediaId); 
+        OperationResult<bool> DeleteListingCategory(long listingCategoryId); 
+        OperationResult<bool> DeleteListingServiceLocation(long listingServiceLocationId); 
     }
 }

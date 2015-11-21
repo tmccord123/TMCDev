@@ -136,6 +136,17 @@
             var listingBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
             return listingBDC.DeleteListingMedia(listingMediaId);
         }
- 
+
+        public OperationResult<bool> DeleteListingCategory(long listingCategoryId)
+        {
+            var listingBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
+            return listingBDC.DeleteListingCategory(listingCategoryId);
+        }
+        
+        public OperationResult<bool> DeleteListingServiceLocation(long listingServiceLocationId)
+        {
+            var listingBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
+            return listingBDC.DeleteListingServiceLocation(listingServiceLocationId);
+        }
     }
 }

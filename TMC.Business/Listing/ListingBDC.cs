@@ -429,7 +429,8 @@ namespace TMC.Business
             }
             return operationResult;
         }
-
+       
+        #region DELETE
         public OperationResult<string> DeleteListingMedia(long listingMediaid)
         {
             OperationResult<string> operationResult = null;
@@ -457,7 +458,61 @@ namespace TMC.Business
             return operationResult;
         }
         
+        public OperationResult<bool> DeleteListingCategory(long listingCategoryid)
+        {
+            OperationResult<bool> operationResult = null;
+            try
+            {
+                var listingDAC = (IListingDAC)DACFactory.Instance.Create(DACType.Listing);
 
+                var resultListing = listingDAC.DeleteListingCategory(listingCategoryid);
+                operationResult = resultListing != null
+                                                      ? OperationResult<bool>.CreateSuccessResult(resultListing)
+                                                      : OperationResult<bool>.CreateFailureResult(
+                                                       ResourceUtility.GetCaptionFor(
+                                              ResourceConstants.Vendor.ErrorMessages.FailedToFetchListing));//todo
+
+            }
+            catch (DACException dacEx)
+            {
+                operationResult = OperationResult<bool>.CreateErrorResult(dacEx.Message, dacEx.StackTrace);//todo
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                operationResult = OperationResult<bool>.CreateErrorResult(ex.Message, ex.StackTrace);//todo
+            }
+            return operationResult;
+        }
+
+        public OperationResult<bool> DeleteListingServiceLocation(long listingServiceLocationid)
+        {
+            OperationResult<bool> operationResult = null;
+            try
+            {
+                var listingDAC = (IListingDAC)DACFactory.Instance.Create(DACType.Listing);
+
+                var resultListing = listingDAC.DeleteListingServiceLocation(listingServiceLocationid);
+                operationResult = resultListing != null
+                                                      ? OperationResult<bool>.CreateSuccessResult(resultListing)
+                                                      : OperationResult<bool>.CreateFailureResult(
+                                                       ResourceUtility.GetCaptionFor(
+                                              ResourceConstants.Vendor.ErrorMessages.FailedToFetchListing));//todo
+
+            }
+            catch (DACException dacEx)
+            {
+                operationResult = OperationResult<bool>.CreateErrorResult(dacEx.Message, dacEx.StackTrace);//todo
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                operationResult = OperationResult<bool>.CreateErrorResult(ex.Message, ex.StackTrace);//todo
+            }
+            return operationResult;
+        }
+
+        #endregion 
 
         #endregion
     }

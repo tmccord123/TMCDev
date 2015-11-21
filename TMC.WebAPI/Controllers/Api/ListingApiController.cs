@@ -434,17 +434,49 @@ namespace TMC.Web.Controllers.Api
             catch (Exception)
             {
                 return InternalServerError();
-            }
-            /*Employee emp = this.GetEmployee(Uid);
-            if (emp == null)
+            } 
+        }
+
+        [Route("deleteListingCategory/{id}")]
+        [HttpDelete]
+        public IHttpActionResult DeleteListingCategory(long id)
+        {
+            try
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+                var listingResult = listingFacade.DeleteListingCategory(id);
+                if (listingResult.IsValid())
+                {
+                    return Ok(true);
+                }
+                return BadRequest("Some error occurred");//todo check for errors case
             }
-            _emp.Remove(emp);
-            var response = new HttpResponseMessage();
-            response.Headers.Add("DeleteMessage", "Succsessfuly Deleted!!!");
-            return response;*/
+            catch (Exception)
+            {
+                return InternalServerError();
+            }
+        }
+
+        [Route("deleteListingServiceLocation/{id}")]
+        [HttpDelete]
+        public IHttpActionResult DeleteListingServiceLocation(long id)
+        {
+            try
+            {
+                var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+                var listingResult = listingFacade.DeleteListingServiceLocation(id);
+                if (listingResult.IsValid())
+                {
+                    return Ok(true);
+                }
+                return BadRequest("Some error occurred");//todo check for errors case
+            }
+            catch (Exception)
+            {
+                return InternalServerError();
+            }
         } 
+
         #endregion
 
     }

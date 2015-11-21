@@ -35,8 +35,7 @@
     </div>
     <hr class="no-margin" />
     <div class="chipbar">
-        <ul>
-            <!-- ngRepeat: filter in selectedFilters -->
+        <ul> 
             <li ng-repeat="filter in selectedFilters">
                 <a>A&amp;K</a><i ng-click="filter.selected.selected = !filter.selected.selected;applyFilter(filter.collection, filter.selected);"
                                  class="fa fa-times" role="button" tabindex="0"></i>
@@ -48,7 +47,7 @@
         <ul>
             <li ng-repeat="serviceLocation in listingServiceLocations">
                 <a>{{serviceLocation.cityName}}</a>
-                <i class="fa fa-times" role="button" tabindex="0">(x)</i>
+                <i class="fa fa-times" role="button" tabindex="0" ng-click="deleteListingServiceLocation(serviceLocation)">(x)</i>
             </li>
         </ul>
     </div>

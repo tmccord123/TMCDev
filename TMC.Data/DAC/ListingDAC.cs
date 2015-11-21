@@ -215,7 +215,7 @@ namespace TMC.Data
                             ICategoryDTO categoryDto = (ICategoryDTO)DTOFactory.Instance.Create(DTOType.Category);
                             EntityConverter.FillDTOFromEntity(listingCategoryEntity.category, categoryDto);
                             categoryDto.ListingId = listingCategoryEntity.ListingId;
-                            categoryDto.ListingCategoryId = listingCategoryEntity.ListingId;
+                            categoryDto.ListingCategoryId = listingCategoryEntity.ListingCategoryId;
                             listingCategoriesDto.Categories.Add(categoryDto);
                         }
                         listingDto.ListingCategories = listingCategoriesDto;
@@ -501,6 +501,7 @@ namespace TMC.Data
                             var listingCategory = new ListingCategory();
                             listingCategory.ListingId = categoryDto.ListingId;
                             listingCategory.CategoryId = categoryDto.CategoryId;
+                            //todo check if already added and for service location also
                             TMCDbContext.ListingCategory.AddObject(listingCategory);
                             if (TMCDbContext.SaveChanges() > 0)
                             {
@@ -665,10 +666,10 @@ namespace TMC.Data
                 {
                     using (TMCContext tmcContext = new TMCContext())
                     {
-                        ListingMedia listingMediaEntity = tmcContext.ListingMedia.SingleOrDefault(equipmentTypeField =>
-                                                                      equipmentTypeField.ListingMediaId == listingMediaid); //todo check 
-                        File fileEntity = tmcContext.File.SingleOrDefault(equipmentTypeField =>
-                                                                      equipmentTypeField.FileId == listingMediaEntity.FileId);
+                        ListingMedia listingMediaEntity = tmcContext.ListingMedia.SingleOrDefault(lm =>
+                                                                      lm.ListingMediaId == listingMediaid); //todo check 
+                        File fileEntity = tmcContext.File.SingleOrDefault(f =>
+                                                                      f.FileId == listingMediaEntity.FileId);
 
                         if (listingMediaEntity != null)
                         {
@@ -688,5 +689,65 @@ namespace TMC.Data
             }
             return retVal;
         }
+
+        public bool DeleteListingCategory(long listingCategoryId)
+        {
+            bool retVal = false;
+            try
+            {
+                using (TransactionScope trans = new TransactionScope())
+                {
+                    using (TMCContext tmcContext = new TMCContext())
+                    {
+                        ListingCategory listingCategoryEntity = tmcContext.ListingCategory.SingleOrDefault(lcid =>
+                                                                      lcid.ListingCategoryId == listingCategoryId);  
+
+                        if (listingCategoryEntity != null)
+                        {
+                            tmcContext.DeleteObject(listingCategoryEntity); 
+                            tmcContext.SaveChanges(); 
+                        }
+                    }
+                    trans.Complete();
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                throw new DACException("Error while deleting listing category.", ex);
+            }
+            return retVal;
+        }
+
+        public bool DeleteListingServiceLocation(long listingServiceLocationId)
+        {
+            bool retVal = false;
+            try
+            {
+                using (TransactionScope trans = new TransactionScope())
+                {
+                    using (TMCContext tmcContext = new TMCContext())
+                    {
+                        ListingServiceLocation listingServiceLocationEntity = tmcContext.ListingServiceLocation.SingleOrDefault(lcid =>
+                                                                      lcid.ListingServiceLocationId == listingServiceLocationId);
+
+                        if (listingServiceLocationEntity != null)
+                        {
+                            tmcContext.DeleteObject(listingServiceLocationEntity);
+                            tmcContext.SaveChanges();
+                        }
+                    }
+                    trans.Complete();
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                throw new DACException("Error while deleting listing ServiceLocation.", ex);
+            }
+            return retVal;
+        }
+
+ 
     }
 }

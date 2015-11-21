@@ -32,11 +32,21 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
             });*/
     }
 
-    $scope.addCategory = function () {
+    function checkIfCategoryAdded(categoryId) {
+        var addedCategories = $scope.listingCategories.filter(function(category) {
+            return category.categoryId == categoryId;
+        });
+        return addedCategories.length > 0;
+    }
 
-        var selectedCategoryId = $(addEditListing.categoryIdControlId).val();
+    $scope.addCategory = function () {
+        var selectedCategoryId = parseInt($(addEditListing.categoryIdControlId).val());
         var selectedCategoryName = $(addEditListing.categoryNameControlId).val();
         if (selectedCategoryId !== "") {
+            if (checkIfCategoryAdded(selectedCategoryId)) {
+                alert("Key category already added.");
+                return;
+            }
             var postData = { categoryId: selectedCategoryId, name: selectedCategoryName, listingId: 20 };//todo
             tmcHttpService.post('/api/listing/addCategory', postData)
              .success(function (data) {
@@ -54,13 +64,31 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
         }
     };
 
+    $scope.deleteListingCategory = function(category) {
+        tmcHttpService.delete('/api/listing/deleteListingCategory/' + category.listingCategoryId)//todo
+         .success(function (data) {
+             if (data) {
+                 var index = $scope.listingCategories.indexOf(category);
+                 $scope.listingCategories.splice(index, 1);
+             }
+         })
+        .error(function (error) {
+            $scope.status = 'Unable to delete category: ' + error.message;
+            console.log($scope.status);
+        });
+    };
 
     /****************************************************************************
     Listing Service Locations
     *****************************************************************************/
     $scope.listingServiceLocations = {};
     getListingServiceLocations();
-
+    function checkIfServiceLocationAdded(serviceLocatioId) {
+        var addedLocations = $scope.listingServiceLocations.filter(function (location) {
+            return location.cityId == serviceLocatioId;
+        });
+        return addedLocations.length > 0;
+    }
     function getListingServiceLocations() {
         tmcHttpService.get('/api/listing/20/serviceLocations')//todo
          .success(function (data) {
@@ -72,10 +100,13 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
         });
     }
     $scope.addListingServiceAreaWholeCity = function () {
-
-        var selectedCityId = $(addEditListing.cityIdControlId).val();
+        var selectedCityId =parseInt( $(addEditListing.cityIdControlId).val());
         var selectedCityName = $(addEditListing.cityNameControlId).val();
-        if (selectedCityId !== "") {
+        if (selectedCityId) {
+            if (checkIfServiceLocationAdded(selectedCityId)) {
+                alert("Service area added already");
+                return;
+            }
             var postData = { cityId: selectedCityId, cityName: selectedCityName, listingId: 20 };//todo
             tmcHttpService.post('/api/listing/addServiceLocation', postData)
              .success(function (data) {
@@ -91,12 +122,22 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
             });
         } else {
             //todo swow message
-        }
-
-
-
+        } 
     };
 
+    $scope.deleteListingServiceLocation = function (serviceLocation) {
+        tmcHttpService.delete('/api/listing/deleteListingServiceLocation/' + serviceLocation.listingServiceLocationId)//todo
+         .success(function (data) {
+             if (data) {
+                 var index = $scope.listingServiceLocations.indexOf(serviceLocation);
+                 $scope.listingServiceLocations.splice(index, 1);
+             }
+         })
+        .error(function (error) {
+            $scope.status = 'Unable to delete service area: ' + error.message;
+            console.log($scope.status);
+        });
+    };
 
     /****************************************************************************
     Listing Payment Modes
@@ -295,11 +336,7 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
             return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
         }
     });
-
-  
-     
     
-
     // CALLBACKS
     $scope.removeFile = function (item) {
         if (item.file.mediaId == undefined) {
