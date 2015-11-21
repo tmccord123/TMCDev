@@ -313,7 +313,7 @@ namespace TMC.Data
                 using (var tmcContext = new TMCContext())
                 {
                     var listingMediaEntities = (from listingMedia in tmcContext.ListingMedia
-                                                join file in tmcContext.File on listingMedia.ListingId equals file.FileId
+                                                join file in tmcContext.File on listingMedia.FileId equals file.FileId
                                                 where listingMedia.ListingId == listingId && listingMedia.IsActive
                                                 select new
                                                 {
