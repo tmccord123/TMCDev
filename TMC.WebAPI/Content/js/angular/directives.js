@@ -92,3 +92,25 @@ tmcApp.directive('ngThumb', ['$window', function ($window) {
         }
     };
 }]);
+
+tmcApp.directive('imgPreview', [function () {
+    return {
+        restrict: 'E',
+        template: '<canvas/>',
+        replace: true,
+        link: function (scope, element, attrs) {
+            var myCanvas = element[0];
+            var ctx = myCanvas.getContext('2d');
+            var img = new Image;
+            img.onerror = function () {
+                throw new Error("Image can't be loaded");
+            }
+            img.onload = function () {
+                myCanvas.width = img.width;
+                myCanvas.height = img.height;
+                ctx.drawImage(img, 0, 0); // Or at whatever offset you like
+            };
+            img.src = attrs.image;
+        }
+    }
+}]);

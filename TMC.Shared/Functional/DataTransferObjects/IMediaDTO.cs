@@ -12,6 +12,7 @@ namespace TMC.Shared
         long ListingId { get; set; }
         long FileId { get; set; }
         string FileName { get; set; }
+        string ServerFileName { get; set; }
 
         DateTime CreatedOn { get; set; }
         long CreatedBy { get; set; }

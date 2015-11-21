@@ -318,7 +318,8 @@ namespace TMC.Data
                                                 select new
                                                 {
                                                     listingMedia,
-                                                    FileName = file.OriginalFileName
+                                                    FileName = file.OriginalFileName,
+                                                    ServerFileName = file.ServerFileName
                                                 }).ToList();
                     if (listingMediaEntities.Any())
                     {
@@ -327,6 +328,7 @@ namespace TMC.Data
                             IMediaDTO listingMediaDto = (IMediaDTO)DTOFactory.Instance.Create(DTOType.Media);
                             EntityConverter.FillDTOFromEntity(listingMediaEntity.listingMedia, listingMediaDto);
                             listingMediaDto.FileName = listingMediaEntity.FileName;
+                            listingMediaDto.ServerFileName = listingMediaEntity.ServerFileName;
                             listingMediasDto.Medias.Add(listingMediaDto);
                         }
                         listingDto.ListingMedias = listingMediasDto;
@@ -471,6 +473,7 @@ namespace TMC.Data
                                     mediaDto.ListingMediaId = listingMediaEntity.ListingMediaId;
                                     mediaDto.FileId = listingMediaEntity.FileId;
                                     mediaDto.FileName = fileDto.OriginalFileName;
+                                    mediaDto.ServerFileName = fileDto.ServerFileName;
 
                                 }
                             }

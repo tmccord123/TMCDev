@@ -27,6 +27,9 @@ namespace TMC.DTOModel
 
         [ViewModelPropertyMapping(MappingDirectionType.Both, "FileName")]
         public string FileName { get; set; }
+
+        [ViewModelPropertyMapping(MappingDirectionType.Both, "ServerFileName")]
+        public string ServerFileName { get; set; }
         
 
         [ViewModelPropertyMapping(MappingDirectionType.Both, "CreatedOn")]

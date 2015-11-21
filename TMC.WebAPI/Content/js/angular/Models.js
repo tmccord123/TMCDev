@@ -7,12 +7,10 @@ Tmc.QueueItem = function (mediaItem) {
     self.type =  'image/jpeg'; 
     self.isProfile = false;
     self.size = 10000;
-    self.url = 'http://localhost:59974/bytes/sample.jpg/12';
-    self.lastModifiedDate = new Date();
-    //return self;
+    self.isFromServer = true;
+    self.url = 'http://localhost:59974/bytes/' + mediaItem.serverFileName+"/sdfd";//todo 
+    self.lastModifiedDate = new Date(); 
 };
-
-
 
 Tmc.State = function (s) {
     var self = this;

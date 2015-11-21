@@ -75,6 +75,7 @@ namespace TMC.Web.Controllers.Api
                     {
                         MediaViewModel mediaViewModel = new MediaViewModel();
                         mediaViewModel.FileName = listingResult.Data.FileName;
+                        mediaViewModel.ServerFileName = listingResult.Data.ServerFileName;
                         mediaViewModel.ListingId = fileDto.ListingId;
                         mediaViewModel.ListingMediaId = listingResult.Data.ListingMediaId;
                         mediaViewModel.FileId = listingResult.Data.FileId;

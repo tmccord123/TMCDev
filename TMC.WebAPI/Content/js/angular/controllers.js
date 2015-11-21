@@ -286,7 +286,7 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
             //if(i==0)
             uploader.queue.push(fileItems[i]);
         }
-        var url1 = 'api/containers/comK/download/sample.jpg';
+        /*var url1 = 'api/containers/comK/download/sample.jpg';
         var url = '/bytes/sample.jpg/12';
         var file;
         $http.get(url, { responseType: "blob" }).then(function(data, status, headers, config) {
@@ -298,7 +298,7 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
             /*dummy._file.mediaId = 122;
             dummy._file.name = 'sample.jpg';
             dummy._file.type = 'image/jpeg';
-            dummy._file.isProfile = false;*/
+            dummy._file.isProfile = false;#1#
 
             dummy.progress = 100;
             dummy.size = 10000;
@@ -306,7 +306,7 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
             dummy.isSuccess = true;
             uploader.queue.push(dummy);
         }, function() {
-        });
+        });*/
         /*var dummy = new FileUploader.FileItem(uploader, {});
        // dummy._file = file;
         dummy.file = file;
@@ -323,9 +323,11 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
     }
 
     //Uploader
-    var uploader = $scope.uploader = new FileUploader({
+    var uploader;
+    $scope.uploader = new FileUploader({
         url: '../api/UploadApi'
     });
+    uploader = $scope.uploader;
 
     // FILTERS
 
@@ -375,10 +377,10 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
     uploader.onAfterAddingFile = function (item) {
         console.info('onAfterAddingFile', item);
         for (var j = 0; j < this.queue.length - 1; j++) {
-            /*if (this.queue[j].file.name == item.file.name) { //todo
+            if (this.queue[j].file.name == item.file.name) { //todo
                 alert("File already uploaded.");
                 item.remove();
-            }*/
+            }
         }
         item.file.mediaId = 0;
         item.isProfile = false;
@@ -388,6 +390,7 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
     };
     uploader.onBeforeUploadItem = function (item) {
         item.file.mediaId = 0;
+        item.file.url = "";
         
         console.info('onBeforeUploadItem', item);
     };
@@ -398,11 +401,7 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
         console.info('onProgressAll', progress);
     };
     uploader.onSuccessItem = function (fileItem, response, status, headers) {
-        this.queue.forEach(function (item) {
-            if (item.file.name == response[0].fileName) {
-                item.file.mediaId = response[0].listingMediaId;
-            }
-        }); 
+        fileItem.file.mediaId = response[0].listingMediaId;
         console.info('onSuccessItem', fileItem, response, status, headers); 
     };
     uploader.onErrorItem = function (fileItem, response, status, headers) {

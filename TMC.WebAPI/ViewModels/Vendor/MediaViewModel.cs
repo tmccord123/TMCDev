@@ -12,5 +12,6 @@ namespace TMC.Web.ViewModels
         public long ListingId { get; set; }
         public long FileId { get; set; }
         public string FileName { get; set; }
+        public string ServerFileName { get; set; }
     }
 }
