@@ -46,8 +46,8 @@
     <div class="chipbar">
         <ul>
             <li ng-repeat="serviceLocation in listingServiceLocations">
-                <a>{{serviceLocation.cityName}}</a>
-                <i class="fa fa-times" role="button" tabindex="0" ng-click="deleteListingServiceLocation(serviceLocation)">(x)</i>
+                <a>{{serviceLocation.cityName}}<i class="fa fa-times" role="button" tabindex="0" ng-click="deleteListingServiceLocation(serviceLocation)">X</i></a>
+                
             </li>
         </ul>
     </div>

@@ -103,8 +103,8 @@
     <div class="chipbar">
         <ul>
             <li ng-repeat="category in listingCategories">
-                <a>{{category.name}}</a>
-                <i class="fa fa-times" role="button" tabindex="0" ng-click="deleteListingCategory(category)">(x)</i>
+                <a>{{category.name}}<i class="fa fa-times" role="button" tabindex="0" ng-click="deleteListingCategory(category)"> X </i></a>
+                
             </li>
         </ul>
     </div>
