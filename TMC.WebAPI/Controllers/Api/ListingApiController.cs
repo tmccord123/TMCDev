@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Net;
+using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
 using TMC.Web.Controllers;
@@ -407,7 +410,41 @@ namespace TMC.Web.Controllers.Api
         #endregion
 
         #region DELETE Methods
+        [Route("deleteListingMedia/{id}")]
+        [HttpDelete]
+        public IHttpActionResult DeleteListingMedia(long id)
+        {
 
+            try
+            {
+                var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
+                var listingResult = listingFacade.DeleteListingMedia(id);
+                if (listingResult.IsValid())
+                {
+                    //string fullPath = Request.MapPath("~/Images/Cakes/" + photoName);
+                    string fullPath = HttpContext.Current.Server.MapPath("~/Content/img/ListingMedia/" + listingResult.Data);
+                    if (System.IO.File.Exists(fullPath))
+                    {
+                        System.IO.File.Delete(fullPath);
+                    }
+                    return Ok(true);
+                }
+                return BadRequest("Some error occurred");//todo check for errors case
+            }
+            catch (Exception)
+            {
+                return InternalServerError();
+            }
+            /*Employee emp = this.GetEmployee(Uid);
+            if (emp == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+            _emp.Remove(emp);
+            var response = new HttpResponseMessage();
+            response.Headers.Add("DeleteMessage", "Succsessfuly Deleted!!!");
+            return response;*/
+        } 
         #endregion
 
     }

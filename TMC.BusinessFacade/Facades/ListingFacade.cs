@@ -81,8 +81,6 @@
             return listingBDC.AddUpdateListingPaymentModes(paymentModes);
         }
  
-
-
         public OperationResult<long> CreateListingServiceLocation(IServiceLocationDTO serviceLocationDto)
         {
             var listingBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
@@ -131,5 +129,13 @@
             var listingBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
             return listingBDC.GetListingsByUserId(userId);
         }
+
+
+        public OperationResult<string> DeleteListingMedia(long listingMediaId)
+        {
+            var listingBDC = (IListingBDC)BDCFactory.Instance.Create(BDCType.Listing);
+            return listingBDC.DeleteListingMedia(listingMediaId);
+        }
+ 
     }
 }

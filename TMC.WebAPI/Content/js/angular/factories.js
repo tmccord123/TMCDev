@@ -26,6 +26,9 @@ tmcFactories.service("tmcHttpService", ['$http', function ($http) {
         },
         post: function (url, data) {
             return $http({ method: "POST", url: url, data: data });
+        },
+        delete: function (url, data) {
+            return $http({ method: "DELETE", url: url, data: data });
         }
     };
 }]);

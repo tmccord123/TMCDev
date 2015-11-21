@@ -124,7 +124,7 @@ namespace TMC.Data
         }
 
         public IListingDTO GetListingById(int listingId)
-        { 
+        {
             IListingDTO listingDto = null;
             try
             {
@@ -133,7 +133,7 @@ namespace TMC.Data
                     var listingEntity = (from listing in tmcContext.Listing
                                          where listing.ListingId == listingId && listing.IsActive
                                          select listing).Single();
-                   
+
                     listingDto = (IListingDTO)DTOFactory.Instance.Create(DTOType.Listing);
 
                     listingDto.ListingId = listingEntity.ListingId;
@@ -166,8 +166,8 @@ namespace TMC.Data
                 using (var tmcContext = new TMCContext())
                 {
                     var listingcontactEntities = (from listingContact in tmcContext.ListingContact
-                                         where listingContact.ListingId == listingId && listingContact.IsActive
-                                         select listingContact).ToList();
+                                                  where listingContact.ListingId == listingId && listingContact.IsActive
+                                                  select listingContact).ToList();
                     if (listingcontactEntities.Any())
                     {
                         foreach (var listingContactEntity in listingcontactEntities)
@@ -199,15 +199,15 @@ namespace TMC.Data
                 using (var tmcContext = new TMCContext())
                 {
                     var listingcategoriesEntities = (from listingCategory in tmcContext.ListingCategory
-                                                   join category in tmcContext.Category on listingCategory.CategoryId equals category.CategoryId
-                                                  where listingCategory.ListingId == listingId  
-                                                  select new
-                                                  {
-                                                      category,
-                                                      ListingCategoryId = listingCategory.ListingCategoryId,
-                                                      ListingId = listingCategory.ListingId
+                                                     join category in tmcContext.Category on listingCategory.CategoryId equals category.CategoryId
+                                                     where listingCategory.ListingId == listingId
+                                                     select new
+                                                     {
+                                                         category,
+                                                         ListingCategoryId = listingCategory.ListingCategoryId,
+                                                         ListingId = listingCategory.ListingId
 
-                                                  }).ToList();
+                                                     }).ToList();
                     if (listingcategoriesEntities.Any())
                     {
                         foreach (var listingCategoryEntity in listingcategoriesEntities)
@@ -242,12 +242,12 @@ namespace TMC.Data
                 {
                     var listingServiceLocationEntities = (from listingServiceLocation in tmcContext.ListingServiceLocation
                                                           join city in tmcContext.City on listingServiceLocation.CityId equals city.CityId
-                                                  where listingServiceLocation.ListingId == listingId && listingServiceLocation.IsActive
-                                                  select new
-                                                  {
-                                                      listingServiceLocation,
-                                                      CityName = city.Name,
-                                                  }).ToList();
+                                                          where listingServiceLocation.ListingId == listingId && listingServiceLocation.IsActive
+                                                          select new
+                                                          {
+                                                              listingServiceLocation,
+                                                              CityName = city.Name,
+                                                          }).ToList();
                     if (listingServiceLocationEntities.Any())
                     {
                         foreach (var listingServiceLocationEntity in listingServiceLocationEntities)
@@ -280,8 +280,8 @@ namespace TMC.Data
                 using (var tmcContext = new TMCContext())
                 {
                     var listingpaymentModeEntities = (from paymentMode in tmcContext.ListingPaymentMode
-                                                     where paymentMode.ListingId == listingId 
-                                                     select paymentMode).ToList();
+                                                      where paymentMode.ListingId == listingId
+                                                      select paymentMode).ToList();
                     if (listingpaymentModeEntities.Any())
                     {
                         foreach (var paymentModeEntity in listingpaymentModeEntities)
@@ -313,13 +313,13 @@ namespace TMC.Data
                 using (var tmcContext = new TMCContext())
                 {
                     var listingMediaEntities = (from listingMedia in tmcContext.ListingMedia
-                                                join file in tmcContext.File on  listingMedia.ListingId equals file.FileId 
-                                                  where listingMedia.ListingId == listingId && listingMedia.IsActive
-                                                  select new
-                                                  {
-                                                      listingMedia,
-                                                      FileName = file.OriginalFileName
-                                                  }).ToList();
+                                                join file in tmcContext.File on listingMedia.ListingId equals file.FileId
+                                                where listingMedia.ListingId == listingId && listingMedia.IsActive
+                                                select new
+                                                {
+                                                    listingMedia,
+                                                    FileName = file.OriginalFileName
+                                                }).ToList();
                     if (listingMediaEntities.Any())
                     {
                         foreach (var listingMediaEntity in listingMediaEntities)
@@ -464,7 +464,7 @@ namespace TMC.Data
                                 listingMediaEntity.IsActive = true;
                                 listingMediaEntity.IsDeleted = false;
                                 listingMediaEntity.ListingId = fileDto.ListingId;
-                                listingMediaEntity.FileId = fileDto.FileId; 
+                                listingMediaEntity.FileId = fileDto.FileId;
                                 TMCDbContext.ListingMedia.AddObject(listingMediaEntity);
                                 if (TMCDbContext.SaveChanges() > 0)
                                 {
@@ -486,7 +486,7 @@ namespace TMC.Data
             }
             return mediaDto;
         }
-        
+
         public long CreateListingCategory(ICategoryDTO categoryDto)
         {
             long retVal = GlobalConstants.DefaultCreateId;
@@ -498,9 +498,9 @@ namespace TMC.Data
                     {
                         using (var TMCDbContext = new TMCContext())
                         {
-                            var listingCategory = new ListingCategory(); 
+                            var listingCategory = new ListingCategory();
                             listingCategory.ListingId = categoryDto.ListingId;
-                            listingCategory.CategoryId = categoryDto.CategoryId; 
+                            listingCategory.CategoryId = categoryDto.CategoryId;
                             TMCDbContext.ListingCategory.AddObject(listingCategory);
                             if (TMCDbContext.SaveChanges() > 0)
                             {
@@ -547,7 +547,7 @@ namespace TMC.Data
                                     {
                                         TMCDbContext.ListingPaymentMode.DeleteObject(listingPaymentModeEntity);
                                     }
-                                    
+
                                 }
                                 else
                                 {
@@ -556,7 +556,7 @@ namespace TMC.Data
                                     TMCDbContext.ListingPaymentMode.AddObject(listingPaymentMode);
                                 }
                             }
-                            
+
                             if (TMCDbContext.SaveChanges() > 0)
                             {
                                 retVal = 1;
@@ -636,7 +636,7 @@ namespace TMC.Data
                                              select listing).Single();
                         if (listingEntity != null)
                         {
-                           
+
                             EntityConverter.FillEntityFromDTO(listingDto, listingEntity);
                             listingEntity.UpdatedOn = DateTime.Now;
                             listingEntity.CreatedOn = DateTime.Now;
@@ -654,6 +654,39 @@ namespace TMC.Data
                 throw new DACException("Error while updating the listing detail.", ex);
             }
             return listingDto;
+        }
+
+        public string DeleteListingMedia(long listingMediaid)
+        {
+            string retVal = "";
+            try
+            {
+                using (TransactionScope trans = new TransactionScope())
+                {
+                    using (TMCContext tmcContext = new TMCContext())
+                    {
+                        ListingMedia listingMediaEntity = tmcContext.ListingMedia.SingleOrDefault(equipmentTypeField =>
+                                                                      equipmentTypeField.ListingMediaId == listingMediaid); //todo check 
+                        File fileEntity = tmcContext.File.SingleOrDefault(equipmentTypeField =>
+                                                                      equipmentTypeField.FileId == listingMediaEntity.FileId);
+
+                        if (listingMediaEntity != null)
+                        {
+                            tmcContext.DeleteObject(listingMediaEntity);
+                            tmcContext.DeleteObject(fileEntity);
+                            tmcContext.SaveChanges();
+                            retVal = fileEntity.ServerFileName;//todo check for null
+                        }
+                    }
+                    trans.Complete();
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                throw new DACException("Error while deleting listing media.", ex);
+            }
+            return retVal;
         }
     }
 }

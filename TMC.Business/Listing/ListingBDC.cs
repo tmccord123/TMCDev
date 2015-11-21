@@ -402,7 +402,7 @@ namespace TMC.Business
             }
             return operationResult;
         }
-
+        
         public OperationResult<long> CreateListingServiceLocation(IServiceLocationDTO serviceLocationDto)
         {
             OperationResult<long> operationResult = null;
@@ -429,6 +429,35 @@ namespace TMC.Business
             }
             return operationResult;
         }
+
+        public OperationResult<string> DeleteListingMedia(long listingMediaid)
+        {
+            OperationResult<string> operationResult = null;
+            try
+            {
+                var listingDAC = (IListingDAC)DACFactory.Instance.Create(DACType.Listing);
+
+                var resultListing = listingDAC.DeleteListingMedia(listingMediaid);
+                operationResult = resultListing != null
+                                                      ? OperationResult<string>.CreateSuccessResult(resultListing)
+                                                      : OperationResult<string>.CreateFailureResult(
+                                                       ResourceUtility.GetCaptionFor(
+                                              ResourceConstants.Vendor.ErrorMessages.FailedToFetchListing));//todo
+
+            }
+            catch (DACException dacEx)
+            {
+                operationResult = OperationResult<string>.CreateErrorResult(dacEx.Message, dacEx.StackTrace);//todo
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                operationResult = OperationResult<string>.CreateErrorResult(ex.Message, ex.StackTrace);//todo
+            }
+            return operationResult;
+        }
+        
+
 
         #endregion
     }

@@ -43,6 +43,7 @@ namespace TMC.Shared
 
         IListingDTO UpdateListing(IListingDTO listingDto);
         IMediaDTO CreateListingMedia(IFileDTO fileDto);
+        string DeleteListingMedia(long listingMediaid); 
 
     }
 }

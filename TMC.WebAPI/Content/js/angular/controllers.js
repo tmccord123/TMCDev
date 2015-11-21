@@ -306,8 +306,18 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
             item.file.mediaId = item._file.mediaId;
         }
         
-       // alert("Going to delete media with id = " + item.file.mediaId);
-        item.remove();
+        // alert("Going to delete media with id = " + item.file.mediaId);
+        tmcHttpService.delete('/api/listing/deleteListingMedia/' + item.file.mediaId)//todo
+         .success(function (data) {
+             if (data) {
+                 item.remove();
+             }
+         })
+        .error(function (error) {
+            $scope.status = 'Unable to delte media: ' + error.message;
+            console.log($scope.status);
+        });
+        
     };
     $scope.makeProfile = function (item) {
         if (item.file.isProfile == undefined) {
