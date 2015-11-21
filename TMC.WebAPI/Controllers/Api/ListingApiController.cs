@@ -140,10 +140,16 @@ namespace TMC.Web.Controllers.Api
             var listingViewModel = new ListingViewModel();
             if (listingResult.IsValid() && listingResult.Data.ListingMedias != null)
             {
+                bool isFirst = true;
                 foreach (var listingMedia in listingResult.Data.ListingMedias.Medias)
                 {
                     var listingMediaViewModel = new MediaViewModel();
                     DTOConverter.FillViewModelFromDTO(listingMediaViewModel, listingMedia);
+                    if (isFirst)//todo is profile pic functionality
+                    {
+                        listingMediaViewModel.isProfile = true;
+                        isFirst = false;
+                    }
                     listingViewModel.ListingMedias.Medias.Add(listingMediaViewModel);
                 }
             }

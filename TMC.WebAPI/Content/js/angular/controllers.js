@@ -263,63 +263,43 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
     function getListingMedias() {
         tmcHttpService.get('/api/listing/20/medias')//todo
          .success(function (data) { 
-             updateMediasResut(data.medias);
+             updateMediasResult(data.medias);
          })
         .error(function (error) {
             $scope.status = 'Unable to load  data: ' + error.message;
             console.log($scope.status);
         });
     }
-    
+
+    $scope.pofilePicUrl = "http://localhost:59974/bytes/sample.JPG/sdfd";
+    $scope.showPreview = function (url) {
+        $scope.previewUrl = url;
+    };
+    $scope.hidePreview = function () {
+        $scope.previewUrl = '';
+    };
+
+    $scope.returnViewUrl = function() {
+        return $scope.previewUrl == '' ? $scope.pofilePicUrl : $scope.previewUrl;
+    };
     $scope.uploadedFiles = [];
 
-    function updateMediasResut(mediasResult) {
-        mediasResult.forEach(function(mediaItem) {
-            $scope.uploadedFiles.push(new Tmc.QueueItem(mediaItem));
+    function updateMediasResult(mediasResult) {
+        mediasResult.forEach(function (mediaItem) {
+            var queItem = new Tmc.QueueItem(mediaItem);
+            if (mediaItem.isProfile) {
+                $scope.pofilePicUrl = queItem.url;
+            }
+            $scope.uploadedFiles.push(queItem);
         });
         for (var i = 0; i < $scope.uploadedFiles.length; i++) {
             var fileItems = [];
             fileItems[i] = new FileUploader.FileItem(uploader, $scope.uploadedFiles[i]);
             fileItems[i].progress = 100;
             fileItems[i].isUploaded = true;
-            fileItems[i].isSuccess = true;
-            //if(i==0)
+            fileItems[i].isSuccess = true; 
             uploader.queue.push(fileItems[i]);
-        }
-        /*var url1 = 'api/containers/comK/download/sample.jpg';
-        var url = '/bytes/sample.jpg/12';
-        var file;
-        $http.get(url, { responseType: "blob" }).then(function(data, status, headers, config) {
-            var mimetype = data.type;
-            file = new File([data], "sample.jpg", { type: 'image/jpeg', mediaId: 1, name: 'sample.jpg' });
-            var dummy = new FileUploader.FileItem(uploader, {});
-            // dummy._file = file;
-            dummy._file = file;
-            /*dummy._file.mediaId = 122;
-            dummy._file.name = 'sample.jpg';
-            dummy._file.type = 'image/jpeg';
-            dummy._file.isProfile = false;#1#
-
-            dummy.progress = 100;
-            dummy.size = 10000;
-            dummy.isUploaded = true;
-            dummy.isSuccess = true;
-            uploader.queue.push(dummy);
-        }, function() {
-        });*/
-        /*var dummy = new FileUploader.FileItem(uploader, {});
-       // dummy._file = file;
-        dummy.file = file;
-        /*dummy._file.mediaId = 122;
-        dummy._file.name = 'sample.jpg';
-        dummy._file.type = 'image/jpeg';
-        dummy._file.isProfile = false;#1#
-
-        dummy.progress = 100;
-        dummy.size = 10000;
-        dummy.isUploaded = true;
-        dummy.isSuccess = true;
-        uploader.queue.push(dummy); */
+        } 
     }
 
     //Uploader
@@ -330,7 +310,6 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
     uploader = $scope.uploader;
 
     // FILTERS
-
     uploader.filters.push({
         name: 'imageFilter',
         fn: function (item /*{File|FileLikeObject}*/, options) {
@@ -363,6 +342,7 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
             item.file.isProfile = item._file.isProfile;
         }
         item.file.isProfile = true;
+        $scope.pofilePicUrl = item._file.url; 
         // reset all others
         for (var j = 0; j < uploader.queue.length; j++) {
             if (uploader.queue[j].file.name != item.file.name) { 

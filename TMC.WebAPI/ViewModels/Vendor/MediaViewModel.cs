@@ -13,5 +13,6 @@ namespace TMC.Web.ViewModels
         public long FileId { get; set; }
         public string FileName { get; set; }
         public string ServerFileName { get; set; }
+        public bool isProfile { get; set; }
     }
 }

@@ -93,6 +93,7 @@ tmcApp.directive('ngThumb', ['$window', function ($window) {
     };
 }]);
 
+//http://stackoverflow.com/questions/32840813/angular-file-upload
 tmcApp.directive('imgPreview', [function () {
     return {
         restrict: 'E',
@@ -103,7 +104,8 @@ tmcApp.directive('imgPreview', [function () {
             var ctx = myCanvas.getContext('2d');
             var img = new Image;
             img.onerror = function () {
-                throw new Error("Image can't be loaded");
+                // throw new Error("Image can't be loaded");
+                console.log("Image is not loaded");
             }
             img.onload = function () {
                 myCanvas.width = img.width;
