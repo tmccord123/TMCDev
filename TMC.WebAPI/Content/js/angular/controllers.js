@@ -323,7 +323,10 @@ tmcControllers.controller('ListingCtrl', ['$scope', '$rootScope', 'listingServic
         if (item.file.mediaId == undefined) {
             item.file.mediaId = item._file.mediaId;
         }
-        
+        if (item.file.isProfile) {
+            alert("Profile photo can not be deleted.");
+            return;
+        }
         // alert("Going to delete media with id = " + item.file.mediaId);
         tmcHttpService.delete('/api/listing/deleteListingMedia/' + item.file.mediaId)//todo
          .success(function (data) {
