@@ -66,6 +66,8 @@ namespace TMC.Web.Controllers.Api
         [Route("{id:int}/categories")]
         public IHttpActionResult GetListingCategories(int id)
         {
+            //System.Threading.Thread.Sleep(10000); //todo for loading-bar test
+
             var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
             var listingResult = listingFacade.GetCategoriesByListingId(id);
             var listingViewModel = new ListingViewModel();

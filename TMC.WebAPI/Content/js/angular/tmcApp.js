@@ -1,4 +1,4 @@
-﻿var tmcApp = angular.module('tmcApp', ['tmcFactories', 'tmcControllers', 'angularFileUpload']);
+﻿var tmcApp = angular.module('tmcApp', ['tmcFactories', 'tmcControllers', 'angularFileUpload', 'angular-loading-bar']);
 var tmcControllers = angular.module('tmcControllers', []);
 var tmcFactories = angular.module('tmcFactories', []);
 /*tmcApp.config(['$routeProvider', function ($routeProvider) {

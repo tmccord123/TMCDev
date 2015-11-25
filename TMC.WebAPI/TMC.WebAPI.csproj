@@ -262,6 +262,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\loading-bar.css" />
     <Content Include="Content\img\ListingMedia\sample.jpg" />
     <Content Include="Content\js\angular\listingResultController.js" />
     <Content Include="Content\js\lib\angular-file-upload.js" />
@@ -273,6 +274,7 @@
     <Content Include="Content\js\angular\Models.js" />
     <Content Include="Content\js\lib\angular.js" />
     <Content Include="Content\js\lib\angular.min.js" />
+    <Content Include="Content\js\lib\loading-bar.min.js" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
@@ -598,7 +600,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\css\" />
     <Folder Include="Content\fonts\" />
     <Folder Include="Content\js\angular\directives\" />
     <Folder Include="Content\js\angular\services\" />

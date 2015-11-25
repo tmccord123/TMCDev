@@ -52,6 +52,7 @@ namespace TMC.Web
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                       "~/css/modern-business.css",
                       "~/css/flexslider.css",
+                      "~/Content/css/loading-bar.css",
                       "~/css/jquery-ui.css"));
         }
     }
