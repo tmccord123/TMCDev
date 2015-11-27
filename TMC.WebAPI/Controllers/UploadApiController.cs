@@ -20,7 +20,7 @@ namespace TMC.Web.Controllers.Api
      [EnableCors(origins: "http://localhost:55555", headers: "*", methods: "*")]
     public class UploadApiController : ApiController
     {
-        /*public async Task<HttpResponseMessage> PostFormData()
+        /*public async Task<HttpResponseMessage> PostFormData()  
         {
             // Check if the request contains multipart/form-data.
             if (!Request.Content.IsMimeMultipartContent())

@@ -1,6 +1,7 @@
 /// <reference path="jquery-1.5.1.js" />
 var tmcCommon = new function () {
     this.baseUrl = "";
+    this.serviceBase = "http://localhost:44444/api/";
     this.notificationTimeOut = "";
     this.emailRegularExpression = "\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
     this.overrideConfirmNavigation = false;

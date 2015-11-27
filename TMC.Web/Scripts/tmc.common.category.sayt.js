@@ -10,7 +10,7 @@ function CategorySayt() {
     this.messages = {};
     this.dialogBoxLabels = {};
     this.actionLinks = {};
-    this.categoryUrl = "..//api/category/";
+    this.categoryUrl = tmcCommon.serviceBase + "category/";//todo put in constants
     this.htmlFieldPrefix = '';
     this.controlId = "";
     this.selectCallBack = null;

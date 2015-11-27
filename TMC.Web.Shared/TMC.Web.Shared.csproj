@@ -61,7 +61,6 @@
     <Compile Include="Base\ViewModelBase.cs" />
     <Compile Include="Base\WizardStepViewModel.cs" />
     <Compile Include="CacheMethods.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Common\Attributes\JCCExceptionHandlerAttribute.cs" />
     <Compile Include="Common\Attributes\RequiredIfAttribute.cs" />
     <Compile Include="Common\Attributes\StringLengthIfAttribute.cs" />

@@ -10,7 +10,7 @@ function CitySayt() {
     this.messages = {};
     this.dialogBoxLabels = {};
     this.actionLinks = {};
-    this.cityUrl = "..//api/city/";
+    this.cityUrl = tmcCommon.serviceBase + "city/";
     this.citySeperator = ',';
     this.htmlFieldPrefix = '';
     this.controlId = "";

@@ -10,7 +10,7 @@ function PlaceSayt() {
     this.messages = {};
     this.dialogBoxLabels = {};
     this.actionLinks = {};
-    this.placeUrl = "..//api/placeAutoComplete/";   
+    this.placeUrl = tmcCommon.serviceBase + "placeAutoComplete/";
     this.htmlFieldPrefix = '';
     this.controlId = "";
     this.selectCallBack = null;
