@@ -1,0 +1,10 @@
+F:\Projeccts\TMC\TMCDev\TMC.BusinessFacade\bin\Debug\TMC.BusinessFacade.dll
+F:\Projeccts\TMC\TMCDev\TMC.BusinessFacade\bin\Debug\TMC.BusinessFacade.pdb
+F:\Projeccts\TMC\TMCDev\TMC.BusinessFacade\bin\Debug\TMC.BusinessFacade.dll.CodeAnalysisLog.xml
+F:\Projeccts\TMC\TMCDev\TMC.BusinessFacade\bin\Debug\TMC.BusinessFacade.dll.lastcodeanalysissucceeded
+F:\Projeccts\TMC\TMCDev\TMC.BusinessFacade\bin\Debug\TMC.Shared.dll
+F:\Projeccts\TMC\TMCDev\TMC.BusinessFacade\bin\Debug\log4net.dll
+F:\Projeccts\TMC\TMCDev\TMC.BusinessFacade\bin\Debug\TMC.Shared.pdb
+F:\Projeccts\TMC\TMCDev\TMC.BusinessFacade\obj\Debug\TMC.BusinessFacade.csprojResolveAssemblyReference.cache
+F:\Projeccts\TMC\TMCDev\TMC.BusinessFacade\obj\Debug\TMC.BusinessFacade.dll
+F:\Projeccts\TMC\TMCDev\TMC.BusinessFacade\obj\Debug\TMC.BusinessFacade.pdb

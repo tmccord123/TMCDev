@@ -1,0 +1,6 @@
+F:\Projeccts\TMC\TMCDev\TMC.Shared\bin\Debug\TMC.Shared.dll
+F:\Projeccts\TMC\TMCDev\TMC.Shared\bin\Debug\TMC.Shared.pdb
+F:\Projeccts\TMC\TMCDev\TMC.Shared\bin\Debug\log4net.dll
+F:\Projeccts\TMC\TMCDev\TMC.Shared\obj\Debug\TMC.Shared.csprojResolveAssemblyReference.cache
+F:\Projeccts\TMC\TMCDev\TMC.Shared\obj\Debug\TMC.Shared.dll
+F:\Projeccts\TMC\TMCDev\TMC.Shared\obj\Debug\TMC.Shared.pdb

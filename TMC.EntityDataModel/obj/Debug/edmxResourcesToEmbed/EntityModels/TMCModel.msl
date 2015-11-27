@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TMCEntitiesEntityModelsStoreContainer" CdmEntityContainer="TMCContext">
+    <EntitySetMapping Name="AdditionalInfo">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.AdditionalInfo">
+        <MappingFragment StoreEntitySet="AdditionalInfo">
+          <ScalarProperty Name="AdditionalInfoId" ColumnName="AdditionalInfoId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Area">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.Area">
+        <MappingFragment StoreEntitySet="Area">
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Pin" ColumnName="Pin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Popularity" ColumnName="Popularity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryRelation">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.CategoryRelation">
+        <MappingFragment StoreEntitySet="CategoryRelation">
+          <ScalarProperty Name="CategoryRelationId" ColumnName="CategoryRelationId" />
+          <ScalarProperty Name="ParentCategoryId" ColumnName="ParentCategoryId" />
+          <ScalarProperty Name="ChildCategoryId" ColumnName="ChildCategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="City">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="Lat" ColumnName="Lat" />
+          <ScalarProperty Name="Long" ColumnName="Long" />
+          <ScalarProperty Name="IsPopular" ColumnName="IsPopular" />
+          <ScalarProperty Name="PopulationClass" ColumnName="PopulationClass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactType">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.ContactType">
+        <MappingFragment StoreEntitySet="ContactType">
+          <ScalarProperty Name="ContactTypeId" ColumnName="ContactTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Country">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="ISD" ColumnName="ISD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="File">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.File">
+        <MappingFragment StoreEntitySet="File">
+          <ScalarProperty Name="FileId" ColumnName="FileId" />
+          <ScalarProperty Name="FileExtensionId" ColumnName="FileExtensionId" />
+          <ScalarProperty Name="FileTypeId" ColumnName="FileTypeId" />
+          <ScalarProperty Name="FileTitle" ColumnName="FileTitle" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="OriginalFileName" ColumnName="OriginalFileName" />
+          <ScalarProperty Name="ServerFileName" ColumnName="ServerFileName" />
+          <ScalarProperty Name="ServerPath" ColumnName="ServerPath" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileExtension">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.FileExtension">
+        <MappingFragment StoreEntitySet="FileExtension">
+          <ScalarProperty Name="FileExtensionId" ColumnName="FileExtensionId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="FileContentType" ColumnName="FileContentType" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileType">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.FileType">
+        <MappingFragment StoreEntitySet="FileType">
+          <ScalarProperty Name="FileTypeId" ColumnName="FileTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Listing">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.Listing">
+        <MappingFragment StoreEntitySet="Listing">
+          <ScalarProperty Name="ListingId" ColumnName="ListingId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+          <ScalarProperty Name="YearStarted" ColumnName="YearStarted" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="ContactEmailId" ColumnName="ContactEmailId" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="BusinessDays" ColumnName="BusinessDays" />
+          <ScalarProperty Name="BusinessHours" ColumnName="BusinessHours" />
+          <ScalarProperty Name="BusinessDescription" ColumnName="BusinessDescription" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Landmark" ColumnName="Landmark" />
+          <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListingCategory">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.ListingCategory">
+        <MappingFragment StoreEntitySet="ListingCategory">
+          <ScalarProperty Name="ListingCategoryId" ColumnName="ListingCategoryId" />
+          <ScalarProperty Name="ListingId" ColumnName="ListingId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListingContact">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.ListingContact">
+        <MappingFragment StoreEntitySet="ListingContact">
+          <ScalarProperty Name="ListingContactId" ColumnName="ListingContactId" />
+          <ScalarProperty Name="ListingId" ColumnName="ListingId" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="ContactTypeId" ColumnName="ContactTypeId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListingLocation">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.ListingLocation">
+        <MappingFragment StoreEntitySet="ListingLocation">
+          <ScalarProperty Name="ListingLocationId" ColumnName="ListingLocationId" />
+          <ScalarProperty Name="ListingId" ColumnName="ListingId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Landmark" ColumnName="Landmark" />
+          <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListingMedia">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.ListingMedia">
+        <MappingFragment StoreEntitySet="ListingMedia">
+          <ScalarProperty Name="ListingMediaId" ColumnName="ListingMediaId" />
+          <ScalarProperty Name="ListingId" ColumnName="ListingId" />
+          <ScalarProperty Name="FileId" ColumnName="FileId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListingPaymentMode">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.ListingPaymentMode">
+        <MappingFragment StoreEntitySet="ListingPaymentMode">
+          <ScalarProperty Name="ListingPaymentModeId" ColumnName="ListingPaymentModeId" />
+          <ScalarProperty Name="ListingId" ColumnName="ListingId" />
+          <ScalarProperty Name="PaymentModeId" ColumnName="PaymentModeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListingServiceLocation">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.ListingServiceLocation">
+        <MappingFragment StoreEntitySet="ListingServiceLocation">
+          <ScalarProperty Name="ListingServiceLocationId" ColumnName="ListingServiceLocationId" />
+          <ScalarProperty Name="ListingId" ColumnName="ListingId" />
+          <ScalarProperty Name="IsGlobalLevel" ColumnName="IsGlobalLevel" />
+          <ScalarProperty Name="IsCountryLevel" ColumnName="IsCountryLevel" />
+          <ScalarProperty Name="IsStateLevel" ColumnName="IsStateLevel" />
+          <ScalarProperty Name="IsCityLevel" ColumnName="IsCityLevel" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentMode">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.PaymentMode">
+        <MappingFragment StoreEntitySet="PaymentMode">
+          <ScalarProperty Name="PaymentModeId" ColumnName="PaymentModeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SeoTitle" ColumnName="SeoTitle" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="SiteURL" ColumnName="SiteURL" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="ContentText" ColumnName="ContentText" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requirement">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.Requirement">
+        <MappingFragment StoreEntitySet="Requirement">
+          <ScalarProperty Name="RequirementId" ColumnName="RequirementId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LikeCount" ColumnName="LikeCount" />
+          <ScalarProperty Name="DislikeCount" ColumnName="DislikeCount" />
+          <ScalarProperty Name="AbuseCount" ColumnName="AbuseCount" />
+          <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+          <ScalarProperty Name="AdditionalInfoId" ColumnName="AdditionalInfoId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequirementCategory">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.RequirementCategory">
+        <MappingFragment StoreEntitySet="RequirementCategory">
+          <ScalarProperty Name="RequirementCategoryId" ColumnName="RequirementCategoryId" />
+          <ScalarProperty Name="RequirementId" ColumnName="RequirementId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequirementLocation">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.RequirementLocation">
+        <MappingFragment StoreEntitySet="RequirementLocation">
+          <ScalarProperty Name="RequirementLocationId" ColumnName="RequirementLocationId" />
+          <ScalarProperty Name="RequirementId" ColumnName="RequirementId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="State">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+          <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserType">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.UserType">
+        <MappingFragment StoreEntitySet="UserType">
+          <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="TMC.Entities.EntityModels.Blogs">
+        <MappingFragment StoreEntitySet="Blogs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="WebURL" ColumnName="WebURL" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+          <ScalarProperty Name="Failure" ColumnName="Failure" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="TMC.Entities.EntityModels.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

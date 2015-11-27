@@ -1,0 +1,1053 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TMC.Entities.EntityModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdditionalInfo">
+    <Key>
+      <PropertyRef Name="AdditionalInfoId" />
+    </Key>
+    <Property Name="AdditionalInfoId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Requirement" Relationship="Self.FK_Requirement_AdditionalInfo" FromRole="AdditionalInfo" ToRole="Requirement" />
+  </EntityType>
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="AreaId" />
+    </Key>
+    <Property Name="AreaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <Property Name="PlaceId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Pin" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="City" Relationship="Self.FK_Area_City" FromRole="Area" ToRole="City" />
+    <NavigationProperty Name="ListingLocation" Relationship="Self.FK_ListingLocation_Area" FromRole="Area" ToRole="ListingLocation" />
+    <NavigationProperty Name="ListingServiceLocation" Relationship="Self.FK_ListingServiceLocation_Area" FromRole="Area" ToRole="ListingServiceLocation" />
+    <NavigationProperty Name="RequirementLocation" Relationship="Self.FK_RequirementLocation_Area" FromRole="Area" ToRole="RequirementLocation" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="User_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+    </Key>
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Discriminator" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MobileNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="Popularity" Type="Int32" />
+    <NavigationProperty Name="CategoryRelation" Relationship="Self.FK_CategoryRelation_ChildCategory" FromRole="Category" ToRole="CategoryRelation" />
+    <NavigationProperty Name="CategoryRelation1" Relationship="Self.FK_CategoryRelation_ParentCategory" FromRole="Category" ToRole="CategoryRelation" />
+    <NavigationProperty Name="ListingCategory" Relationship="Self.FK_ListingCategory_Category" FromRole="Category" ToRole="ListingCategory" />
+    <NavigationProperty Name="RequirementCategory" Relationship="Self.FK_RequirementCategory_Category" FromRole="Category" ToRole="RequirementCategory" />
+  </EntityType>
+  <EntityType Name="CategoryRelation">
+    <Key>
+      <PropertyRef Name="CategoryRelationId" />
+    </Key>
+    <Property Name="CategoryRelationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParentCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="ChildCategoryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_CategoryRelation_ChildCategory" FromRole="CategoryRelation" ToRole="Category" />
+    <NavigationProperty Name="Category1" Relationship="Self.FK_CategoryRelation_ParentCategory" FromRole="CategoryRelation" ToRole="Category" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StateId" Type="Int32" Nullable="false" />
+    <Property Name="Lat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Long" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsPopular" Type="Boolean" Nullable="false" />
+    <Property Name="PopulationClass" Type="Int16" />
+    <NavigationProperty Name="Area" Relationship="Self.FK_Area_City" FromRole="City" ToRole="Area" />
+    <NavigationProperty Name="State" Relationship="Self.FK_City_State" FromRole="City" ToRole="State" />
+    <NavigationProperty Name="Listing" Relationship="Self.FK_Listing_City" FromRole="City" ToRole="Listing" />
+    <NavigationProperty Name="ListingLocation" Relationship="Self.FK_ListingLocation_City" FromRole="City" ToRole="ListingLocation" />
+    <NavigationProperty Name="ListingServiceLocation" Relationship="Self.FK_ListingServiceLocation_City" FromRole="City" ToRole="ListingServiceLocation" />
+    <NavigationProperty Name="RequirementLocation" Relationship="Self.FK_RequirementLocation_City" FromRole="City" ToRole="RequirementLocation" />
+  </EntityType>
+  <EntityType Name="ContactType">
+    <Key>
+      <PropertyRef Name="ContactTypeId" />
+    </Key>
+    <Property Name="ContactTypeId" Type="Int16" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ListingContact" Relationship="Self.FK_ListingContact_ContactType" FromRole="ContactType" ToRole="ListingContact" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ISD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ListingServiceLocation" Relationship="Self.FK_ListingServiceLocation_Country" FromRole="Country" ToRole="ListingServiceLocation" />
+    <NavigationProperty Name="State" Relationship="Self.FK_State_Country" FromRole="Country" ToRole="State" />
+  </EntityType>
+  <EntityType Name="File">
+    <Key>
+      <PropertyRef Name="FileId" />
+    </Key>
+    <Property Name="FileId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FileExtensionId" Type="Int16" Nullable="false" />
+    <Property Name="FileTypeId" Type="Int16" Nullable="false" />
+    <Property Name="FileTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="OriginalFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ServerFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ServerPath" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="FileExtension" Relationship="Self.FK_File_FileExtension" FromRole="File" ToRole="FileExtension" />
+    <NavigationProperty Name="FileType" Relationship="Self.FK_File_FileType" FromRole="File" ToRole="FileType" />
+    <NavigationProperty Name="ListingMedia" Relationship="Self.FK_ListingMedia_File" FromRole="File" ToRole="ListingMedia" />
+  </EntityType>
+  <EntityType Name="FileExtension">
+    <Key>
+      <PropertyRef Name="FileExtensionId" />
+    </Key>
+    <Property Name="FileExtensionId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FileContentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="File" Relationship="Self.FK_File_FileExtension" FromRole="FileExtension" ToRole="File" />
+  </EntityType>
+  <EntityType Name="FileType">
+    <Key>
+      <PropertyRef Name="FileTypeId" />
+    </Key>
+    <Property Name="FileTypeId" Type="Int16" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="File" Relationship="Self.FK_File_FileType" FromRole="FileType" ToRole="File" />
+  </EntityType>
+  <EntityType Name="Listing">
+    <Key>
+      <PropertyRef Name="ListingId" />
+    </Key>
+    <Property Name="ListingId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="BusinessName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="YearStarted" Type="Int16" />
+    <Property Name="ContactPerson" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ContactEmailId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BusinessDays" Type="Int16" Nullable="false" />
+    <Property Name="BusinessHours" Type="Int16" Nullable="false" />
+    <Property Name="BusinessDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Landmark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PinCode" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="City" Relationship="Self.FK_Listing_City" FromRole="Listing" ToRole="City" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Listing_User" FromRole="Listing" ToRole="User" />
+    <NavigationProperty Name="ListingCategory" Relationship="Self.FK_ListingCategory_Listing" FromRole="Listing" ToRole="ListingCategory" />
+    <NavigationProperty Name="ListingContact" Relationship="Self.FK_ListingContact_Listing" FromRole="Listing" ToRole="ListingContact" />
+    <NavigationProperty Name="ListingLocation" Relationship="Self.FK_ListingLocation_Listing" FromRole="Listing" ToRole="ListingLocation" />
+    <NavigationProperty Name="ListingMedia" Relationship="Self.FK_ListingMedia_Listing" FromRole="Listing" ToRole="ListingMedia" />
+    <NavigationProperty Name="ListingPaymentMode" Relationship="Self.FK_ListingPaymentMode_Listing" FromRole="Listing" ToRole="ListingPaymentMode" />
+    <NavigationProperty Name="ListingServiceLocation" Relationship="Self.FK_ListingServiceLocation_Listing" FromRole="Listing" ToRole="ListingServiceLocation" />
+  </EntityType>
+  <EntityType Name="ListingCategory">
+    <Key>
+      <PropertyRef Name="ListingCategoryId" />
+    </Key>
+    <Property Name="ListingCategoryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ListingId" Type="Int64" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_ListingCategory_Category" FromRole="ListingCategory" ToRole="Category" />
+    <NavigationProperty Name="Listing" Relationship="Self.FK_ListingCategory_Listing" FromRole="ListingCategory" ToRole="Listing" />
+  </EntityType>
+  <EntityType Name="ListingContact">
+    <Key>
+      <PropertyRef Name="ListingContactId" />
+    </Key>
+    <Property Name="ListingContactId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ListingId" Type="Int64" Nullable="false" />
+    <Property Name="ContactNo" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ContactTypeId" Type="Int16" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ContactType" Relationship="Self.FK_ListingContact_ContactType" FromRole="ListingContact" ToRole="ContactType" />
+    <NavigationProperty Name="Listing" Relationship="Self.FK_ListingContact_Listing" FromRole="ListingContact" ToRole="Listing" />
+  </EntityType>
+  <EntityType Name="ListingLocation">
+    <Key>
+      <PropertyRef Name="ListingLocationId" />
+    </Key>
+    <Property Name="ListingLocationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ListingId" Type="Int64" Nullable="false" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <Property Name="AreaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Landmark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PinCode" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Area" Relationship="Self.FK_ListingLocation_Area" FromRole="ListingLocation" ToRole="Area" />
+    <NavigationProperty Name="City" Relationship="Self.FK_ListingLocation_City" FromRole="ListingLocation" ToRole="City" />
+    <NavigationProperty Name="Listing" Relationship="Self.FK_ListingLocation_Listing" FromRole="ListingLocation" ToRole="Listing" />
+  </EntityType>
+  <EntityType Name="ListingMedia">
+    <Key>
+      <PropertyRef Name="ListingMediaId" />
+    </Key>
+    <Property Name="ListingMediaId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ListingId" Type="Int64" Nullable="false" />
+    <Property Name="FileId" Type="Int64" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="File" Relationship="Self.FK_ListingMedia_File" FromRole="ListingMedia" ToRole="File" />
+    <NavigationProperty Name="Listing" Relationship="Self.FK_ListingMedia_Listing" FromRole="ListingMedia" ToRole="Listing" />
+  </EntityType>
+  <EntityType Name="ListingPaymentMode">
+    <Key>
+      <PropertyRef Name="ListingPaymentModeId" />
+    </Key>
+    <Property Name="ListingPaymentModeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ListingId" Type="Int64" Nullable="false" />
+    <Property Name="PaymentModeId" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Listing" Relationship="Self.FK_ListingPaymentMode_Listing" FromRole="ListingPaymentMode" ToRole="Listing" />
+    <NavigationProperty Name="PaymentMode" Relationship="Self.FK_ListingPaymentMode_PaymentMode" FromRole="ListingPaymentMode" ToRole="PaymentMode" />
+  </EntityType>
+  <EntityType Name="ListingServiceLocation">
+    <Key>
+      <PropertyRef Name="ListingServiceLocationId" />
+    </Key>
+    <Property Name="ListingServiceLocationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ListingId" Type="Int64" Nullable="false" />
+    <Property Name="IsGlobalLevel" Type="Boolean" />
+    <Property Name="IsCountryLevel" Type="Boolean" />
+    <Property Name="IsStateLevel" Type="Boolean" />
+    <Property Name="IsCityLevel" Type="Boolean" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <Property Name="StateId" Type="Int32" Nullable="false" />
+    <Property Name="CountryId" Type="Int16" Nullable="false" />
+    <Property Name="AreaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Area" Relationship="Self.FK_ListingServiceLocation_Area" FromRole="ListingServiceLocation" ToRole="Area" />
+    <NavigationProperty Name="City" Relationship="Self.FK_ListingServiceLocation_City" FromRole="ListingServiceLocation" ToRole="City" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_ListingServiceLocation_Country" FromRole="ListingServiceLocation" ToRole="Country" />
+    <NavigationProperty Name="Listing" Relationship="Self.FK_ListingServiceLocation_Listing" FromRole="ListingServiceLocation" ToRole="Listing" />
+    <NavigationProperty Name="State" Relationship="Self.FK_ListingServiceLocation_State" FromRole="ListingServiceLocation" ToRole="State" />
+  </EntityType>
+  <EntityType Name="PaymentMode">
+    <Key>
+      <PropertyRef Name="PaymentModeId" />
+    </Key>
+    <Property Name="PaymentModeId" Type="Int16" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ListingPaymentMode" Relationship="Self.FK_ListingPaymentMode_PaymentMode" FromRole="PaymentMode" ToRole="ListingPaymentMode" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductId" />
+      <PropertyRef Name="SeoTitle" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SeoTitle" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImageURL" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SiteURL" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ContentText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExpiryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Requirement">
+    <Key>
+      <PropertyRef Name="RequirementId" />
+    </Key>
+    <Property Name="RequirementId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LikeCount" Type="Int32" />
+    <Property Name="DislikeCount" Type="Int32" />
+    <Property Name="AbuseCount" Type="Int32" />
+    <Property Name="LevelId" Type="Int16" />
+    <Property Name="AdditionalInfoId" Type="Int16" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AdditionalInfo" Relationship="Self.FK_Requirement_AdditionalInfo" FromRole="Requirement" ToRole="AdditionalInfo" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Requirement_User" FromRole="Requirement" ToRole="User" />
+    <NavigationProperty Name="RequirementCategory" Relationship="Self.FK_RequirementCategory_Requirement" FromRole="Requirement" ToRole="RequirementCategory" />
+    <NavigationProperty Name="RequirementLocation" Relationship="Self.FK_RequirementLocation_Requirement" FromRole="Requirement" ToRole="RequirementLocation" />
+  </EntityType>
+  <EntityType Name="RequirementCategory">
+    <Key>
+      <PropertyRef Name="RequirementCategoryId" />
+    </Key>
+    <Property Name="RequirementCategoryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RequirementId" Type="Int64" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_RequirementCategory_Category" FromRole="RequirementCategory" ToRole="Category" />
+    <NavigationProperty Name="Requirement" Relationship="Self.FK_RequirementCategory_Requirement" FromRole="RequirementCategory" ToRole="Requirement" />
+  </EntityType>
+  <EntityType Name="RequirementLocation">
+    <Key>
+      <PropertyRef Name="RequirementLocationId" />
+    </Key>
+    <Property Name="RequirementLocationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RequirementId" Type="Int64" Nullable="false" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <Property Name="AreaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Area" Relationship="Self.FK_RequirementLocation_Area" FromRole="RequirementLocation" ToRole="Area" />
+    <NavigationProperty Name="City" Relationship="Self.FK_RequirementLocation_City" FromRole="RequirementLocation" ToRole="City" />
+    <NavigationProperty Name="Requirement" Relationship="Self.FK_RequirementLocation_Requirement" FromRole="RequirementLocation" ToRole="Requirement" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryId" Type="Int16" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="City" Relationship="Self.FK_City_State" FromRole="State" ToRole="City" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_State_Country" FromRole="State" ToRole="Country" />
+    <NavigationProperty Name="ListingServiceLocation" Relationship="Self.FK_ListingServiceLocation_State" FromRole="State" ToRole="ListingServiceLocation" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddressLine1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AddressLine2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="AreaId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PinCode" Type="Int32" />
+    <Property Name="UserTypeId" Type="Int16" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Listing" Relationship="Self.FK_Listing_User" FromRole="User" ToRole="Listing" />
+    <NavigationProperty Name="Requirement" Relationship="Self.FK_Requirement_User" FromRole="User" ToRole="Requirement" />
+    <NavigationProperty Name="UserType" Relationship="Self.FK_User_UserType" FromRole="User" ToRole="UserType" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="UserTypeId" />
+    </Key>
+    <Property Name="UserTypeId" Type="Int16" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_UserType" FromRole="UserType" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Blogs">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="modifiedDate" />
+      <PropertyRef Name="ExpiryDate" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WebURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Success" Type="Int32" />
+    <Property Name="Failure" Type="Int32" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExpiryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK_Requirement_AdditionalInfo">
+    <End Role="AdditionalInfo" Type="Self.AdditionalInfo" Multiplicity="0..1" />
+    <End Role="Requirement" Type="Self.Requirement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdditionalInfo">
+        <PropertyRef Name="AdditionalInfoId" />
+      </Principal>
+      <Dependent Role="Requirement">
+        <PropertyRef Name="AdditionalInfoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Area_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="Area" Type="Self.Area" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Area">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListingLocation_Area">
+    <End Role="Area" Type="Self.Area" Multiplicity="1" />
+    <End Role="ListingLocation" Type="Self.ListingLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="AreaId" />
+      </Principal>
+      <Dependent Role="ListingLocation">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListingServiceLocation_Area">
+    <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+    <End Role="ListingServiceLocation" Type="Self.ListingServiceLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="AreaId" />
+      </Principal>
+      <Dependent Role="ListingServiceLocation">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequirementLocation_Area">
+    <End Role="Area" Type="Self.Area" Multiplicity="1" />
+    <End Role="RequirementLocation" Type="Self.RequirementLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="AreaId" />
+      </Principal>
+      <Dependent Role="RequirementLocation">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryRelation_ChildCategory">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="CategoryRelation" Type="Self.CategoryRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="CategoryRelation">
+        <PropertyRef Name="ChildCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryRelation_ParentCategory">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="CategoryRelation" Type="Self.CategoryRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="CategoryRelation">
+        <PropertyRef Name="ParentCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListingCategory_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="ListingCategory" Type="Self.ListingCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="ListingCategory">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequirementCategory_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="RequirementCategory" Type="Self.RequirementCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="RequirementCategory">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_State">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Listing_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="Listing" Type="Self.Listing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Listing">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListingLocation_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="ListingLocation" Type="Self.ListingLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="ListingLocation">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListingServiceLocation_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="ListingServiceLocation" Type="Self.ListingServiceLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="ListingServiceLocation">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequirementLocation_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="RequirementLocation" Type="Self.RequirementLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="RequirementLocation">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListingContact_ContactType">
+    <End Role="ContactType" Type="Self.ContactType" Multiplicity="1" />
+    <End Role="ListingContact" Type="Self.ListingContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContactType">
+        <PropertyRef Name="ContactTypeId" />
+      </Principal>
+      <Dependent Role="ListingContact">
+        <PropertyRef Name="ContactTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListingServiceLocation_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="ListingServiceLocation" Type="Self.ListingServiceLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="ListingServiceLocation">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_State_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="State" Type="Self.State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_File_FileExtension">
+    <End Role="FileExtension" Type="Self.FileExtension" Multiplicity="1" />
+    <End Role="File" Type="Self.File" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FileExtension">
+        <PropertyRef Name="FileExtensionId" />
+      </Principal>
+      <Dependent Role="File">
+        <PropertyRef Name="FileExtensionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_File_FileType">
+    <End Role="FileType" Type="Self.FileType" Multiplicity="1" />
+    <End Role="File" Type="Self.File" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FileType">
+        <PropertyRef Name="FileTypeId" />
+      </Principal>
+      <Dependent Role="File">
+        <PropertyRef Name="FileTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListingMedia_File">
+    <End Role="File" Type="Self.File" Multiplicity="1" />
+    <End Role="ListingMedia" Type="Self.ListingMedia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="File">
+        <PropertyRef Name="FileId" />
+      </Principal>
+      <Dependent Role="ListingMedia">
+        <PropertyRef Name="FileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Listing_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Listing" Type="Self.Listing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Listing">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListingCategory_Listing">
+    <End Role="Listing" Type="Self.Listing" Multiplicity="1" />
+    <End Role="ListingCategory" Type="Self.ListingCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Listing">
+        <PropertyRef Name="ListingId" />
+      </Principal>
+      <Dependent Role="ListingCategory">
+        <PropertyRef Name="ListingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListingContact_Listing">
+    <End Role="Listing" Type="Self.Listing" Multiplicity="1" />
+    <End Role="ListingContact" Type="Self.ListingContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Listing">
+        <PropertyRef Name="ListingId" />
+      </Principal>
+      <Dependent Role="ListingContact">
+        <PropertyRef Name="ListingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListingLocation_Listing">
+    <End Role="Listing" Type="Self.Listing" Multiplicity="1" />
+    <End Role="ListingLocation" Type="Self.ListingLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Listing">
+        <PropertyRef Name="ListingId" />
+      </Principal>
+      <Dependent Role="ListingLocation">
+        <PropertyRef Name="ListingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListingMedia_Listing">
+    <End Role="Listing" Type="Self.Listing" Multiplicity="1" />
+    <End Role="ListingMedia" Type="Self.ListingMedia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Listing">
+        <PropertyRef Name="ListingId" />
+      </Principal>
+      <Dependent Role="ListingMedia">
+        <PropertyRef Name="ListingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListingPaymentMode_Listing">
+    <End Role="Listing" Type="Self.Listing" Multiplicity="1" />
+    <End Role="ListingPaymentMode" Type="Self.ListingPaymentMode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Listing">
+        <PropertyRef Name="ListingId" />
+      </Principal>
+      <Dependent Role="ListingPaymentMode">
+        <PropertyRef Name="ListingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListingServiceLocation_Listing">
+    <End Role="Listing" Type="Self.Listing" Multiplicity="1" />
+    <End Role="ListingServiceLocation" Type="Self.ListingServiceLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Listing">
+        <PropertyRef Name="ListingId" />
+      </Principal>
+      <Dependent Role="ListingServiceLocation">
+        <PropertyRef Name="ListingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListingPaymentMode_PaymentMode">
+    <End Role="PaymentMode" Type="Self.PaymentMode" Multiplicity="1" />
+    <End Role="ListingPaymentMode" Type="Self.ListingPaymentMode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMode">
+        <PropertyRef Name="PaymentModeId" />
+      </Principal>
+      <Dependent Role="ListingPaymentMode">
+        <PropertyRef Name="PaymentModeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListingServiceLocation_State">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="ListingServiceLocation" Type="Self.ListingServiceLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="ListingServiceLocation">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Requirement_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Requirement" Type="Self.Requirement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Requirement">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequirementCategory_Requirement">
+    <End Role="Requirement" Type="Self.Requirement" Multiplicity="1" />
+    <End Role="RequirementCategory" Type="Self.RequirementCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Requirement">
+        <PropertyRef Name="RequirementId" />
+      </Principal>
+      <Dependent Role="RequirementCategory">
+        <PropertyRef Name="RequirementId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequirementLocation_Requirement">
+    <End Role="Requirement" Type="Self.Requirement" Multiplicity="1" />
+    <End Role="RequirementLocation" Type="Self.RequirementLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Requirement">
+        <PropertyRef Name="RequirementId" />
+      </Principal>
+      <Dependent Role="RequirementLocation">
+        <PropertyRef Name="RequirementId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_UserType">
+    <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="UserTypeId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="TMCContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdditionalInfo" EntityType="Self.AdditionalInfo" />
+    <EntitySet Name="Area" EntityType="Self.Area" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+    <EntitySet Name="Category" EntityType="Self.Category" />
+    <EntitySet Name="CategoryRelation" EntityType="Self.CategoryRelation" />
+    <EntitySet Name="City" EntityType="Self.City" />
+    <EntitySet Name="ContactType" EntityType="Self.ContactType" />
+    <EntitySet Name="Country" EntityType="Self.Country" />
+    <EntitySet Name="File" EntityType="Self.File" />
+    <EntitySet Name="FileExtension" EntityType="Self.FileExtension" />
+    <EntitySet Name="FileType" EntityType="Self.FileType" />
+    <EntitySet Name="Listing" EntityType="Self.Listing" />
+    <EntitySet Name="ListingCategory" EntityType="Self.ListingCategory" />
+    <EntitySet Name="ListingContact" EntityType="Self.ListingContact" />
+    <EntitySet Name="ListingLocation" EntityType="Self.ListingLocation" />
+    <EntitySet Name="ListingMedia" EntityType="Self.ListingMedia" />
+    <EntitySet Name="ListingPaymentMode" EntityType="Self.ListingPaymentMode" />
+    <EntitySet Name="ListingServiceLocation" EntityType="Self.ListingServiceLocation" />
+    <EntitySet Name="PaymentMode" EntityType="Self.PaymentMode" />
+    <EntitySet Name="Products" EntityType="Self.Products" />
+    <EntitySet Name="Requirement" EntityType="Self.Requirement" />
+    <EntitySet Name="RequirementCategory" EntityType="Self.RequirementCategory" />
+    <EntitySet Name="RequirementLocation" EntityType="Self.RequirementLocation" />
+    <EntitySet Name="State" EntityType="Self.State" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="UserType" EntityType="Self.UserType" />
+    <EntitySet Name="Blogs" EntityType="Self.Blogs" />
+    <AssociationSet Name="FK_Requirement_AdditionalInfo" Association="Self.FK_Requirement_AdditionalInfo">
+      <End Role="AdditionalInfo" EntitySet="AdditionalInfo" />
+      <End Role="Requirement" EntitySet="Requirement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Area_City" Association="Self.FK_Area_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Area" EntitySet="Area" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListingLocation_Area" Association="Self.FK_ListingLocation_Area">
+      <End Role="Area" EntitySet="Area" />
+      <End Role="ListingLocation" EntitySet="ListingLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListingServiceLocation_Area" Association="Self.FK_ListingServiceLocation_Area">
+      <End Role="Area" EntitySet="Area" />
+      <End Role="ListingServiceLocation" EntitySet="ListingServiceLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequirementLocation_Area" Association="Self.FK_RequirementLocation_Area">
+      <End Role="Area" EntitySet="Area" />
+      <End Role="RequirementLocation" EntitySet="RequirementLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryRelation_ChildCategory" Association="Self.FK_CategoryRelation_ChildCategory">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="CategoryRelation" EntitySet="CategoryRelation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryRelation_ParentCategory" Association="Self.FK_CategoryRelation_ParentCategory">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="CategoryRelation" EntitySet="CategoryRelation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListingCategory_Category" Association="Self.FK_ListingCategory_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="ListingCategory" EntitySet="ListingCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequirementCategory_Category" Association="Self.FK_RequirementCategory_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="RequirementCategory" EntitySet="RequirementCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_State" Association="Self.FK_City_State">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Listing_City" Association="Self.FK_Listing_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Listing" EntitySet="Listing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListingLocation_City" Association="Self.FK_ListingLocation_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="ListingLocation" EntitySet="ListingLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListingServiceLocation_City" Association="Self.FK_ListingServiceLocation_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="ListingServiceLocation" EntitySet="ListingServiceLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequirementLocation_City" Association="Self.FK_RequirementLocation_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="RequirementLocation" EntitySet="RequirementLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListingContact_ContactType" Association="Self.FK_ListingContact_ContactType">
+      <End Role="ContactType" EntitySet="ContactType" />
+      <End Role="ListingContact" EntitySet="ListingContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListingServiceLocation_Country" Association="Self.FK_ListingServiceLocation_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="ListingServiceLocation" EntitySet="ListingServiceLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_State_Country" Association="Self.FK_State_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="State" EntitySet="State" />
+    </AssociationSet>
+    <AssociationSet Name="FK_File_FileExtension" Association="Self.FK_File_FileExtension">
+      <End Role="FileExtension" EntitySet="FileExtension" />
+      <End Role="File" EntitySet="File" />
+    </AssociationSet>
+    <AssociationSet Name="FK_File_FileType" Association="Self.FK_File_FileType">
+      <End Role="FileType" EntitySet="FileType" />
+      <End Role="File" EntitySet="File" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListingMedia_File" Association="Self.FK_ListingMedia_File">
+      <End Role="File" EntitySet="File" />
+      <End Role="ListingMedia" EntitySet="ListingMedia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Listing_User" Association="Self.FK_Listing_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Listing" EntitySet="Listing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListingCategory_Listing" Association="Self.FK_ListingCategory_Listing">
+      <End Role="Listing" EntitySet="Listing" />
+      <End Role="ListingCategory" EntitySet="ListingCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListingContact_Listing" Association="Self.FK_ListingContact_Listing">
+      <End Role="Listing" EntitySet="Listing" />
+      <End Role="ListingContact" EntitySet="ListingContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListingLocation_Listing" Association="Self.FK_ListingLocation_Listing">
+      <End Role="Listing" EntitySet="Listing" />
+      <End Role="ListingLocation" EntitySet="ListingLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListingMedia_Listing" Association="Self.FK_ListingMedia_Listing">
+      <End Role="Listing" EntitySet="Listing" />
+      <End Role="ListingMedia" EntitySet="ListingMedia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListingPaymentMode_Listing" Association="Self.FK_ListingPaymentMode_Listing">
+      <End Role="Listing" EntitySet="Listing" />
+      <End Role="ListingPaymentMode" EntitySet="ListingPaymentMode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListingServiceLocation_Listing" Association="Self.FK_ListingServiceLocation_Listing">
+      <End Role="Listing" EntitySet="Listing" />
+      <End Role="ListingServiceLocation" EntitySet="ListingServiceLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListingPaymentMode_PaymentMode" Association="Self.FK_ListingPaymentMode_PaymentMode">
+      <End Role="PaymentMode" EntitySet="PaymentMode" />
+      <End Role="ListingPaymentMode" EntitySet="ListingPaymentMode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListingServiceLocation_State" Association="Self.FK_ListingServiceLocation_State">
+      <End Role="State" EntitySet="State" />
+      <End Role="ListingServiceLocation" EntitySet="ListingServiceLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Requirement_User" Association="Self.FK_Requirement_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Requirement" EntitySet="Requirement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequirementCategory_Requirement" Association="Self.FK_RequirementCategory_Requirement">
+      <End Role="Requirement" EntitySet="Requirement" />
+      <End Role="RequirementCategory" EntitySet="RequirementCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequirementLocation_Requirement" Association="Self.FK_RequirementLocation_Requirement">
+      <End Role="Requirement" EntitySet="Requirement" />
+      <End Role="RequirementLocation" EntitySet="RequirementLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_UserType" Association="Self.FK_User_UserType">
+      <End Role="UserType" EntitySet="UserType" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

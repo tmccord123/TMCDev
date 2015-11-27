@@ -1,0 +1,13 @@
+F:\Projeccts\TMC\TMCDev\TMC.EntityDataModel\bin\Debug\EntityDataModel.dll.config
+F:\Projeccts\TMC\TMCDev\TMC.EntityDataModel\bin\Debug\EntityDataModel.dll
+F:\Projeccts\TMC\TMCDev\TMC.EntityDataModel\bin\Debug\EntityDataModel.pdb
+F:\Projeccts\TMC\TMCDev\TMC.EntityDataModel\bin\Debug\EntityFramework.dll
+F:\Projeccts\TMC\TMCDev\TMC.EntityDataModel\bin\Debug\EntityFramework.SqlServer.dll
+F:\Projeccts\TMC\TMCDev\TMC.EntityDataModel\bin\Debug\TMC.Shared.dll
+F:\Projeccts\TMC\TMCDev\TMC.EntityDataModel\bin\Debug\log4net.dll
+F:\Projeccts\TMC\TMCDev\TMC.EntityDataModel\bin\Debug\TMC.Shared.pdb
+F:\Projeccts\TMC\TMCDev\TMC.EntityDataModel\bin\Debug\EntityFramework.xml
+F:\Projeccts\TMC\TMCDev\TMC.EntityDataModel\bin\Debug\EntityFramework.SqlServer.xml
+F:\Projeccts\TMC\TMCDev\TMC.EntityDataModel\obj\Debug\TMC.EntityDataModel.csprojResolveAssemblyReference.cache
+F:\Projeccts\TMC\TMCDev\TMC.EntityDataModel\obj\Debug\EntityDataModel.dll
+F:\Projeccts\TMC\TMCDev\TMC.EntityDataModel\obj\Debug\EntityDataModel.pdb

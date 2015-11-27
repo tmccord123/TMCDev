@@ -1,0 +1,8 @@
+F:\Projeccts\TMC\TMCDev\TMC.Business\bin\Debug\TMC.Business.dll
+F:\Projeccts\TMC\TMCDev\TMC.Business\bin\Debug\TMC.Business.pdb
+F:\Projeccts\TMC\TMCDev\TMC.Business\bin\Debug\TMC.Shared.dll
+F:\Projeccts\TMC\TMCDev\TMC.Business\bin\Debug\log4net.dll
+F:\Projeccts\TMC\TMCDev\TMC.Business\bin\Debug\TMC.Shared.pdb
+F:\Projeccts\TMC\TMCDev\TMC.Business\obj\Debug\TMC.Business.csprojResolveAssemblyReference.cache
+F:\Projeccts\TMC\TMCDev\TMC.Business\obj\Debug\TMC.Business.dll
+F:\Projeccts\TMC\TMCDev\TMC.Business\obj\Debug\TMC.Business.pdb

@@ -1,0 +1,16 @@
+F:\Projeccts\TMC\TMCDev_messedup\TMC.DTOModel\bin\Debug\TMC.DTOModel.dll
+F:\Projeccts\TMC\TMCDev_messedup\TMC.DTOModel\bin\Debug\TMC.DTOModel.pdb
+F:\Projeccts\TMC\TMCDev_messedup\TMC.DTOModel\bin\Debug\TMC.Shared.dll
+F:\Projeccts\TMC\TMCDev_messedup\TMC.DTOModel\bin\Debug\log4net.dll
+F:\Projeccts\TMC\TMCDev_messedup\TMC.DTOModel\bin\Debug\TMC.Shared.pdb
+F:\Projeccts\TMC\TMCDev_messedup\TMC.DTOModel\obj\Debug\TMC.DTOModel.csprojResolveAssemblyReference.cache
+F:\Projeccts\TMC\TMCDev_messedup\TMC.DTOModel\obj\Debug\TMC.DTOModel.dll
+F:\Projeccts\TMC\TMCDev_messedup\TMC.DTOModel\obj\Debug\TMC.DTOModel.pdb
+F:\Projeccts\TMC\TMCDev\TMC.DTOModel\bin\Debug\TMC.DTOModel.dll
+F:\Projeccts\TMC\TMCDev\TMC.DTOModel\bin\Debug\TMC.DTOModel.pdb
+F:\Projeccts\TMC\TMCDev\TMC.DTOModel\bin\Debug\TMC.Shared.dll
+F:\Projeccts\TMC\TMCDev\TMC.DTOModel\bin\Debug\log4net.dll
+F:\Projeccts\TMC\TMCDev\TMC.DTOModel\bin\Debug\TMC.Shared.pdb
+F:\Projeccts\TMC\TMCDev\TMC.DTOModel\obj\Debug\TMC.DTOModel.csprojResolveAssemblyReference.cache
+F:\Projeccts\TMC\TMCDev\TMC.DTOModel\obj\Debug\TMC.DTOModel.dll
+F:\Projeccts\TMC\TMCDev\TMC.DTOModel\obj\Debug\TMC.DTOModel.pdb
