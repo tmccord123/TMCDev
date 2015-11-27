@@ -10,7 +10,7 @@ namespace TMC.DTOModel
     [DataContract(Name = "Media", Namespace = "TMC.DTOModel")]
     [Serializable]
     [EntityMapping("EntityDataModel.EntityModels.ListingMedia", MappingType.TotalExplicit)]
-    [ViewModelMapping("TMC.Web.ViewModels.MediaViewModel", MappingType.TotalExplicit)]
+    [ViewModelMapping("TMC.Web.Shared.ViewModels.MediaViewModel", MappingType.TotalExplicit)]
     public class MediaDTO : DTOBase, IMediaDTO
     {
         [ViewModelPropertyMapping(MappingDirectionType.Both, "ListingMediaId")]

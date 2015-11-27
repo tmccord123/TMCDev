@@ -1,0 +1,39 @@
+﻿@using TMC.Web.Shared.ViewModels
+<div ng-repeat="listingItem in listingResults">
+    <div class="row trending-card">
+        <div class="col-sm-12 ">
+            <div class="col-sm-3">
+                <a href="/Coupons/paytm-coupons-cashback-offers">
+                    <img src="~/img/image_payTM.jpg">
+                </a>
+            </div>
+            <div class="col-sm-5">
+                <h3>
+                    <a href="/Coupons/paytm-coupons-cashback-offers">{{listingItem.businessName}}</a>
+                </h3>
+                <p>
+                    Business Days:  {{listingItem.businessDays}}
+                </p>
+                <p>
+                    Business Hours: {{listingItem.businessHours}}  
+                </p>
+
+                <a href="/Coupons/paytm-coupons-cashback-offers">Vendor Details </a>
+            </div>
+            <div class="col-sm-4" style="padding-top: 10px">
+                <p>
+                    Contact Details:
+                </p><ul>
+                    <li>{{listingItem.contactPerson}}</li>
+                    <li>{{listingItem.contactEmailId}}</li>
+                    <li>{{listingItem.designation}}</li>
+                    <li>{{listingItem.website}}</li>
+                    <li>{{listingItem.yearStarted}}</li>
+                </ul>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+   
+ 

@@ -27,9 +27,9 @@ namespace TMC.Web
             //app.UseTwitterAuthentication(
             //   consumerKey: "",
             //   consumerSecret: "");
-            app.UseFacebookAuthentication(
+          /*  app.UseFacebookAuthentication(
                appId: "795179473928182",
-               appSecret: "85a6e791a4395e597c5c659d2f516129");
+               appSecret: "85a6e791a4395e597c5c659d2f516129");*/
 
             //app.UseGoogleAuthentication();
         }

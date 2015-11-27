@@ -1,5 +1,5 @@
 ﻿
-namespace TMC.Web.ViewModels
+namespace TMC.Web.Shared.ViewModels
 {
     /// <summary>
     /// View model for wizard step

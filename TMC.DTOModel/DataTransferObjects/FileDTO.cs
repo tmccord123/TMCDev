@@ -10,7 +10,7 @@ namespace TMC.DTOModel
     [DataContract(Name = "File", Namespace = "TMC.DTOModel")]
     [EntityMapping("EntityDataModel.EntityModels.File", MappingType.TotalExplicit)]
     [Serializable]
-    [ViewModelMapping("TMC.Web.ViewModels.FileViewModel", MappingType.TotalExplicit)]
+    [ViewModelMapping("TMC.Web.Shared.ViewModels.FileViewModel", MappingType.TotalExplicit)]
     public class FileDTO : DTOBase, IFileDTO
     {
         [ViewModelPropertyMapping(MappingDirectionType.Both, "FileId")]

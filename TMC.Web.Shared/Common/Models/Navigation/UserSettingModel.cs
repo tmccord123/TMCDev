@@ -1,5 +1,5 @@
 ﻿
-namespace TMC.Web.ViewModels
+namespace TMC.Web.Shared.ViewModels
 {
     #region Namespaces
     using TMC.Web.Shared;

@@ -11,7 +11,7 @@ namespace TMC.DTOModel
     [DataContract(Name = "User", Namespace = "TMC.DTOModel")]
     [EntityMapping("EntityDataModel.EntityModels.User", MappingType.TotalExplicit)]
     [Serializable]
-    [ViewModelMapping("TMC.Web.ViewModels.UserViewModel", MappingType.TotalExplicit)]
+    [ViewModelMapping("TMC.Web.Shared.ViewModels.UserViewModel", MappingType.TotalExplicit)]
     public class UserDTO : DTOBase, IUserDTO
     {
 
@@ -102,7 +102,7 @@ namespace TMC.DTOModel
     [DataContract(Name = "UserDTO", Namespace = "TMC.DTOModel")]
     [EntityMapping("TMC.Entities.EntityModels.UserDTO", MappingType.TotalExplicit)]
     [Serializable]
-    [ViewModelMapping("TMC.Web.ViewModels.UserViewModel", MappingType.TotalExplicit)]
+    [ViewModelMapping("TMC.Web.Shared.ViewModels.UserViewModel", MappingType.TotalExplicit)]
     public class UserDTOBkp : DTOBase, IUserDTOBkp
     {
 

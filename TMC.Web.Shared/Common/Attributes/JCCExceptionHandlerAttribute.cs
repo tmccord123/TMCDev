@@ -7,7 +7,7 @@ namespace TMC.Web.Shared
     using System.Net;
     using System.Web.Mvc;
     using TMC.Shared;
-    using TMC.Web.ViewModels;
+    using TMC.Web.Shared.ViewModels;
 
     #endregion
 

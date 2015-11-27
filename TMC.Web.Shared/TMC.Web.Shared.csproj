@@ -107,10 +107,32 @@
     <Compile Include="StateManager\StateEntities\CategoryState.cs" />
     <Compile Include="StateManager\StateEntities\ErrorState.cs" />
     <Compile Include="StateManager\StateEntities\UserInfo.cs" />
+    <Compile Include="ViewModels\Common\CategorySaytViewModel.cs" />
+    <Compile Include="ViewModels\Common\CitySaytViewModel.cs" />
+    <Compile Include="ViewModels\Common\CityViewModel.cs" />
+    <Compile Include="ViewModels\Common\PlaceSaytViewModel.cs" />
+    <Compile Include="ViewModels\Home\HomeViewModel.cs" />
+    <Compile Include="ViewModels\LocalBoard\LocalBoardViewModel.cs" />
+    <Compile Include="ViewModels\User\RequirementViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\BaseViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ContactViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ListingCategoriesViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ListingContactsViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ListingMediasViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ListingParametersViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ListingPaymentModesViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ListingServiceAreasViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ListingViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\MediaViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\PaymentModeViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\ServiceLocationViewModel.cs" />
+    <Compile Include="ViewModels\Vendor\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\Models\ErrorModel\" />
     <Folder Include="Common\Security\" />
+    <Folder Include="ViewModels\Account\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TMC.Shared\TMC.Shared.csproj">

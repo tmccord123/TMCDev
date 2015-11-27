@@ -1,0 +1,31 @@
+﻿@model TMC.Web.Shared.ViewModels.CitySaytViewModel
+@{   
+    Html.ViewData.TemplateInfo.HtmlFieldPrefix = Model.HtmlFieldPrefix;
+}
+
+
+<input type="text" id='@Model.ControlId' class="form-control" placeholder='@Model.PlaceHolder' />
+
+    <script type="text/javascript">
+
+    var tmcCitySaytInitialize@(Model.ControlId) = new function () {
+        this.citySaytObj = new CitySayt();
+
+    };
+    tmcCitySaytInitialize@(Model.ControlId).citySaytObj.controlId = '#' + '@Model.ControlId';
+    tmcCitySaytInitialize@(Model.ControlId).citySaytObj.htmlFieldPrefix = '@Model.HtmlFieldPrefix';
+
+    tmcCitySaytInitialize@(Model.ControlId).citySaytObj.selectedCityId = '#' + '@Model.SelectedCityIdFieldId';
+    tmcCitySaytInitialize@(Model.ControlId).citySaytObj.selectedCityName = '#' + '@Model.SelectedCityNameFieldId';
+    tmcCitySaytInitialize@(Model.ControlId).citySaytObj.selectedCityDetails = '#' + '@Model.SelectedCityDetailsFieldId';
+    tmcCitySaytInitialize@(Model.ControlId).citySaytObj.initialize();
+    </script>
+
+
+
+@Html.ValidationMessageFor(model => model.SelectedCityId, Model.RequiredMessage)
+@Html.TextBoxFor(model => model.SelectedCityId, new { style = Model.IsRequired ? "visibility:hidden;" : "display:none;" })
+@Html.HiddenFor(model => model.SelectedCityName)
+@Html.HiddenFor(model => model.SelectedCityDetails)
+@Html.HiddenFor(model => model.IsRequired)
+@Html.HiddenFor(model => model.DefaultSelectedValue)

@@ -10,7 +10,7 @@ namespace TMC.DTOModel
     [DataContract(Name = "ListingPaymentMode", Namespace = "TMC.DTOModel")]
     [EntityMapping("EntityDataModel.EntityModels.ListingPaymentMode", MappingType.TotalExplicit)]
     [Serializable]
-    [ViewModelMapping("TMC.Web.ViewModels.PaymentModeViewModel", MappingType.TotalExplicit)]
+    [ViewModelMapping("TMC.Web.Shared.ViewModels.PaymentModeViewModel", MappingType.TotalExplicit)]
     public class PaymentModeDTO : DTOBase, IPaymentModeDTO
     {
         [ViewModelPropertyMapping(MappingDirectionType.Both, "ListingPaymentModeId")]

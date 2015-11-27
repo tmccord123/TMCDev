@@ -23,7 +23,7 @@ namespace TMC.Web.Shared
         public const string XmlHttpRequest = "XMLHttpRequest";
         public const string PasswordRegularExpression = @"^\S+$";
 
-        public const string TMCAPI = "http://localhost:59974/";
+        public const string TMCAPI = "http://localhost:44444/";
      
 
         /// <summary>

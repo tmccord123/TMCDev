@@ -12,7 +12,7 @@ namespace TMC.DTOModel
     [DataContract(Name = "CityDTO", Namespace = "TMC.DTOModel")]
     [EntityMapping("TMC.Entities.EntityModels.CityDTO", MappingType.TotalExplicit)]
     [Serializable]
-    [ViewModelMapping("TMC.Web.ViewModels.CityViewModel", MappingType.TotalExplicit)]
+    [ViewModelMapping("TMC.Web.Shared.ViewModels.CityViewModel", MappingType.TotalExplicit)]
     public class CityDTO : DTOBase, ICityDTO
     {
 

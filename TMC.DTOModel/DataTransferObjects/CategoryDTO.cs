@@ -12,7 +12,7 @@ namespace TMC.DTOModel
     [DataContract(Name = "CategoryDTO", Namespace = "TMC.DTOModel")]
     [EntityMapping("EntityDataModel.EntityModels.Category", MappingType.TotalExplicit)]
     [Serializable]
-    [ViewModelMapping("TMC.Web.ViewModels.CategoryViewModel", MappingType.TotalExplicit)]
+    [ViewModelMapping("TMC.Web.Shared.ViewModels.CategoryViewModel", MappingType.TotalExplicit)]
     public class CategoryDTO : DTOBase, ICategoryDTO
     {
 

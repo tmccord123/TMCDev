@@ -61,19 +61,23 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Cors, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.3.0.1\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -114,6 +118,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -134,13 +145,6 @@
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Optimization">
-      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -181,365 +185,61 @@
     <Reference Include="Microsoft.Owin.Host.SystemWeb">
       <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.Facebook">
-      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Google">
-      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Twitter">
-      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
       <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_GlobalResources\Resource.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AboutController.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\Api\CategoryApiController.cs" />
-    <Compile Include="Controllers\Api\CityApiController.cs" />
-    <Compile Include="Controllers\Api\AccountApiController.cs" />
-    <Compile Include="Controllers\Api\PlaceAutoCompleteApiController .cs" />
-    <Compile Include="Controllers\Api\ListingApiController.cs" />
-    <Compile Include="Controllers\Api\UploadApiController.cs" />
-    <Compile Include="Controllers\Api\VendorApiController.cs" />
-    <Compile Include="Controllers\ContactController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\VendorController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LocalBoardController.cs" />
-    <Compile Include="Controllers\OtherController.cs" />
-    <Compile Include="Controllers\PortfolioController.cs" />
+    <Compile Include="AuthContext.cs" />
+    <Compile Include="AuthRepository.cs" />
+    <Compile Include="Controllers\AccountApiController.cs" />
+    <Compile Include="Controllers\CategoryApiController.cs" />
+    <Compile Include="Controllers\CityApiController.cs" />
+    <Compile Include="Controllers\ListingApiController.cs" />
+    <Compile Include="Controllers\PlaceAutoCompleteApiController .cs" />
+    <Compile Include="Controllers\UploadApiController.cs" />
+    <Compile Include="Controllers\VendorApiController.cs" />
+    <Compile Include="Entities\Client.cs" />
+    <Compile Include="Entities\RefreshToken.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\GenericPrincipalExtensions.cs" />
-    <Compile Include="Helpers\IdentityExtensions.cs" />
-    <Compile Include="Helpers\TMCHttpClient.cs" />
+    <Compile Include="Helpers\GenericPrincipalExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\Helper.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Migrations\201510241427459_Update1.cs" />
     <Compile Include="Migrations\201510241427459_Update1.Designer.cs">
       <DependentUpon>201510241427459_Update1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Migrations\Configuration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Enums.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\ExternalLoginModels.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\UserModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\Vendor\ListingMediasViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\ListingParametersViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\MediaViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\PaymentModeViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\ServiceLocationViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\CategoryViewModel.cs" />
-    <Compile Include="ViewModels\Common\CategorySaytViewModel.cs" />
-    <Compile Include="ViewModels\Common\PlaceSaytViewModel.cs" />
-    <Compile Include="ViewModels\Common\CitySaytViewModel.cs" />
-    <Compile Include="ViewModels\Common\CityViewModel.cs" />
-    <Compile Include="ViewModels\Home\HomeViewModel.cs" />
-    <Compile Include="ViewModels\LocalBoard\LocalBoardViewModel.cs" />
-    <Compile Include="ViewModels\User\RequirementViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\BaseViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\ListingPaymentModesViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\ListingServiceAreasViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\ListingCategoriesViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\ContactViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\ListingContactsViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\UserViewModel.cs" />
-    <Compile Include="ViewModels\Vendor\ListingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\css\loading-bar.css" />
-    <Content Include="Content\img\ListingMedia\sample.jpg" />
-    <Content Include="Content\js\angular\listingResultController.js" />
-    <Content Include="Content\js\lib\angular-file-upload.js" />
-    <Content Include="Content\js\lib\angular-file-upload.min.js" />
-    <Content Include="Content\js\angular\tmcApp.js" />
-    <Content Include="Content\js\angular\controllers.js" />
-    <Content Include="Content\js\angular\directives.js" />
-    <Content Include="Content\js\angular\factories.js" />
-    <Content Include="Content\js\angular\Models.js" />
-    <Content Include="Content\js\lib\angular.js" />
-    <Content Include="Content\js\lib\angular.min.js" />
-    <Content Include="Content\js\lib\loading-bar.min.js" />
-    <Content Include="css\bootstrap-theme.css" />
-    <Content Include="css\bootstrap-theme.min.css" />
-    <Content Include="css\bootstrap.css" />
-    <Content Include="css\bootstrap.min.css" />
-    <Content Include="css\EditorStyle.css" />
-    <Content Include="css\flexslider.css" />
-    <Content Include="css\jquery-ui.css" />
-    <Content Include="css\modern-business.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="img\autocomplete\ui-bg_diagonals-thick_18_b81900_40x40.png" />
-    <Content Include="img\autocomplete\ui-bg_diagonals-thick_20_666666_40x40.png" />
-    <Content Include="img\autocomplete\ui-bg_flat_10_000000_40x100.png" />
-    <Content Include="img\autocomplete\ui-bg_glass_100_f6f6f6_1x400.png" />
-    <Content Include="img\autocomplete\ui-bg_glass_100_fdf5ce_1x400.png" />
-    <Content Include="img\autocomplete\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="img\autocomplete\ui-bg_gloss-wave_35_f6a828_500x100.png" />
-    <Content Include="img\autocomplete\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
-    <Content Include="img\autocomplete\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
-    <Content Include="img\autocomplete\ui-icons_222222_256x240.png" />
-    <Content Include="img\autocomplete\ui-icons_228ef1_256x240.png" />
-    <Content Include="img\autocomplete\ui-icons_ef8c08_256x240.png" />
-    <Content Include="img\autocomplete\ui-icons_ffd27a_256x240.png" />
-    <Content Include="img\autocomplete\ui-icons_ffffff_256x240.png" />
-    <Content Include="img\banner.jpg" />
-    <Content Include="img\banner1.jpg" />
-    <Content Include="img\banner2.jpg" />
-    <Content Include="img\deals_images.jpg" />
-    <Content Include="img\fashion.png" />
-    <Content Include="img\fb_color_ico.png" />
-    <Content Include="img\fb_ico.png" />
-    <Content Include="img\gplus_ico.png" />
-    <Content Include="img\home-search-icon.jpg" />
-    <Content Include="img\image_freecharge.jpg" />
-    <Content Include="img\image_olaCabs.jpg" />
-    <Content Include="img\image_payTM.jpg" />
-    <Content Include="img\image_uberCabs.jpg" />
-    <Content Include="img\instagram_color_ico.png" />
-    <Content Include="img\instagram_ico.png" />
-    <Content Include="img\LC_logo.jpg" />
-    <Content Include="img\LC_logo_sm.jpg" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\0194-15_BA_SequentialB2C-ad1-300x250_v1_er.jpg" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\0194-15_BA_SequentialB2C-ad1-728x90_v1_er.jpg" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\12345-1161.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\2554.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\2981.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\3PDPHandler.aspx" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\556527939.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\7005d229b09818bb107b94583dea58c0%281%29.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\7005d229b09818bb107b94583dea58c0.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\7tUlZKGPU61%281%29.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\7tUlZKGPU61.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\890.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\a2953a12fcb30a1fb11c2e8c71711fe4.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\advertising.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\amzn_ads.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\analytics.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\app.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\appboy.min.css" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\appboy.min.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\aquant.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\async_usersync.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\ba.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\bar-localization.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\bar.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\beacon%281%29.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\beacon.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\bigcouponbar-localization.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\bigcouponbar.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\bk-static.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\box_77_top-right.png" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\buttons.4d4008011051a133a045fe92d3143ad4.css" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\coupons.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\couponsbar-localization.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\couponsbar.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\couponslist.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\cTrvNaRi.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\c_30_us.png" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\default.gif" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\deferred_search_searchpage.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\deferred_search_searchpage_templates.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\footer-facebook.png" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\footer-Instagram.png" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\footer-logo.png" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\footer-pintrest.png" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\footer-twitter.png" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\getSegment.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\gtm.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\gw.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\head_global_main.css" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\head_global_main.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\head_search_searchpage.css" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\icon-close.svg" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\icon-down.svg" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\icon-question.svg" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\icon-right.svg" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\if%281%29.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\if%282%29.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\if.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\index.e04a19abf1c276d639d3e98702185dab.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\infinity.js.aspx" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\lidar.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\list-localization.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\list.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\loading.gif" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\null.gif" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\ping_match.gif" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\pixel%281%29.gif" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\pixel%282%29.gif" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\pixel.gif" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\pmmp.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\px.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\rolling.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\rt=ifr.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\sbhK2lTE.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\sdk.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\showad%281%29.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\showad%282%29.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\showad.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\st.e74a3461fc621f2ea70e081f2312c785.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\surly%281%29.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\surly.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\track=empty%281%29.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\track=empty%282%29.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\track=empty.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\trk.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\UploadManageBrowseHouseAd.png" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\usermatch.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\user_sync.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\welcome.html" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\widget.min.css" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\widget.min.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\ZeroClipboard.min.js" />
-    <Content Include="img\nav.png" />
-    <Content Include="img\pintrest_color_ico.png" />
-    <Content Include="img\placeholder1.jpg" />
-    <Content Include="img\placeholder1.png" />
-    <Content Include="img\placeholder2.jpg" />
-    <Content Include="img\placeholder2.png" />
-    <Content Include="img\placeholder3.jpg" />
-    <Content Include="img\placeholder3.png" />
-    <Content Include="img\place_icon.png" />
-    <Content Include="img\restaurants.jpg" />
-    <Content Include="img\twitter_color_ico.png" />
-    <Content Include="img\twitter_ico.png" />
-    <Content Include="img\vendor_consumer.jpg" />
-    <Content Include="img\whiteboard.jpg" />
-    <Content Include="img\youtube_ico.png" />
-    <Content Include="Scripts\tmc.common.dialog.js" />
-    <Content Include="Scripts\jsbacks\bootstrap.js" />
-    <Content Include="Scripts\jsbacks\bootstrap.min.js" />
-    <Content Include="Scripts\tmc.AddEditListing.js" />
-    <Content Include="Scripts\jsbacks\tmc.wiki.common.js" />
-    <Content Include="Scripts\tmc.productEditor.js" />
-    <Content Include="Scripts\jsbacks\tmcDataService.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\0.302" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\AdServerServlet" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\AdServerServlet%281%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\AdServerServlet%282%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\AdServerServlet%283%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\AdServerServlet%284%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\AdServerServlet%285%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\AdServerServlet%286%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\async_usersync" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\bid" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\bonensk.jpg-c200" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\checkOAuth.esi" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\cmds" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\datapair" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\datapair%281%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\datapair%282%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\dnfsbf.gif-c200" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\external=OPENX" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\eyeota_user_sync" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\fpbg9.jpg-c200" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\g.pixel" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\generic" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\GenericUserSync.ashx" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\getAllAppDefault.esi" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\getuid" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\getuid%281%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\gif" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\glamadapt_jsapi.act" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\glamadapt_psrv.act" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\hbpix" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\image.sbxx" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\img" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\lons7jax" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\match" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\mbmm.jpg-c200" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\O7MMDMASRFAJPKMJSF76KC" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\O7MMDMASRFAJPKMJSF76KC%281%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\O7MMDMASRFAJPKMJSF76KC%282%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\p33" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\pixel" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\pixel%283%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\pk9jkfgfd.gif-c200" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\pm_match" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\roomfount.png-c200" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\saved_resource" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\saved_resource%281%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\saved_resource%2810%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\saved_resource%2811%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\saved_resource%2812%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\saved_resource%2813%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\saved_resource%2814%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\saved_resource%2815%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\saved_resource%282%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\saved_resource%283%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\saved_resource%284%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\saved_resource%285%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\saved_resource%286%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\saved_resource%287%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\saved_resource%288%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\saved_resource%289%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\seg" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\sexxxxxyyyyyyyyyyyyyyy.gif-c200" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\SPug" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\Tag.engine" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\ttj" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\ttj%281%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\ttj%282%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\ttj%283%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\ttj%284%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\ttj%285%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\utsync.ashx" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\value=33AE9A5A-26D8-44D0-A0C6-28C840F5FCF9" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\value=VNHYqsAoJTYAAGg0aRgAAAHg&amp;265" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\var=lotjson" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\x" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\x%281%29" />
-    <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\x%282%29" />
-    <Content Include="css\flexslider.less" />
-    <Content Include="Content\js\angular\config.json" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-ui.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\tmc.common.category.sayt.js" />
-    <Content Include="Scripts\tmc.common.place.sayt.js" />
-    <Content Include="Scripts\tmc.common.dataService.js" />
-    <Content Include="Scripts\tmc.common.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.flexslider.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\tmc.common.city.sayt.js" />
-    <Content Include="Scripts\tmc.home.index.js" />
-    <Content Include="Scripts\tmc.localBoard.index.js" />
-    <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Vendor\_EditListingPaymentModes.cshtml">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -549,69 +249,13 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
-    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Manage.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\About\Index.cshtml" />
-    <Content Include="Views\Contact\Index.cshtml" />
-    <Content Include="Views\Coupons\index.cshtml" />
-    <Content Include="Views\LocalBoard\Index.cshtml" />
-    <Content Include="Views\Other\Faq.cshtml" />
-    <Content Include="Views\Other\FourOhFour.cshtml" />
-    <Content Include="Views\Other\FullWidth.cshtml" />
-    <Content Include="Views\Other\GoogleMaps.cshtml" />
-    <Content Include="Views\Other\SideBar.cshtml" />
-    <Content Include="Views\Portfolio\FourColumn.cshtml" />
-    <Content Include="Views\Portfolio\OneColumn.cshtml" />
-    <Content Include="Views\Portfolio\SingleItem.cshtml" />
-    <Content Include="Views\Portfolio\ThreeColumn.cshtml" />
-    <Content Include="Views\Portfolio\TwoColumn.cshtml" />
-    <Content Include="Views\Shared\_ProductView.cshtml" />
-    <Content Include="Views\Vendor\Index.cshtml" />
-    <Content Include="Views\Vendor\AddEditListing.cshtml" />
-    <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\User\AddEditRequirement.cshtml" />
-    <Content Include="Views\Vendor\_EditListing.cshtml" />
-    <Content Include="Views\Shared\_CitySayt.cshtml" />
-    <Content Include="Views\Shared\_PlaceSayt.cshtml" />
-    <Content Include="Views\Shared\_CategorySayt.cshtml" />
-    <Content Include="Views\Vendor\_EditListingContacts.cshtml" />
-    <Content Include="Views\Vendor\_EditListingCategories.cshtml" />
-    <Content Include="Views\LocalBoard\_ListingSearchResults.cshtml" />
-    <Content Include="Views\Account\_ChangeProfilePartial.cshtml" />
-    <Content Include="Views\Shared\_TmcDialog.cshtml" />
-    <Content Include="Views\Vendor\_EditListingServiceLocations.cshtml" />
-    <Content Include="Views\Vendor\_EditListingMedias.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\fonts\" />
-    <Folder Include="Content\js\angular\directives\" />
-    <Folder Include="Content\js\angular\services\" />
-    <Folder Include="ViewModels\Account\" />
-    <Folder Include="Views\UploadApi\" />
+    <Folder Include="Content\img\ListingMedia\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TMC.Shared\TMC.Shared.csproj">
@@ -622,12 +266,6 @@
       <Project>{e6af7f82-c3bd-4bb0-a5a7-fa4a0252f73c}</Project>
       <Name>TMC.Web.Shared</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Resource.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Resource.designer.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201510241427459_Update1.resx">
@@ -652,7 +290,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>60191</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:59974/</IISUrl>
+          <IISUrl>http://localhost:44444/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
