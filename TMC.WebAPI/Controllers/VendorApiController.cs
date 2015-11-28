@@ -10,7 +10,7 @@ using TMC.Shared;
 using TMC.Web.Shared.ViewModels;
 using TMC.Web.Shared;
 
-namespace TMC.Web.Controllers.Api
+namespace TMC.WebAPI.Controllers
 {
     // call like this http://localhost:59974//api/vendor/1
     [System.Web.Http.RoutePrefix("api/vendor")]

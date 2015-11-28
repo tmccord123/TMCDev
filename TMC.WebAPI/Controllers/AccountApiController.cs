@@ -11,8 +11,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
-using Newtonsoft.Json.Linq;
-using TMC.Web.Controllers;
+using Newtonsoft.Json.Linq; 
 using TMC.Shared;
 using TMC.Shared.Factories;
 using TMC.Web.Models;
@@ -21,7 +20,7 @@ using TMC.WebAPI;
 using TMC.WebAPI.Models; 
 using TMC.WebAPI.Results;
 
-namespace TMC.Web.Controllers.Api
+namespace TMC.WebAPI.Controllers
 {
     using System.Collections.Generic;
     using TMC.Web.Shared;

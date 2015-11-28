@@ -1,7 +1,7 @@
 ﻿
 using System.Web.Http.Cors;
 
-namespace TMC.Web.Controllers.Api
+namespace TMC.WebAPI.Controllers
 {
     using System.Collections.Generic;
     using System.Web.Http;
@@ -11,7 +11,7 @@ namespace TMC.Web.Controllers.Api
     using TMC.Web.Shared.ViewModels;
     using TMC.Web.Shared;
 
-    /// <summary>
+    // <summary>
     /// The city api controller.
     /// </summary>
     [RoutePrefix("api/city")]

@@ -1,7 +1,7 @@
 ﻿
 using System.Web.Http.Cors;
 
-namespace TMC.Web.Controllers.Api
+namespace TMC.WebAPI.Controllers
 {
     using System.Collections.Generic;
     using System.Linq;

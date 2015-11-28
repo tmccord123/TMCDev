@@ -4,13 +4,12 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using System.Web.Http.ModelBinding;
-using TMC.Web.Controllers;
+using System.Web.Http.ModelBinding; 
 using TMC.Shared;
 using TMC.Shared.Factories;
 using TMC.Web.Shared.ViewModels;
 
-namespace TMC.Web.Controllers.Api
+namespace TMC.WebAPI.Controllers
 {
     using System.Collections.Generic;
     using TMC.Web.Shared;

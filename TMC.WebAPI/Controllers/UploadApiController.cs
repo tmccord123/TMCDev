@@ -13,7 +13,7 @@ using TMC.Shared;
 using TMC.Shared.Factories;
 using TMC.Web.Shared.ViewModels;
 
-namespace TMC.Web.Controllers.Api
+namespace TMC.WebAPI.Controllers
 {
     //http://www.asp.net/web-api/overview/advanced/sending-html-form-data,-part-2
     //todo put proper route names

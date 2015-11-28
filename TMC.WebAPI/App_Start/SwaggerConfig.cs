@@ -1,11 +1,11 @@
 using System.Web.Http;
-using WebActivatorEx;
-using TMC.Web;
+using TMC.WebAPI;
+using WebActivatorEx; 
 using Swashbuckle.Application;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
-namespace TMC.Web
+namespace TMC.WebAPI
 {
     public class SwaggerConfig
     {

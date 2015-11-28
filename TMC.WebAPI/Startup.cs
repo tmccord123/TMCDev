@@ -5,12 +5,11 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Facebook;
 using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
-using Owin;
-using TMC.WebAPI;
+using Owin; 
 using TMC.WebAPI.Providers;
 
-[assembly: OwinStartupAttribute(typeof(TMC.Web.Startup))]
-namespace TMC.Web
+[assembly: OwinStartupAttribute(typeof(TMC.WebAPI.Startup))]
+namespace TMC.WebAPI
 {
     public partial class Startup
     {
