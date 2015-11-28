@@ -29,10 +29,10 @@
                 @Html.ValidationSummary()
                 <div class="form-group">
                     @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label"})
-                    <div class="col-md-2" style="padding-right: 0">
+                    <div class="col-md-2" style="padding-right: 3px">
                         @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "First Name" })
                     </div>
-                    <div class="col-md-2" style="padding-left: 0">
+                    <div class="col-md-2" style="padding-left: 2px">
                         @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Last Name" })
                     </div>
 
