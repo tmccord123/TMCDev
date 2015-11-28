@@ -215,14 +215,13 @@
       <DependentUpon>201510241427459_Update1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\loading-bar.css" />
     <Content Include="Content\js\angular\listingResultController.js" />
     <Content Include="Content\js\lib\angular-file-upload.js" />
@@ -235,18 +234,16 @@
     <Content Include="Content\js\lib\angular.js" />
     <Content Include="Content\js\lib\angular.min.js" />
     <Content Include="Content\js\lib\loading-bar.min.js" />
-    <Content Include="css\bootstrap-theme.css" />
-    <Content Include="css\bootstrap-theme.min.css" />
-    <Content Include="css\bootstrap.css" />
-    <Content Include="css\bootstrap.min.css" />
-    <Content Include="css\EditorStyle.css" />
-    <Content Include="css\flexslider.css" />
-    <Content Include="css\jquery-ui.css" />
-    <Content Include="css\modern-business.css" />
+    <Content Include="Content\css\bootstrap-theme.css" />
+    <Content Include="Content\css\bootstrap-theme.min.css" />
+    <Content Include="Content\css\EditorStyle.css" />
+    <Content Include="Content\css\flexslider.css" />
+    <Content Include="Content\css\jquery-ui.css" />
+    <Content Include="Content\css\modern-business.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\css\Site.css" />
     <Content Include="img\autocomplete\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="img\autocomplete\ui-bg_diagonals-thick_20_666666_40x40.png" />
     <Content Include="img\autocomplete\ui-bg_flat_10_000000_40x100.png" />
@@ -472,7 +469,7 @@
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\x" />
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\x%281%29" />
     <Content Include="img\logos\Sdsdfd Pictures, Images &amp; Photos _ Photobucket_files\x%282%29" />
-    <Content Include="css\flexslider.less" />
+    <Content Include="Content\css\flexslider.less" />
     <Content Include="Content\js\angular\config.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-ui.js" />

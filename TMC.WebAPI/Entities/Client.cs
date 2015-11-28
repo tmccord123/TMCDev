@@ -1,10 +1,5 @@
-﻿using TMC.Web.Models;
-using System;
-using System.Collections.Generic;
+﻿using TMC.WebAPI.Models;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using TMC.WebAPI.Models;
 
 namespace TMC.WebAPI.Entities
 {

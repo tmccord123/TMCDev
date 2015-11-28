@@ -14,23 +14,20 @@ using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Linq; 
 using TMC.Shared;
 using TMC.Shared.Factories;
-using TMC.Web.Models;
-using TMC.Web.Shared.ViewModels;
-using TMC.WebAPI;
+using TMC.Web.Shared.Models;
+using TMC.Web.Shared.ViewModels; 
 using TMC.WebAPI.Models; 
 using TMC.WebAPI.Results;
 
 namespace TMC.WebAPI.Controllers
-{
-    using System.Collections.Generic;
+{ 
     using TMC.Web.Shared;
      
     [RoutePrefix("api/account")]
     [EnableCors(origins: "http://localhost:55555", headers: "*", methods: "*")]
     public class AccountApiController : ApiController
     {
-        
-          private AuthRepository _repo = null;
+        private AuthRepository _repo = null;
 
         private IAuthenticationManager Authentication
         {
@@ -45,7 +42,7 @@ namespace TMC.WebAPI.Controllers
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(UserModel userModel)
+        public async Task<IHttpActionResult> Register(RegisterViewModel userModel)
         {
              if (!ModelState.IsValid)
             {
@@ -63,6 +60,44 @@ namespace TMC.WebAPI.Controllers
 
              return Ok();
         }
+
+        [AllowAnonymous]
+        [Route("ChangePassword")]
+        public async Task<IHttpActionResult> ChangePassword(ChangePasswordViewModel  changePasswordViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            IdentityResult result = await _repo.ChangePassword(changePasswordViewModel);
+            IHttpActionResult errorResult = GetErrorResult(result);
+            if (errorResult != null)
+            {
+                return errorResult;
+            }
+            return Ok();
+        }
+
+        [AllowAnonymous]
+        [Route("UpdateProfile")]
+        public async Task<IHttpActionResult> UpdateProfile(UserProfileViewModel userProfileViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            IdentityResult result = await _repo.UpdateProfile(userProfileViewModel);
+            IHttpActionResult errorResult = GetErrorResult(result);
+            if (errorResult != null)
+            {
+                return errorResult;
+            }
+            return Ok();
+        }
+
+
 
         // GET api/Account/ExternalLogin
         [OverrideAuthentication]

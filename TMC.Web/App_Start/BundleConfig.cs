@@ -46,14 +46,14 @@ namespace TMC.Web
 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/css/bootstrap.css",
+                      "~/Content/css/site.css"));
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
-                      "~/css/modern-business.css",
-                      "~/css/flexslider.css",
+                      "~/Content/css/modern-business.css",
+                      "~/Content/css/flexslider.css",
                       "~/Content/css/loading-bar.css",
-                      "~/css/jquery-ui.css"));
+                      "~/Content/css/jquery-ui.css"));
         }
     }
 }

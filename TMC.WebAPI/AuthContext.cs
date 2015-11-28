@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System.Data.Entity;
-using TMC.Web.Models;
+using System.Data.Entity; 
 using TMC.WebAPI.Entities;
+using TMC.WebAPI.Models;
 
 namespace TMC.WebAPI
 {

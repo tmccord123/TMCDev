@@ -33,9 +33,9 @@ app.controller('loginController', ['$scope', '$location', 'authService', 'ngAuth
         var oauthWindow = window.open(externalProviderUrl, "Authenticate Account", "location=0,status=0,width=600,height=750");
     };
 
-    $scope.authCompletedCB = function (fragment) {
+    $scope.authCompletedCB = function(fragment) {
 
-        $scope.$apply(function () {
+        $scope.$apply(function() {
 
             if (fragment.haslocalaccount == 'False') {
 
@@ -49,20 +49,19 @@ app.controller('loginController', ['$scope', '$location', 'authService', 'ngAuth
 
                 $location.path('/associate');
 
-            }
-            else {
+            } else {
                 //Obtain access token and redirect to orders
                 var externalData = { provider: fragment.provider, externalAccessToken: fragment.external_access_token };
-                authService.obtainAccessToken(externalData).then(function (response) {
+                authService.obtainAccessToken(externalData).then(function(response) {
 
                     $location.path('/orders');
 
                 },
-             function (err) {
-                 $scope.message = err.error_description;
-             });
+                    function(err) {
+                        $scope.message = err.error_description;
+                    });
             }
 
         });
-    }
+    };
 }]);

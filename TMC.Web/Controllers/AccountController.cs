@@ -13,6 +13,7 @@ using Microsoft.Owin.Security;
 using Newtonsoft.Json;
 using TMC.Web;
 using TMC.Web.Models;
+using TMC.Web.Shared.Models;
 using TMC.Web.Shared.ViewModels;
 
 
@@ -83,17 +84,18 @@ namespace TMC.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel userModel)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.MobileNo, 
-                    FirstName = model.FirstName, 
-                    LastName = model.LastName,
-                    Email = model.Email,
-                    MobileNo = model.MobileNo
+                var user = new ApplicationUser() { 
+                    UserName = userModel.MobileNo, 
+                    FirstName = userModel.FirstName, 
+                    LastName = userModel.LastName,
+                    Email = userModel.Email,
+                    MobileNo = userModel.MobileNo
                 };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                var result = await UserManager.CreateAsync(user, userModel.Password);
                 if (result.Succeeded)
                 {
                    //inserting to User table todo handle all the fields of the user data like address and others in another form when user updates its profile
@@ -116,7 +118,7 @@ namespace TMC.Web.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return View(userModel);
         }
 
         //

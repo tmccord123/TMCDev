@@ -1,4 +1,4 @@
-﻿using TMC.Web.Models;
+﻿using TMC.Web.Shared.Models;
 using TMC.WebAPI.Entities;
 using TMC.WebAPI.Models;
 using Microsoft.AspNet.Identity;
@@ -14,31 +14,46 @@ namespace TMC.WebAPI
     public class AuthRepository : IDisposable
     {
         private AuthContext _ctx;
-        public UserManager<ApplicationUser> _userManager { get; private set; }//todo move models to Web.Shared
+        public UserManager<ApplicationUser> UserManager { get; private set; }//todo move models to Web.Shared
 
         public AuthRepository()
         {
             _ctx = new AuthContext();
-            _userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
         }
 
-        public async Task<IdentityResult> RegisterUser(UserModel userModel)
+        public async Task<IdentityResult> RegisterUser(RegisterViewModel userModel)
         {
-            var appUser = new ApplicationUser()
+            var user = new ApplicationUser()
             {
-                UserName = userModel.UserName,
-                FirstName = "sdf",
-                LastName = "sdfd",
-                Email = "sdfd@fromwebapi.com",
-                MobileNo = "123213232"
+                UserName = userModel.MobileNo,
+                FirstName = userModel.FirstName,
+                LastName = userModel.LastName,
+                Email = userModel.Email,
+                MobileNo = userModel.MobileNo
             };
-            var result = await _userManager.CreateAsync(appUser, userModel.Password);
+            var result = await UserManager.CreateAsync(user, userModel.Password);
+            return result;
+        }
+
+        public async Task<IdentityResult> ChangePassword(ChangePasswordViewModel changePasswordViewModel)
+        {
+            IdentityResult result = await UserManager.ChangePasswordAsync(changePasswordViewModel.UserName, changePasswordViewModel.OldPassword, changePasswordViewModel.NewPassword);
+            return result;
+        }
+        public async Task<IdentityResult> UpdateProfile(UserProfileViewModel userProfileViewModel)
+        {
+            ApplicationUser appUserModel = UserManager.FindById(userProfileViewModel.UserName);
+            appUserModel.Email = userProfileViewModel.Email;
+            appUserModel.MobileNo = userProfileViewModel.MobileNo;
+            appUserModel.UserName = userProfileViewModel.MobileNo;
+            IdentityResult result = await UserManager.UpdateAsync(appUserModel);
             return result;
         }
 
         public async Task<IdentityUser> FindUser(string userName, string password)
         {
-            IdentityUser user = await _userManager.FindAsync(userName, password);
+            IdentityUser user = await UserManager.FindAsync(userName, password);
             return user;
         }
 
@@ -94,21 +109,21 @@ namespace TMC.WebAPI
 
         public async Task<IdentityUser> FindAsync(UserLoginInfo loginInfo)
         {
-            IdentityUser user = await _userManager.FindAsync(loginInfo);
+            IdentityUser user = await UserManager.FindAsync(loginInfo);
 
             return user;
         }
 
         public async Task<IdentityResult> CreateAsync(ApplicationUser user)
         {
-            var result = await _userManager.CreateAsync(user);
+            var result = await UserManager.CreateAsync(user);
 
             return result;
         }
 
         public async Task<IdentityResult> AddLoginAsync(string userId, UserLoginInfo login)
         {
-            var result = await _userManager.AddLoginAsync(userId, login);
+            var result = await UserManager.AddLoginAsync(userId, login);
 
             return result;
         }
@@ -116,8 +131,7 @@ namespace TMC.WebAPI
         public void Dispose()
         {
             _ctx.Dispose();
-            _userManager.Dispose();
-
+            UserManager.Dispose();
         }
     }
 }

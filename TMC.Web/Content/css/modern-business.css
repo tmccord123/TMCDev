@@ -130,7 +130,7 @@ footer {
 
 .cd-footer2 {
     color: #ececec;
-    background-color: #606060;
+    background-color: #78AFC2;
     padding-top: 15px;
 }
 
@@ -252,6 +252,10 @@ footer {
     vertical-align: middle;
 }
 
+   a.border-btn {
+    color: #fafafa;
+}
+
 /* File upload*/
 table { border-collapse: collapse; }
 .percent {
@@ -291,4 +295,19 @@ table { border-collapse: collapse; }
 }
 .dropbox.over {
     background-color: #bfb;
+}
+
+/* Bootstrap theme*/
+.navbar-inverse {
+    background-color: #008cba;
+    border-color: #006687;
+}
+.navbar-inverse 
+.navbar-nav > li > a {
+    color: #E5E0E0;
+}
+
+.navbar-inverse 
+.navbar-brand {
+    color: #FFFAFA;
 }
