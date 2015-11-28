@@ -109,7 +109,8 @@ namespace TMC.Web.Controllers.Api
              var filePath = HttpContext.Current.Server.MapPath("~/Content/img/ListingMedia/" + fileName);
             if (!File.Exists(filePath)) //Not found then throw Exception
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                //throw new HttpResponseException(HttpStatusCode.NotFound);
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
             HttpResponseMessage Response = new HttpResponseMessage(HttpStatusCode.OK);

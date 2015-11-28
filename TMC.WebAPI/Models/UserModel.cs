@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace TMC.Web.Models
+namespace TMC.WebAPI.Models
 {
     public class UserModel
     {

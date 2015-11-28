@@ -55,9 +55,9 @@ namespace TMC.Business
                 ExceptionManager.HandleException(ex);
                 operationResult = OperationResult<IUserDTO>.CreateErrorResult(ex.Message, ex.StackTrace);
             }
-            return operationResult;
-            //return PersistSvr<Order>.GetAll().ToList();
+            return operationResult; 
         }
+
 
 
         public OperationResult<long> CreateUser(IUserDTO userDto)
@@ -89,6 +89,33 @@ namespace TMC.Business
             return operationResult;
         }
 
+        public OperationResult<IUserDTO> GetClientById(int clientId)
+        {
+
+            OperationResult<IUserDTO> operationResult = null;
+            try
+            {
+                var userDAC = (IUserDAC)DACFactory.Instance.Create(DACType.User);
+                var user = userDAC.GetUserById(clientId);
+
+                operationResult = user != null
+                                                      ? OperationResult<IUserDTO>.CreateSuccessResult(user)
+                                                      : OperationResult<IUserDTO>.CreateFailureResult(
+                                                       ResourceUtility.GetCaptionFor(
+                                              ResourceConstants.User.ErrorMessages.FailedToFetchUser));
+
+            }
+            catch (DACException dacEx)
+            {
+                operationResult = OperationResult<IUserDTO>.CreateErrorResult(dacEx.Message, dacEx.StackTrace);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.HandleException(ex);
+                operationResult = OperationResult<IUserDTO>.CreateErrorResult(ex.Message, ex.StackTrace);
+            }
+            return operationResult; 
+        }
 
 
         #endregion
