@@ -56,8 +56,7 @@ namespace TMC.Web.Controllers
             listingViewModel.ControllerName = "Vendor";
             listingViewModel.FormId = "listingForm";
             listingViewModel.FormSuccessCallBack = "addEditListing.onAddEditListingSuccessCallBack";
-            // var client = TMCHttpClient.GetClient(User.AccessToken());
-            var client = TMCHttpClient.GetClient();
+            var client = TMCHttpClient.GetClient(User.AccessToken());
             if (id > 0)
             {
                 HttpResponseMessage contentResponse = await client.GetAsync("api/listing/" + id);

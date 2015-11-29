@@ -5,11 +5,11 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web;
 using TMC.Shared;
-using GlobalConstants = TMC.Web.Shared.GlobalConstants;
+using TMC.Web.Shared;
 
 namespace TMC.Web
 {
-    public static class TMCHttpClient
+    public static class TMCHttpClient  
     {
         /// <summary>
         /// 
@@ -22,7 +22,7 @@ namespace TMC.Web
            
             HttpClient httpClient = new HttpClient();
 
-            httpClient.BaseAddress = new Uri(GlobalConstants.TMCAPI);
+            httpClient.BaseAddress = new Uri(CommonConstants.ServiceBase);
 
             httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

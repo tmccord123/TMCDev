@@ -24,9 +24,10 @@ namespace TMC.Web
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
-            
+ 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                     "~/Content/js/lib/angular.js" ));
+                     "~/Content/js/lib/angular.js",
+                     "~/Content/js/lib/angular-file-upload.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angularapp").Include(
                         "~/Content/js/angular/tmcApp.js",

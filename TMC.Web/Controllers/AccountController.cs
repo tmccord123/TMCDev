@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
@@ -11,7 +12,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using Newtonsoft.Json;
-using TMC.Web;
+using TMC.Shared;
+using TMC.Web.Shared;
 using TMC.Web.Models;
 using TMC.Web.Shared.Models;
 using TMC.Web.Shared.ViewModels;
@@ -33,7 +35,7 @@ namespace TMC.Web.Controllers
             UserManager = userManager;
         }
 
-      
+
         public UserManager<ApplicationUser> UserManager { get; private set; }
 
         //
@@ -58,8 +60,17 @@ namespace TMC.Web.Controllers
                 var user = await UserManager.FindByNameOrEmailAsync(model.UserName, model.Password);
                 if (user != null)
                 {
-                    await SignInAsync(user, model.RememberMe);
-                    return RedirectToLocal(returnUrl);
+                    await SignInAsync(user, model.RememberMe, model.Password);
+                    var result = OperationResult<object>.CreateSuccessResult(new
+                    {
+                        returnUrl, 
+                        token = ViewBag.AccessToken, 
+                        userName = user.UserName,
+                        refreshToken = "", 
+                        useRefreshToken = true
+                    }, "success").ToJsonResult(); 
+                    return result;
+                    //return  RedirectToLocal(returnUrl);
                 }
                 else
                 {
@@ -88,9 +99,10 @@ namespace TMC.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { 
-                    UserName = userModel.MobileNo, 
-                    FirstName = userModel.FirstName, 
+                var user = new ApplicationUser()
+                {
+                    UserName = userModel.MobileNo,
+                    FirstName = userModel.FirstName,
                     LastName = userModel.LastName,
                     Email = userModel.Email,
                     MobileNo = userModel.MobileNo
@@ -98,7 +110,7 @@ namespace TMC.Web.Controllers
                 var result = await UserManager.CreateAsync(user, userModel.Password);
                 if (result.Succeeded)
                 {
-                   //inserting to User table todo handle all the fields of the user data like address and others in another form when user updates its profile
+                    //inserting to User table todo handle all the fields of the user data like address and others in another form when user updates its profile
                     var client = TMCHttpClient.GetClient();
                     UserViewModel userViewModel = new UserViewModel();
                     userViewModel.UserId = 0;
@@ -106,9 +118,9 @@ namespace TMC.Web.Controllers
                     JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
                     string serializedItemToCreate = JsonConvert.SerializeObject(userViewModel, settings);
 
-                    var response = await client.PostAsync("api/account", new StringContent(serializedItemToCreate,System.Text.Encoding.Unicode, "application/json"));
-                    
-                    await SignInAsync(user, isPersistent: false);
+                    var response = await client.PostAsync("api/account", new StringContent(serializedItemToCreate, System.Text.Encoding.Unicode, "application/json"));
+
+                    await SignInAsync(user, false, userModel.Password);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -160,7 +172,7 @@ namespace TMC.Web.Controllers
             return View(manageUserViewModel);
         }
 
-        
+
         // POST: /Account/Manage
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -213,7 +225,7 @@ namespace TMC.Web.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-        
+
         // POST: /Account/ManageProfile
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -230,21 +242,21 @@ namespace TMC.Web.Controllers
                 appUserModel.MobileNo = model.MobileNo;
                 appUserModel.UserName = model.MobileNo;
                 IdentityResult result = await UserManager.UpdateAsync(appUserModel);
-                   
+
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Manage", new { Message = ManageMessageId.ProfileChangedSuccess });
-                    
+
                 }
                 else
                 {
                     AddErrors(result);
                 }
             }
-            
+
 
             // If we got this far, something failed, redisplay form
-            return View("Manage",model);
+            return View("Manage", model);
         }
 
 
@@ -399,14 +411,33 @@ namespace TMC.Web.Controllers
             }
         }
 
-        private async Task SignInAsync(ApplicationUser user, bool isPersistent)
+        private async Task SignInAsync(ApplicationUser user, bool isPersistent, string password = "")
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
-            identity.AddClaim(new Claim("FirstName", user.FirstName));
-            identity.AddClaim(new Claim("AccessToken", "sfsdfwwjlskjhsfkhweihfiu4yr92834r982urkjkfjhskdjfhsdkjf"));
             AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
+            var token = await GetSetToken(user, password, identity);
+            identity.AddClaim(new Claim("FirstName", user.FirstName));
+            identity.AddClaim(new Claim("AccessToken", token.AccessToken));
+            ViewBag.AccessToken = token.AccessToken;
         }
+
+        private async Task<Token> GetSetToken(ApplicationUser user, string password, ClaimsIdentity identity)
+        {
+            HttpClient httpClient = new HttpClient();
+            var form = new Dictionary<string, string>    
+               {    
+                   {"grant_type","password" },    
+                   {"username", user.UserName},    
+                   {"password", password},    
+               };
+            HttpResponseMessage responseMessage;
+            responseMessage = await httpClient.PostAsync(CommonConstants.ServiceBase + "/token", new FormUrlEncodedContent(form));
+            var token = await responseMessage.Content.ReadAsAsync<Token>(new[] { new JsonMediaTypeFormatter() });
+            return token;
+
+        }
+
 
         private void AddErrors(IdentityResult result)
         {
@@ -449,7 +480,8 @@ namespace TMC.Web.Controllers
 
         private class ChallengeResult : HttpUnauthorizedResult
         {
-            public ChallengeResult(string provider, string redirectUri) : this(provider, redirectUri, null)
+            public ChallengeResult(string provider, string redirectUri)
+                : this(provider, redirectUri, null)
             {
             }
 

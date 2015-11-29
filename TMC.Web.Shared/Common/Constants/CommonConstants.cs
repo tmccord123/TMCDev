@@ -6,7 +6,7 @@ using TMC.Shared;
 
 namespace TMC.Web.Shared
 {
-    public static class GlobalConstants
+    public static class CommonConstants
     {
         public const string LoaderImagePath = "\\Content\\Images\\ajaxloader.gif";
         public const int HTTPPageNotFoundErrorCode = 404;
@@ -23,7 +23,7 @@ namespace TMC.Web.Shared
         public const string XmlHttpRequest = "XMLHttpRequest";
         public const string PasswordRegularExpression = @"^\S+$";
 
-        public const string TMCAPI = "http://localhost:44444/";
+        public const string ServiceBase = "http://localhost:44444/";
      
 
         /// <summary>
@@ -86,31 +86,7 @@ namespace TMC.Web.Shared
             }
 
 
-            /// <summary>
-            /// Constant for BusinessLocation table
-            /// </summary>
-            public static class OrganizationLocation
-            {
-                /// <summary>
-                /// Name max length
-                /// </summary>
-                public const int NameMaxLength = 255;
-
-                /// <summary>
-                /// address1 max length
-                /// </summary>
-                public const int Address1NameMaxLength = 255;
-
-                /// <summary>
-                /// City max length
-                /// </summary>
-                public const int CityMaxLength = 255;
-
-                /// <summary>
-                /// ZIP max length
-                /// </summary>
-                public const int ZIPMaxLength = 6;
-            }
+          
 
         }
     }

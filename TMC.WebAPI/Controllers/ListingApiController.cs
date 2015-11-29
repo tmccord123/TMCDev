@@ -20,8 +20,8 @@ namespace TMC.WebAPI.Controllers
     public class ListingApiController : ApiController
     {
         #region GET Methods
-       // [Authorize]
-        [Route("{id:int}")]  // call like this http://localhost:59974/api/listing/1
+        [Authorize]
+        [Route("{id:int}")]  // call like this http://localhost:44444/api/listing/1
         //[Route("{id:int}/details")] // call like this http://localhost:59974/api/listing/1/details
         // Hey the name of the method not necessarily to be Get only you can give any name starting with "Get" as it is using the route attribute here
         public IHttpActionResult GetListingById(int id)

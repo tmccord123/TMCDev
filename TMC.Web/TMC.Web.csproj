@@ -383,6 +383,7 @@
     <Content Include="img\vendor_consumer.jpg" />
     <Content Include="img\whiteboard.jpg" />
     <Content Include="img\youtube_ico.png" />
+    <Content Include="Scripts\tmc.login.js" />
     <Content Include="Scripts\tmc.common.dialog.js" />
     <Content Include="Scripts\jsbacks\bootstrap.js" />
     <Content Include="Scripts\jsbacks\bootstrap.min.js" />
