@@ -15,7 +15,7 @@ namespace TMC.Web.Controllers
     public class VendorController : Controller
     {
         /// <summary>
-        /// merge 3 
+        /// merge conflict resolved
         /// </summary>
         /// <returns></returns>
         public ActionResult Index()
