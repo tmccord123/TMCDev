@@ -12,9 +12,9 @@ function Login() {
      
 
     this.onSuccessfullLoginCallBack = function (data, message) {
+        localStorage.setItem('authData', JSON.stringify(data));
         if (data.returnUrl) {
            // alert("login successfull");
-            localStorage.setItem('authData', JSON.stringify(data));
             window.location.href = data.returnUrl;
         } else {
             window.location.href = "/";
