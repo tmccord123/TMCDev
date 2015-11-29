@@ -14,7 +14,10 @@ namespace TMC.Web.Controllers
 {
     public class VendorController : Controller
     {
-        
+        /// <summary>
+        /// test merge 2 from git
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
 
