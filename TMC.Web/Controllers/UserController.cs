@@ -57,7 +57,7 @@ namespace TMC.Web.Controllers
             }
             else
             {
-                var client = TMCHttpClient.GetClient();
+                var client = TMCHttpClient.GetClient(User.AccessToken());
                 HttpResponseMessage egsResponse = await client.GetAsync("api/listing/1");
 
                 if (egsResponse.IsSuccessStatusCode)

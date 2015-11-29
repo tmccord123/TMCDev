@@ -297,7 +297,7 @@ table { border-collapse: collapse; }
     background-color: #bfb;
 }
 
-/* Bootstrap theme*/
+/* Bootstrap theme over ride*/
 .navbar-inverse {
     background-color: #008cba;
     border-color: #006687;
@@ -310,4 +310,9 @@ table { border-collapse: collapse; }
 .navbar-inverse 
 .navbar-brand {
     color: #FFFAFA;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    color: #ffffff;
+    background-color: #035E7D;
 }
