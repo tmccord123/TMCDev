@@ -12,6 +12,7 @@ function CitySayt() {
     this.actionLinks = {};
     this.cityUrl = tmcCommon.serviceBase + "city/";
     this.citySeperator = ',';
+    this.urlDotReplacer = "_";
     this.htmlFieldPrefix = '';
     this.controlId = "";
     this.selectCallBack = null;
@@ -28,7 +29,7 @@ function CitySayt() {
                             return {
                                 label: item.name,
                                 id: item.cityId,
-                                cityDetails: item.lat + context.citySeperator + item.long + context.citySeperator + item.radius + context.citySeperator
+                                cityDetails: (item.lat).replace(/./g, context.urlDotReplacer) + context.citySeperator + (item.long).replace(/./g, context.urlDotReplacer) + context.citySeperator + item.radius + context.citySeperator
                             };
                         }));
                     }
