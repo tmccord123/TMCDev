@@ -24,8 +24,6 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingLocation_Area", "Area", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Area), "ListingLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingLocation), true)]
 [assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingServiceLocation_Area", "Area", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EntityDataModel.EntityModels.Area), "ListingServiceLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingServiceLocation), true)]
 [assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_RequirementLocation_Area", "Area", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Area), "RequirementLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementLocation), true)]
-[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.AspNetUsers), "AspNetUserClaims", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.AspNetUserClaims), true)]
-[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUsers", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.AspNetUsers), "AspNetUserLogins", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.AspNetUserLogins), true)]
 [assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_CategoryRelation_ChildCategory", "Category", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Category), "CategoryRelation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.CategoryRelation), true)]
 [assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_CategoryRelation_ParentCategory", "Category", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Category), "CategoryRelation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.CategoryRelation), true)]
 [assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_ListingCategory_Category", "Category", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Category), "ListingCategory", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.ListingCategory), true)]
@@ -54,6 +52,12 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_RequirementCategory_Requirement", "Requirement", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Requirement), "RequirementCategory", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementCategory), true)]
 [assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_RequirementLocation_Requirement", "Requirement", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.Requirement), "RequirementLocation", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.RequirementLocation), true)]
 [assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_User_UserType", "UserType", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.UserType), "User", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.User), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_Trend_City", "City", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EntityDataModel.EntityModels.City), "Trend", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Trend), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_Trend_Country", "Country", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EntityDataModel.EntityModels.Country), "Trend", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Trend), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_Trend_State", "State", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EntityDataModel.EntityModels.State), "Trend", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Trend), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_Trend_TrendType", "TrendType", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.TrendType), "Trend", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.Trend), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId", "AspNetUsers", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.AspNetUsers), "AspNetUserClaims", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.AspNetUserClaims), true)]
+[assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId", "AspNetUsers", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(EntityDataModel.EntityModels.AspNetUsers), "AspNetUserLogins", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.AspNetUserLogins), true)]
 [assembly: EdmRelationshipAttribute("TMC.Entities.EntityModels", "AspNetUserRoles", "AspNetRoles", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.AspNetRoles), "AspNetUsers", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EntityDataModel.EntityModels.AspNetUsers))]
 
 #endregion
@@ -157,22 +161,6 @@ namespace EntityDataModel.EntityModels
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<AspNetUserClaims> AspNetUserClaims
-        {
-            get
-            {
-                if ((_AspNetUserClaims == null))
-                {
-                    _AspNetUserClaims = base.CreateObjectSet<AspNetUserClaims>("AspNetUserClaims");
-                }
-                return _AspNetUserClaims;
-            }
-        }
-        private ObjectSet<AspNetUserClaims> _AspNetUserClaims;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<AspNetUserLogins> AspNetUserLogins
         {
             get
@@ -185,22 +173,6 @@ namespace EntityDataModel.EntityModels
             }
         }
         private ObjectSet<AspNetUserLogins> _AspNetUserLogins;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<AspNetUsers> AspNetUsers
-        {
-            get
-            {
-                if ((_AspNetUsers == null))
-                {
-                    _AspNetUsers = base.CreateObjectSet<AspNetUsers>("AspNetUsers");
-                }
-                return _AspNetUsers;
-            }
-        }
-        private ObjectSet<AspNetUsers> _AspNetUsers;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -585,6 +557,70 @@ namespace EntityDataModel.EntityModels
             }
         }
         private ObjectSet<Blogs> _Blogs;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Trend> Trend
+        {
+            get
+            {
+                if ((_Trend == null))
+                {
+                    _Trend = base.CreateObjectSet<Trend>("Trend");
+                }
+                return _Trend;
+            }
+        }
+        private ObjectSet<Trend> _Trend;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<TrendType> TrendType
+        {
+            get
+            {
+                if ((_TrendType == null))
+                {
+                    _TrendType = base.CreateObjectSet<TrendType>("TrendType");
+                }
+                return _TrendType;
+            }
+        }
+        private ObjectSet<TrendType> _TrendType;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<AspNetUserClaims> AspNetUserClaims
+        {
+            get
+            {
+                if ((_AspNetUserClaims == null))
+                {
+                    _AspNetUserClaims = base.CreateObjectSet<AspNetUserClaims>("AspNetUserClaims");
+                }
+                return _AspNetUserClaims;
+            }
+        }
+        private ObjectSet<AspNetUserClaims> _AspNetUserClaims;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<AspNetUsers> AspNetUsers
+        {
+            get
+            {
+                if ((_AspNetUsers == null))
+                {
+                    _AspNetUsers = base.CreateObjectSet<AspNetUsers>("AspNetUsers");
+                }
+                return _AspNetUsers;
+            }
+        }
+        private ObjectSet<AspNetUsers> _AspNetUsers;
 
         #endregion
 
@@ -615,27 +651,11 @@ namespace EntityDataModel.EntityModels
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the AspNetUserClaims EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToAspNetUserClaims(AspNetUserClaims aspNetUserClaims)
-        {
-            base.AddObject("AspNetUserClaims", aspNetUserClaims);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the AspNetUserLogins EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToAspNetUserLogins(AspNetUserLogins aspNetUserLogins)
         {
             base.AddObject("AspNetUserLogins", aspNetUserLogins);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the AspNetUsers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToAspNetUsers(AspNetUsers aspNetUsers)
-        {
-            base.AddObject("AspNetUsers", aspNetUsers);
         }
     
         /// <summary>
@@ -828,6 +848,38 @@ namespace EntityDataModel.EntityModels
         public void AddToBlogs(Blogs blogs)
         {
             base.AddObject("Blogs", blogs);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Trend EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTrend(Trend trend)
+        {
+            base.AddObject("Trend", trend);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the TrendType EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTrendType(TrendType trendType)
+        {
+            base.AddObject("TrendType", trendType);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the AspNetUserClaims EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToAspNetUserClaims(AspNetUserClaims aspNetUserClaims)
+        {
+            base.AddObject("AspNetUserClaims", aspNetUserClaims);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the AspNetUsers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToAspNetUsers(AspNetUsers aspNetUsers)
+        {
+            base.AddObject("AspNetUsers", aspNetUsers);
         }
 
         #endregion
@@ -1358,12 +1410,12 @@ namespace EntityDataModel.EntityModels
         /// Create a new AspNetUserClaims object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="user_Id">Initial value of the User_Id property.</param>
-        public static AspNetUserClaims CreateAspNetUserClaims(global::System.Int32 id, global::System.String user_Id)
+        /// <param name="userId">Initial value of the UserId property.</param>
+        public static AspNetUserClaims CreateAspNetUserClaims(global::System.Int32 id, global::System.String userId)
         {
             AspNetUserClaims aspNetUserClaims = new AspNetUserClaims();
             aspNetUserClaims.Id = id;
-            aspNetUserClaims.User_Id = user_Id;
+            aspNetUserClaims.UserId = userId;
             return aspNetUserClaims;
         }
 
@@ -1397,6 +1449,30 @@ namespace EntityDataModel.EntityModels
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private global::System.String _UserId;
+        partial void OnUserIdChanging(global::System.String value);
+        partial void OnUserIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1445,30 +1521,6 @@ namespace EntityDataModel.EntityModels
         private global::System.String _ClaimValue;
         partial void OnClaimValueChanging(global::System.String value);
         partial void OnClaimValueChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String User_Id
-        {
-            get
-            {
-                return _User_Id;
-            }
-            set
-            {
-                OnUser_IdChanging(value);
-                ReportPropertyChanging("User_Id");
-                _User_Id = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("User_Id");
-                OnUser_IdChanged();
-            }
-        }
-        private global::System.String _User_Id;
-        partial void OnUser_IdChanging(global::System.String value);
-        partial void OnUser_IdChanged();
 
         #endregion
 
@@ -1480,16 +1532,16 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId", "AspNetUsers")]
         public AspNetUsers AspNetUsers
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUsers>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUsers>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId", "AspNetUsers").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUsers>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUsers>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId", "AspNetUsers").Value = value;
             }
         }
         /// <summary>
@@ -1501,13 +1553,13 @@ namespace EntityDataModel.EntityModels
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUsers>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AspNetUsers>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId", "AspNetUsers");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AspNetUsers>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUsers", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AspNetUsers>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId", "AspNetUsers", value);
                 }
             }
         }
@@ -1686,12 +1738,22 @@ namespace EntityDataModel.EntityModels
         /// Create a new AspNetUsers object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="discriminator">Initial value of the Discriminator property.</param>
-        public static AspNetUsers CreateAspNetUsers(global::System.String id, global::System.String discriminator)
+        /// <param name="emailConfirmed">Initial value of the EmailConfirmed property.</param>
+        /// <param name="phoneNumberConfirmed">Initial value of the PhoneNumberConfirmed property.</param>
+        /// <param name="twoFactorEnabled">Initial value of the TwoFactorEnabled property.</param>
+        /// <param name="lockoutEnabled">Initial value of the LockoutEnabled property.</param>
+        /// <param name="accessFailedCount">Initial value of the AccessFailedCount property.</param>
+        /// <param name="userName">Initial value of the UserName property.</param>
+        public static AspNetUsers CreateAspNetUsers(global::System.String id, global::System.Boolean emailConfirmed, global::System.Boolean phoneNumberConfirmed, global::System.Boolean twoFactorEnabled, global::System.Boolean lockoutEnabled, global::System.Int32 accessFailedCount, global::System.String userName)
         {
             AspNetUsers aspNetUsers = new AspNetUsers();
             aspNetUsers.Id = id;
-            aspNetUsers.Discriminator = discriminator;
+            aspNetUsers.EmailConfirmed = emailConfirmed;
+            aspNetUsers.PhoneNumberConfirmed = phoneNumberConfirmed;
+            aspNetUsers.TwoFactorEnabled = twoFactorEnabled;
+            aspNetUsers.LockoutEnabled = lockoutEnabled;
+            aspNetUsers.AccessFailedCount = accessFailedCount;
+            aspNetUsers.UserName = userName;
             return aspNetUsers;
         }
 
@@ -1725,78 +1787,6 @@ namespace EntityDataModel.EntityModels
         private global::System.String _Id;
         partial void OnIdChanging(global::System.String value);
         partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String UserName
-        {
-            get
-            {
-                return _UserName;
-            }
-            set
-            {
-                OnUserNameChanging(value);
-                ReportPropertyChanging("UserName");
-                _UserName = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("UserName");
-                OnUserNameChanged();
-            }
-        }
-        private global::System.String _UserName;
-        partial void OnUserNameChanging(global::System.String value);
-        partial void OnUserNameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String PasswordHash
-        {
-            get
-            {
-                return _PasswordHash;
-            }
-            set
-            {
-                OnPasswordHashChanging(value);
-                ReportPropertyChanging("PasswordHash");
-                _PasswordHash = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("PasswordHash");
-                OnPasswordHashChanged();
-            }
-        }
-        private global::System.String _PasswordHash;
-        partial void OnPasswordHashChanging(global::System.String value);
-        partial void OnPasswordHashChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String SecurityStamp
-        {
-            get
-            {
-                return _SecurityStamp;
-            }
-            set
-            {
-                OnSecurityStampChanging(value);
-                ReportPropertyChanging("SecurityStamp");
-                _SecurityStamp = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("SecurityStamp");
-                OnSecurityStampChanged();
-            }
-        }
-        private global::System.String _SecurityStamp;
-        partial void OnSecurityStampChanging(global::System.String value);
-        partial void OnSecurityStampChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1873,30 +1863,6 @@ namespace EntityDataModel.EntityModels
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Discriminator
-        {
-            get
-            {
-                return _Discriminator;
-            }
-            set
-            {
-                OnDiscriminatorChanging(value);
-                ReportPropertyChanging("Discriminator");
-                _Discriminator = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Discriminator");
-                OnDiscriminatorChanged();
-            }
-        }
-        private global::System.String _Discriminator;
-        partial void OnDiscriminatorChanging(global::System.String value);
-        partial void OnDiscriminatorChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String MobileNo
@@ -1917,6 +1883,246 @@ namespace EntityDataModel.EntityModels
         private global::System.String _MobileNo;
         partial void OnMobileNoChanging(global::System.String value);
         partial void OnMobileNoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean EmailConfirmed
+        {
+            get
+            {
+                return _EmailConfirmed;
+            }
+            set
+            {
+                OnEmailConfirmedChanging(value);
+                ReportPropertyChanging("EmailConfirmed");
+                _EmailConfirmed = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EmailConfirmed");
+                OnEmailConfirmedChanged();
+            }
+        }
+        private global::System.Boolean _EmailConfirmed;
+        partial void OnEmailConfirmedChanging(global::System.Boolean value);
+        partial void OnEmailConfirmedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PasswordHash
+        {
+            get
+            {
+                return _PasswordHash;
+            }
+            set
+            {
+                OnPasswordHashChanging(value);
+                ReportPropertyChanging("PasswordHash");
+                _PasswordHash = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PasswordHash");
+                OnPasswordHashChanged();
+            }
+        }
+        private global::System.String _PasswordHash;
+        partial void OnPasswordHashChanging(global::System.String value);
+        partial void OnPasswordHashChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SecurityStamp
+        {
+            get
+            {
+                return _SecurityStamp;
+            }
+            set
+            {
+                OnSecurityStampChanging(value);
+                ReportPropertyChanging("SecurityStamp");
+                _SecurityStamp = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SecurityStamp");
+                OnSecurityStampChanged();
+            }
+        }
+        private global::System.String _SecurityStamp;
+        partial void OnSecurityStampChanging(global::System.String value);
+        partial void OnSecurityStampChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PhoneNumber
+        {
+            get
+            {
+                return _PhoneNumber;
+            }
+            set
+            {
+                OnPhoneNumberChanging(value);
+                ReportPropertyChanging("PhoneNumber");
+                _PhoneNumber = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PhoneNumber");
+                OnPhoneNumberChanged();
+            }
+        }
+        private global::System.String _PhoneNumber;
+        partial void OnPhoneNumberChanging(global::System.String value);
+        partial void OnPhoneNumberChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean PhoneNumberConfirmed
+        {
+            get
+            {
+                return _PhoneNumberConfirmed;
+            }
+            set
+            {
+                OnPhoneNumberConfirmedChanging(value);
+                ReportPropertyChanging("PhoneNumberConfirmed");
+                _PhoneNumberConfirmed = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PhoneNumberConfirmed");
+                OnPhoneNumberConfirmedChanged();
+            }
+        }
+        private global::System.Boolean _PhoneNumberConfirmed;
+        partial void OnPhoneNumberConfirmedChanging(global::System.Boolean value);
+        partial void OnPhoneNumberConfirmedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean TwoFactorEnabled
+        {
+            get
+            {
+                return _TwoFactorEnabled;
+            }
+            set
+            {
+                OnTwoFactorEnabledChanging(value);
+                ReportPropertyChanging("TwoFactorEnabled");
+                _TwoFactorEnabled = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TwoFactorEnabled");
+                OnTwoFactorEnabledChanged();
+            }
+        }
+        private global::System.Boolean _TwoFactorEnabled;
+        partial void OnTwoFactorEnabledChanging(global::System.Boolean value);
+        partial void OnTwoFactorEnabledChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> LockoutEndDateUtc
+        {
+            get
+            {
+                return _LockoutEndDateUtc;
+            }
+            set
+            {
+                OnLockoutEndDateUtcChanging(value);
+                ReportPropertyChanging("LockoutEndDateUtc");
+                _LockoutEndDateUtc = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LockoutEndDateUtc");
+                OnLockoutEndDateUtcChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _LockoutEndDateUtc;
+        partial void OnLockoutEndDateUtcChanging(Nullable<global::System.DateTime> value);
+        partial void OnLockoutEndDateUtcChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean LockoutEnabled
+        {
+            get
+            {
+                return _LockoutEnabled;
+            }
+            set
+            {
+                OnLockoutEnabledChanging(value);
+                ReportPropertyChanging("LockoutEnabled");
+                _LockoutEnabled = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LockoutEnabled");
+                OnLockoutEnabledChanged();
+            }
+        }
+        private global::System.Boolean _LockoutEnabled;
+        partial void OnLockoutEnabledChanging(global::System.Boolean value);
+        partial void OnLockoutEnabledChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 AccessFailedCount
+        {
+            get
+            {
+                return _AccessFailedCount;
+            }
+            set
+            {
+                OnAccessFailedCountChanging(value);
+                ReportPropertyChanging("AccessFailedCount");
+                _AccessFailedCount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AccessFailedCount");
+                OnAccessFailedCountChanged();
+            }
+        }
+        private global::System.Int32 _AccessFailedCount;
+        partial void OnAccessFailedCountChanging(global::System.Int32 value);
+        partial void OnAccessFailedCountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String UserName
+        {
+            get
+            {
+                return _UserName;
+            }
+            set
+            {
+                OnUserNameChanging(value);
+                ReportPropertyChanging("UserName");
+                _UserName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("UserName");
+                OnUserNameChanged();
+            }
+        }
+        private global::System.String _UserName;
+        partial void OnUserNameChanging(global::System.String value);
+        partial void OnUserNameChanged();
 
         #endregion
 
@@ -1928,18 +2134,18 @@ namespace EntityDataModel.EntityModels
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUserClaims")]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId", "AspNetUserClaims")]
         public EntityCollection<AspNetUserClaims> AspNetUserClaims
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<AspNetUserClaims>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUserClaims");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<AspNetUserClaims>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId", "AspNetUserClaims");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<AspNetUserClaims>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id", "AspNetUserClaims", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<AspNetUserClaims>("TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId", "AspNetUserClaims", value);
                 }
             }
         }
@@ -3090,6 +3296,28 @@ namespace EntityDataModel.EntityModels
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Trend_City", "Trend")]
+        public EntityCollection<Trend> Trend
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trend>("TMC.Entities.EntityModels.FK_Trend_City", "Trend");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trend>("TMC.Entities.EntityModels.FK_Trend_City", "Trend", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -3397,6 +3625,28 @@ namespace EntityDataModel.EntityModels
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<State>("TMC.Entities.EntityModels.FK_State_Country", "State", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Trend_Country", "Trend")]
+        public EntityCollection<Trend> Trend
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trend>("TMC.Entities.EntityModels.FK_Trend_Country", "Trend");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trend>("TMC.Entities.EntityModels.FK_Trend_Country", "Trend", value);
                 }
             }
         }
@@ -8948,6 +9198,968 @@ namespace EntityDataModel.EntityModels
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingServiceLocation>("TMC.Entities.EntityModels.FK_ListingServiceLocation_State", "ListingServiceLocation", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Trend_State", "Trend")]
+        public EntityCollection<Trend> Trend
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trend>("TMC.Entities.EntityModels.FK_Trend_State", "Trend");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trend>("TMC.Entities.EntityModels.FK_Trend_State", "Trend", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="Trend")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Trend : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Trend object.
+        /// </summary>
+        /// <param name="trendId">Initial value of the TrendId property.</param>
+        /// <param name="trendTypeId">Initial value of the TrendTypeId property.</param>
+        /// <param name="categoryId">Initial value of the CategoryId property.</param>
+        /// <param name="postedBy">Initial value of the PostedBy property.</param>
+        /// <param name="createdOn">Initial value of the CreatedOn property.</param>
+        /// <param name="updatedOn">Initial value of the UpdatedOn property.</param>
+        /// <param name="createdBy">Initial value of the CreatedBy property.</param>
+        /// <param name="updatedBy">Initial value of the UpdatedBy property.</param>
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        /// <param name="isDeleted">Initial value of the IsDeleted property.</param>
+        public static Trend CreateTrend(global::System.Int64 trendId, global::System.Int32 trendTypeId, global::System.Int32 categoryId, global::System.Int64 postedBy, global::System.DateTime createdOn, global::System.DateTime updatedOn, global::System.Int64 createdBy, global::System.Int64 updatedBy, global::System.Boolean isActive, global::System.Boolean isDeleted)
+        {
+            Trend trend = new Trend();
+            trend.TrendId = trendId;
+            trend.TrendTypeId = trendTypeId;
+            trend.CategoryId = categoryId;
+            trend.PostedBy = postedBy;
+            trend.CreatedOn = createdOn;
+            trend.UpdatedOn = updatedOn;
+            trend.CreatedBy = createdBy;
+            trend.UpdatedBy = updatedBy;
+            trend.IsActive = isActive;
+            trend.IsDeleted = isDeleted;
+            return trend;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 TrendId
+        {
+            get
+            {
+                return _TrendId;
+            }
+            set
+            {
+                if (_TrendId != value)
+                {
+                    OnTrendIdChanging(value);
+                    ReportPropertyChanging("TrendId");
+                    _TrendId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("TrendId");
+                    OnTrendIdChanged();
+                }
+            }
+        }
+        private global::System.Int64 _TrendId;
+        partial void OnTrendIdChanging(global::System.Int64 value);
+        partial void OnTrendIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 TrendTypeId
+        {
+            get
+            {
+                return _TrendTypeId;
+            }
+            set
+            {
+                OnTrendTypeIdChanging(value);
+                ReportPropertyChanging("TrendTypeId");
+                _TrendTypeId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TrendTypeId");
+                OnTrendTypeIdChanged();
+            }
+        }
+        private global::System.Int32 _TrendTypeId;
+        partial void OnTrendTypeIdChanging(global::System.Int32 value);
+        partial void OnTrendTypeIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CategoryId
+        {
+            get
+            {
+                return _CategoryId;
+            }
+            set
+            {
+                OnCategoryIdChanging(value);
+                ReportPropertyChanging("CategoryId");
+                _CategoryId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CategoryId");
+                OnCategoryIdChanged();
+            }
+        }
+        private global::System.Int32 _CategoryId;
+        partial void OnCategoryIdChanging(global::System.Int32 value);
+        partial void OnCategoryIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsGlobalLevel
+        {
+            get
+            {
+                return _IsGlobalLevel;
+            }
+            set
+            {
+                OnIsGlobalLevelChanging(value);
+                ReportPropertyChanging("IsGlobalLevel");
+                _IsGlobalLevel = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsGlobalLevel");
+                OnIsGlobalLevelChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsGlobalLevel;
+        partial void OnIsGlobalLevelChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsGlobalLevelChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsCountryLevel
+        {
+            get
+            {
+                return _IsCountryLevel;
+            }
+            set
+            {
+                OnIsCountryLevelChanging(value);
+                ReportPropertyChanging("IsCountryLevel");
+                _IsCountryLevel = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsCountryLevel");
+                OnIsCountryLevelChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsCountryLevel;
+        partial void OnIsCountryLevelChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsCountryLevelChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsStateLevel
+        {
+            get
+            {
+                return _IsStateLevel;
+            }
+            set
+            {
+                OnIsStateLevelChanging(value);
+                ReportPropertyChanging("IsStateLevel");
+                _IsStateLevel = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsStateLevel");
+                OnIsStateLevelChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsStateLevel;
+        partial void OnIsStateLevelChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsStateLevelChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsCityLevel
+        {
+            get
+            {
+                return _IsCityLevel;
+            }
+            set
+            {
+                OnIsCityLevelChanging(value);
+                ReportPropertyChanging("IsCityLevel");
+                _IsCityLevel = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsCityLevel");
+                OnIsCityLevelChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsCityLevel;
+        partial void OnIsCityLevelChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsCityLevelChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> CountryId
+        {
+            get
+            {
+                return _CountryId;
+            }
+            set
+            {
+                OnCountryIdChanging(value);
+                ReportPropertyChanging("CountryId");
+                _CountryId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CountryId");
+                OnCountryIdChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _CountryId;
+        partial void OnCountryIdChanging(Nullable<global::System.Int16> value);
+        partial void OnCountryIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> StateId
+        {
+            get
+            {
+                return _StateId;
+            }
+            set
+            {
+                OnStateIdChanging(value);
+                ReportPropertyChanging("StateId");
+                _StateId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StateId");
+                OnStateIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _StateId;
+        partial void OnStateIdChanging(Nullable<global::System.Int32> value);
+        partial void OnStateIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> CityId
+        {
+            get
+            {
+                return _CityId;
+            }
+            set
+            {
+                OnCityIdChanging(value);
+                ReportPropertyChanging("CityId");
+                _CityId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CityId");
+                OnCityIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _CityId;
+        partial void OnCityIdChanging(Nullable<global::System.Int32> value);
+        partial void OnCityIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> AreaId
+        {
+            get
+            {
+                return _AreaId;
+            }
+            set
+            {
+                OnAreaIdChanging(value);
+                ReportPropertyChanging("AreaId");
+                _AreaId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AreaId");
+                OnAreaIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _AreaId;
+        partial void OnAreaIdChanging(Nullable<global::System.Int32> value);
+        partial void OnAreaIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> AbuseCount
+        {
+            get
+            {
+                return _AbuseCount;
+            }
+            set
+            {
+                OnAbuseCountChanging(value);
+                ReportPropertyChanging("AbuseCount");
+                _AbuseCount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AbuseCount");
+                OnAbuseCountChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _AbuseCount;
+        partial void OnAbuseCountChanging(Nullable<global::System.Int32> value);
+        partial void OnAbuseCountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> LikeCount
+        {
+            get
+            {
+                return _LikeCount;
+            }
+            set
+            {
+                OnLikeCountChanging(value);
+                ReportPropertyChanging("LikeCount");
+                _LikeCount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LikeCount");
+                OnLikeCountChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _LikeCount;
+        partial void OnLikeCountChanging(Nullable<global::System.Int64> value);
+        partial void OnLikeCountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> DislikeCount
+        {
+            get
+            {
+                return _DislikeCount;
+            }
+            set
+            {
+                OnDislikeCountChanging(value);
+                ReportPropertyChanging("DislikeCount");
+                _DislikeCount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DislikeCount");
+                OnDislikeCountChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _DislikeCount;
+        partial void OnDislikeCountChanging(Nullable<global::System.Int64> value);
+        partial void OnDislikeCountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsVerified
+        {
+            get
+            {
+                return _IsVerified;
+            }
+            set
+            {
+                OnIsVerifiedChanging(value);
+                ReportPropertyChanging("IsVerified");
+                _IsVerified = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsVerified");
+                OnIsVerifiedChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsVerified;
+        partial void OnIsVerifiedChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsVerifiedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 PostedBy
+        {
+            get
+            {
+                return _PostedBy;
+            }
+            set
+            {
+                OnPostedByChanging(value);
+                ReportPropertyChanging("PostedBy");
+                _PostedBy = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PostedBy");
+                OnPostedByChanged();
+            }
+        }
+        private global::System.Int64 _PostedBy;
+        partial void OnPostedByChanging(global::System.Int64 value);
+        partial void OnPostedByChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> StartDate
+        {
+            get
+            {
+                return _StartDate;
+            }
+            set
+            {
+                OnStartDateChanging(value);
+                ReportPropertyChanging("StartDate");
+                _StartDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StartDate");
+                OnStartDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _StartDate;
+        partial void OnStartDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnStartDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> EndDate
+        {
+            get
+            {
+                return _EndDate;
+            }
+            set
+            {
+                OnEndDateChanging(value);
+                ReportPropertyChanging("EndDate");
+                _EndDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EndDate");
+                OnEndDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _EndDate;
+        partial void OnEndDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnEndDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime CreatedOn
+        {
+            get
+            {
+                return _CreatedOn;
+            }
+            set
+            {
+                OnCreatedOnChanging(value);
+                ReportPropertyChanging("CreatedOn");
+                _CreatedOn = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreatedOn");
+                OnCreatedOnChanged();
+            }
+        }
+        private global::System.DateTime _CreatedOn;
+        partial void OnCreatedOnChanging(global::System.DateTime value);
+        partial void OnCreatedOnChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime UpdatedOn
+        {
+            get
+            {
+                return _UpdatedOn;
+            }
+            set
+            {
+                OnUpdatedOnChanging(value);
+                ReportPropertyChanging("UpdatedOn");
+                _UpdatedOn = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UpdatedOn");
+                OnUpdatedOnChanged();
+            }
+        }
+        private global::System.DateTime _UpdatedOn;
+        partial void OnUpdatedOnChanging(global::System.DateTime value);
+        partial void OnUpdatedOnChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 CreatedBy
+        {
+            get
+            {
+                return _CreatedBy;
+            }
+            set
+            {
+                OnCreatedByChanging(value);
+                ReportPropertyChanging("CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreatedBy");
+                OnCreatedByChanged();
+            }
+        }
+        private global::System.Int64 _CreatedBy;
+        partial void OnCreatedByChanging(global::System.Int64 value);
+        partial void OnCreatedByChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 UpdatedBy
+        {
+            get
+            {
+                return _UpdatedBy;
+            }
+            set
+            {
+                OnUpdatedByChanging(value);
+                ReportPropertyChanging("UpdatedBy");
+                _UpdatedBy = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UpdatedBy");
+                OnUpdatedByChanged();
+            }
+        }
+        private global::System.Int64 _UpdatedBy;
+        partial void OnUpdatedByChanging(global::System.Int64 value);
+        partial void OnUpdatedByChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsDeleted
+        {
+            get
+            {
+                return _IsDeleted;
+            }
+            set
+            {
+                OnIsDeletedChanging(value);
+                ReportPropertyChanging("IsDeleted");
+                _IsDeleted = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsDeleted");
+                OnIsDeletedChanged();
+            }
+        }
+        private global::System.Boolean _IsDeleted;
+        partial void OnIsDeletedChanging(global::System.Boolean value);
+        partial void OnIsDeletedChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Trend_City", "City")]
+        public City City
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_Trend_City", "City").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_Trend_City", "City").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<City> CityReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("TMC.Entities.EntityModels.FK_Trend_City", "City");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("TMC.Entities.EntityModels.FK_Trend_City", "City", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Trend_Country", "Country")]
+        public Country Country
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMC.Entities.EntityModels.FK_Trend_Country", "Country").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMC.Entities.EntityModels.FK_Trend_Country", "Country").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Country> CountryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("TMC.Entities.EntityModels.FK_Trend_Country", "Country");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Country>("TMC.Entities.EntityModels.FK_Trend_Country", "Country", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Trend_State", "State")]
+        public State State
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMC.Entities.EntityModels.FK_Trend_State", "State").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMC.Entities.EntityModels.FK_Trend_State", "State").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<State> StateReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<State>("TMC.Entities.EntityModels.FK_Trend_State", "State");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<State>("TMC.Entities.EntityModels.FK_Trend_State", "State", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Trend_TrendType", "TrendType")]
+        public TrendType TrendType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TrendType>("TMC.Entities.EntityModels.FK_Trend_TrendType", "TrendType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TrendType>("TMC.Entities.EntityModels.FK_Trend_TrendType", "TrendType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<TrendType> TrendTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TrendType>("TMC.Entities.EntityModels.FK_Trend_TrendType", "TrendType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TrendType>("TMC.Entities.EntityModels.FK_Trend_TrendType", "TrendType", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="TMC.Entities.EntityModels", Name="TrendType")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class TrendType : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new TrendType object.
+        /// </summary>
+        /// <param name="trendTypeId">Initial value of the TrendTypeId property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        public static TrendType CreateTrendType(global::System.Int32 trendTypeId, global::System.String name, global::System.Boolean isActive)
+        {
+            TrendType trendType = new TrendType();
+            trendType.TrendTypeId = trendTypeId;
+            trendType.Name = name;
+            trendType.IsActive = isActive;
+            return trendType;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 TrendTypeId
+        {
+            get
+            {
+                return _TrendTypeId;
+            }
+            set
+            {
+                if (_TrendTypeId != value)
+                {
+                    OnTrendTypeIdChanging(value);
+                    ReportPropertyChanging("TrendTypeId");
+                    _TrendTypeId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("TrendTypeId");
+                    OnTrendTypeIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _TrendTypeId;
+        partial void OnTrendTypeIdChanging(global::System.Int32 value);
+        partial void OnTrendTypeIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TMC.Entities.EntityModels", "FK_Trend_TrendType", "Trend")]
+        public EntityCollection<Trend> Trend
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trend>("TMC.Entities.EntityModels.FK_Trend_TrendType", "Trend");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trend>("TMC.Entities.EntityModels.FK_Trend_TrendType", "Trend", value);
                 }
             }
         }

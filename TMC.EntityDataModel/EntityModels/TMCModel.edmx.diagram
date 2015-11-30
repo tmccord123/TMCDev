@@ -8,9 +8,7 @@
         <EntityTypeShape EntityType="TMC.Entities.EntityModels.AdditionalInfo" Width="1.5" PointX="8.25" PointY="29.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TMC.Entities.EntityModels.Area" Width="1.5" PointX="7.5" PointY="20.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TMC.Entities.EntityModels.AspNetRoles" Width="1.5" PointX="12.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TMC.Entities.EntityModels.AspNetUserClaims" Width="1.5" PointX="17.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TMC.Entities.EntityModels.AspNetUserLogins" Width="1.5" PointX="17.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TMC.Entities.EntityModels.AspNetUsers" Width="1.5" PointX="15" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TMC.Entities.EntityModels.AspNetUserLogins" Width="1.75" PointX="17.25" PointY="3.75" IsExpanded="false" />
         <EntityTypeShape EntityType="TMC.Entities.EntityModels.Category" Width="1.5" PointX="7.5" PointY="24.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TMC.Entities.EntityModels.CategoryRelation" Width="1.5" PointX="9.75" PointY="34.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TMC.Entities.EntityModels.City" Width="1.5" PointX="5.25" PointY="20" IsExpanded="true" />
@@ -40,8 +38,6 @@
         <AssociationConnector Association="TMC.Entities.EntityModels.FK_ListingLocation_Area" ManuallyRouted="false" />
         <AssociationConnector Association="TMC.Entities.EntityModels.FK_ListingServiceLocation_Area" ManuallyRouted="false" />
         <AssociationConnector Association="TMC.Entities.EntityModels.FK_RequirementLocation_Area" ManuallyRouted="false" />
-        <AssociationConnector Association="TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" ManuallyRouted="false" />
-        <AssociationConnector Association="TMC.Entities.EntityModels.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="TMC.Entities.EntityModels.FK_CategoryRelation_ChildCategory" ManuallyRouted="false" />
         <AssociationConnector Association="TMC.Entities.EntityModels.FK_CategoryRelation_ParentCategory" ManuallyRouted="false" />
         <AssociationConnector Association="TMC.Entities.EntityModels.FK_ListingCategory_Category" ManuallyRouted="false" />
@@ -70,7 +66,17 @@
         <AssociationConnector Association="TMC.Entities.EntityModels.FK_RequirementCategory_Requirement" ManuallyRouted="false" />
         <AssociationConnector Association="TMC.Entities.EntityModels.FK_RequirementLocation_Requirement" ManuallyRouted="false" />
         <AssociationConnector Association="TMC.Entities.EntityModels.FK_User_UserType" ManuallyRouted="false" />
-        <AssociationConnector Association="TMC.Entities.EntityModels.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TMC.Entities.EntityModels.Trend" Width="1.5" PointX="15.5" PointY="16.125" />
+        <EntityTypeShape EntityType="TMC.Entities.EntityModels.TrendType" Width="1.5" PointX="13.25" PointY="24.25" />
+        <AssociationConnector Association="TMC.Entities.EntityModels.FK_Trend_City" />
+        <AssociationConnector Association="TMC.Entities.EntityModels.FK_Trend_Country" />
+        <AssociationConnector Association="TMC.Entities.EntityModels.FK_Trend_State" />
+        <AssociationConnector Association="TMC.Entities.EntityModels.FK_Trend_TrendType" />
+        <EntityTypeShape EntityType="TMC.Entities.EntityModels.AspNetUserClaims" Width="1.5" PointX="17.25" PointY="5" />
+        <EntityTypeShape EntityType="TMC.Entities.EntityModels.AspNetUsers" Width="1.5" PointX="15" PointY="1" />
+        <AssociationConnector Association="TMC.Entities.EntityModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="TMC.Entities.EntityModels.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="TMC.Entities.EntityModels.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
