@@ -3,7 +3,7 @@
 namespace TMC.Web.Controllers
 {
     /// <summary>
-    /// git merge test from VS 
+    /// git merge resolved
     /// </summary>
     public class AboutController : Controller
     {
