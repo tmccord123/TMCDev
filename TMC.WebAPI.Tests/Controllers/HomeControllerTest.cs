@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TMC.Web;
-using TMC.Web.Controllers;
+using TMC.WebAPI;
+using TMC.WebAPI.Controllers;
 
-namespace TMC.Web.Tests.Controllers
+namespace TMC.WebAPI.Tests.Controllers
 {
     using System.Threading.Tasks;
 
