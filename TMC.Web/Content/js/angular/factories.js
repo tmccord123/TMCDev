@@ -18,10 +18,10 @@ tmcFactories.service('listingService', ['$http', function ($http) {
 }]);
 
  
-tmcFactories.service("tmcHttpService", ['$http', function ($http) {
+tmcFactories.service("tmcHttpService", ['$http', 'config', function ($http, config) {
     
     'use strict';
-    var serviceBase = "http://localhost:44444";
+    var serviceBase = config.serviceBase ;//"http://localhost:44444";
     return {
         get: function (url, data) {
             url = serviceBase + url;

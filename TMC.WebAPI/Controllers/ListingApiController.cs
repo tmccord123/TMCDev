@@ -65,6 +65,8 @@ namespace TMC.WebAPI.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [Route("{id:int}/categories")]
+        [Authorize]
+       // [EnableCors(origins: "http://localhost:55555", headers: "*", methods: "*")]
         public IHttpActionResult GetListingCategories(int id)
         {
             //System.Threading.Thread.Sleep(10000); //todo for loading-bar test
@@ -90,6 +92,7 @@ namespace TMC.WebAPI.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [Route("{id:int}/serviceLocations")]
+        [Authorize]
         public IHttpActionResult GetListingServiceAreas(int id)
         {
             var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
@@ -113,6 +116,7 @@ namespace TMC.WebAPI.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [Route("{id:int}/paymentmodes")]
+        [Authorize]
         public IHttpActionResult GetListingPaymentModes(int id)
         {
             var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);
@@ -136,6 +140,7 @@ namespace TMC.WebAPI.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [Route("{id:int}/medias")]
+        [Authorize]
         public IHttpActionResult GetListingMedias(int id)
         {
             var listingFacade = (IListingFacade)FacadeFactory.Instance.Create(FacadeType.Listing);

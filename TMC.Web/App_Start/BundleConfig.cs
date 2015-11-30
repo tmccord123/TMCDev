@@ -27,12 +27,15 @@ namespace TMC.Web
  
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                      "~/Content/js/lib/angular.js",
+                     "~/Content/js/lib/angular-local-storage.min.js",
                      "~/Content/js/lib/angular-file-upload.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angularapp").Include(
                         "~/Content/js/angular/tmcApp.js",
                         "~/Content/js/angular/Models.js",
+                        "~/Content/js/angular/config.js",
                         "~/Content/js/angular/factories.js",
+                        "~/Content/js/angular/services/authInterceptorService.js",
                         "~/Content/js/angular/directives.js",
                         "~/Content/js/angular/controllers.js"));
 

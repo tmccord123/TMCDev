@@ -65,7 +65,7 @@
     <Compile Include="Common\Attributes\JCCExceptionHandlerAttribute.cs" />
     <Compile Include="Common\Attributes\RequiredIfAttribute.cs" />
     <Compile Include="Common\Attributes\StringLengthIfAttribute.cs" />
-    <Compile Include="Common\Constants\GlobalConstants.cs" />
+    <Compile Include="Common\Constants\CommonConstants.cs" />
     <Compile Include="Common\Constants\GridViewConstants.cs" />
     <Compile Include="Common\Converter\DTOConverter.cs" />
     <Compile Include="Common\Enums\ErrorCode.cs" />
@@ -101,6 +101,7 @@
     <Compile Include="Exceptions\DTOConversionException.cs" />
     <Compile Include="Interfaces\IStateManager.cs" />
     <Compile Include="Models\ChangePasswordViewModel.cs" />
+    <Compile Include="Models\Token.cs" />
     <Compile Include="Models\UserProfileViewModel.cs" />
     <Compile Include="Models\ManageUserViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />

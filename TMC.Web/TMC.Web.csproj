@@ -223,7 +223,9 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\loading-bar.css" />
+    <Content Include="Content\js\angular\config.js" />
     <Content Include="Content\js\angular\listingResultController.js" />
+    <Content Include="Content\js\angular\services\authInterceptorService.js" />
     <Content Include="Content\js\lib\angular-file-upload.js" />
     <Content Include="Content\js\lib\angular-file-upload.min.js" />
     <Content Include="Content\js\angular\tmcApp.js" />
@@ -231,6 +233,7 @@
     <Content Include="Content\js\angular\directives.js" />
     <Content Include="Content\js\angular\factories.js" />
     <Content Include="Content\js\angular\Models.js" />
+    <Content Include="Content\js\lib\angular-local-storage.min.js" />
     <Content Include="Content\js\lib\angular.js" />
     <Content Include="Content\js\lib\angular.min.js" />
     <Content Include="Content\js\lib\loading-bar.min.js" />
@@ -560,7 +563,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\img\" />
     <Folder Include="Content\js\angular\directives\" />
-    <Folder Include="Content\js\angular\services\" />
     <Folder Include="fonts\" />
     <Folder Include="Views\UploadApi\" />
   </ItemGroup>
