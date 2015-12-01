@@ -17,9 +17,10 @@ tmcApp.factory('authInterceptorService', ['$q', '$injector', '$location', 'local
         return config;
     };
 
-    var _responseError = function(rejection) {
+    var _responseError = function (rejection) {
+        var authService = $injector.get('authService');
         if (rejection.status === 401) {
-            var authService = $injector.get('authService');
+           
             var authData = localStorageService.get('authData');
 
             if (authData) {
@@ -29,8 +30,10 @@ tmcApp.factory('authInterceptorService', ['$q', '$injector', '$location', 'local
                 }
             }
             authService.logOut();
-            $location.path('/login');
+            $location.path('http://localhost:55555/Account/Login');
         }
+        authService.logOut();
+        window.location.href = 'http://localhost:55555/Account/Login';
         return $q.reject(rejection);
     };
 

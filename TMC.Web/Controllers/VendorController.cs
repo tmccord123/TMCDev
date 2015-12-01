@@ -47,7 +47,7 @@ namespace TMC.Web.Controllers
             return View();
         }
 
-        [Authorize]
+   
         public async Task<ActionResult> AddEditListing(int id = 0)
         {
             var listingViewModel = new ListingViewModel();

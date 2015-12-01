@@ -36,6 +36,7 @@ namespace TMC.Web
                         "~/Content/js/angular/config.js",
                         "~/Content/js/angular/factories.js",
                         "~/Content/js/angular/services/authInterceptorService.js",
+                        "~/Content/js/angular/services/authService.js",
                         "~/Content/js/angular/directives.js",
                         "~/Content/js/angular/controllers.js"));
 
