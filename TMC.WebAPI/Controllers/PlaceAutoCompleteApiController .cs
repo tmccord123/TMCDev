@@ -22,11 +22,12 @@ namespace TMC.WebAPI.Controllers
         [Route("{searchParams}")] 
         public IHttpActionResult Get(string searchParams)
         {
+            var seperator = ',';
              var jsonAutoCompleteResult = string.Empty;
-            string lattitude = searchParams.Split(',')[0];
-            string longitude = searchParams.Split(',')[1];
-            string radius = searchParams.Split(',')[2];
-            string name = searchParams.Split(',')[3];
+             string lattitude = (searchParams.Split(seperator)[0]).Replace('_','.');
+             string longitude = (searchParams.Split(seperator)[1]).Replace('_', '.');
+             string radius = searchParams.Split(seperator)[2];
+             string name = searchParams.Split(seperator)[3];
             //todo
             if (radius == "0")
             {
