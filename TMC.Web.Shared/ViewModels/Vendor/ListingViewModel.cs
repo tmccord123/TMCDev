@@ -10,6 +10,7 @@ namespace TMC.Web.Shared.ViewModels
         public int CategoryId { get; set; } 
         public int CityId { get; set; }
         public int PageIndex { get; set; } 
-        public int PageSize { get; set; } 
+        public int PageSize { get; set; }
+        public string SortBy { get; set; } 
     }
 }

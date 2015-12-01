@@ -93,6 +93,14 @@ input[type="checkbox"].input-validation-error {
     color: #4E92DB;
 }
 
+.tmc-bk-blue {
+    background-color: #008CBA;    
+}
+
+.color-white {
+    color:#ffffff  ! important;
+}
+
 .margin-left-10 {
     margin-left: 10px;
 }
@@ -221,3 +229,7 @@ background-color:orange;
         height: 100px;
         margin: 6px 0 0 6px;
     }
+
+ul.sort-by li {
+    border-right:1px solid #dfdfdf ! important;
+}
